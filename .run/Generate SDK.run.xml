@@ -1,0 +1,18 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Generate SDK" type="SwaggerCodegen">
+    <option name="activeConfigurationType" value="CLI_PARAMETERS" />
+    <option name="configurationPath" value="" />
+    <option name="customJreEnabled" value="false" />
+    <option name="customTemplatesPath" value="" />
+    <option name="enableDebugLogging" value="false" />
+    <option name="generateToPath" value="$PROJECT_DIR$/openapi" />
+    <option name="generationParameters">
+      <list />
+    </option>
+    <option name="generatorPath" value="$PROJECT_DIR$/.run/openapi-generator-cli.jar" />
+    <option name="jdkPath" value="Default" />
+    <option name="language" value="go" />
+    <option name="specificationPath" value="$PROJECT_DIR$/server_api_swagger.json" />
+    <method v="2" />
+  </configuration>
+</component>

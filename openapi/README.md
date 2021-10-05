@@ -116,11 +116,13 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**CreateIncidentsBatch**](docs/DefaultApi.md#createincidentsbatch) | **Post** /incident/batch | Batch create incidents
 *DefaultApi* | [**CreateOrUpdateIncidentType**](docs/DefaultApi.md#createorupdateincidenttype) | **Post** /incidenttype | Create new Incident Type
 *DefaultApi* | [**CreateOrUpdateWhitelisted**](docs/DefaultApi.md#createorupdatewhitelisted) | **Post** /indicators/whitelist/update | Create whitelisted
+*DefaultApi* | [**CreateUpdateIntegrationInstance**](docs/DefaultApi.md#createupdateintegrationinstance) | **Put** /settings/integration | Create/update an integration instance
 *DefaultApi* | [**DeleteAccount**](docs/DefaultApi.md#deleteaccount) | **Delete** /account/purge/{accountname} | 
 *DefaultApi* | [**DeleteAdHocTask**](docs/DefaultApi.md#deleteadhoctask) | **Post** /inv-playbook/task/delete/{investigationId}/{invPBTaskId} | Delete ad-hoc task
 *DefaultApi* | [**DeleteAutomationScript**](docs/DefaultApi.md#deleteautomationscript) | **Post** /automation/delete | Delete existing automation
 *DefaultApi* | [**DeleteEvidenceOp**](docs/DefaultApi.md#deleteevidenceop) | **Post** /evidence/delete | delete evidence
 *DefaultApi* | [**DeleteHAGroup**](docs/DefaultApi.md#deletehagroup) | **Delete** /ha-group/{id} | 
+*DefaultApi* | [**DeleteHost**](docs/DefaultApi.md#deletehost) | **Delete** /host/{id} | 
 *DefaultApi* | [**DeleteIncidentsBatch**](docs/DefaultApi.md#deleteincidentsbatch) | **Post** /incident/batchDelete | Batch delete incidents
 *DefaultApi* | [**DeleteIndicatorsBatch**](docs/DefaultApi.md#deleteindicatorsbatch) | **Post** /indicators/batchDelete | Batch whitelist or delete indicators
 *DefaultApi* | [**DeleteWidget**](docs/DefaultApi.md#deletewidget) | **Delete** /widgets/{id} | Remove existing widget
@@ -173,6 +175,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**ListAccountsDetails**](docs/DefaultApi.md#listaccountsdetails) | **Get** /accounts/data | Detailed accounts
 *DefaultApi* | [**ListHAGroups**](docs/DefaultApi.md#listhagroups) | **Get** /ha-groups | 
 *DefaultApi* | [**ListHosts**](docs/DefaultApi.md#listhosts) | **Get** /hosts | 
+*DefaultApi* | [**ListIntegrations**](docs/DefaultApi.md#listintegrations) | **Post** /settings/integration/search | List integrations
 *DefaultApi* | [**LogoutEveryoneHandler**](docs/DefaultApi.md#logouteveryonehandler) | **Post** /logout/everyone | Sign out all open users sessions
 *DefaultApi* | [**LogoutMyselfHandler**](docs/DefaultApi.md#logoutmyselfhandler) | **Post** /logout/myself | Sign out all my open sessions
 *DefaultApi* | [**LogoutMyselfOtherSessionsHandler**](docs/DefaultApi.md#logoutmyselfothersessionshandler) | **Post** /logout/myself/other | Sign out all my other open sessions
@@ -299,6 +302,7 @@ Class | Method | HTTP request | Description
  - [IndicatorResult](docs/IndicatorResult.md)
  - [IndicatorTimelineFromEntry](docs/IndicatorTimelineFromEntry.md)
  - [Info](docs/Info.md)
+ - [InlineObject](docs/InlineObject.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [InsightCache](docs/InsightCache.md)
  - [InstanceClassifier](docs/InstanceClassifier.md)

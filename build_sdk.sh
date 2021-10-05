@@ -6,6 +6,5 @@ newversion=`expr $oldversion + 1`
 sed -i"" "s/$oldversion/$newversion/g" VERSION
 
 cd openapi
-#echo `which go`
 go mod tidy
 go fmt

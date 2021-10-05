@@ -101,6 +101,7 @@ docs/IndicatorFilter.md
 docs/IndicatorResult.md
 docs/IndicatorTimelineFromEntry.md
 docs/Info.md
+docs/InlineObject.md
 docs/InlineResponse200.md
 docs/InsightCache.md
 docs/InstanceClassifier.md
@@ -311,6 +312,7 @@ model_indicator_filter.go
 model_indicator_result.go
 model_indicator_timeline_from_entry.go
 model_info.go
+model_inline_object.go
 model_inline_response_200.go
 model_insight_cache.go
 model_instance_classifier.go

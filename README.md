@@ -1,1 +1,0 @@
-# xsoar-sdk-go

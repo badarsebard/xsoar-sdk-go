@@ -1,4 +1,4 @@
-# \DefaultApi
+# DefaultApi
 
 All URIs are relative to *https://hostname:443*
 
@@ -20,11 +20,13 @@ Method | HTTP request | Description
 [**CreateIncidentsBatch**](DefaultApi.md#CreateIncidentsBatch) | **Post** /incident/batch | Batch create incidents
 [**CreateOrUpdateIncidentType**](DefaultApi.md#CreateOrUpdateIncidentType) | **Post** /incidenttype | Create new Incident Type
 [**CreateOrUpdateWhitelisted**](DefaultApi.md#CreateOrUpdateWhitelisted) | **Post** /indicators/whitelist/update | Create whitelisted
+[**CreateUpdateIntegrationInstance**](DefaultApi.md#CreateUpdateIntegrationInstance) | **Put** /settings/integration | Create/update an integration instance
 [**DeleteAccount**](DefaultApi.md#DeleteAccount) | **Delete** /account/purge/{accountname} | 
 [**DeleteAdHocTask**](DefaultApi.md#DeleteAdHocTask) | **Post** /inv-playbook/task/delete/{investigationId}/{invPBTaskId} | Delete ad-hoc task
 [**DeleteAutomationScript**](DefaultApi.md#DeleteAutomationScript) | **Post** /automation/delete | Delete existing automation
 [**DeleteEvidenceOp**](DefaultApi.md#DeleteEvidenceOp) | **Post** /evidence/delete | delete evidence
 [**DeleteHAGroup**](DefaultApi.md#DeleteHAGroup) | **Delete** /ha-group/{id} | 
+[**DeleteHost**](DefaultApi.md#DeleteHost) | **Delete** /host/{id} | 
 [**DeleteIncidentsBatch**](DefaultApi.md#DeleteIncidentsBatch) | **Post** /incident/batchDelete | Batch delete incidents
 [**DeleteIndicatorsBatch**](DefaultApi.md#DeleteIndicatorsBatch) | **Post** /indicators/batchDelete | Batch whitelist or delete indicators
 [**DeleteWidget**](DefaultApi.md#DeleteWidget) | **Delete** /widgets/{id} | Remove existing widget
@@ -77,6 +79,7 @@ Method | HTTP request | Description
 [**ListAccountsDetails**](DefaultApi.md#ListAccountsDetails) | **Get** /accounts/data | Detailed accounts
 [**ListHAGroups**](DefaultApi.md#ListHAGroups) | **Get** /ha-groups | 
 [**ListHosts**](DefaultApi.md#ListHosts) | **Get** /hosts | 
+[**ListIntegrations**](DefaultApi.md#ListIntegrations) | **Post** /settings/integration/search | List integrations
 [**LogoutEveryoneHandler**](DefaultApi.md#LogoutEveryoneHandler) | **Post** /logout/everyone | Sign out all open users sessions
 [**LogoutMyselfHandler**](DefaultApi.md#LogoutMyselfHandler) | **Post** /logout/myself | Sign out all my open sessions
 [**LogoutMyselfOtherSessionsHandler**](DefaultApi.md#LogoutMyselfOtherSessionsHandler) | **Post** /logout/myself/other | Sign out all my other open sessions
@@ -1187,6 +1190,72 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## CreateUpdateIntegrationInstance
+
+> map[string]interface{} CreateUpdateIntegrationInstance(ctx).CreateIntegrationRequest(createIntegrationRequest).Execute()
+
+Create/update an integration instance
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    createIntegrationRequest := map[string]interface{}(Object) // map[string]interface{} |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.CreateUpdateIntegrationInstance(context.Background()).CreateIntegrationRequest(createIntegrationRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateUpdateIntegrationInstance``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateUpdateIntegrationInstance`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.CreateUpdateIntegrationInstance`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateUpdateIntegrationInstanceRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createIntegrationRequest** | **map[string]interface{}** |  | 
+
+### Return type
+
+**map[string]interface{}**
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DeleteAccount
 
 > []map[string]interface{} DeleteAccount(ctx, accountname).Execute()
@@ -1504,6 +1573,76 @@ Name | Type | Description  | Notes
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiDeleteHAGroupRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+**string**
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteHost
+
+> string DeleteHost(ctx, id).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := "id_example" // string | Host ID
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.DeleteHost(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteHost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteHost`: string
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.DeleteHost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Host ID | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteHostRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -4952,6 +5091,72 @@ Other parameters are passed through a pointer to a apiListHostsRequest struct vi
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListIntegrations
+
+> map[string]interface{} ListIntegrations(ctx).Size(size).Execute()
+
+List integrations
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    size := *openapiclient.NewInlineObject() // InlineObject |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.ListIntegrations(context.Background()).Size(size).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListIntegrations``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListIntegrations`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListIntegrations`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListIntegrationsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | [**InlineObject**](InlineObject.md) |  | 
+
+### Return type
+
+**map[string]interface{}**
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

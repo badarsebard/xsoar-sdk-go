@@ -730,6 +730,29 @@
         }
       }
     },
+    "/host/{id}": {
+      "delete": {
+        "description": "Delete host",
+        "operationId": "deleteHost",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Host ID",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully deleted host",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
     "/host/build": {
       "post": {
         "description": "Trigger a build of the host installer for an independent (non-HA) host",
@@ -2140,6 +2163,59 @@
             "description": "NewDockerImageResult",
             "schema": {
               "$ref": "#/definitions/NewDockerImageResult"
+            }
+          }
+        }
+      }
+    },
+    "/settings/integration": {
+      "put": {
+        "description": "Create or update an instance of an integration",
+        "summary": "Create/update an integration instance",
+        "operationId": "createUpdateIntegrationInstance",
+        "parameters": [
+          {
+            "name": "CreateIntegrationRequest",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateIntegrationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "IntegrationWrapper",
+            "schema": {
+              "$ref": "#/definitions/IntegrationWrapper"
+            }
+          }
+        }
+      }
+    },
+    "/settings/integration/search": {
+      "post": {
+        "description": "List all integrations",
+        "summary": "List integrations",
+        "operationId": "listIntegrations",
+        "parameters": [
+          {
+            "name": "Size",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "size": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "IntegrationWrapper",
+            "schema": {
+              "$ref": "#/definitions/IntegrationWrapper"
             }
           }
         }
@@ -4227,6 +4303,10 @@
         }
       },
       "x-go-package": "github.com/demisto/server/domain"
+    },
+    "CreateIntegrationRequest": {
+      "description": "Create or update an integration instance",
+      "type": "object"
     },
     "CreateUpdateHAGroup": {
       "description": "Create or update an HA group",
@@ -8683,6 +8763,9 @@
         }
       },
       "x-go-package": "github.com/demisto/server/domain"
+    },
+    "IntegrationWrapper": {
+      "type": "object"
     },
     "IntegrationScript": {
       "type": "object",

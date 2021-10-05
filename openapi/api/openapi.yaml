@@ -659,6 +659,24 @@ paths:
           description: Gets info on the containers - amount of running, inactive and
             total containers
       summary: Get health containers
+  /host/{id}:
+    delete:
+      description: Delete host
+      operationId: deleteHost
+      parameters:
+      - description: Host ID
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Successfully deleted host
   /host/build:
     post:
       description: Trigger a build of the host installer for an independent (non-HA)
@@ -1880,6 +1898,57 @@ paths:
           description: NewDockerImageResult
       summary: Create Image
       x-codegen-request-body-name: NewDockerImageRequest
+  /settings/integration:
+    put:
+      description: Create or update an instance of an integration
+      operationId: createUpdateIntegrationInstance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateIntegrationRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CreateIntegrationRequest'
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntegrationWrapper'
+          description: IntegrationWrapper
+      summary: Create/update an integration instance
+      x-codegen-request-body-name: CreateIntegrationRequest
+  /settings/integration/search:
+    post:
+      description: List all integrations
+      operationId: listIntegrations
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object'
+        content:
+          application/json:
+            schema:
+              properties:
+                size:
+                  type: integer
+              type: object
+          application/xml:
+            schema:
+              properties:
+                size:
+                  type: integer
+              type: object
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntegrationWrapper'
+          description: IntegrationWrapper
+      summary: List integrations
+      x-codegen-request-body-name: Size
   /settings/integration-conf/upload:
     post:
       description: Upload an integration to Cortex XSOAR
@@ -2217,6 +2286,16 @@ paths:
           description: Workers status
       summary: Get workers status
 components:
+  requestBodies:
+    inline_object:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/inline_object'
+      required: false
   schemas:
     AccountsWrapper:
       items:
@@ -3997,6 +4076,9 @@ components:
           x-go-name: ReadOnlyRoleName
       type: object
       x-go-package: github.com/demisto/server/domain
+    CreateIntegrationRequest:
+      description: Create or update an integration instance
+      type: object
     CreateUpdateHAGroup:
       description: Create or update an HA group
       example:
@@ -10207,6 +10289,8 @@ components:
           x-go-name: Versn
       type: object
       x-go-package: github.com/demisto/server/domain
+    IntegrationWrapper:
+      type: object
     IntegrationScript:
       example:
         isFetchSamples: true
@@ -24691,6 +24775,11 @@ components:
             $ref: '#/components/schemas/Incident'
           type: array
         total:
+          type: integer
+      type: object
+    inline_object:
+      properties:
+        size:
           type: integer
       type: object
     RolesAndPropagationLabelsWrapper_roles:

@@ -269,6 +269,11 @@ func (r ApiGetIntegrationInstanceRequest) Size(size InlineObject) ApiGetIntegrat
 	return r
 }
 
+func (r ApiGetIntegrationInstanceRequest) Identifier(identifier string) ApiGetIntegrationInstanceRequest {
+	r.identifier = identifier
+	return r
+}
+
 func (r ApiGetIntegrationInstanceRequest) Execute() (map[string]interface{}, *_nethttp.Response, error) {
 	return r.ApiService.GetIntegrationInstanceExecute(r)
 }

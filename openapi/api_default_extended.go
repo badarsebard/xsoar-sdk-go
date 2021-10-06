@@ -383,9 +383,9 @@ func (a *DefaultApiService) GetIntegrationInstanceExecute(r ApiGetIntegrationIns
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	for _, instance := range localVarReturnValue["instances"].([]map[string]interface{}) {
-		if instance["name"].(string) == r.identifier || instance["id"].(string) == r.identifier {
-			return instance, localVarHTTPResponse, nil
+	for _, instance := range localVarReturnValue["instances"].([]interface{}) {
+		if inst := instance.(map[string]interface{}); inst["name"].(string) == r.identifier || inst["id"].(string) == r.identifier {
+			return inst, localVarHTTPResponse, nil
 		}
 	}
 

@@ -1898,6 +1898,89 @@ paths:
           description: NewDockerImageResult
       summary: Create Image
       x-codegen-request-body-name: NewDockerImageRequest
+  /{acc}/settings/integration:
+    put:
+      description: Create or update an instance of an integration
+      operationId: createUpdateIntegrationInstanceAccount
+      parameters:
+      - in: path
+        name: acc
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateIntegrationRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CreateIntegrationRequest'
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntegrationWrapper'
+          description: IntegrationWrapper
+      summary: Create/update an integration instance
+      x-codegen-request-body-name: CreateIntegrationRequest
+  /{acc}/settings/integration/{id}:
+    delete:
+      description: Delete an integration instance
+      operationId: deleteIntegrationInstanceAccount
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: acc
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: Successfully deleted integration instance
+      summary: Delete integration instance
+  /{acc}/settings/integration/search:
+    post:
+      description: List all integrations
+      operationId: listIntegrationsAccount
+      parameters:
+      - in: path
+        name: acc
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object'
+        content:
+          application/json:
+            schema:
+              properties:
+                size:
+                  type: integer
+              type: object
+          application/xml:
+            schema:
+              properties:
+                size:
+                  type: integer
+              type: object
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntegrationWrapper'
+          description: IntegrationWrapper
+      summary: List integrations
+      x-codegen-request-body-name: Size
   /settings/integration:
     put:
       description: Create or update an instance of an integration
@@ -1940,7 +2023,7 @@ paths:
       description: List all integrations
       operationId: listIntegrations
       requestBody:
-        $ref: '#/components/requestBodies/inline_object'
+        $ref: '#/components/requestBodies/inline_object_1'
         content:
           application/json:
             schema:
@@ -2302,6 +2385,15 @@ paths:
       summary: Get workers status
 components:
   requestBodies:
+    inline_object_1:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_1'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/inline_object_1'
+      required: false
     inline_object:
       content:
         application/json:
@@ -24793,6 +24885,11 @@ components:
           type: integer
       type: object
     inline_object:
+      properties:
+        size:
+          type: integer
+      type: object
+    inline_object_1:
       properties:
         size:
           type: integer

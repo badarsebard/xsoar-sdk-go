@@ -3,6 +3,11 @@
 #
 # Usage example: /bin/sh ./git_push.sh wing328 openapi-pestore-perl "minor update" "gitlab.com"
 
+oldversion=`cut -d '.' -f3 VERSION`
+newversion=`expr $oldversion + 1`
+sed -i"" "s/$oldversion/$newversion/g" VERSION
+
+
 git_user_id=$1
 git_repo_id=$2
 release_note=$3

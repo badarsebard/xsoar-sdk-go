@@ -117,6 +117,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**CreateOrUpdateIncidentType**](docs/DefaultApi.md#createorupdateincidenttype) | **Post** /incidenttype | Create new Incident Type
 *DefaultApi* | [**CreateOrUpdateWhitelisted**](docs/DefaultApi.md#createorupdatewhitelisted) | **Post** /indicators/whitelist/update | Create whitelisted
 *DefaultApi* | [**CreateUpdateIntegrationInstance**](docs/DefaultApi.md#createupdateintegrationinstance) | **Put** /settings/integration | Create/update an integration instance
+*DefaultApi* | [**CreateUpdateIntegrationInstanceAccount**](docs/DefaultApi.md#createupdateintegrationinstanceaccount) | **Put** /{acc}/settings/integration | Create/update an integration instance
 *DefaultApi* | [**DeleteAccount**](docs/DefaultApi.md#deleteaccount) | **Delete** /account/purge/{accountname} | 
 *DefaultApi* | [**DeleteAdHocTask**](docs/DefaultApi.md#deleteadhoctask) | **Post** /inv-playbook/task/delete/{investigationId}/{invPBTaskId} | Delete ad-hoc task
 *DefaultApi* | [**DeleteAutomationScript**](docs/DefaultApi.md#deleteautomationscript) | **Post** /automation/delete | Delete existing automation
@@ -126,6 +127,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**DeleteIncidentsBatch**](docs/DefaultApi.md#deleteincidentsbatch) | **Post** /incident/batchDelete | Batch delete incidents
 *DefaultApi* | [**DeleteIndicatorsBatch**](docs/DefaultApi.md#deleteindicatorsbatch) | **Post** /indicators/batchDelete | Batch whitelist or delete indicators
 *DefaultApi* | [**DeleteIntegrationInstance**](docs/DefaultApi.md#deleteintegrationinstance) | **Delete** /settings/integration/{id} | Delete integration instance
+*DefaultApi* | [**DeleteIntegrationInstanceAccount**](docs/DefaultApi.md#deleteintegrationinstanceaccount) | **Delete** /{acc}/settings/integration/{id} | Delete integration instance
 *DefaultApi* | [**DeleteWidget**](docs/DefaultApi.md#deletewidget) | **Delete** /widgets/{id} | Remove existing widget
 *DefaultApi* | [**DownloadFile**](docs/DefaultApi.md#downloadfile) | **Get** /entry/download/{entryid} | Download file
 *DefaultApi* | [**DownloadLatestReport**](docs/DefaultApi.md#downloadlatestreport) | **Get** /report/{id}/latest | Get latest report by ID
@@ -177,6 +179,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**ListHAGroups**](docs/DefaultApi.md#listhagroups) | **Get** /ha-groups | 
 *DefaultApi* | [**ListHosts**](docs/DefaultApi.md#listhosts) | **Get** /hosts | 
 *DefaultApi* | [**ListIntegrations**](docs/DefaultApi.md#listintegrations) | **Post** /settings/integration/search | List integrations
+*DefaultApi* | [**ListIntegrationsAccount**](docs/DefaultApi.md#listintegrationsaccount) | **Post** /{acc}/settings/integration/search | List integrations
 *DefaultApi* | [**LogoutEveryoneHandler**](docs/DefaultApi.md#logouteveryonehandler) | **Post** /logout/everyone | Sign out all open users sessions
 *DefaultApi* | [**LogoutMyselfHandler**](docs/DefaultApi.md#logoutmyselfhandler) | **Post** /logout/myself | Sign out all my open sessions
 *DefaultApi* | [**LogoutMyselfOtherSessionsHandler**](docs/DefaultApi.md#logoutmyselfothersessionshandler) | **Post** /logout/myself/other | Sign out all my other open sessions
@@ -304,6 +307,7 @@ Class | Method | HTTP request | Description
  - [IndicatorTimelineFromEntry](docs/IndicatorTimelineFromEntry.md)
  - [Info](docs/Info.md)
  - [InlineObject](docs/InlineObject.md)
+ - [InlineObject1](docs/InlineObject1.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [InsightCache](docs/InsightCache.md)
  - [InstanceClassifier](docs/InstanceClassifier.md)

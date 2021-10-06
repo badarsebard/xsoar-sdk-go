@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**CreateOrUpdateIncidentType**](DefaultApi.md#CreateOrUpdateIncidentType) | **Post** /incidenttype | Create new Incident Type
 [**CreateOrUpdateWhitelisted**](DefaultApi.md#CreateOrUpdateWhitelisted) | **Post** /indicators/whitelist/update | Create whitelisted
 [**CreateUpdateIntegrationInstance**](DefaultApi.md#CreateUpdateIntegrationInstance) | **Put** /settings/integration | Create/update an integration instance
+[**CreateUpdateIntegrationInstanceAccount**](DefaultApi.md#CreateUpdateIntegrationInstanceAccount) | **Put** /{acc}/settings/integration | Create/update an integration instance
 [**DeleteAccount**](DefaultApi.md#DeleteAccount) | **Delete** /account/purge/{accountname} | 
 [**DeleteAdHocTask**](DefaultApi.md#DeleteAdHocTask) | **Post** /inv-playbook/task/delete/{investigationId}/{invPBTaskId} | Delete ad-hoc task
 [**DeleteAutomationScript**](DefaultApi.md#DeleteAutomationScript) | **Post** /automation/delete | Delete existing automation
@@ -30,6 +31,7 @@ Method | HTTP request | Description
 [**DeleteIncidentsBatch**](DefaultApi.md#DeleteIncidentsBatch) | **Post** /incident/batchDelete | Batch delete incidents
 [**DeleteIndicatorsBatch**](DefaultApi.md#DeleteIndicatorsBatch) | **Post** /indicators/batchDelete | Batch whitelist or delete indicators
 [**DeleteIntegrationInstance**](DefaultApi.md#DeleteIntegrationInstance) | **Delete** /settings/integration/{id} | Delete integration instance
+[**DeleteIntegrationInstanceAccount**](DefaultApi.md#DeleteIntegrationInstanceAccount) | **Delete** /{acc}/settings/integration/{id} | Delete integration instance
 [**DeleteWidget**](DefaultApi.md#DeleteWidget) | **Delete** /widgets/{id} | Remove existing widget
 [**DownloadFile**](DefaultApi.md#DownloadFile) | **Get** /entry/download/{entryid} | Download file
 [**DownloadLatestReport**](DefaultApi.md#DownloadLatestReport) | **Get** /report/{id}/latest | Get latest report by ID
@@ -81,6 +83,7 @@ Method | HTTP request | Description
 [**ListHAGroups**](DefaultApi.md#ListHAGroups) | **Get** /ha-groups | 
 [**ListHosts**](DefaultApi.md#ListHosts) | **Get** /hosts | 
 [**ListIntegrations**](DefaultApi.md#ListIntegrations) | **Post** /settings/integration/search | List integrations
+[**ListIntegrationsAccount**](DefaultApi.md#ListIntegrationsAccount) | **Post** /{acc}/settings/integration/search | List integrations
 [**LogoutEveryoneHandler**](DefaultApi.md#LogoutEveryoneHandler) | **Post** /logout/everyone | Sign out all open users sessions
 [**LogoutMyselfHandler**](DefaultApi.md#LogoutMyselfHandler) | **Post** /logout/myself | Sign out all my open sessions
 [**LogoutMyselfOtherSessionsHandler**](DefaultApi.md#LogoutMyselfOtherSessionsHandler) | **Post** /logout/myself/other | Sign out all my other open sessions
@@ -1257,6 +1260,78 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## CreateUpdateIntegrationInstanceAccount
+
+> map[string]interface{} CreateUpdateIntegrationInstanceAccount(ctx, acc).CreateIntegrationRequest(createIntegrationRequest).Execute()
+
+Create/update an integration instance
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    acc := "acc_example" // string | 
+    createIntegrationRequest := map[string]interface{}(Object) // map[string]interface{} |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.CreateUpdateIntegrationInstanceAccount(context.Background(), acc).CreateIntegrationRequest(createIntegrationRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateUpdateIntegrationInstanceAccount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateUpdateIntegrationInstanceAccount`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.CreateUpdateIntegrationInstanceAccount`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**acc** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateUpdateIntegrationInstanceAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **createIntegrationRequest** | **map[string]interface{}** |  | 
+
+### Return type
+
+**map[string]interface{}**
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DeleteAccount
 
 > []map[string]interface{} DeleteAccount(ctx, accountname).Execute()
@@ -1848,6 +1923,77 @@ Other parameters are passed through a pointer to a apiDeleteIntegrationInstanceR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteIntegrationInstanceAccount
+
+> DeleteIntegrationInstanceAccount(ctx, id, acc).Execute()
+
+Delete integration instance
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := "id_example" // string | 
+    acc := "acc_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.DeleteIntegrationInstanceAccount(context.Background(), id, acc).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteIntegrationInstanceAccount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+**acc** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteIntegrationInstanceAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
 
 
 ### Return type
@@ -5188,7 +5334,7 @@ import (
 )
 
 func main() {
-    size := *openapiclient.NewInlineObject() // InlineObject |  (optional)
+    size := *openapiclient.NewInlineObject1() // InlineObject1 |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -5213,6 +5359,78 @@ Other parameters are passed through a pointer to a apiListIntegrationsRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **size** | [**InlineObject1**](InlineObject1.md) |  | 
+
+### Return type
+
+**map[string]interface{}**
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListIntegrationsAccount
+
+> map[string]interface{} ListIntegrationsAccount(ctx, acc).Size(size).Execute()
+
+List integrations
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    acc := "acc_example" // string | 
+    size := *openapiclient.NewInlineObject() // InlineObject |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.ListIntegrationsAccount(context.Background(), acc).Size(size).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListIntegrationsAccount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListIntegrationsAccount`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListIntegrationsAccount`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**acc** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListIntegrationsAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
  **size** | [**InlineObject**](InlineObject.md) |  | 
 
 ### Return type

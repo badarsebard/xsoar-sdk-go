@@ -29,6 +29,7 @@ Method | HTTP request | Description
 [**DeleteHost**](DefaultApi.md#DeleteHost) | **Delete** /host/{id} | 
 [**DeleteIncidentsBatch**](DefaultApi.md#DeleteIncidentsBatch) | **Post** /incident/batchDelete | Batch delete incidents
 [**DeleteIndicatorsBatch**](DefaultApi.md#DeleteIndicatorsBatch) | **Post** /indicators/batchDelete | Batch whitelist or delete indicators
+[**DeleteIntegrationInstance**](DefaultApi.md#DeleteIntegrationInstance) | **Delete** /settings/integration/{id} | Delete integration instance
 [**DeleteWidget**](DefaultApi.md#DeleteWidget) | **Delete** /widgets/{id} | Remove existing widget
 [**DownloadFile**](DefaultApi.md#DownloadFile) | **Get** /entry/download/{entryid} | Download file
 [**DownloadLatestReport**](DefaultApi.md#DownloadLatestReport) | **Get** /report/{id}/latest | Get latest report by ID
@@ -1793,6 +1794,74 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json, application/xml
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteIntegrationInstance
+
+> DeleteIntegrationInstance(ctx, id).Execute()
+
+Delete integration instance
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := "id_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.DeleteIntegrationInstance(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteIntegrationInstance``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteIntegrationInstanceRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

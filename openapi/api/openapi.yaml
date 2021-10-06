@@ -1920,6 +1920,21 @@ paths:
           description: IntegrationWrapper
       summary: Create/update an integration instance
       x-codegen-request-body-name: CreateIntegrationRequest
+  /settings/integration/{id}:
+    delete:
+      description: Delete an integration instance
+      operationId: deleteIntegrationInstance
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: Successfully deleted integration instance
+      summary: Delete integration instance
   /settings/integration/search:
     post:
       description: List all integrations

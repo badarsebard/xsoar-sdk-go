@@ -2192,6 +2192,26 @@
         }
       }
     },
+    "/settings/integration/{id}": {
+      "delete": {
+        "description": "Delete an integration instance",
+        "summary": "Delete integration instance",
+        "operationId": "deleteIntegrationInstance",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully deleted integration instance"
+          }
+        }
+      }
+    },
     "/settings/integration/search": {
       "post": {
         "description": "List all integrations",

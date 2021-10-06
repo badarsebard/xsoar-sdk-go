@@ -125,6 +125,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**DeleteHost**](docs/DefaultApi.md#deletehost) | **Delete** /host/{id} | 
 *DefaultApi* | [**DeleteIncidentsBatch**](docs/DefaultApi.md#deleteincidentsbatch) | **Post** /incident/batchDelete | Batch delete incidents
 *DefaultApi* | [**DeleteIndicatorsBatch**](docs/DefaultApi.md#deleteindicatorsbatch) | **Post** /indicators/batchDelete | Batch whitelist or delete indicators
+*DefaultApi* | [**DeleteIntegrationInstance**](docs/DefaultApi.md#deleteintegrationinstance) | **Delete** /settings/integration/{id} | Delete integration instance
 *DefaultApi* | [**DeleteWidget**](docs/DefaultApi.md#deletewidget) | **Delete** /widgets/{id} | Remove existing widget
 *DefaultApi* | [**DownloadFile**](docs/DefaultApi.md#downloadfile) | **Get** /entry/download/{entryid} | Download file
 *DefaultApi* | [**DownloadLatestReport**](docs/DefaultApi.md#downloadlatestreport) | **Get** /report/{id}/latest | Get latest report by ID

@@ -715,6 +715,21 @@
         }
       }
     },
+    "/health/appservers": {
+      "get": {
+        "description": "List the main hosts",
+        "summary": "List the main hosts",
+        "operationId": "listMainHosts",
+        "responses": {
+          "200": {
+            "description": "OK status",
+            "schema": {
+              "$ref": "#/definitions/MainHosts"
+            }
+          }
+        }
+      }
+    },
     "/health/containers": {
       "get": {
         "description": "Gets info on the containers - amount of running, inactive and total containers",
@@ -11034,6 +11049,35 @@
         "$ref": "#/definitions/Location"
       },
       "x-go-package": "github.com/blevesearch/bleve/v2/search"
+    },
+    "MainHosts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/MainHost"
+      }
+    },
+    "MainHost": {
+      "type": "object",
+      "properties": {
+        "activeWorkers": {
+          "type": "integer"
+        },
+        "appServerId": {
+          "type": "string"
+        },
+        "hostAddress": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "totalWorkers": {
+          "type": "string"
+        }
+      }
     },
     "Mapper": {
       "description": "Mapper - mapper for new incidents",

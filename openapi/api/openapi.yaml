@@ -645,6 +645,18 @@ paths:
                 type: string
           description: OK status
       summary: Check if Cortex XSOAR server is available
+  /health/appservers:
+    get:
+      description: List the main hosts
+      operationId: listMainHosts
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MainHosts'
+          description: OK status
+      summary: List the main hosts
   /health/containers:
     get:
       description: Gets info on the containers - amount of running, inactive and total
@@ -16839,6 +16851,32 @@ components:
         $ref: '#/components/schemas/Location'
       type: array
       x-go-package: github.com/blevesearch/bleve/v2/search
+    MainHosts:
+      items:
+        $ref: '#/components/schemas/MainHost'
+      type: array
+    MainHost:
+      example:
+        activeWorkers: 0
+        appServerId: appServerId
+        hostAddress: hostAddress
+        id: id
+        totalWorkers: totalWorkers
+        status: status
+      properties:
+        activeWorkers:
+          type: integer
+        appServerId:
+          type: string
+        hostAddress:
+          type: string
+        id:
+          type: string
+        status:
+          type: string
+        totalWorkers:
+          type: string
+      type: object
     Mapper:
       description: Mapper - mapper for new incidents
       example:

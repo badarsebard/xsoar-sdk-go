@@ -258,6 +258,134 @@ func (a *DefaultApiService) GetHostExecute(r ApiGetHostRequest) (map[string]inte
 	return localVarReturnValueHost, localVarHTTPResponse, nil
 }
 
+type ApiGetMainHostRequest struct {
+	identifier string
+	ctx        _context.Context
+	ApiService *DefaultApiService
+}
+
+func (r ApiGetMainHostRequest) Identifier(identifier string) ApiGetMainHostRequest {
+	r.identifier = identifier
+	return r
+}
+
+func (r ApiGetMainHostRequest) Execute() (MainHost, *_nethttp.Response, error) {
+	return r.ApiService.GetMainHostExecute(r)
+}
+
+/*
+GetMainHost List the main hosts
+
+List the main hosts
+
+ @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetMainHostRequest
+*/
+func (a *DefaultApiService) GetMainHost(ctx _context.Context) ApiGetMainHostRequest {
+	return ApiGetMainHostRequest{
+		ApiService: a,
+		ctx:        ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []MainHost
+func (a *DefaultApiService) GetMainHostExecute(r ApiGetMainHostRequest) (MainHost, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod     = _nethttp.MethodGet
+		localVarPostBody       interface{}
+		localVarFormFileName   string
+		localVarFileName       string
+		localVarFileBytes      []byte
+		localVarReturnValuePre []MainHost
+		localVarReturnValue    MainHost
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ListMainHosts")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/health/appservers"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["api_key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValuePre, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	for _, host := range localVarReturnValuePre {
+		if r.identifier == host.GetHostAddress() || r.identifier == host.GetId() {
+			return host, localVarHTTPResponse, nil
+		}
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiGetIntegrationInstanceRequest struct {
 	identifier string
 	ctx        _context.Context

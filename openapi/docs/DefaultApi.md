@@ -84,6 +84,7 @@ Method | HTTP request | Description
 [**ListHosts**](DefaultApi.md#ListHosts) | **Get** /hosts | 
 [**ListIntegrations**](DefaultApi.md#ListIntegrations) | **Post** /settings/integration/search | List integrations
 [**ListIntegrationsAccount**](DefaultApi.md#ListIntegrationsAccount) | **Post** /{acc}/settings/integration/search | List integrations
+[**ListMainHosts**](DefaultApi.md#ListMainHosts) | **Get** /health/appservers | List the main hosts
 [**LogoutEveryoneHandler**](DefaultApi.md#LogoutEveryoneHandler) | **Post** /logout/everyone | Sign out all open users sessions
 [**LogoutMyselfHandler**](DefaultApi.md#LogoutMyselfHandler) | **Post** /logout/myself | Sign out all my open sessions
 [**LogoutMyselfOtherSessionsHandler**](DefaultApi.md#LogoutMyselfOtherSessionsHandler) | **Post** /logout/myself/other | Sign out all my other open sessions
@@ -5444,6 +5445,67 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, application/xml
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListMainHosts
+
+> []MainHost ListMainHosts(ctx).Execute()
+
+List the main hosts
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.ListMainHosts(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListMainHosts``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListMainHosts`: []MainHost
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListMainHosts`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListMainHostsRequest struct via the builder pattern
+
+
+### Return type
+
+[**[]MainHost**](MainHost.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

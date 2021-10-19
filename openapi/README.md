@@ -180,6 +180,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**ListHosts**](docs/DefaultApi.md#listhosts) | **Get** /hosts | 
 *DefaultApi* | [**ListIntegrations**](docs/DefaultApi.md#listintegrations) | **Post** /settings/integration/search | List integrations
 *DefaultApi* | [**ListIntegrationsAccount**](docs/DefaultApi.md#listintegrationsaccount) | **Post** /{acc}/settings/integration/search | List integrations
+*DefaultApi* | [**ListMainHosts**](docs/DefaultApi.md#listmainhosts) | **Get** /health/appservers | List the main hosts
 *DefaultApi* | [**LogoutEveryoneHandler**](docs/DefaultApi.md#logouteveryonehandler) | **Post** /logout/everyone | Sign out all open users sessions
 *DefaultApi* | [**LogoutMyselfHandler**](docs/DefaultApi.md#logoutmyselfhandler) | **Post** /logout/myself | Sign out all my open sessions
 *DefaultApi* | [**LogoutMyselfOtherSessionsHandler**](docs/DefaultApi.md#logoutmyselfothersessionshandler) | **Post** /logout/myself/other | Sign out all my other open sessions
@@ -333,6 +334,7 @@ Class | Method | HTTP request | Description
  - [LayoutField](docs/LayoutField.md)
  - [LayoutSection](docs/LayoutSection.md)
  - [Location](docs/Location.md)
+ - [MainHost](docs/MainHost.md)
  - [Mapper](docs/Mapper.md)
  - [ModuleConfiguration](docs/ModuleConfiguration.md)
  - [NewDockerImageRequest](docs/NewDockerImageRequest.md)

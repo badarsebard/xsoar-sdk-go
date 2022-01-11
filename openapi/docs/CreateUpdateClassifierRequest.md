@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Mapping** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
+**PropagationLabels** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
@@ -205,6 +206,31 @@ SetId sets Id field to given value.
 `func (o *CreateUpdateClassifierRequest) HasId() bool`
 
 HasId returns a boolean if a field has been set.
+
+### GetPropagationLabels
+
+`func (o *CreateUpdateClassifierRequest) GetPropagationLabels() []string`
+
+GetPropagationLabels returns the PropagationLabels field if non-nil, zero value otherwise.
+
+### GetPropagationLabelsOk
+
+`func (o *CreateUpdateClassifierRequest) GetPropagationLabelsOk() (*[]string, bool)`
+
+GetPropagationLabelsOk returns a tuple with the PropagationLabels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPropagationLabels
+
+`func (o *CreateUpdateClassifierRequest) SetPropagationLabels(v []string)`
+
+SetPropagationLabels sets PropagationLabels field to given value.
+
+### HasPropagationLabels
+
+`func (o *CreateUpdateClassifierRequest) HasPropagationLabels() bool`
+
+HasPropagationLabels returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

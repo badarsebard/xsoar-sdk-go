@@ -4591,6 +4591,12 @@
         },
         "id": {
           "type": "string"
+        },
+        "propagationLabels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },

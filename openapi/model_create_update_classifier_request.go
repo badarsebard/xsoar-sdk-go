@@ -16,13 +16,14 @@ import (
 
 // CreateUpdateClassifierRequest Request to create new or update a classifier
 type CreateUpdateClassifierRequest struct {
-	DefaultIncidentType *string `json:"defaultIncidentType,omitempty"`
-	KeyTypeMap          *string `json:"keyTypeMap,omitempty"`
-	Name                *string `json:"name,omitempty"`
-	Transformer         *string `json:"transformer,omitempty"`
-	Mapping             *string `json:"mapping,omitempty"`
-	Type                *string `json:"type,omitempty"`
-	Id                  *string `json:"id,omitempty"`
+	DefaultIncidentType *string   `json:"defaultIncidentType,omitempty"`
+	KeyTypeMap          *string   `json:"keyTypeMap,omitempty"`
+	Name                *string   `json:"name,omitempty"`
+	Transformer         *string   `json:"transformer,omitempty"`
+	Mapping             *string   `json:"mapping,omitempty"`
+	Type                *string   `json:"type,omitempty"`
+	Id                  *string   `json:"id,omitempty"`
+	PropagationLabels   *[]string `json:"propagationLabels,omitempty"`
 }
 
 // NewCreateUpdateClassifierRequest instantiates a new CreateUpdateClassifierRequest object
@@ -266,6 +267,38 @@ func (o *CreateUpdateClassifierRequest) SetId(v string) {
 	o.Id = &v
 }
 
+// GetPropagationLabels returns the PropagationLabels field value if set, zero value otherwise.
+func (o *CreateUpdateClassifierRequest) GetPropagationLabels() []string {
+	if o == nil || o.PropagationLabels == nil {
+		var ret []string
+		return ret
+	}
+	return *o.PropagationLabels
+}
+
+// GetPropagationLabelsOk returns a tuple with the PropagationLabels field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateUpdateClassifierRequest) GetPropagationLabelsOk() (*[]string, bool) {
+	if o == nil || o.PropagationLabels == nil {
+		return nil, false
+	}
+	return o.PropagationLabels, true
+}
+
+// HasPropagationLabels returns a boolean if a field has been set.
+func (o *CreateUpdateClassifierRequest) HasPropagationLabels() bool {
+	if o != nil && o.PropagationLabels != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPropagationLabels gets a reference to the given []string and assigns it to the PropagationLabels field.
+func (o *CreateUpdateClassifierRequest) SetPropagationLabels(v []string) {
+	o.PropagationLabels = &v
+}
+
 func (o CreateUpdateClassifierRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.DefaultIncidentType != nil {
@@ -288,6 +321,9 @@ func (o CreateUpdateClassifierRequest) MarshalJSON() ([]byte, error) {
 	}
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
+	}
+	if o.PropagationLabels != nil {
+		toSerialize["propagationLabels"] = o.PropagationLabels
 	}
 	return json.Marshal(toSerialize)
 }

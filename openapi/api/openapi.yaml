@@ -4122,6 +4122,9 @@ components:
         id: id
         keyTypeMap: keyTypeMap
         type: type
+        propagationLabels:
+        - propagationLabels
+        - propagationLabels
       properties:
         defaultIncidentType:
           type: string
@@ -4137,6 +4140,10 @@ components:
           type: string
         id:
           type: string
+        propagationLabels:
+          items:
+            type: string
+          type: array
       type: object
     CreateUpdateHAGroup:
       description: Create or update an HA group

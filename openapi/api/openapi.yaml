@@ -9179,23 +9179,7 @@ components:
       example:
         commitMessage: commitMessage
         primaryTerm: 1
-        transformer:
-          complex:
-            transformers:
-            - args:
-                key:
-                  isContext: true
-              operator: operator
-            - args:
-                key:
-                  isContext: true
-              operator: operator
-            root: root
-            accessor: accessor
-            filters:
-            - null
-            - null
-          simple: simple
+        transformer: transformer
         description: description
         type: type
         packID: packID
@@ -9215,8 +9199,7 @@ components:
         modified: 2000-01-23T04:56:07.000+00:00
         prevName: prevName
         id: id
-        keyTypeMap:
-          key: keyTypeMap
+        keyTypeMap: keyTypeMap
         locked: true
         fromServerVersion:
           Digits:
@@ -9225,27 +9208,7 @@ components:
           Label: Label
         numericId: 6
         sequenceNumber: 5
-        mapping:
-          key:
-            internalMapping:
-              key:
-                complex:
-                  transformers:
-                  - args:
-                      key:
-                        isContext: true
-                    operator: operator
-                  - args:
-                      key:
-                        isContext: true
-                    operator: operator
-                  root: root
-                  accessor: accessor
-                  filters:
-                  - null
-                  - null
-                simple: simple
-            dontMapEventToLabels: true
+        mapping: mapping
         brands:
         - brands
         - brands
@@ -9318,9 +9281,7 @@ components:
         itemVersion:
           $ref: '#/components/schemas/Version'
         keyTypeMap:
-          additionalProperties:
-            type: string
-          type: object
+          type: string
           x-go-name: KeyTypeMap
         locked:
           type: boolean
@@ -9330,9 +9291,7 @@ components:
           type: integer
           x-go-name: LogicalVersion
         mapping:
-          additionalProperties:
-            $ref: '#/components/schemas/Mapper'
-          type: object
+          type: string
           x-go-name: Mapping
         modified:
           format: date-time
@@ -9389,7 +9348,7 @@ components:
         toServerVersion:
           $ref: '#/components/schemas/Version'
         transformer:
-          $ref: '#/components/schemas/AdvanceArg'
+          type: string
         type:
           description: MapperType for instance classifier
           type: string
@@ -9417,23 +9376,7 @@ components:
         classifiers:
         - commitMessage: commitMessage
           primaryTerm: 1
-          transformer:
-            complex:
-              transformers:
-              - args:
-                  key:
-                    isContext: true
-                operator: operator
-              - args:
-                  key:
-                    isContext: true
-                operator: operator
-              root: root
-              accessor: accessor
-              filters:
-              - null
-              - null
-            simple: simple
+          transformer: transformer
           description: description
           type: type
           packID: packID
@@ -9453,8 +9396,7 @@ components:
           modified: 2000-01-23T04:56:07.000+00:00
           prevName: prevName
           id: id
-          keyTypeMap:
-            key: keyTypeMap
+          keyTypeMap: keyTypeMap
           locked: true
           fromServerVersion:
             Digits:
@@ -9463,27 +9405,7 @@ components:
             Label: Label
           numericId: 6
           sequenceNumber: 5
-          mapping:
-            key:
-              internalMapping:
-                key:
-                  complex:
-                    transformers:
-                    - args:
-                        key:
-                          isContext: true
-                      operator: operator
-                    - args:
-                        key:
-                          isContext: true
-                      operator: operator
-                    root: root
-                    accessor: accessor
-                    filters:
-                    - null
-                    - null
-                  simple: simple
-              dontMapEventToLabels: true
+          mapping: mapping
           brands:
           - brands
           - brands
@@ -9515,23 +9437,7 @@ components:
           nameRaw: nameRaw
         - commitMessage: commitMessage
           primaryTerm: 1
-          transformer:
-            complex:
-              transformers:
-              - args:
-                  key:
-                    isContext: true
-                operator: operator
-              - args:
-                  key:
-                    isContext: true
-                operator: operator
-              root: root
-              accessor: accessor
-              filters:
-              - null
-              - null
-            simple: simple
+          transformer: transformer
           description: description
           type: type
           packID: packID
@@ -9551,8 +9457,7 @@ components:
           modified: 2000-01-23T04:56:07.000+00:00
           prevName: prevName
           id: id
-          keyTypeMap:
-            key: keyTypeMap
+          keyTypeMap: keyTypeMap
           locked: true
           fromServerVersion:
             Digits:
@@ -9561,27 +9466,7 @@ components:
             Label: Label
           numericId: 6
           sequenceNumber: 5
-          mapping:
-            key:
-              internalMapping:
-                key:
-                  complex:
-                    transformers:
-                    - args:
-                        key:
-                          isContext: true
-                      operator: operator
-                    - args:
-                        key:
-                          isContext: true
-                      operator: operator
-                    root: root
-                    accessor: accessor
-                    filters:
-                    - null
-                    - null
-                  simple: simple
-              dontMapEventToLabels: true
+          mapping: mapping
           brands:
           - brands
           - brands
@@ -15510,26 +15395,6 @@ components:
       type: object
     Mapper:
       description: Mapper - mapper for new incidents
-      example:
-        internalMapping:
-          key:
-            complex:
-              transformers:
-              - args:
-                  key:
-                    isContext: true
-                operator: operator
-              - args:
-                  key:
-                    isContext: true
-                operator: operator
-              root: root
-              accessor: accessor
-              filters:
-              - null
-              - null
-            simple: simple
-        dontMapEventToLabels: true
       properties:
         dontMapEventToLabels:
           description: DontMapEventToLabels by default we will map all the fields

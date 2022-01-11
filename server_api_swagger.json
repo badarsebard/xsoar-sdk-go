@@ -8933,10 +8933,7 @@
           "$ref": "#/definitions/Version"
         },
         "keyTypeMap": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          },
+          "type": "string",
           "x-go-name": "KeyTypeMap"
         },
         "locked": {
@@ -8949,10 +8946,7 @@
           "x-go-name": "LogicalVersion"
         },
         "mapping": {
-          "type": "object",
-          "additionalProperties": {
-            "$ref": "#/definitions/Mapper"
-          },
+          "type": "string",
           "x-go-name": "Mapping"
         },
         "modified": {
@@ -9028,7 +9022,7 @@
           "$ref": "#/definitions/Version"
         },
         "transformer": {
-          "$ref": "#/definitions/AdvanceArg"
+          "type": "string"
         },
         "type": {
           "$ref": "#/definitions/MapperType"

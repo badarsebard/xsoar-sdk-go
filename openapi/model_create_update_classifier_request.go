@@ -16,13 +16,13 @@ import (
 
 // CreateUpdateClassifierRequest Request to create new or update a classifier
 type CreateUpdateClassifierRequest struct {
-	DefaultIncidentType *string                 `json:"defaultIncidentType,omitempty"`
-	KeyTypeMap          *map[string]interface{} `json:"keyTypeMap,omitempty"`
-	Name                *string                 `json:"name,omitempty"`
-	Transformer         *string                 `json:"transformer,omitempty"`
-	Mapping             *map[string]interface{} `json:"mapping,omitempty"`
-	Type                *string                 `json:"type,omitempty"`
-	Id                  *string                 `json:"id,omitempty"`
+	DefaultIncidentType *string `json:"defaultIncidentType,omitempty"`
+	KeyTypeMap          *string `json:"keyTypeMap,omitempty"`
+	Name                *string `json:"name,omitempty"`
+	Transformer         *string `json:"transformer,omitempty"`
+	Mapping             *string `json:"mapping,omitempty"`
+	Type                *string `json:"type,omitempty"`
+	Id                  *string `json:"id,omitempty"`
 }
 
 // NewCreateUpdateClassifierRequest instantiates a new CreateUpdateClassifierRequest object
@@ -75,9 +75,9 @@ func (o *CreateUpdateClassifierRequest) SetDefaultIncidentType(v string) {
 }
 
 // GetKeyTypeMap returns the KeyTypeMap field value if set, zero value otherwise.
-func (o *CreateUpdateClassifierRequest) GetKeyTypeMap() map[string]interface{} {
+func (o *CreateUpdateClassifierRequest) GetKeyTypeMap() string {
 	if o == nil || o.KeyTypeMap == nil {
-		var ret map[string]interface{}
+		var ret string
 		return ret
 	}
 	return *o.KeyTypeMap
@@ -85,7 +85,7 @@ func (o *CreateUpdateClassifierRequest) GetKeyTypeMap() map[string]interface{} {
 
 // GetKeyTypeMapOk returns a tuple with the KeyTypeMap field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateUpdateClassifierRequest) GetKeyTypeMapOk() (*map[string]interface{}, bool) {
+func (o *CreateUpdateClassifierRequest) GetKeyTypeMapOk() (*string, bool) {
 	if o == nil || o.KeyTypeMap == nil {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *CreateUpdateClassifierRequest) HasKeyTypeMap() bool {
 	return false
 }
 
-// SetKeyTypeMap gets a reference to the given map[string]interface{} and assigns it to the KeyTypeMap field.
-func (o *CreateUpdateClassifierRequest) SetKeyTypeMap(v map[string]interface{}) {
+// SetKeyTypeMap gets a reference to the given string and assigns it to the KeyTypeMap field.
+func (o *CreateUpdateClassifierRequest) SetKeyTypeMap(v string) {
 	o.KeyTypeMap = &v
 }
 
@@ -171,9 +171,9 @@ func (o *CreateUpdateClassifierRequest) SetTransformer(v string) {
 }
 
 // GetMapping returns the Mapping field value if set, zero value otherwise.
-func (o *CreateUpdateClassifierRequest) GetMapping() map[string]interface{} {
+func (o *CreateUpdateClassifierRequest) GetMapping() string {
 	if o == nil || o.Mapping == nil {
-		var ret map[string]interface{}
+		var ret string
 		return ret
 	}
 	return *o.Mapping
@@ -181,7 +181,7 @@ func (o *CreateUpdateClassifierRequest) GetMapping() map[string]interface{} {
 
 // GetMappingOk returns a tuple with the Mapping field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateUpdateClassifierRequest) GetMappingOk() (*map[string]interface{}, bool) {
+func (o *CreateUpdateClassifierRequest) GetMappingOk() (*string, bool) {
 	if o == nil || o.Mapping == nil {
 		return nil, false
 	}
@@ -197,8 +197,8 @@ func (o *CreateUpdateClassifierRequest) HasMapping() bool {
 	return false
 }
 
-// SetMapping gets a reference to the given map[string]interface{} and assigns it to the Mapping field.
-func (o *CreateUpdateClassifierRequest) SetMapping(v map[string]interface{}) {
+// SetMapping gets a reference to the given string and assigns it to the Mapping field.
+func (o *CreateUpdateClassifierRequest) SetMapping(v string) {
 	o.Mapping = &v
 }
 

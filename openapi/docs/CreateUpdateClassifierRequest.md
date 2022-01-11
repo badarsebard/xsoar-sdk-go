@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DefaultIncidentType** | Pointer to **string** |  | [optional] 
-**KeyTypeMap** | Pointer to **map[string]interface{}** |  | [optional] 
+**KeyTypeMap** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Transformer** | Pointer to **string** |  | [optional] 
-**Mapping** | Pointer to **map[string]interface{}** |  | [optional] 
+**Mapping** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 
@@ -58,20 +58,20 @@ HasDefaultIncidentType returns a boolean if a field has been set.
 
 ### GetKeyTypeMap
 
-`func (o *CreateUpdateClassifierRequest) GetKeyTypeMap() map[string]interface{}`
+`func (o *CreateUpdateClassifierRequest) GetKeyTypeMap() string`
 
 GetKeyTypeMap returns the KeyTypeMap field if non-nil, zero value otherwise.
 
 ### GetKeyTypeMapOk
 
-`func (o *CreateUpdateClassifierRequest) GetKeyTypeMapOk() (*map[string]interface{}, bool)`
+`func (o *CreateUpdateClassifierRequest) GetKeyTypeMapOk() (*string, bool)`
 
 GetKeyTypeMapOk returns a tuple with the KeyTypeMap field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetKeyTypeMap
 
-`func (o *CreateUpdateClassifierRequest) SetKeyTypeMap(v map[string]interface{})`
+`func (o *CreateUpdateClassifierRequest) SetKeyTypeMap(v string)`
 
 SetKeyTypeMap sets KeyTypeMap field to given value.
 
@@ -133,20 +133,20 @@ HasTransformer returns a boolean if a field has been set.
 
 ### GetMapping
 
-`func (o *CreateUpdateClassifierRequest) GetMapping() map[string]interface{}`
+`func (o *CreateUpdateClassifierRequest) GetMapping() string`
 
 GetMapping returns the Mapping field if non-nil, zero value otherwise.
 
 ### GetMappingOk
 
-`func (o *CreateUpdateClassifierRequest) GetMappingOk() (*map[string]interface{}, bool)`
+`func (o *CreateUpdateClassifierRequest) GetMappingOk() (*string, bool)`
 
 GetMappingOk returns a tuple with the Mapping field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMapping
 
-`func (o *CreateUpdateClassifierRequest) SetMapping(v map[string]interface{})`
+`func (o *CreateUpdateClassifierRequest) SetMapping(v string)`
 
 SetMapping sets Mapping field to given value.
 

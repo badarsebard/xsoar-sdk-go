@@ -4115,26 +4115,24 @@ components:
     CreateUpdateClassifierRequest:
       description: Request to create new or update a classifier
       example:
-        mapping: '{}'
+        mapping: mapping
         name: name
         transformer: transformer
         defaultIncidentType: defaultIncidentType
         id: id
-        keyTypeMap: '{}'
+        keyTypeMap: keyTypeMap
         type: type
       properties:
         defaultIncidentType:
           type: string
         keyTypeMap:
-          properties: {}
-          type: object
+          type: string
         name:
           type: string
         transformer:
           type: string
         mapping:
-          properties: {}
-          type: object
+          type: string
         type:
           type: string
         id:

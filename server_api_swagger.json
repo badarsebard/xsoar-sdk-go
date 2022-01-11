@@ -4575,7 +4575,7 @@
           "type": "string"
         },
         "keyTypeMap": {
-          "type": "object"
+          "type": "string"
         },
         "name": {
           "type": "string"
@@ -4584,7 +4584,7 @@
           "type": "string"
         },
         "mapping": {
-          "type": "object"
+          "type": "string"
         },
         "type": {
           "type": "string"

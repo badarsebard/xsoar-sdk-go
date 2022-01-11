@@ -2295,10 +2295,10 @@
         "operationId": "createDockerImage",
         "parameters": [
           {
-            "name": "NewDockerImage",
+            "name": "NewDockerImageRequest",
             "in": "body",
             "schema": {
-              "$ref": "#/definitions/NewDockerImage"
+              "$ref": "#/definitions/NewDockerImageRequest"
             }
           }
         ],
@@ -11497,8 +11497,8 @@
       },
       "x-go-package": "github.com/demisto/server/domain"
     },
-    "NewDockerImage": {
-      "description": "NewDockerImage creation request",
+    "NewDockerImageRequest": {
+      "description": "NewDockerImageRequest creation request",
       "type": "object",
       "properties": {
         "base": {

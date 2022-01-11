@@ -365,7 +365,7 @@ Class | Method | HTTP request | Description
  - [Mapper](docs/Mapper.md)
  - [ModuleArgs](docs/ModuleArgs.md)
  - [ModuleConfiguration](docs/ModuleConfiguration.md)
- - [NewDockerImage](docs/NewDockerImage.md)
+ - [NewDockerImageRequest](docs/NewDockerImageRequest.md)
  - [NewDockerImageResult](docs/NewDockerImageResult.md)
  - [NotifiableItem](docs/NotifiableItem.md)
  - [NotifyTimings](docs/NotifyTimings.md)

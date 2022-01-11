@@ -1857,7 +1857,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/NewDockerImage'
+              $ref: '#/components/schemas/NewDockerImageRequest'
         required: false
       responses:
         "200":
@@ -1867,7 +1867,7 @@ paths:
                 $ref: '#/components/schemas/NewDockerImageResult'
           description: NewDockerImageResult
       summary: Create Image
-      x-codegen-request-body-name: NewDockerImage
+      x-codegen-request-body-name: NewDockerImageRequest
   /settings/integration:
     put:
       description: Create or update an instance of an integration
@@ -15795,8 +15795,8 @@ components:
           x-go-name: Versn
       type: object
       x-go-package: github.com/demisto/server/domain
-    NewDockerImage:
-      description: NewDockerImage creation request
+    NewDockerImageRequest:
+      description: NewDockerImageRequest creation request
       example:
         name: name
         packages:

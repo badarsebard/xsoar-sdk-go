@@ -549,7 +549,7 @@ Name | Type | Description  | Notes
 
 ## CreateDockerImage
 
-> NewDockerImageResult CreateDockerImage(ctx).NewDockerImage(newDockerImage).Execute()
+> NewDockerImageResult CreateDockerImage(ctx).NewDockerImageRequest(newDockerImageRequest).Execute()
 
 Create Image
 
@@ -568,11 +568,11 @@ import (
 )
 
 func main() {
-    newDockerImage := *openapiclient.NewNewDockerImage() // NewDockerImage |  (optional)
+    newDockerImageRequest := *openapiclient.NewNewDockerImageRequest() // NewDockerImageRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.CreateDockerImage(context.Background()).NewDockerImage(newDockerImage).Execute()
+    resp, r, err := api_client.DefaultApi.CreateDockerImage(context.Background()).NewDockerImageRequest(newDockerImageRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateDockerImage``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -593,7 +593,7 @@ Other parameters are passed through a pointer to a apiCreateDockerImageRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newDockerImage** | [**NewDockerImage**](NewDockerImage.md) |  | 
+ **newDockerImageRequest** | [**NewDockerImageRequest**](NewDockerImageRequest.md) |  | 
 
 ### Return type
 

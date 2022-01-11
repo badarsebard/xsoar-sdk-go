@@ -933,13 +933,13 @@ func (a *DefaultApiService) CreateAccountExecute(r ApiCreateAccountRequest) (Acc
 }
 
 type ApiCreateDockerImageRequest struct {
-	ctx            _context.Context
-	ApiService     *DefaultApiService
-	newDockerImage *NewDockerImage
+	ctx                   _context.Context
+	ApiService            *DefaultApiService
+	newDockerImageRequest *NewDockerImageRequest
 }
 
-func (r ApiCreateDockerImageRequest) NewDockerImage(newDockerImage NewDockerImage) ApiCreateDockerImageRequest {
-	r.newDockerImage = &newDockerImage
+func (r ApiCreateDockerImageRequest) NewDockerImageRequest(newDockerImageRequest NewDockerImageRequest) ApiCreateDockerImageRequest {
+	r.newDockerImageRequest = &newDockerImageRequest
 	return r
 }
 
@@ -1001,7 +1001,7 @@ func (a *DefaultApiService) CreateDockerImageExecute(r ApiCreateDockerImageReque
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.newDockerImage
+	localVarPostBody = r.newDockerImageRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

@@ -155,7 +155,7 @@ docs/MainHosts.md
 docs/Mapper.md
 docs/ModuleArgs.md
 docs/ModuleConfiguration.md
-docs/NewDockerImage.md
+docs/NewDockerImageRequest.md
 docs/NewDockerImageResult.md
 docs/NotifiableItem.md
 docs/NotifyTimings.md
@@ -400,7 +400,7 @@ model_main_hosts.go
 model_mapper.go
 model_module_args.go
 model_module_configuration.go
-model_new_docker_image.go
+model_new_docker_image_request.go
 model_new_docker_image_result.go
 model_notifiable_item.go
 model_notify_timings.go

@@ -16,8 +16,8 @@ import (
 
 // CustomGroup CustomGroup - A new custom group that will be created by merging groups based on the Conditions
 type CustomGroup struct {
-	Conditions *[][]Bucket `json:"conditions,omitempty"`
-	Name       *string     `json:"name,omitempty"`
+	Conditions *[]Buckets `json:"conditions,omitempty"`
+	Name       *string    `json:"name,omitempty"`
 }
 
 // NewCustomGroup instantiates a new CustomGroup object
@@ -38,9 +38,9 @@ func NewCustomGroupWithDefaults() *CustomGroup {
 }
 
 // GetConditions returns the Conditions field value if set, zero value otherwise.
-func (o *CustomGroup) GetConditions() [][]Bucket {
+func (o *CustomGroup) GetConditions() []Buckets {
 	if o == nil || o.Conditions == nil {
-		var ret [][]Bucket
+		var ret []Buckets
 		return ret
 	}
 	return *o.Conditions
@@ -48,7 +48,7 @@ func (o *CustomGroup) GetConditions() [][]Bucket {
 
 // GetConditionsOk returns a tuple with the Conditions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CustomGroup) GetConditionsOk() (*[][]Bucket, bool) {
+func (o *CustomGroup) GetConditionsOk() (*[]Buckets, bool) {
 	if o == nil || o.Conditions == nil {
 		return nil, false
 	}
@@ -64,8 +64,8 @@ func (o *CustomGroup) HasConditions() bool {
 	return false
 }
 
-// SetConditions gets a reference to the given [][]Bucket and assigns it to the Conditions field.
-func (o *CustomGroup) SetConditions(v [][]Bucket) {
+// SetConditions gets a reference to the given []Buckets and assigns it to the Conditions field.
+func (o *CustomGroup) SetConditions(v []Buckets) {
 	o.Conditions = &v
 }
 

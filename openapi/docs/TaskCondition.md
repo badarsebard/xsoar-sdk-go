@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Condition** | Pointer to [**[][]ArgAtomicFilter**]([]ArgAtomicFilter.md) |  | [optional] 
+**Condition** | Pointer to [**[]ArgFilter**](ArgFilter.md) |  | [optional] 
 **Label** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCondition
 
-`func (o *TaskCondition) GetCondition() [][]ArgAtomicFilter`
+`func (o *TaskCondition) GetCondition() []ArgFilter`
 
 GetCondition returns the Condition field if non-nil, zero value otherwise.
 
 ### GetConditionOk
 
-`func (o *TaskCondition) GetConditionOk() (*[][]ArgAtomicFilter, bool)`
+`func (o *TaskCondition) GetConditionOk() (*[]ArgFilter, bool)`
 
 GetConditionOk returns a tuple with the Condition field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCondition
 
-`func (o *TaskCondition) SetCondition(v [][]ArgAtomicFilter)`
+`func (o *TaskCondition) SetCondition(v []ArgFilter)`
 
 SetCondition sets Condition field to given value.
 

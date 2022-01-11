@@ -5,8 +5,8 @@
 
 oldversion=`cut -d '.' -f3 VERSION`
 newversion=`expr $oldversion + 1`
-sed -i"" "s/$oldversion/$newversion/g" VERSION
-
+sed -i.bak "s/$oldversion/$newversion/g" VERSION
+rm VERSION.bak
 
 git_user_id=$1
 git_repo_id=$2

@@ -41,9 +41,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/CreateAccountRequest'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/CreateAccountRequest'
         required: false
       responses:
         "200":
@@ -67,9 +64,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/UpdateRolesAndPropagationLabelsRequest'
-          application/xml:
             schema:
               $ref: '#/components/schemas/UpdateRolesAndPropagationLabelsRequest'
         required: false
@@ -131,9 +125,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/AccountsWrapper'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/AccountsWrapper'
         required: false
       responses:
         "200":
@@ -148,9 +139,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/AccountsWrapper'
-          application/xml:
             schema:
               $ref: '#/components/schemas/AccountsWrapper'
         required: false
@@ -184,9 +172,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/automationScriptFilterWrapper'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/automationScriptFilterWrapper'
         required: false
       responses:
         "200":
@@ -206,9 +191,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/automationScriptFilterWrapper'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/automationScriptFilterWrapper'
         required: false
       responses:
         "200":
@@ -226,9 +208,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/automationScriptFilterWrapper'
-          application/xml:
             schema:
               $ref: '#/components/schemas/automationScriptFilterWrapper'
         required: false
@@ -271,9 +250,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/automationScriptFilter'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/automationScriptFilter'
         required: false
       responses:
         "200":
@@ -310,6 +286,102 @@ paths:
                 type: array
           description: The saved classifiers
       summary: Import a classifier
+  /classifier:
+    post:
+      description: Create new or update existing classifier
+      operationId: createUpdateClassifier
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUpdateClassifierRequest'
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InstanceClassifier'
+          description: The saved classifier
+      summary: Create or update a classifier
+      x-codegen-request-body-name: createUpdateClassifierRequest
+  /{acc}/classifier:
+    post:
+      description: Create new or update existing classifier
+      operationId: createUpdateClassifierAccount
+      parameters:
+      - in: path
+        name: acc
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUpdateClassifierRequest'
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InstanceClassifier'
+          description: The saved classifier
+      summary: Create or update a classifier
+      x-codegen-request-body-name: createUpdateClassifierAccountRequest
+  /classifier/search:
+    post:
+      description: Search classifiers in Cortex XSOAR
+      operationId: listClassifiers
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object'
+        content:
+          application/json:
+            schema:
+              properties:
+                name:
+                  type: string
+              type: object
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InstanceClassifiers'
+          description: The classifiers
+      summary: search classifiers
+      x-codegen-request-body-name: searchClassifiers
+  /{acc}/classifier/search:
+    post:
+      description: Search classifiers in Cortex XSOAR
+      operationId: listClassifiersAccount
+      parameters:
+      - in: path
+        name: acc
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_1'
+        content:
+          application/json:
+            schema:
+              properties:
+                name:
+                  type: string
+              type: object
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InstanceClassifiers'
+          description: The classifiers
+      summary: search classifiers
+      x-codegen-request-body-name: searchClassifiersAccount
   /dashboards/import:
     post:
       description: Import a dashboard to Cortex XSOAR
@@ -343,9 +415,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/updateEntry'
-          application/xml:
             schema:
               $ref: '#/components/schemas/updateEntry'
         required: false
@@ -392,9 +461,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/updateEntry'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/updateEntry'
         required: false
       responses:
         "200":
@@ -419,9 +485,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/DownloadEntry'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/DownloadEntry'
         required: false
       responses:
         "200":
@@ -438,9 +501,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/uploadedEntry'
-          application/xml:
             schema:
               $ref: '#/components/schemas/uploadedEntry'
         required: false
@@ -464,9 +524,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/updateEntry'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/updateEntry'
         required: false
       responses:
         "200":
@@ -486,9 +543,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/updateEntryTags'
-          application/xml:
             schema:
               $ref: '#/components/schemas/updateEntryTags'
         required: false
@@ -512,9 +566,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Evidence'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Evidence'
         required: false
       responses:
         "200":
@@ -534,9 +585,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/deleteEvidence'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/deleteEvidence'
         required: false
       responses:
         "200":
@@ -551,9 +599,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/evidencesFilterWrapper'
-          application/xml:
             schema:
               $ref: '#/components/schemas/evidencesFilterWrapper'
         required: false
@@ -573,9 +618,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/CreateHAGroupRequest'
-          application/xml:
             schema:
               $ref: '#/components/schemas/CreateHAGroupRequest'
         required: false
@@ -800,9 +842,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/CreateIncidentRequest'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/CreateIncidentRequest'
         required: false
       responses:
         "200":
@@ -825,9 +864,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UpdateDataBatch'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/UpdateDataBatch'
         required: false
       responses:
         "200":
@@ -845,9 +881,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/UpdateDataBatch'
-          application/xml:
             schema:
               $ref: '#/components/schemas/UpdateDataBatch'
         required: false
@@ -872,9 +905,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UpdateDataBatch'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/UpdateDataBatch'
         required: false
       responses:
         "200":
@@ -892,9 +922,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/UpdateDataBatch'
-          application/xml:
             schema:
               $ref: '#/components/schemas/UpdateDataBatch'
         required: false
@@ -1006,9 +1033,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/tagsFieldValues'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/tagsFieldValues'
         description: The new select values of the field
         required: true
       responses:
@@ -1074,9 +1098,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/SearchIncidentsData'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/SearchIncidentsData'
         required: true
       responses:
         "200":
@@ -1094,9 +1115,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/IncidentType'
-          application/xml:
             schema:
               $ref: '#/components/schemas/IncidentType'
         required: false
@@ -1144,9 +1162,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/indicatorContext'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/indicatorContext'
         required: false
       responses:
         "200":
@@ -1166,9 +1181,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/IocObject'
-          application/xml:
             schema:
               $ref: '#/components/schemas/IocObject'
         required: false
@@ -1192,9 +1204,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/updateIndicatorReputationData'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/updateIndicatorReputationData'
         required: false
       responses:
         "200":
@@ -1214,9 +1223,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/genericIndicatorUpdateBatch'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/genericIndicatorUpdateBatch'
         required: false
       responses:
         "200":
@@ -1234,9 +1240,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/genericIndicatorUpdateBatch'
-          application/xml:
             schema:
               $ref: '#/components/schemas/genericIndicatorUpdateBatch'
         description: |
@@ -1261,9 +1264,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/genericIndicatorUpdateBatch'
-          application/xml:
             schema:
               $ref: '#/components/schemas/genericIndicatorUpdateBatch'
         required: false
@@ -1312,9 +1312,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/FeedIndicatorsRequest'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/FeedIndicatorsRequest'
         required: true
       responses:
         "201":
@@ -1329,9 +1326,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/IndicatorFilter'
-          application/xml:
             schema:
               $ref: '#/components/schemas/IndicatorFilter'
         required: false
@@ -1371,9 +1365,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/IndicatorFilter'
-          application/xml:
             schema:
               $ref: '#/components/schemas/IndicatorFilter'
         required: false
@@ -1422,9 +1413,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/WhitelistedIndicator'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/WhitelistedIndicator'
         required: true
       responses:
         "200":
@@ -1451,9 +1439,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/InvPlaybookTaskData'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/InvPlaybookTaskData'
         required: false
       responses:
         "200":
@@ -1471,9 +1456,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/invPlaybookAssignee'
-          application/xml:
             schema:
               $ref: '#/components/schemas/invPlaybookAssignee'
         required: false
@@ -1544,9 +1526,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/invTaskInfo'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/invTaskInfo'
         required: false
       responses:
         "200":
@@ -1591,9 +1570,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/invPlaybookDue'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/invPlaybookDue'
         required: false
       responses:
         "200":
@@ -1620,9 +1596,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/InvPlaybookTaskData'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/InvPlaybookTaskData'
         required: false
       responses:
         "200":
@@ -1640,9 +1613,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/invTaskInfo'
-          application/xml:
             schema:
               $ref: '#/components/schemas/invTaskInfo'
         required: false
@@ -1664,9 +1634,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/invTaskInfo'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/invTaskInfo'
         required: false
       responses:
         "200":
@@ -1686,9 +1653,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/SearchInvestigationsData'
-          application/xml:
             schema:
               $ref: '#/components/schemas/SearchInvestigationsData'
         required: false
@@ -1864,9 +1828,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/GenericStringDateFilter'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/GenericStringDateFilter'
         required: false
       responses:
         "200":
@@ -1896,10 +1857,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/NewDockerImageRequest'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/NewDockerImageRequest'
+              $ref: '#/components/schemas/NewDockerImage'
         required: false
       responses:
         "200":
@@ -1909,7 +1867,26 @@ paths:
                 $ref: '#/components/schemas/NewDockerImageResult'
           description: NewDockerImageResult
       summary: Create Image
-      x-codegen-request-body-name: NewDockerImageRequest
+      x-codegen-request-body-name: NewDockerImage
+  /settings/integration:
+    put:
+      description: Create or update an instance of an integration
+      operationId: createUpdateIntegrationInstance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateIntegrationRequest'
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntegrationWrapper'
+          description: IntegrationWrapper
+      summary: Create/update an integration instance
+      x-codegen-request-body-name: CreateIntegrationRequest
   /{acc}/settings/integration:
     put:
       description: Create or update an instance of an integration
@@ -1925,9 +1902,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/CreateIntegrationRequest'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/CreateIntegrationRequest'
         required: false
       responses:
         "200":
@@ -1937,7 +1911,22 @@ paths:
                 $ref: '#/components/schemas/IntegrationWrapper'
           description: IntegrationWrapper
       summary: Create/update an integration instance
-      x-codegen-request-body-name: CreateIntegrationRequest
+      x-codegen-request-body-name: createIntegrationRequest
+  /settings/integration/{id}:
+    delete:
+      description: Delete an integration instance
+      operationId: deleteIntegrationInstance
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: Successfully deleted integration instance
+      summary: Delete integration instance
   /{acc}/settings/integration/{id}:
     delete:
       description: Delete an integration instance
@@ -1958,26 +1947,14 @@ paths:
           content: {}
           description: Successfully deleted integration instance
       summary: Delete integration instance
-  /{acc}/settings/integration/search:
+  /settings/integration/search:
     post:
       description: List all integrations
-      operationId: listIntegrationsAccount
-      parameters:
-      - in: path
-        name: acc
-        required: true
-        schema:
-          type: string
+      operationId: listIntegrations
       requestBody:
-        $ref: '#/components/requestBodies/inline_object'
+        $ref: '#/components/requestBodies/inline_object_2'
         content:
           application/json:
-            schema:
-              properties:
-                size:
-                  type: integer
-              type: object
-          application/xml:
             schema:
               properties:
                 size:
@@ -1993,57 +1970,20 @@ paths:
           description: IntegrationWrapper
       summary: List integrations
       x-codegen-request-body-name: Size
-  /settings/integration:
-    put:
-      description: Create or update an instance of an integration
-      operationId: createUpdateIntegrationInstance
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateIntegrationRequest'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/CreateIntegrationRequest'
-        required: false
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/IntegrationWrapper'
-          description: IntegrationWrapper
-      summary: Create/update an integration instance
-      x-codegen-request-body-name: CreateIntegrationRequest
-  /settings/integration/{id}:
-    delete:
-      description: Delete an integration instance
-      operationId: deleteIntegrationInstance
+  /{acc}/settings/integration/search:
+    post:
+      description: List all integrations
+      operationId: listIntegrationsAccount
       parameters:
       - in: path
-        name: id
+        name: acc
         required: true
         schema:
           type: string
-      responses:
-        "200":
-          content: {}
-          description: Successfully deleted integration instance
-      summary: Delete integration instance
-  /settings/integration/search:
-    post:
-      description: List all integrations
-      operationId: listIntegrations
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_1'
+        $ref: '#/components/requestBodies/inline_object_3'
         content:
           application/json:
-            schema:
-              properties:
-                size:
-                  type: integer
-              type: object
-          application/xml:
             schema:
               properties:
                 size:
@@ -2311,9 +2251,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Widget'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Widget'
         required: false
       responses:
         "200":
@@ -2402,18 +2339,24 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/inline_object_1'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/inline_object_1'
       required: false
     inline_object:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/inline_object'
-        application/xml:
+      required: false
+    inline_object_3:
+      content:
+        application/json:
           schema:
-            $ref: '#/components/schemas/inline_object'
+            $ref: '#/components/schemas/inline_object_3'
+      required: false
+    inline_object_2:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_2'
       required: false
   schemas:
     AccountsWrapper:
@@ -2487,14 +2430,6 @@ components:
       x-go-package: github.com/demisto/server/domain
     ArgAtomicFilter:
       description: ArgAtomicFilter - operator with two sides that return true/false
-      example:
-        left:
-          isContext: true
-        ignoreCase: true
-        right:
-          isContext: true
-        type: type
-        operator: operator
       properties:
         ignoreCase:
           type: boolean
@@ -3243,27 +3178,6 @@ components:
       type: object
       x-go-package: github.com/demisto/server/domain
     Comment:
-      example:
-        numericId: 0
-        sequenceNumber: 1
-        created: 2000-01-23T04:56:07.000+00:00
-        primaryTerm: 6
-        source: source
-        type: type
-        sortValues:
-        - sortValues
-        - sortValues
-        version: 5
-        content: content
-        entryId: entryId
-        highlight:
-          key:
-          - highlight
-          - highlight
-        modified: 2000-01-23T04:56:07.000+00:00
-        id: id
-        category: category
-        user: user
       properties:
         category:
           type: string
@@ -3350,11 +3264,7 @@ components:
     CommentsFields:
       properties:
         comments:
-          items:
-            $ref: '#/components/schemas/Comment'
-          title: Comments ...
-          type: array
-          x-go-package: github.com/demisto/server/domain
+          $ref: '#/components/schemas/Comments'
       title: CommentsFields ...
       type: object
       x-go-package: github.com/demisto/server/domain
@@ -4196,7 +4106,39 @@ components:
       type: object
       x-go-package: github.com/demisto/server/domain
     CreateIntegrationRequest:
-      description: Create or update an integration instance
+      example:
+        name: name
+      properties:
+        name:
+          type: string
+      type: object
+    CreateUpdateClassifierRequest:
+      description: Request to create new or update a classifier
+      example:
+        mapping: '{}'
+        name: name
+        transformer: transformer
+        defaultIncidentType: defaultIncidentType
+        id: id
+        keyTypeMap: '{}'
+        type: type
+      properties:
+        defaultIncidentType:
+          type: string
+        keyTypeMap:
+          properties: {}
+          type: object
+        name:
+          type: string
+        transformer:
+          type: string
+        mapping:
+          properties: {}
+          type: object
+        type:
+          type: string
+        id:
+          type: string
       type: object
     CreateUpdateHAGroup:
       description: Create or update an HA group
@@ -4228,11 +4170,6 @@ components:
     CustomGroup:
       description: CustomGroup - A new custom group that will be created by merging
         groups based on the Conditions
-      example:
-        name: name
-        conditions:
-        - null
-        - null
       properties:
         conditions:
           items:
@@ -4256,7 +4193,7 @@ components:
       description: DBotScore - Contain the score of a specific brand for a specific
         insight
       example:
-        score: 7
+        score: 5
         isTypedIndicator: true
         contentFormat: contentFormat
         reliability: reliability
@@ -4308,7 +4245,7 @@ components:
       example:
         dbotCreatedBy: dbotCreatedBy
         commitMessage: commitMessage
-        primaryTerm: 4
+        primaryTerm: 6
         roles:
         - roles
         - roles
@@ -4339,8 +4276,8 @@ components:
           Label: Label
         owner: owner
         allReadWrite: true
-        numericId: 2
-        sequenceNumber: 7
+        numericId: 0
+        sequenceNumber: 1
         period:
           fromValue: fromValue
           toValue: toValue
@@ -4370,165 +4307,8 @@ components:
         - sortValues
         - sortValues
         vcShouldKeepItemLegacyProdMachine: true
-        version: 1
+        version: 5
         fromDate: 2000-01-23T04:56:07.000+00:00
-        layout:
-        - reflectDimensions: true
-          widget:
-            commitMessage: commitMessage
-            dateRange:
-              fromDate: 2000-01-23T04:56:07.000+00:00
-              fromDateLicense: 2000-01-23T04:56:07.000+00:00
-              period:
-                fromValue: fromValue
-                toValue: toValue
-                byFrom: byFrom
-                field: field
-                by: by
-                byTo: byTo
-              toDate: 2000-01-23T04:56:07.000+00:00
-            primaryTerm: 5
-            description: description
-            packID: packID
-            highlight:
-              key:
-              - highlight
-              - highlight
-            toServerVersion:
-              Digits:
-              - 0
-              - 0
-              Label: Label
-            vcShouldIgnore: true
-            modified: 2000-01-23T04:56:07.000+00:00
-            prevName: prevName
-            id: id
-            locked: true
-            fromServerVersion:
-              Digits:
-              - 0
-              - 0
-              Label: Label
-            numericId: 1
-            sequenceNumber: 5
-            isPredefined: true
-            dataType: dataType
-            itemVersion:
-              Digits:
-              - 0
-              - 0
-              Label: Label
-            packPropagationLabels:
-            - packPropagationLabels
-            - packPropagationLabels
-            query: query
-            sort:
-            - asc: true
-              field: field
-              fieldType: fieldType
-            - asc: true
-              field: field
-              fieldType: fieldType
-            params:
-              key: '{}'
-            shouldCommit: true
-            sortValues:
-            - sortValues
-            - sortValues
-            vcShouldKeepItemLegacyProdMachine: true
-            version: 7
-            widgetType: widgetType
-            size: 2
-            name: name
-            category: category
-            propagationLabels:
-            - propagationLabels
-            - propagationLabels
-          w: 6
-          h: 0
-          x: 9
-          i: i
-          y: 3
-          forceRange: true
-          id: id
-        - reflectDimensions: true
-          widget:
-            commitMessage: commitMessage
-            dateRange:
-              fromDate: 2000-01-23T04:56:07.000+00:00
-              fromDateLicense: 2000-01-23T04:56:07.000+00:00
-              period:
-                fromValue: fromValue
-                toValue: toValue
-                byFrom: byFrom
-                field: field
-                by: by
-                byTo: byTo
-              toDate: 2000-01-23T04:56:07.000+00:00
-            primaryTerm: 5
-            description: description
-            packID: packID
-            highlight:
-              key:
-              - highlight
-              - highlight
-            toServerVersion:
-              Digits:
-              - 0
-              - 0
-              Label: Label
-            vcShouldIgnore: true
-            modified: 2000-01-23T04:56:07.000+00:00
-            prevName: prevName
-            id: id
-            locked: true
-            fromServerVersion:
-              Digits:
-              - 0
-              - 0
-              Label: Label
-            numericId: 1
-            sequenceNumber: 5
-            isPredefined: true
-            dataType: dataType
-            itemVersion:
-              Digits:
-              - 0
-              - 0
-              Label: Label
-            packPropagationLabels:
-            - packPropagationLabels
-            - packPropagationLabels
-            query: query
-            sort:
-            - asc: true
-              field: field
-              fieldType: fieldType
-            - asc: true
-              field: field
-              fieldType: fieldType
-            params:
-              key: '{}'
-            shouldCommit: true
-            sortValues:
-            - sortValues
-            - sortValues
-            vcShouldKeepItemLegacyProdMachine: true
-            version: 7
-            widgetType: widgetType
-            size: 2
-            name: name
-            category: category
-            propagationLabels:
-            - propagationLabels
-            - propagationLabels
-          w: 6
-          h: 0
-          x: 9
-          i: i
-          y: 3
-          forceRange: true
-          id: id
         previousAllReadWrite: true
         system: true
         allRead: true
@@ -4581,11 +4361,7 @@ components:
         itemVersion:
           $ref: '#/components/schemas/Version'
         layout:
-          items:
-            $ref: '#/components/schemas/WidgetCell'
-          title: WidgetCells ...
-          type: array
-          x-go-package: github.com/demisto/server/domain
+          $ref: '#/components/schemas/WidgetCells'
         locked:
           type: boolean
           x-go-name: Locked
@@ -4692,7 +4468,7 @@ components:
       x-go-package: github.com/demisto/server/domain
     DataCollectionForm:
       example:
-        totalAnswers: 4
+        totalAnswers: 9
         expired: true
         sender: sender
         questions:
@@ -5106,8 +4882,7 @@ components:
       example:
         dbotCreatedBy: dbotCreatedBy
         reputations:
-        - highlights: {}
-          reputationsData:
+        - reputationsData:
           - rawTerm: rawTerm
             reputationId: reputationId
             reputation: 9
@@ -5116,8 +4891,7 @@ components:
             reputationId: reputationId
             reputation: 9
             term: term
-        - highlights: {}
-          reputationsData:
+        - reputationsData:
           - rawTerm: rawTerm
             reputationId: reputationId
             reputation: 9
@@ -5136,23 +4910,6 @@ components:
         xsoarReadOnlyRoles:
         - xsoarReadOnlyRoles
         - xsoarReadOnlyRoles
-        IndicatorTimeline:
-        - Category: Category
-          User: User
-          Message: Message
-          Value:
-          - Value
-          - Value
-          Time: 2000-01-23T04:56:07.000+00:00
-          Source: Source
-        - Category: Category
-          User: User
-          Message: Message
-          Value:
-          - Value
-          - Value
-          Time: 2000-01-23T04:56:07.000+00:00
-          Source: Source
         id: id
         brand: brand
         recurrent: true
@@ -5218,37 +4975,6 @@ components:
           key:
           - highlight
           - highlight
-        Relationships:
-        - entityA: entityA
-          entityB: entityB
-          instance: instance
-          reverseName: reverseName
-          entityBType: entityBType
-          reliability: reliability
-          entityAType: entityAType
-          entityAFamily: entityAFamily
-          type: type
-          entityBFamily: entityBFamily
-          name: name
-          id: id
-          fields:
-            key: '{}'
-          brand: brand
-        - entityA: entityA
-          entityB: entityB
-          instance: instance
-          reverseName: reverseName
-          entityBType: entityBType
-          reliability: reliability
-          entityAType: entityAType
-          entityAFamily: entityAFamily
-          type: type
-          entityBFamily: entityBFamily
-          name: name
-          id: id
-          fields:
-            key: '{}'
-          brand: brand
         times: 2
         file: file
         fileMetadata:
@@ -5276,8 +5002,6 @@ components:
         - sortValues
         parentId: parentId
         ShardID: 0
-        pollingArgs:
-          key: '{}'
         deleted: true
         tagsRaw:
         - tagsRaw
@@ -5294,19 +5018,11 @@ components:
         taskId: taskId
       properties:
         IndicatorTimeline:
-          items:
-            $ref: '#/components/schemas/IndicatorTimelineFromEntry'
-          title: IndicatorTimeline ...
-          type: array
-          x-go-package: github.com/demisto/server/domain
+          $ref: '#/components/schemas/IndicatorTimeline'
         InstanceID:
           type: string
         Relationships:
-          items:
-            $ref: '#/components/schemas/RelationshipAPI'
-          title: RelationshipsAPI ...
-          type: array
-          x-go-package: github.com/demisto/server/domain
+          $ref: '#/components/schemas/RelationshipsAPI'
         ShardID:
           format: int64
           type: integer
@@ -5469,12 +5185,7 @@ components:
           type: boolean
           x-go-name: Polling
         pollingArgs:
-          additionalProperties:
-            properties: {}
-            type: object
-          description: ModuleArgs represents module args
-          type: object
-          x-go-package: github.com/demisto/server/domain
+          $ref: '#/components/schemas/ModuleArgs'
         pollingCommand:
           type: string
           x-go-name: PollingCommand
@@ -5634,7 +5345,6 @@ components:
     EntryReputation:
       description: EntryReputation holds the entry reputations and the highlights
       example:
-        highlights: {}
         reputationsData:
         - rawTerm: rawTerm
           reputationId: reputationId
@@ -5646,10 +5356,7 @@ components:
           term: term
       properties:
         highlights:
-          additionalProperties:
-            $ref: '#/components/schemas/TermLocationMap'
-          type: object
-          x-go-package: github.com/blevesearch/bleve/v2/search
+          $ref: '#/components/schemas/FieldTermLocationMap'
         reputationsData:
           items:
             $ref: '#/components/schemas/ReputationData'
@@ -5980,108 +5687,9 @@ components:
         search
       example:
         total: 0
-        evidences:
-        - dbotCreatedBy: dbotCreatedBy
-          primaryTerm: 1
-          roles:
-          - roles
-          - roles
-          description: description
-          entryId: entryId
-          highlight:
-            key:
-            - highlight
-            - highlight
-          markedDate: 2000-01-23T04:56:07.000+00:00
-          modified: 2000-01-23T04:56:07.000+00:00
-          xsoarReadOnlyRoles:
-          - xsoarReadOnlyRoles
-          - xsoarReadOnlyRoles
-          id: id
-          markedBy: markedBy
-          allReadWrite: true
-          numericId: 6
-          sequenceNumber: 5
-          previousAllRead: true
-          previousRoles:
-          - previousRoles
-          - previousRoles
-          occurred: 2000-01-23T04:56:07.000+00:00
-          xsoarHasReadOnlyRole: true
-          xsoarPreviousReadOnlyRoles:
-          - xsoarPreviousReadOnlyRoles
-          - xsoarPreviousReadOnlyRoles
-          sortValues:
-          - sortValues
-          - sortValues
-          version: 5
-          tags:
-          - tags
-          - tags
-          ShardID: 0
-          previousAllReadWrite: true
-          tagsRaw:
-          - tagsRaw
-          - tagsRaw
-          allRead: true
-          hasRole: true
-          incidentId: incidentId
-          taskId: taskId
-          fetched: 2000-01-23T04:56:07.000+00:00
-        - dbotCreatedBy: dbotCreatedBy
-          primaryTerm: 1
-          roles:
-          - roles
-          - roles
-          description: description
-          entryId: entryId
-          highlight:
-            key:
-            - highlight
-            - highlight
-          markedDate: 2000-01-23T04:56:07.000+00:00
-          modified: 2000-01-23T04:56:07.000+00:00
-          xsoarReadOnlyRoles:
-          - xsoarReadOnlyRoles
-          - xsoarReadOnlyRoles
-          id: id
-          markedBy: markedBy
-          allReadWrite: true
-          numericId: 6
-          sequenceNumber: 5
-          previousAllRead: true
-          previousRoles:
-          - previousRoles
-          - previousRoles
-          occurred: 2000-01-23T04:56:07.000+00:00
-          xsoarHasReadOnlyRole: true
-          xsoarPreviousReadOnlyRoles:
-          - xsoarPreviousReadOnlyRoles
-          - xsoarPreviousReadOnlyRoles
-          sortValues:
-          - sortValues
-          - sortValues
-          version: 5
-          tags:
-          - tags
-          - tags
-          ShardID: 0
-          previousAllReadWrite: true
-          tagsRaw:
-          - tagsRaw
-          - tagsRaw
-          allRead: true
-          hasRole: true
-          incidentId: incidentId
-          taskId: taskId
-          fetched: 2000-01-23T04:56:07.000+00:00
       properties:
         evidences:
-          description: Evidences is a list of evidence entities
-          items:
-            $ref: '#/components/schemas/Evidence'
-          type: array
-          x-go-package: github.com/demisto/server/domain
+          $ref: '#/components/schemas/Evidences'
         total:
           format: int64
           type: integer
@@ -6186,46 +5794,15 @@ components:
         reliability: reliability
         mapperId: mapperId
         expirationPolicy: expirationPolicy
-        mapperVersion: 5
+        mapperVersion: 3
         rawJSON:
           key: '{}'
         type: type
         isEnrichment: true
-        relationships:
-        - entityA: entityA
-          entityB: entityB
-          instance: instance
-          reverseName: reverseName
-          entityBType: entityBType
-          reliability: reliability
-          entityAType: entityAType
-          entityAFamily: entityAFamily
-          type: type
-          entityBFamily: entityBFamily
-          name: name
-          id: id
-          fields:
-            key: '{}'
-          brand: brand
-        - entityA: entityA
-          entityB: entityB
-          instance: instance
-          reverseName: reverseName
-          entityBType: entityBType
-          reliability: reliability
-          entityAType: entityAType
-          entityAFamily: entityAFamily
-          type: type
-          entityBFamily: entityBFamily
-          name: name
-          id: id
-          fields:
-            key: '{}'
-          brand: brand
-        score: 5
+        score: 2
         bypassExclusionList: true
         sourceBrand: sourceBrand
-        expirationInterval: 1
+        expirationInterval: 9
         fetchTime: 2000-01-23T04:56:07.000+00:00
         ExpirationSource:
           instance: instance
@@ -6236,10 +5813,8 @@ components:
           brand: brand
           user: user
           setTime: 2000-01-23T04:56:07.000+00:00
-        fields:
-          key: '{}'
         moduleId: moduleId
-        classifierVersion: 6
+        classifierVersion: 7
         value: value
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6273,15 +5848,7 @@ components:
           type: string
           x-go-name: FetchTime
         fields:
-          additionalProperties:
-            properties: {}
-            type: object
-          description: |-
-            The keys should be the field's display name all lower and without spaces. For example: Scan IP -> scanip
-            To get the actual key name you can also go to Cortex XSOAR CLI and run /incident_add and look for the key that you would like to update
-          title: CustomFields ...
-          type: object
-          x-go-package: github.com/demisto/server/domain
+          $ref: '#/components/schemas/CustomFields'
         isEnrichment:
           type: boolean
           x-go-name: IsEnrichment
@@ -6306,11 +5873,7 @@ components:
           type: object
           x-go-name: RawJSON
         relationships:
-          items:
-            $ref: '#/components/schemas/RelationshipAPI'
-          title: RelationshipsAPI ...
-          type: array
-          x-go-package: github.com/demisto/server/domain
+          $ref: '#/components/schemas/RelationshipsAPI'
         reliability:
           title: Reliability ...
           type: string
@@ -6914,11 +6477,7 @@ components:
           type: array
           x-go-name: FloatData
         groups:
-          description: Groups is a list of group entities
-          items:
-            $ref: '#/components/schemas/Group'
-          type: array
-          x-go-package: github.com/demisto/server/repo/entities
+          $ref: '#/components/schemas/Groups'
         name:
           type: string
           x-go-name: Name
@@ -9453,414 +9012,9 @@ components:
     IndicatorResult:
       example:
         total: 0
-        iocObjects:
-        - modifiedTime: 2000-01-23T04:56:07.000+00:00
-          deletedFeedFetchTime: 2000-01-23T04:56:07.000+00:00
-          relatedIncCount: 7
-          primaryTerm: 4
-          investigationIDs:
-          - investigationIDs
-          - investigationIDs
-          expirationStatus: expirationStatus
-          indicator_type: indicator_type
-          source: source
-          manualSetTime: 2000-01-23T04:56:07.000+00:00
-          manualExpirationTime: 2000-01-23T04:56:07.000+00:00
-          calculatedTime: 2000-01-23T04:56:07.000+00:00
-          highlight:
-            key:
-            - highlight
-            - highlight
-          score: 1
-          manuallyEditedFields:
-          - manuallyEditedFields
-          - manuallyEditedFields
-          lastReputationRun: 2000-01-23T04:56:07.000+00:00
-          modified: 2000-01-23T04:56:07.000+00:00
-          moduleToFeedMap:
-            key:
-              modifiedTime: 2000-01-23T04:56:07.000+00:00
-              sourceInstance: sourceInstance
-              comments:
-              - created: 2000-01-23T04:56:07.000+00:00
-                id: id
-                user: user
-                content: content
-              - created: 2000-01-23T04:56:07.000+00:00
-                id: id
-                user: user
-                content: content
-              classifierId: classifierId
-              reliability: reliability
-              mapperId: mapperId
-              expirationPolicy: expirationPolicy
-              mapperVersion: 5
-              rawJSON:
-                key: '{}'
-              type: type
-              isEnrichment: true
-              relationships:
-              - entityA: entityA
-                entityB: entityB
-                instance: instance
-                reverseName: reverseName
-                entityBType: entityBType
-                reliability: reliability
-                entityAType: entityAType
-                entityAFamily: entityAFamily
-                type: type
-                entityBFamily: entityBFamily
-                name: name
-                id: id
-                fields:
-                  key: '{}'
-                brand: brand
-              - entityA: entityA
-                entityB: entityB
-                instance: instance
-                reverseName: reverseName
-                entityBType: entityBType
-                reliability: reliability
-                entityAType: entityAType
-                entityAFamily: entityAFamily
-                type: type
-                entityBFamily: entityBFamily
-                name: name
-                id: id
-                fields:
-                  key: '{}'
-                brand: brand
-              score: 5
-              bypassExclusionList: true
-              sourceBrand: sourceBrand
-              expirationInterval: 1
-              fetchTime: 2000-01-23T04:56:07.000+00:00
-              ExpirationSource:
-                instance: instance
-                expirationInterval: 0
-                expirationPolicy: expirationPolicy
-                source: source
-                moduleId: moduleId
-                brand: brand
-                user: user
-                setTime: 2000-01-23T04:56:07.000+00:00
-              fields:
-                key: '{}'
-              moduleId: moduleId
-              classifierVersion: 6
-              value: value
-              timestamp: 2000-01-23T04:56:07.000+00:00
-          id: id
-          setBy: setBy
-          value: value
-          aggregatedReliability: aggregatedReliability
-          timestamp: 2000-01-23T04:56:07.000+00:00
-          manualScore: true
-          numericId: 2
-          sequenceNumber: 1
-          comments:
-          - numericId: 0
-            sequenceNumber: 1
-            created: 2000-01-23T04:56:07.000+00:00
-            primaryTerm: 6
-            source: source
-            type: type
-            sortValues:
-            - sortValues
-            - sortValues
-            version: 5
-            content: content
-            entryId: entryId
-            highlight:
-              key:
-              - highlight
-              - highlight
-            modified: 2000-01-23T04:56:07.000+00:00
-            id: id
-            category: category
-            user: user
-          - numericId: 0
-            sequenceNumber: 1
-            created: 2000-01-23T04:56:07.000+00:00
-            primaryTerm: 6
-            source: source
-            type: type
-            sortValues:
-            - sortValues
-            - sortValues
-            version: 5
-            content: content
-            entryId: entryId
-            highlight:
-              key:
-              - highlight
-              - highlight
-            modified: 2000-01-23T04:56:07.000+00:00
-            id: id
-            category: category
-            user: user
-          firstSeen: 2000-01-23T04:56:07.000+00:00
-          expirationSource:
-            instance: instance
-            expirationInterval: 0
-            expirationPolicy: expirationPolicy
-            source: source
-            moduleId: moduleId
-            brand: brand
-            user: user
-            setTime: 2000-01-23T04:56:07.000+00:00
-          insightCache:
-            highlight:
-              key:
-              - highlight
-              - highlight
-            numericId: 5
-            sequenceNumber: 9
-            scores:
-              key:
-                score: 7
-                isTypedIndicator: true
-                contentFormat: contentFormat
-                reliability: reliability
-                scoreChangeTimestamp: 2000-01-23T04:56:07.000+00:00
-                context:
-                  key: '{}'
-                type: type
-                content: content
-                timestamp: 2000-01-23T04:56:07.000+00:00
-            primaryTerm: 2
-            modified: 2000-01-23T04:56:07.000+00:00
-            id: id
-            sortValues:
-            - sortValues
-            - sortValues
-            version: 3
-          lastSeenEntryID: lastSeenEntryID
-          sortValues:
-          - sortValues
-          - sortValues
-          version: 1
-          CustomFields:
-            key: '{}'
-          sourceInstances:
-          - sourceInstances
-          - sourceInstances
-          lastSeen: 2000-01-23T04:56:07.000+00:00
-          firstSeenEntryID: firstSeenEntryID
-          sourceBrands:
-          - sourceBrands
-          - sourceBrands
-          comment: comment
-          expiration: 2000-01-23T04:56:07.000+00:00
-          account: account
-          isShared: true
-        - modifiedTime: 2000-01-23T04:56:07.000+00:00
-          deletedFeedFetchTime: 2000-01-23T04:56:07.000+00:00
-          relatedIncCount: 7
-          primaryTerm: 4
-          investigationIDs:
-          - investigationIDs
-          - investigationIDs
-          expirationStatus: expirationStatus
-          indicator_type: indicator_type
-          source: source
-          manualSetTime: 2000-01-23T04:56:07.000+00:00
-          manualExpirationTime: 2000-01-23T04:56:07.000+00:00
-          calculatedTime: 2000-01-23T04:56:07.000+00:00
-          highlight:
-            key:
-            - highlight
-            - highlight
-          score: 1
-          manuallyEditedFields:
-          - manuallyEditedFields
-          - manuallyEditedFields
-          lastReputationRun: 2000-01-23T04:56:07.000+00:00
-          modified: 2000-01-23T04:56:07.000+00:00
-          moduleToFeedMap:
-            key:
-              modifiedTime: 2000-01-23T04:56:07.000+00:00
-              sourceInstance: sourceInstance
-              comments:
-              - created: 2000-01-23T04:56:07.000+00:00
-                id: id
-                user: user
-                content: content
-              - created: 2000-01-23T04:56:07.000+00:00
-                id: id
-                user: user
-                content: content
-              classifierId: classifierId
-              reliability: reliability
-              mapperId: mapperId
-              expirationPolicy: expirationPolicy
-              mapperVersion: 5
-              rawJSON:
-                key: '{}'
-              type: type
-              isEnrichment: true
-              relationships:
-              - entityA: entityA
-                entityB: entityB
-                instance: instance
-                reverseName: reverseName
-                entityBType: entityBType
-                reliability: reliability
-                entityAType: entityAType
-                entityAFamily: entityAFamily
-                type: type
-                entityBFamily: entityBFamily
-                name: name
-                id: id
-                fields:
-                  key: '{}'
-                brand: brand
-              - entityA: entityA
-                entityB: entityB
-                instance: instance
-                reverseName: reverseName
-                entityBType: entityBType
-                reliability: reliability
-                entityAType: entityAType
-                entityAFamily: entityAFamily
-                type: type
-                entityBFamily: entityBFamily
-                name: name
-                id: id
-                fields:
-                  key: '{}'
-                brand: brand
-              score: 5
-              bypassExclusionList: true
-              sourceBrand: sourceBrand
-              expirationInterval: 1
-              fetchTime: 2000-01-23T04:56:07.000+00:00
-              ExpirationSource:
-                instance: instance
-                expirationInterval: 0
-                expirationPolicy: expirationPolicy
-                source: source
-                moduleId: moduleId
-                brand: brand
-                user: user
-                setTime: 2000-01-23T04:56:07.000+00:00
-              fields:
-                key: '{}'
-              moduleId: moduleId
-              classifierVersion: 6
-              value: value
-              timestamp: 2000-01-23T04:56:07.000+00:00
-          id: id
-          setBy: setBy
-          value: value
-          aggregatedReliability: aggregatedReliability
-          timestamp: 2000-01-23T04:56:07.000+00:00
-          manualScore: true
-          numericId: 2
-          sequenceNumber: 1
-          comments:
-          - numericId: 0
-            sequenceNumber: 1
-            created: 2000-01-23T04:56:07.000+00:00
-            primaryTerm: 6
-            source: source
-            type: type
-            sortValues:
-            - sortValues
-            - sortValues
-            version: 5
-            content: content
-            entryId: entryId
-            highlight:
-              key:
-              - highlight
-              - highlight
-            modified: 2000-01-23T04:56:07.000+00:00
-            id: id
-            category: category
-            user: user
-          - numericId: 0
-            sequenceNumber: 1
-            created: 2000-01-23T04:56:07.000+00:00
-            primaryTerm: 6
-            source: source
-            type: type
-            sortValues:
-            - sortValues
-            - sortValues
-            version: 5
-            content: content
-            entryId: entryId
-            highlight:
-              key:
-              - highlight
-              - highlight
-            modified: 2000-01-23T04:56:07.000+00:00
-            id: id
-            category: category
-            user: user
-          firstSeen: 2000-01-23T04:56:07.000+00:00
-          expirationSource:
-            instance: instance
-            expirationInterval: 0
-            expirationPolicy: expirationPolicy
-            source: source
-            moduleId: moduleId
-            brand: brand
-            user: user
-            setTime: 2000-01-23T04:56:07.000+00:00
-          insightCache:
-            highlight:
-              key:
-              - highlight
-              - highlight
-            numericId: 5
-            sequenceNumber: 9
-            scores:
-              key:
-                score: 7
-                isTypedIndicator: true
-                contentFormat: contentFormat
-                reliability: reliability
-                scoreChangeTimestamp: 2000-01-23T04:56:07.000+00:00
-                context:
-                  key: '{}'
-                type: type
-                content: content
-                timestamp: 2000-01-23T04:56:07.000+00:00
-            primaryTerm: 2
-            modified: 2000-01-23T04:56:07.000+00:00
-            id: id
-            sortValues:
-            - sortValues
-            - sortValues
-            version: 3
-          lastSeenEntryID: lastSeenEntryID
-          sortValues:
-          - sortValues
-          - sortValues
-          version: 1
-          CustomFields:
-            key: '{}'
-          sourceInstances:
-          - sourceInstances
-          - sourceInstances
-          lastSeen: 2000-01-23T04:56:07.000+00:00
-          firstSeenEntryID: firstSeenEntryID
-          sourceBrands:
-          - sourceBrands
-          - sourceBrands
-          comment: comment
-          expiration: 2000-01-23T04:56:07.000+00:00
-          account: account
-          isShared: true
       properties:
         iocObjects:
-          items:
-            $ref: '#/components/schemas/IocObject'
-          title: IocObjects ...
-          type: array
-          x-go-package: github.com/demisto/server/domain
+          $ref: '#/components/schemas/IocObjects'
         total:
           format: int64
           type: integer
@@ -9875,15 +9029,6 @@ components:
       type: array
       x-go-package: github.com/demisto/server/domain
     IndicatorTimelineFromEntry:
-      example:
-        Category: Category
-        User: User
-        Message: Message
-        Value:
-        - Value
-        - Value
-        Time: 2000-01-23T04:56:07.000+00:00
-        Source: Source
       properties:
         Category:
           type: string
@@ -9960,11 +9105,11 @@ components:
           key:
           - highlight
           - highlight
-        numericId: 5
-        sequenceNumber: 9
+        numericId: 6
+        sequenceNumber: 5
         scores:
           key:
-            score: 7
+            score: 5
             isTypedIndicator: true
             contentFormat: contentFormat
             reliability: reliability
@@ -9974,13 +9119,13 @@ components:
             type: type
             content: content
             timestamp: 2000-01-23T04:56:07.000+00:00
-        primaryTerm: 2
+        primaryTerm: 1
         modified: 2000-01-23T04:56:07.000+00:00
         id: id
         sortValues:
         - sortValues
         - sortValues
-        version: 3
+        version: 2
       properties:
         highlight:
           additionalProperties:
@@ -10028,7 +9173,7 @@ components:
       description: InstanceClassifier - classifies an incident from a specific brand
       example:
         commitMessage: commitMessage
-        primaryTerm: 9
+        primaryTerm: 1
         transformer:
           complex:
             transformers:
@@ -10053,149 +9198,6 @@ components:
           key:
           - highlight
           - highlight
-        indicatorSamples:
-        - modifiedTime: 2000-01-23T04:56:07.000+00:00
-          sourceInstance: sourceInstance
-          comments:
-          - created: 2000-01-23T04:56:07.000+00:00
-            id: id
-            user: user
-            content: content
-          - created: 2000-01-23T04:56:07.000+00:00
-            id: id
-            user: user
-            content: content
-          classifierId: classifierId
-          reliability: reliability
-          mapperId: mapperId
-          expirationPolicy: expirationPolicy
-          mapperVersion: 5
-          rawJSON:
-            key: '{}'
-          type: type
-          isEnrichment: true
-          relationships:
-          - entityA: entityA
-            entityB: entityB
-            instance: instance
-            reverseName: reverseName
-            entityBType: entityBType
-            reliability: reliability
-            entityAType: entityAType
-            entityAFamily: entityAFamily
-            type: type
-            entityBFamily: entityBFamily
-            name: name
-            id: id
-            fields:
-              key: '{}'
-            brand: brand
-          - entityA: entityA
-            entityB: entityB
-            instance: instance
-            reverseName: reverseName
-            entityBType: entityBType
-            reliability: reliability
-            entityAType: entityAType
-            entityAFamily: entityAFamily
-            type: type
-            entityBFamily: entityBFamily
-            name: name
-            id: id
-            fields:
-              key: '{}'
-            brand: brand
-          score: 5
-          bypassExclusionList: true
-          sourceBrand: sourceBrand
-          expirationInterval: 1
-          fetchTime: 2000-01-23T04:56:07.000+00:00
-          ExpirationSource:
-            instance: instance
-            expirationInterval: 0
-            expirationPolicy: expirationPolicy
-            source: source
-            moduleId: moduleId
-            brand: brand
-            user: user
-            setTime: 2000-01-23T04:56:07.000+00:00
-          fields:
-            key: '{}'
-          moduleId: moduleId
-          classifierVersion: 6
-          value: value
-          timestamp: 2000-01-23T04:56:07.000+00:00
-        - modifiedTime: 2000-01-23T04:56:07.000+00:00
-          sourceInstance: sourceInstance
-          comments:
-          - created: 2000-01-23T04:56:07.000+00:00
-            id: id
-            user: user
-            content: content
-          - created: 2000-01-23T04:56:07.000+00:00
-            id: id
-            user: user
-            content: content
-          classifierId: classifierId
-          reliability: reliability
-          mapperId: mapperId
-          expirationPolicy: expirationPolicy
-          mapperVersion: 5
-          rawJSON:
-            key: '{}'
-          type: type
-          isEnrichment: true
-          relationships:
-          - entityA: entityA
-            entityB: entityB
-            instance: instance
-            reverseName: reverseName
-            entityBType: entityBType
-            reliability: reliability
-            entityAType: entityAType
-            entityAFamily: entityAFamily
-            type: type
-            entityBFamily: entityBFamily
-            name: name
-            id: id
-            fields:
-              key: '{}'
-            brand: brand
-          - entityA: entityA
-            entityB: entityB
-            instance: instance
-            reverseName: reverseName
-            entityBType: entityBType
-            reliability: reliability
-            entityAType: entityAType
-            entityAFamily: entityAFamily
-            type: type
-            entityBFamily: entityBFamily
-            name: name
-            id: id
-            fields:
-              key: '{}'
-            brand: brand
-          score: 5
-          bypassExclusionList: true
-          sourceBrand: sourceBrand
-          expirationInterval: 1
-          fetchTime: 2000-01-23T04:56:07.000+00:00
-          ExpirationSource:
-            instance: instance
-            expirationInterval: 0
-            expirationPolicy: expirationPolicy
-            source: source
-            moduleId: moduleId
-            brand: brand
-            user: user
-            setTime: 2000-01-23T04:56:07.000+00:00
-          fields:
-            key: '{}'
-          moduleId: moduleId
-          classifierVersion: 6
-          value: value
-          timestamp: 2000-01-23T04:56:07.000+00:00
         instanceIds:
         - instanceIds
         - instanceIds
@@ -10216,8 +9218,8 @@ components:
           - 0
           - 0
           Label: Label
-        numericId: 7
-        sequenceNumber: 3
+        numericId: 6
+        sequenceNumber: 5
         mapping:
           key:
             internalMapping:
@@ -10243,7 +9245,7 @@ components:
         - brands
         - brands
         incidentSamples: '{}'
-        logicalVersion: 2
+        logicalVersion: 0
         itemVersion:
           Digits:
           - 0
@@ -10257,7 +9259,7 @@ components:
         - sortValues
         - sortValues
         vcShouldKeepItemLegacyProdMachine: true
-        version: 2
+        version: 5
         feed: true
         system: true
         unclassifiedCases: {}
@@ -10302,11 +9304,7 @@ components:
           description: Incidents is a list of incident entities
           type: object
         indicatorSamples:
-          items:
-            $ref: '#/components/schemas/FeedIndicator'
-          title: FeedIndicators ...
-          type: array
-          x-go-package: github.com/demisto/server/domain
+          $ref: '#/components/schemas/FeedIndicators'
         instanceIds:
           items:
             type: string
@@ -10408,6 +9406,212 @@ components:
           x-go-name: Versn
       type: object
       x-go-package: github.com/demisto/server/domain
+    InstanceClassifiers:
+      description: An array of classifiers
+      example:
+        classifiers:
+        - commitMessage: commitMessage
+          primaryTerm: 1
+          transformer:
+            complex:
+              transformers:
+              - args:
+                  key:
+                    isContext: true
+                operator: operator
+              - args:
+                  key:
+                    isContext: true
+                operator: operator
+              root: root
+              accessor: accessor
+              filters:
+              - null
+              - null
+            simple: simple
+          description: description
+          type: type
+          packID: packID
+          highlight:
+            key:
+            - highlight
+            - highlight
+          instanceIds:
+          - instanceIds
+          - instanceIds
+          toServerVersion:
+            Digits:
+            - 0
+            - 0
+            Label: Label
+          vcShouldIgnore: true
+          modified: 2000-01-23T04:56:07.000+00:00
+          prevName: prevName
+          id: id
+          keyTypeMap:
+            key: keyTypeMap
+          locked: true
+          fromServerVersion:
+            Digits:
+            - 0
+            - 0
+            Label: Label
+          numericId: 6
+          sequenceNumber: 5
+          mapping:
+            key:
+              internalMapping:
+                key:
+                  complex:
+                    transformers:
+                    - args:
+                        key:
+                          isContext: true
+                      operator: operator
+                    - args:
+                        key:
+                          isContext: true
+                      operator: operator
+                    root: root
+                    accessor: accessor
+                    filters:
+                    - null
+                    - null
+                  simple: simple
+              dontMapEventToLabels: true
+          brands:
+          - brands
+          - brands
+          incidentSamples: '{}'
+          logicalVersion: 0
+          itemVersion:
+            Digits:
+            - 0
+            - 0
+            Label: Label
+          packPropagationLabels:
+          - packPropagationLabels
+          - packPropagationLabels
+          shouldCommit: true
+          sortValues:
+          - sortValues
+          - sortValues
+          vcShouldKeepItemLegacyProdMachine: true
+          version: 5
+          feed: true
+          system: true
+          unclassifiedCases: {}
+          name: name
+          defaultIncidentType: defaultIncidentType
+          sourceClassifierId: sourceClassifierId
+          propagationLabels:
+          - propagationLabels
+          - propagationLabels
+          nameRaw: nameRaw
+        - commitMessage: commitMessage
+          primaryTerm: 1
+          transformer:
+            complex:
+              transformers:
+              - args:
+                  key:
+                    isContext: true
+                operator: operator
+              - args:
+                  key:
+                    isContext: true
+                operator: operator
+              root: root
+              accessor: accessor
+              filters:
+              - null
+              - null
+            simple: simple
+          description: description
+          type: type
+          packID: packID
+          highlight:
+            key:
+            - highlight
+            - highlight
+          instanceIds:
+          - instanceIds
+          - instanceIds
+          toServerVersion:
+            Digits:
+            - 0
+            - 0
+            Label: Label
+          vcShouldIgnore: true
+          modified: 2000-01-23T04:56:07.000+00:00
+          prevName: prevName
+          id: id
+          keyTypeMap:
+            key: keyTypeMap
+          locked: true
+          fromServerVersion:
+            Digits:
+            - 0
+            - 0
+            Label: Label
+          numericId: 6
+          sequenceNumber: 5
+          mapping:
+            key:
+              internalMapping:
+                key:
+                  complex:
+                    transformers:
+                    - args:
+                        key:
+                          isContext: true
+                      operator: operator
+                    - args:
+                        key:
+                          isContext: true
+                      operator: operator
+                    root: root
+                    accessor: accessor
+                    filters:
+                    - null
+                    - null
+                  simple: simple
+              dontMapEventToLabels: true
+          brands:
+          - brands
+          - brands
+          incidentSamples: '{}'
+          logicalVersion: 0
+          itemVersion:
+            Digits:
+            - 0
+            - 0
+            Label: Label
+          packPropagationLabels:
+          - packPropagationLabels
+          - packPropagationLabels
+          shouldCommit: true
+          sortValues:
+          - sortValues
+          - sortValues
+          vcShouldKeepItemLegacyProdMachine: true
+          version: 5
+          feed: true
+          system: true
+          unclassifiedCases: {}
+          name: name
+          defaultIncidentType: defaultIncidentType
+          sourceClassifierId: sourceClassifierId
+          propagationLabels:
+          - propagationLabels
+          - propagationLabels
+          nameRaw: nameRaw
+      properties:
+        classifiers:
+          items:
+            $ref: '#/components/schemas/InstanceClassifier'
+          type: array
+      type: object
     IntegrationWrapper:
       type: object
     IntegrationScript:
@@ -10604,7 +9808,7 @@ components:
       example:
         outputs:
           key: '{}'
-        completedCount: 1
+        completedCount: 6
         completedDate: 2000-01-23T04:56:07.000+00:00
         input: input
         entries:
@@ -10618,7 +9822,7 @@ components:
         arguments:
           key: '{}'
         state: state
-        willNotExecuteCount: 2
+        willNotExecuteCount: 3
         completedBy: completedBy
         startDate: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -10709,7 +9913,7 @@ components:
         neighborInvPBTaskId: neighborInvPBTaskId
         loop:
           scriptId: scriptId
-          wait: 1
+          wait: 4
           scriptArguments:
             key:
               complex:
@@ -10728,7 +9932,7 @@ components:
                 - null
                 - null
               simple: simple
-          max: 1
+          max: 2
           forEach: true
           isCommand: true
           scriptName: scriptName
@@ -10788,21 +9992,6 @@ components:
       x-go-package: github.com/demisto/server/services
     InvTaskDebug:
       example:
-        breakpointCondition:
-        - left:
-            isContext: true
-          ignoreCase: true
-          right:
-            isContext: true
-          type: type
-          operator: operator
-        - left:
-            isContext: true
-          ignoreCase: true
-          right:
-            isContext: true
-          type: type
-          operator: operator
         shouldOverrideDebugInfo: true
         skipConditionOverrideTo: skipConditionOverrideTo
         taskOriginalId: taskOriginalId
@@ -10814,12 +10003,7 @@ components:
         isMarkedWithBreakpoint: true
       properties:
         breakpointCondition:
-          description: ArgFilter - represent a slice of atomic filters with OR condition
-            between them (e.i. - atomic1 OR atomic2 OR ...)
-          items:
-            $ref: '#/components/schemas/ArgAtomicFilter'
-          type: array
-          x-go-package: github.com/demisto/server/domain
+          $ref: '#/components/schemas/ArgFilter'
         inputOverrides:
           additionalProperties:
             type: string
@@ -11444,100 +10628,8 @@ components:
       description: InvestigationPlaybook is a wrapper for a linked list of Playbook
         tasks
       example:
-        outputs:
-        - contextPath: contextPath
-          description: description
-          type: type
-        - contextPath: contextPath
-          description: description
-          type: type
         dbotCreatedBy: dbotCreatedBy
-        recoveryAttempts: 3
-        inputs:
-        - playbookInputQuery:
-            fromDate: 2000-01-23T04:56:07.000+00:00
-            runFromLastJobTime: true
-            fromDateLicense: 2000-01-23T04:56:07.000+00:00
-            period:
-              fromValue: fromValue
-              toValue: toValue
-              byFrom: byFrom
-              field: field
-              by: by
-              byTo: byTo
-            queryEntity: queryEntity
-            query: query
-            toDate: 2000-01-23T04:56:07.000+00:00
-            queryState:
-              totalResults: 5
-              searchAfter:
-              - searchAfter
-              - searchAfter
-              batchSize: 6
-              currentPage: 1
-            results: '{}'
-          description: description
-          value:
-            complex:
-              transformers:
-              - args:
-                  key:
-                    isContext: true
-                operator: operator
-              - args:
-                  key:
-                    isContext: true
-                operator: operator
-              root: root
-              accessor: accessor
-              filters:
-              - null
-              - null
-            simple: simple
-          key: key
-          required: true
-        - playbookInputQuery:
-            fromDate: 2000-01-23T04:56:07.000+00:00
-            runFromLastJobTime: true
-            fromDateLicense: 2000-01-23T04:56:07.000+00:00
-            period:
-              fromValue: fromValue
-              toValue: toValue
-              byFrom: byFrom
-              field: field
-              by: by
-              byTo: byTo
-            queryEntity: queryEntity
-            query: query
-            toDate: 2000-01-23T04:56:07.000+00:00
-            queryState:
-              totalResults: 5
-              searchAfter:
-              - searchAfter
-              - searchAfter
-              batchSize: 6
-              currentPage: 1
-            results: '{}'
-          description: description
-          value:
-            complex:
-              transformers:
-              - args:
-                  key:
-                    isContext: true
-                operator: operator
-              - args:
-                  key:
-                    isContext: true
-                operator: operator
-              root: root
-              accessor: accessor
-              filters:
-              - null
-              - null
-            simple: simple
-          key: key
-          required: true
+        recoveryAttempts: 6
         primaryTerm: 6
         roles:
         - roles
@@ -11561,102 +10653,10 @@ components:
         state: state
         Dirty: true
         pbHistory:
-        - outputs:
-          - contextPath: contextPath
-            description: description
-            type: type
-          - contextPath: contextPath
-            description: description
-            type: type
-          autoExtracting: true
+        - autoExtracting: true
           pendingTasks:
             key: '{}'
           investigationId: investigationId
-          inputs:
-          - playbookInputQuery:
-              fromDate: 2000-01-23T04:56:07.000+00:00
-              runFromLastJobTime: true
-              fromDateLicense: 2000-01-23T04:56:07.000+00:00
-              period:
-                fromValue: fromValue
-                toValue: toValue
-                byFrom: byFrom
-                field: field
-                by: by
-                byTo: byTo
-              queryEntity: queryEntity
-              query: query
-              toDate: 2000-01-23T04:56:07.000+00:00
-              queryState:
-                totalResults: 5
-                searchAfter:
-                - searchAfter
-                - searchAfter
-                batchSize: 6
-                currentPage: 1
-              results: '{}'
-            description: description
-            value:
-              complex:
-                transformers:
-                - args:
-                    key:
-                      isContext: true
-                  operator: operator
-                - args:
-                    key:
-                      isContext: true
-                  operator: operator
-                root: root
-                accessor: accessor
-                filters:
-                - null
-                - null
-              simple: simple
-            key: key
-            required: true
-          - playbookInputQuery:
-              fromDate: 2000-01-23T04:56:07.000+00:00
-              runFromLastJobTime: true
-              fromDateLicense: 2000-01-23T04:56:07.000+00:00
-              period:
-                fromValue: fromValue
-                toValue: toValue
-                byFrom: byFrom
-                field: field
-                by: by
-                byTo: byTo
-              queryEntity: queryEntity
-              query: query
-              toDate: 2000-01-23T04:56:07.000+00:00
-              queryState:
-                totalResults: 5
-                searchAfter:
-                - searchAfter
-                - searchAfter
-                batchSize: 6
-                currentPage: 1
-              results: '{}'
-            description: description
-            value:
-              complex:
-                transformers:
-                - args:
-                    key:
-                      isContext: true
-                  operator: operator
-                - args:
-                    key:
-                      isContext: true
-                  operator: operator
-                root: root
-                accessor: accessor
-                filters:
-                - null
-                - null
-              simple: simple
-            key: key
-            required: true
           startTaskId: startTaskId
           subPlaybookOutputs: {}
           ReadyPlaybookInputs:
@@ -11694,21 +10694,6 @@ components:
                   - null
                 simple: simple
               taskDebug:
-                breakpointCondition:
-                - left:
-                    isContext: true
-                  ignoreCase: true
-                  right:
-                    isContext: true
-                  type: type
-                  operator: operator
-                - left:
-                    isContext: true
-                  ignoreCase: true
-                  right:
-                    isContext: true
-                  type: type
-                  operator: operator
                 shouldOverrideDebugInfo: true
                 skipConditionOverrideTo: skipConditionOverrideTo
                 taskOriginalId: taskOriginalId
@@ -11730,7 +10715,7 @@ components:
               calculatedDescription: calculatedDescription
               loop:
                 scriptId: scriptId
-                wait: 1
+                wait: 4
                 scriptArguments:
                   key:
                     complex:
@@ -11749,7 +10734,7 @@ components:
                       - null
                       - null
                     simple: simple
-                max: 1
+                max: 2
                 forEach: true
                 isCommand: true
                 scriptName: scriptName
@@ -11759,9 +10744,9 @@ components:
                 - null
                 brand: brand
               parentBlockCount: 1
-              executionCount: 3
-              reputationCalc: 9.965781217890562
-              quietMode: 4
+              executionCount: 2
+              reputationCalc: 1.1730742509559433
+              quietMode: 6
               id: id
               state: state
               evidenceData:
@@ -11843,20 +10828,20 @@ components:
               separateContext: true
               skipUnavailable: true
               sla:
-                hours: 6
-                weeks: 8
-                days: 9
-              forEachIndex: 2
+                hours: 5
+                weeks: 9
+                days: 4
+              forEachIndex: 7
               taskSize: 6
-              completedCount: 2
+              completedCount: 1
               previousTasks:
                 key:
                 - previousTasks
                 - previousTasks
               slaReminder:
-                hours: 6
-                weeks: 8
-                days: 9
+                hours: 5
+                weeks: 9
+                days: 4
               completedDate: 2000-01-23T04:56:07.000+00:00
               input: input
               entries:
@@ -11869,7 +10854,7 @@ components:
               task:
                 clonedFrom: clonedFrom
                 numericId: 9
-                sequenceNumber: 3
+                sequenceNumber: 8
                 isTitleTask: true
                 primaryTerm: 6
                 description: description
@@ -11877,7 +10862,7 @@ components:
                 sortValues:
                 - sortValues
                 - sortValues
-                version: 6
+                version: 9
                 tags:
                 - tags
                 - tags
@@ -11931,7 +10916,7 @@ components:
               defaultAssignee: defaultAssignee
               startDate: 2000-01-23T04:56:07.000+00:00
               note: true
-              indent: 7
+              indent: 3
               assigneeSet: true
               blockingTasks:
               - blockingTasks
@@ -11950,7 +10935,7 @@ components:
               taskCompleteData:
               - outputs:
                   key: '{}'
-                completedCount: 1
+                completedCount: 6
                 completedDate: 2000-01-23T04:56:07.000+00:00
                 input: input
                 entries:
@@ -11964,12 +10949,12 @@ components:
                 arguments:
                   key: '{}'
                 state: state
-                willNotExecuteCount: 2
+                willNotExecuteCount: 3
                 completedBy: completedBy
                 startDate: 2000-01-23T04:56:07.000+00:00
               - outputs:
                   key: '{}'
-                completedCount: 1
+                completedCount: 6
                 completedDate: 2000-01-23T04:56:07.000+00:00
                 input: input
                 entries:
@@ -11983,12 +10968,12 @@ components:
                 arguments:
                   key: '{}'
                 state: state
-                willNotExecuteCount: 2
+                willNotExecuteCount: 3
                 completedBy: completedBy
                 startDate: 2000-01-23T04:56:07.000+00:00
               comments: true
               isAutoSwitchedToQuietMode: true
-              reminder: 5
+              reminder: 7
               nextPollingTime: 2000-01-23T04:56:07.000+00:00
               message:
                 cc:
@@ -12050,9 +11035,9 @@ components:
                 - replyOptions
                 format: format
                 timings:
-                  retriesCount: 6
-                  retriesInterval: 7
-                  completeAfterReplies: 1
+                  retriesCount: 1
+                  retriesInterval: 1
+                  completeAfterReplies: 7
                 defaultOption: defaultOption
                 to:
                   complex:
@@ -12137,7 +11122,7 @@ components:
                   simple: simple
                 fieldId: fieldId
               form:
-                totalAnswers: 4
+                totalAnswers: 9
                 expired: true
                 sender: sender
                 questions:
@@ -12321,111 +11306,19 @@ components:
                   placeholder: placeholder
                 description: description
                 title: title
-              dueDateDuration: 9
+              dueDateDuration: 5
               arguments:
                 key: '{}'
-              willNotExecuteCount: 5
-              defaultReminder: 7
-              timesPolled: 6
+              willNotExecuteCount: 2
+              defaultReminder: 5
+              timesPolled: 1
               completedBy: completedBy
               taskId: taskId
               isOverSize: true
-        - outputs:
-          - contextPath: contextPath
-            description: description
-            type: type
-          - contextPath: contextPath
-            description: description
-            type: type
-          autoExtracting: true
+        - autoExtracting: true
           pendingTasks:
             key: '{}'
           investigationId: investigationId
-          inputs:
-          - playbookInputQuery:
-              fromDate: 2000-01-23T04:56:07.000+00:00
-              runFromLastJobTime: true
-              fromDateLicense: 2000-01-23T04:56:07.000+00:00
-              period:
-                fromValue: fromValue
-                toValue: toValue
-                byFrom: byFrom
-                field: field
-                by: by
-                byTo: byTo
-              queryEntity: queryEntity
-              query: query
-              toDate: 2000-01-23T04:56:07.000+00:00
-              queryState:
-                totalResults: 5
-                searchAfter:
-                - searchAfter
-                - searchAfter
-                batchSize: 6
-                currentPage: 1
-              results: '{}'
-            description: description
-            value:
-              complex:
-                transformers:
-                - args:
-                    key:
-                      isContext: true
-                  operator: operator
-                - args:
-                    key:
-                      isContext: true
-                  operator: operator
-                root: root
-                accessor: accessor
-                filters:
-                - null
-                - null
-              simple: simple
-            key: key
-            required: true
-          - playbookInputQuery:
-              fromDate: 2000-01-23T04:56:07.000+00:00
-              runFromLastJobTime: true
-              fromDateLicense: 2000-01-23T04:56:07.000+00:00
-              period:
-                fromValue: fromValue
-                toValue: toValue
-                byFrom: byFrom
-                field: field
-                by: by
-                byTo: byTo
-              queryEntity: queryEntity
-              query: query
-              toDate: 2000-01-23T04:56:07.000+00:00
-              queryState:
-                totalResults: 5
-                searchAfter:
-                - searchAfter
-                - searchAfter
-                batchSize: 6
-                currentPage: 1
-              results: '{}'
-            description: description
-            value:
-              complex:
-                transformers:
-                - args:
-                    key:
-                      isContext: true
-                  operator: operator
-                - args:
-                    key:
-                      isContext: true
-                  operator: operator
-                root: root
-                accessor: accessor
-                filters:
-                - null
-                - null
-              simple: simple
-            key: key
-            required: true
           startTaskId: startTaskId
           subPlaybookOutputs: {}
           ReadyPlaybookInputs:
@@ -12463,21 +11356,6 @@ components:
                   - null
                 simple: simple
               taskDebug:
-                breakpointCondition:
-                - left:
-                    isContext: true
-                  ignoreCase: true
-                  right:
-                    isContext: true
-                  type: type
-                  operator: operator
-                - left:
-                    isContext: true
-                  ignoreCase: true
-                  right:
-                    isContext: true
-                  type: type
-                  operator: operator
                 shouldOverrideDebugInfo: true
                 skipConditionOverrideTo: skipConditionOverrideTo
                 taskOriginalId: taskOriginalId
@@ -12499,7 +11377,7 @@ components:
               calculatedDescription: calculatedDescription
               loop:
                 scriptId: scriptId
-                wait: 1
+                wait: 4
                 scriptArguments:
                   key:
                     complex:
@@ -12518,7 +11396,7 @@ components:
                       - null
                       - null
                     simple: simple
-                max: 1
+                max: 2
                 forEach: true
                 isCommand: true
                 scriptName: scriptName
@@ -12528,9 +11406,9 @@ components:
                 - null
                 brand: brand
               parentBlockCount: 1
-              executionCount: 3
-              reputationCalc: 9.965781217890562
-              quietMode: 4
+              executionCount: 2
+              reputationCalc: 1.1730742509559433
+              quietMode: 6
               id: id
               state: state
               evidenceData:
@@ -12612,20 +11490,20 @@ components:
               separateContext: true
               skipUnavailable: true
               sla:
-                hours: 6
-                weeks: 8
-                days: 9
-              forEachIndex: 2
+                hours: 5
+                weeks: 9
+                days: 4
+              forEachIndex: 7
               taskSize: 6
-              completedCount: 2
+              completedCount: 1
               previousTasks:
                 key:
                 - previousTasks
                 - previousTasks
               slaReminder:
-                hours: 6
-                weeks: 8
-                days: 9
+                hours: 5
+                weeks: 9
+                days: 4
               completedDate: 2000-01-23T04:56:07.000+00:00
               input: input
               entries:
@@ -12638,7 +11516,7 @@ components:
               task:
                 clonedFrom: clonedFrom
                 numericId: 9
-                sequenceNumber: 3
+                sequenceNumber: 8
                 isTitleTask: true
                 primaryTerm: 6
                 description: description
@@ -12646,7 +11524,7 @@ components:
                 sortValues:
                 - sortValues
                 - sortValues
-                version: 6
+                version: 9
                 tags:
                 - tags
                 - tags
@@ -12700,7 +11578,7 @@ components:
               defaultAssignee: defaultAssignee
               startDate: 2000-01-23T04:56:07.000+00:00
               note: true
-              indent: 7
+              indent: 3
               assigneeSet: true
               blockingTasks:
               - blockingTasks
@@ -12719,7 +11597,7 @@ components:
               taskCompleteData:
               - outputs:
                   key: '{}'
-                completedCount: 1
+                completedCount: 6
                 completedDate: 2000-01-23T04:56:07.000+00:00
                 input: input
                 entries:
@@ -12733,12 +11611,12 @@ components:
                 arguments:
                   key: '{}'
                 state: state
-                willNotExecuteCount: 2
+                willNotExecuteCount: 3
                 completedBy: completedBy
                 startDate: 2000-01-23T04:56:07.000+00:00
               - outputs:
                   key: '{}'
-                completedCount: 1
+                completedCount: 6
                 completedDate: 2000-01-23T04:56:07.000+00:00
                 input: input
                 entries:
@@ -12752,12 +11630,12 @@ components:
                 arguments:
                   key: '{}'
                 state: state
-                willNotExecuteCount: 2
+                willNotExecuteCount: 3
                 completedBy: completedBy
                 startDate: 2000-01-23T04:56:07.000+00:00
               comments: true
               isAutoSwitchedToQuietMode: true
-              reminder: 5
+              reminder: 7
               nextPollingTime: 2000-01-23T04:56:07.000+00:00
               message:
                 cc:
@@ -12819,9 +11697,9 @@ components:
                 - replyOptions
                 format: format
                 timings:
-                  retriesCount: 6
-                  retriesInterval: 7
-                  completeAfterReplies: 1
+                  retriesCount: 1
+                  retriesInterval: 1
+                  completeAfterReplies: 7
                 defaultOption: defaultOption
                 to:
                   complex:
@@ -12906,7 +11784,7 @@ components:
                   simple: simple
                 fieldId: fieldId
               form:
-                totalAnswers: 4
+                totalAnswers: 9
                 expired: true
                 sender: sender
                 questions:
@@ -13090,12 +11968,12 @@ components:
                   placeholder: placeholder
                 description: description
                 title: title
-              dueDateDuration: 9
+              dueDateDuration: 5
               arguments:
                 key: '{}'
-              willNotExecuteCount: 5
-              defaultReminder: 7
-              timesPolled: 6
+              willNotExecuteCount: 2
+              defaultReminder: 5
+              timesPolled: 1
               completedBy: completedBy
               taskId: taskId
               isOverSize: true
@@ -13122,21 +12000,6 @@ components:
                 - null
               simple: simple
             taskDebug:
-              breakpointCondition:
-              - left:
-                  isContext: true
-                ignoreCase: true
-                right:
-                  isContext: true
-                type: type
-                operator: operator
-              - left:
-                  isContext: true
-                ignoreCase: true
-                right:
-                  isContext: true
-                type: type
-                operator: operator
               shouldOverrideDebugInfo: true
               skipConditionOverrideTo: skipConditionOverrideTo
               taskOriginalId: taskOriginalId
@@ -13158,7 +12021,7 @@ components:
             calculatedDescription: calculatedDescription
             loop:
               scriptId: scriptId
-              wait: 1
+              wait: 4
               scriptArguments:
                 key:
                   complex:
@@ -13177,7 +12040,7 @@ components:
                     - null
                     - null
                   simple: simple
-              max: 1
+              max: 2
               forEach: true
               isCommand: true
               scriptName: scriptName
@@ -13187,9 +12050,9 @@ components:
               - null
               brand: brand
             parentBlockCount: 1
-            executionCount: 3
-            reputationCalc: 9.965781217890562
-            quietMode: 4
+            executionCount: 2
+            reputationCalc: 1.1730742509559433
+            quietMode: 6
             id: id
             state: state
             evidenceData:
@@ -13271,20 +12134,20 @@ components:
             separateContext: true
             skipUnavailable: true
             sla:
-              hours: 6
-              weeks: 8
-              days: 9
-            forEachIndex: 2
+              hours: 5
+              weeks: 9
+              days: 4
+            forEachIndex: 7
             taskSize: 6
-            completedCount: 2
+            completedCount: 1
             previousTasks:
               key:
               - previousTasks
               - previousTasks
             slaReminder:
-              hours: 6
-              weeks: 8
-              days: 9
+              hours: 5
+              weeks: 9
+              days: 4
             completedDate: 2000-01-23T04:56:07.000+00:00
             input: input
             entries:
@@ -13297,7 +12160,7 @@ components:
             task:
               clonedFrom: clonedFrom
               numericId: 9
-              sequenceNumber: 3
+              sequenceNumber: 8
               isTitleTask: true
               primaryTerm: 6
               description: description
@@ -13305,7 +12168,7 @@ components:
               sortValues:
               - sortValues
               - sortValues
-              version: 6
+              version: 9
               tags:
               - tags
               - tags
@@ -13359,7 +12222,7 @@ components:
             defaultAssignee: defaultAssignee
             startDate: 2000-01-23T04:56:07.000+00:00
             note: true
-            indent: 7
+            indent: 3
             assigneeSet: true
             blockingTasks:
             - blockingTasks
@@ -13378,7 +12241,7 @@ components:
             taskCompleteData:
             - outputs:
                 key: '{}'
-              completedCount: 1
+              completedCount: 6
               completedDate: 2000-01-23T04:56:07.000+00:00
               input: input
               entries:
@@ -13392,12 +12255,12 @@ components:
               arguments:
                 key: '{}'
               state: state
-              willNotExecuteCount: 2
+              willNotExecuteCount: 3
               completedBy: completedBy
               startDate: 2000-01-23T04:56:07.000+00:00
             - outputs:
                 key: '{}'
-              completedCount: 1
+              completedCount: 6
               completedDate: 2000-01-23T04:56:07.000+00:00
               input: input
               entries:
@@ -13411,12 +12274,12 @@ components:
               arguments:
                 key: '{}'
               state: state
-              willNotExecuteCount: 2
+              willNotExecuteCount: 3
               completedBy: completedBy
               startDate: 2000-01-23T04:56:07.000+00:00
             comments: true
             isAutoSwitchedToQuietMode: true
-            reminder: 5
+            reminder: 7
             nextPollingTime: 2000-01-23T04:56:07.000+00:00
             message:
               cc:
@@ -13478,9 +12341,9 @@ components:
               - replyOptions
               format: format
               timings:
-                retriesCount: 6
-                retriesInterval: 7
-                completeAfterReplies: 1
+                retriesCount: 1
+                retriesInterval: 1
+                completeAfterReplies: 7
               defaultOption: defaultOption
               to:
                 complex:
@@ -13565,7 +12428,7 @@ components:
                 simple: simple
               fieldId: fieldId
             form:
-              totalAnswers: 4
+              totalAnswers: 9
               expired: true
               sender: sender
               questions:
@@ -13749,21 +12612,21 @@ components:
                 placeholder: placeholder
               description: description
               title: title
-            dueDateDuration: 9
+            dueDateDuration: 5
             arguments:
               key: '{}'
-            willNotExecuteCount: 5
-            defaultReminder: 7
-            timesPolled: 6
+            willNotExecuteCount: 2
+            defaultReminder: 5
+            timesPolled: 1
             completedBy: completedBy
             taskId: taskId
             isOverSize: true
         allReadWrite: true
         autoExtracting: true
-        numericId: 5
+        numericId: 6
         pendingTasks:
           key: '{}'
-        sequenceNumber: 3
+        sequenceNumber: 5
         previousAllRead: true
         investigationId: investigationId
         previousRoles:
@@ -13779,7 +12642,7 @@ components:
         sortValues:
         - sortValues
         - sortValues
-        version: 7
+        version: 6
         ReadyPlaybookInputs:
           key:
             key: '{}'
@@ -13848,11 +12711,7 @@ components:
           type: string
           x-go-name: IncidentCreateDate
         inputs:
-          description: PlaybookInputs - array of PlaybookInput
-          items:
-            $ref: '#/components/schemas/PlaybookInput'
-          type: array
-          x-go-package: github.com/demisto/server/domain
+          $ref: '#/components/schemas/PlaybookInputs'
         invPBDebugInfo:
           $ref: '#/components/schemas/InvPlaybookDebugInfo'
         investigationId:
@@ -13873,11 +12732,7 @@ components:
           type: integer
           x-go-name: NumericID
         outputs:
-          description: PlaybookOutputs - array of PlaybookOutput
-          items:
-            $ref: '#/components/schemas/PlaybookOutput'
-          type: array
-          x-go-package: github.com/demisto/server/domain
+          $ref: '#/components/schemas/PlaybookOutputs'
         pbHistory:
           description: 'in: body'
           items:
@@ -13992,102 +12847,10 @@ components:
       description: InvestigationPlaybookData returns all data of an investigation
         playbook, not including history
       example:
-        outputs:
-        - contextPath: contextPath
-          description: description
-          type: type
-        - contextPath: contextPath
-          description: description
-          type: type
         autoExtracting: true
         pendingTasks:
           key: '{}'
         investigationId: investigationId
-        inputs:
-        - playbookInputQuery:
-            fromDate: 2000-01-23T04:56:07.000+00:00
-            runFromLastJobTime: true
-            fromDateLicense: 2000-01-23T04:56:07.000+00:00
-            period:
-              fromValue: fromValue
-              toValue: toValue
-              byFrom: byFrom
-              field: field
-              by: by
-              byTo: byTo
-            queryEntity: queryEntity
-            query: query
-            toDate: 2000-01-23T04:56:07.000+00:00
-            queryState:
-              totalResults: 5
-              searchAfter:
-              - searchAfter
-              - searchAfter
-              batchSize: 6
-              currentPage: 1
-            results: '{}'
-          description: description
-          value:
-            complex:
-              transformers:
-              - args:
-                  key:
-                    isContext: true
-                operator: operator
-              - args:
-                  key:
-                    isContext: true
-                operator: operator
-              root: root
-              accessor: accessor
-              filters:
-              - null
-              - null
-            simple: simple
-          key: key
-          required: true
-        - playbookInputQuery:
-            fromDate: 2000-01-23T04:56:07.000+00:00
-            runFromLastJobTime: true
-            fromDateLicense: 2000-01-23T04:56:07.000+00:00
-            period:
-              fromValue: fromValue
-              toValue: toValue
-              byFrom: byFrom
-              field: field
-              by: by
-              byTo: byTo
-            queryEntity: queryEntity
-            query: query
-            toDate: 2000-01-23T04:56:07.000+00:00
-            queryState:
-              totalResults: 5
-              searchAfter:
-              - searchAfter
-              - searchAfter
-              batchSize: 6
-              currentPage: 1
-            results: '{}'
-          description: description
-          value:
-            complex:
-              transformers:
-              - args:
-                  key:
-                    isContext: true
-                operator: operator
-              - args:
-                  key:
-                    isContext: true
-                operator: operator
-              root: root
-              accessor: accessor
-              filters:
-              - null
-              - null
-            simple: simple
-          key: key
-          required: true
         startTaskId: startTaskId
         subPlaybookOutputs: {}
         ReadyPlaybookInputs:
@@ -14125,21 +12888,6 @@ components:
                 - null
               simple: simple
             taskDebug:
-              breakpointCondition:
-              - left:
-                  isContext: true
-                ignoreCase: true
-                right:
-                  isContext: true
-                type: type
-                operator: operator
-              - left:
-                  isContext: true
-                ignoreCase: true
-                right:
-                  isContext: true
-                type: type
-                operator: operator
               shouldOverrideDebugInfo: true
               skipConditionOverrideTo: skipConditionOverrideTo
               taskOriginalId: taskOriginalId
@@ -14161,7 +12909,7 @@ components:
             calculatedDescription: calculatedDescription
             loop:
               scriptId: scriptId
-              wait: 1
+              wait: 4
               scriptArguments:
                 key:
                   complex:
@@ -14180,7 +12928,7 @@ components:
                     - null
                     - null
                   simple: simple
-              max: 1
+              max: 2
               forEach: true
               isCommand: true
               scriptName: scriptName
@@ -14190,9 +12938,9 @@ components:
               - null
               brand: brand
             parentBlockCount: 1
-            executionCount: 3
-            reputationCalc: 9.965781217890562
-            quietMode: 4
+            executionCount: 2
+            reputationCalc: 1.1730742509559433
+            quietMode: 6
             id: id
             state: state
             evidenceData:
@@ -14274,20 +13022,20 @@ components:
             separateContext: true
             skipUnavailable: true
             sla:
-              hours: 6
-              weeks: 8
-              days: 9
-            forEachIndex: 2
+              hours: 5
+              weeks: 9
+              days: 4
+            forEachIndex: 7
             taskSize: 6
-            completedCount: 2
+            completedCount: 1
             previousTasks:
               key:
               - previousTasks
               - previousTasks
             slaReminder:
-              hours: 6
-              weeks: 8
-              days: 9
+              hours: 5
+              weeks: 9
+              days: 4
             completedDate: 2000-01-23T04:56:07.000+00:00
             input: input
             entries:
@@ -14300,7 +13048,7 @@ components:
             task:
               clonedFrom: clonedFrom
               numericId: 9
-              sequenceNumber: 3
+              sequenceNumber: 8
               isTitleTask: true
               primaryTerm: 6
               description: description
@@ -14308,7 +13056,7 @@ components:
               sortValues:
               - sortValues
               - sortValues
-              version: 6
+              version: 9
               tags:
               - tags
               - tags
@@ -14362,7 +13110,7 @@ components:
             defaultAssignee: defaultAssignee
             startDate: 2000-01-23T04:56:07.000+00:00
             note: true
-            indent: 7
+            indent: 3
             assigneeSet: true
             blockingTasks:
             - blockingTasks
@@ -14381,7 +13129,7 @@ components:
             taskCompleteData:
             - outputs:
                 key: '{}'
-              completedCount: 1
+              completedCount: 6
               completedDate: 2000-01-23T04:56:07.000+00:00
               input: input
               entries:
@@ -14395,12 +13143,12 @@ components:
               arguments:
                 key: '{}'
               state: state
-              willNotExecuteCount: 2
+              willNotExecuteCount: 3
               completedBy: completedBy
               startDate: 2000-01-23T04:56:07.000+00:00
             - outputs:
                 key: '{}'
-              completedCount: 1
+              completedCount: 6
               completedDate: 2000-01-23T04:56:07.000+00:00
               input: input
               entries:
@@ -14414,12 +13162,12 @@ components:
               arguments:
                 key: '{}'
               state: state
-              willNotExecuteCount: 2
+              willNotExecuteCount: 3
               completedBy: completedBy
               startDate: 2000-01-23T04:56:07.000+00:00
             comments: true
             isAutoSwitchedToQuietMode: true
-            reminder: 5
+            reminder: 7
             nextPollingTime: 2000-01-23T04:56:07.000+00:00
             message:
               cc:
@@ -14481,9 +13229,9 @@ components:
               - replyOptions
               format: format
               timings:
-                retriesCount: 6
-                retriesInterval: 7
-                completeAfterReplies: 1
+                retriesCount: 1
+                retriesInterval: 1
+                completeAfterReplies: 7
               defaultOption: defaultOption
               to:
                 complex:
@@ -14568,7 +13316,7 @@ components:
                 simple: simple
               fieldId: fieldId
             form:
-              totalAnswers: 4
+              totalAnswers: 9
               expired: true
               sender: sender
               questions:
@@ -14752,12 +13500,12 @@ components:
                 placeholder: placeholder
               description: description
               title: title
-            dueDateDuration: 9
+            dueDateDuration: 5
             arguments:
               key: '{}'
-            willNotExecuteCount: 5
-            defaultReminder: 7
-            timesPolled: 6
+            willNotExecuteCount: 2
+            defaultReminder: 5
+            timesPolled: 1
             completedBy: completedBy
             taskId: taskId
             isOverSize: true
@@ -14776,11 +13524,7 @@ components:
           type: string
           x-go-name: Description
         inputs:
-          description: PlaybookInputs - array of PlaybookInput
-          items:
-            $ref: '#/components/schemas/PlaybookInput'
-          type: array
-          x-go-package: github.com/demisto/server/domain
+          $ref: '#/components/schemas/PlaybookInputs'
         investigationId:
           type: string
           x-go-name: InvestigationID
@@ -14791,11 +13535,7 @@ components:
           type: string
           x-go-name: Name
         outputs:
-          description: PlaybookOutputs - array of PlaybookOutput
-          items:
-            $ref: '#/components/schemas/PlaybookOutput'
-          type: array
-          x-go-package: github.com/demisto/server/domain
+          $ref: '#/components/schemas/PlaybookOutputs'
         pendingTasks:
           additionalProperties:
             properties: {}
@@ -14873,21 +13613,6 @@ components:
             - null
           simple: simple
         taskDebug:
-          breakpointCondition:
-          - left:
-              isContext: true
-            ignoreCase: true
-            right:
-              isContext: true
-            type: type
-            operator: operator
-          - left:
-              isContext: true
-            ignoreCase: true
-            right:
-              isContext: true
-            type: type
-            operator: operator
           shouldOverrideDebugInfo: true
           skipConditionOverrideTo: skipConditionOverrideTo
           taskOriginalId: taskOriginalId
@@ -14909,7 +13634,7 @@ components:
         calculatedDescription: calculatedDescription
         loop:
           scriptId: scriptId
-          wait: 1
+          wait: 4
           scriptArguments:
             key:
               complex:
@@ -14928,7 +13653,7 @@ components:
                 - null
                 - null
               simple: simple
-          max: 1
+          max: 2
           forEach: true
           isCommand: true
           scriptName: scriptName
@@ -14938,9 +13663,9 @@ components:
           - null
           brand: brand
         parentBlockCount: 1
-        executionCount: 3
-        reputationCalc: 9.965781217890562
-        quietMode: 4
+        executionCount: 2
+        reputationCalc: 1.1730742509559433
+        quietMode: 6
         id: id
         state: state
         evidenceData:
@@ -15022,20 +13747,20 @@ components:
         separateContext: true
         skipUnavailable: true
         sla:
-          hours: 6
-          weeks: 8
-          days: 9
-        forEachIndex: 2
+          hours: 5
+          weeks: 9
+          days: 4
+        forEachIndex: 7
         taskSize: 6
-        completedCount: 2
+        completedCount: 1
         previousTasks:
           key:
           - previousTasks
           - previousTasks
         slaReminder:
-          hours: 6
-          weeks: 8
-          days: 9
+          hours: 5
+          weeks: 9
+          days: 4
         completedDate: 2000-01-23T04:56:07.000+00:00
         input: input
         entries:
@@ -15048,7 +13773,7 @@ components:
         task:
           clonedFrom: clonedFrom
           numericId: 9
-          sequenceNumber: 3
+          sequenceNumber: 8
           isTitleTask: true
           primaryTerm: 6
           description: description
@@ -15056,7 +13781,7 @@ components:
           sortValues:
           - sortValues
           - sortValues
-          version: 6
+          version: 9
           tags:
           - tags
           - tags
@@ -15110,7 +13835,7 @@ components:
         defaultAssignee: defaultAssignee
         startDate: 2000-01-23T04:56:07.000+00:00
         note: true
-        indent: 7
+        indent: 3
         assigneeSet: true
         blockingTasks:
         - blockingTasks
@@ -15129,7 +13854,7 @@ components:
         taskCompleteData:
         - outputs:
             key: '{}'
-          completedCount: 1
+          completedCount: 6
           completedDate: 2000-01-23T04:56:07.000+00:00
           input: input
           entries:
@@ -15143,12 +13868,12 @@ components:
           arguments:
             key: '{}'
           state: state
-          willNotExecuteCount: 2
+          willNotExecuteCount: 3
           completedBy: completedBy
           startDate: 2000-01-23T04:56:07.000+00:00
         - outputs:
             key: '{}'
-          completedCount: 1
+          completedCount: 6
           completedDate: 2000-01-23T04:56:07.000+00:00
           input: input
           entries:
@@ -15162,12 +13887,12 @@ components:
           arguments:
             key: '{}'
           state: state
-          willNotExecuteCount: 2
+          willNotExecuteCount: 3
           completedBy: completedBy
           startDate: 2000-01-23T04:56:07.000+00:00
         comments: true
         isAutoSwitchedToQuietMode: true
-        reminder: 5
+        reminder: 7
         nextPollingTime: 2000-01-23T04:56:07.000+00:00
         message:
           cc:
@@ -15229,9 +13954,9 @@ components:
           - replyOptions
           format: format
           timings:
-            retriesCount: 6
-            retriesInterval: 7
-            completeAfterReplies: 1
+            retriesCount: 1
+            retriesInterval: 1
+            completeAfterReplies: 7
           defaultOption: defaultOption
           to:
             complex:
@@ -15316,7 +14041,7 @@ components:
             simple: simple
           fieldId: fieldId
         form:
-          totalAnswers: 4
+          totalAnswers: 9
           expired: true
           sender: sender
           questions:
@@ -15500,12 +14225,12 @@ components:
             placeholder: placeholder
           description: description
           title: title
-        dueDateDuration: 9
+        dueDateDuration: 5
         arguments:
           key: '{}'
-        willNotExecuteCount: 5
-        defaultReminder: 7
-        timesPolled: 6
+        willNotExecuteCount: 2
+        defaultReminder: 5
+        timesPolled: 1
         completedBy: completedBy
         taskId: taskId
         isOverSize: true
@@ -16117,8 +14842,8 @@ components:
       example:
         modifiedTime: 2000-01-23T04:56:07.000+00:00
         deletedFeedFetchTime: 2000-01-23T04:56:07.000+00:00
-        relatedIncCount: 7
-        primaryTerm: 4
+        relatedIncCount: 1
+        primaryTerm: 7
         investigationIDs:
         - investigationIDs
         - investigationIDs
@@ -16155,46 +14880,15 @@ components:
             reliability: reliability
             mapperId: mapperId
             expirationPolicy: expirationPolicy
-            mapperVersion: 5
+            mapperVersion: 3
             rawJSON:
               key: '{}'
             type: type
             isEnrichment: true
-            relationships:
-            - entityA: entityA
-              entityB: entityB
-              instance: instance
-              reverseName: reverseName
-              entityBType: entityBType
-              reliability: reliability
-              entityAType: entityAType
-              entityAFamily: entityAFamily
-              type: type
-              entityBFamily: entityBFamily
-              name: name
-              id: id
-              fields:
-                key: '{}'
-              brand: brand
-            - entityA: entityA
-              entityB: entityB
-              instance: instance
-              reverseName: reverseName
-              entityBType: entityBType
-              reliability: reliability
-              entityAType: entityAType
-              entityAFamily: entityAFamily
-              type: type
-              entityBFamily: entityBFamily
-              name: name
-              id: id
-              fields:
-                key: '{}'
-              brand: brand
-            score: 5
+            score: 2
             bypassExclusionList: true
             sourceBrand: sourceBrand
-            expirationInterval: 1
+            expirationInterval: 9
             fetchTime: 2000-01-23T04:56:07.000+00:00
             ExpirationSource:
               instance: instance
@@ -16205,10 +14899,8 @@ components:
               brand: brand
               user: user
               setTime: 2000-01-23T04:56:07.000+00:00
-            fields:
-              key: '{}'
             moduleId: moduleId
-            classifierVersion: 6
+            classifierVersion: 7
             value: value
             timestamp: 2000-01-23T04:56:07.000+00:00
         id: id
@@ -16217,49 +14909,8 @@ components:
         aggregatedReliability: aggregatedReliability
         timestamp: 2000-01-23T04:56:07.000+00:00
         manualScore: true
-        numericId: 2
+        numericId: 4
         sequenceNumber: 1
-        comments:
-        - numericId: 0
-          sequenceNumber: 1
-          created: 2000-01-23T04:56:07.000+00:00
-          primaryTerm: 6
-          source: source
-          type: type
-          sortValues:
-          - sortValues
-          - sortValues
-          version: 5
-          content: content
-          entryId: entryId
-          highlight:
-            key:
-            - highlight
-            - highlight
-          modified: 2000-01-23T04:56:07.000+00:00
-          id: id
-          category: category
-          user: user
-        - numericId: 0
-          sequenceNumber: 1
-          created: 2000-01-23T04:56:07.000+00:00
-          primaryTerm: 6
-          source: source
-          type: type
-          sortValues:
-          - sortValues
-          - sortValues
-          version: 5
-          content: content
-          entryId: entryId
-          highlight:
-            key:
-            - highlight
-            - highlight
-          modified: 2000-01-23T04:56:07.000+00:00
-          id: id
-          category: category
-          user: user
         firstSeen: 2000-01-23T04:56:07.000+00:00
         expirationSource:
           instance: instance
@@ -16275,11 +14926,11 @@ components:
             key:
             - highlight
             - highlight
-          numericId: 5
-          sequenceNumber: 9
+          numericId: 6
+          sequenceNumber: 5
           scores:
             key:
-              score: 7
+              score: 5
               isTypedIndicator: true
               contentFormat: contentFormat
               reliability: reliability
@@ -16289,20 +14940,18 @@ components:
               type: type
               content: content
               timestamp: 2000-01-23T04:56:07.000+00:00
-          primaryTerm: 2
+          primaryTerm: 1
           modified: 2000-01-23T04:56:07.000+00:00
           id: id
           sortValues:
           - sortValues
           - sortValues
-          version: 3
+          version: 2
         lastSeenEntryID: lastSeenEntryID
         sortValues:
         - sortValues
         - sortValues
-        version: 1
-        CustomFields:
-          key: '{}'
+        version: 6
         sourceInstances:
         - sourceInstances
         - sourceInstances
@@ -16317,15 +14966,7 @@ components:
         isShared: true
       properties:
         CustomFields:
-          additionalProperties:
-            properties: {}
-            type: object
-          description: |-
-            The keys should be the field's display name all lower and without spaces. For example: Scan IP -> scanip
-            To get the actual key name you can also go to Cortex XSOAR CLI and run /incident_add and look for the key that you would like to update
-          title: CustomFields ...
-          type: object
-          x-go-package: github.com/demisto/server/domain
+          $ref: '#/components/schemas/CustomFields'
         account:
           type: string
           x-go-name: Account
@@ -16341,11 +14982,7 @@ components:
           type: string
           x-go-name: Comment
         comments:
-          items:
-            $ref: '#/components/schemas/Comment'
-          title: Comments ...
-          type: array
-          x-go-package: github.com/demisto/server/domain
+          $ref: '#/components/schemas/Comments'
         deletedFeedFetchTime:
           format: date-time
           type: string
@@ -16824,11 +15461,7 @@ components:
     Location:
       properties:
         array_positions:
-          items:
-            format: uint64
-            type: integer
-          type: array
-          x-go-package: github.com/blevesearch/bleve/v2/search
+          $ref: '#/components/schemas/ArrayPositions'
         end:
           format: uint64
           type: integer
@@ -16856,13 +15489,6 @@ components:
         $ref: '#/components/schemas/MainHost'
       type: array
     MainHost:
-      example:
-        activeWorkers: 0
-        appServerId: appServerId
-        hostAddress: hostAddress
-        id: id
-        totalWorkers: totalWorkers
-        status: status
       properties:
         activeWorkers:
           type: integer
@@ -17299,8 +15925,8 @@ components:
           x-go-name: Versn
       type: object
       x-go-package: github.com/demisto/server/domain
-    NewDockerImageRequest:
-      description: NewDockerImageRequest creation request
+    NewDockerImage:
+      description: NewDockerImage creation request
       example:
         name: name
         packages:
@@ -17404,9 +16030,9 @@ components:
         - replyOptions
         format: format
         timings:
-          retriesCount: 6
-          retriesInterval: 7
-          completeAfterReplies: 1
+          retriesCount: 1
+          retriesInterval: 1
+          completeAfterReplies: 7
         defaultOption: defaultOption
         to:
           complex:
@@ -17476,9 +16102,9 @@ components:
       x-go-package: github.com/demisto/server/domain
     NotifyTimings:
       example:
-        retriesCount: 6
-        retriesInterval: 7
-        completeAfterReplies: 1
+        retriesCount: 1
+        retriesInterval: 1
+        completeAfterReplies: 7
       properties:
         completeAfterReplies:
           format: uint64
@@ -17597,99 +16223,7 @@ components:
     Playbook:
       description: Playbook is a collection of tasks
       example:
-        outputs:
-        - contextPath: contextPath
-          description: description
-          type: type
-        - contextPath: contextPath
-          description: description
-          type: type
         dbotCreatedBy: dbotCreatedBy
-        inputs:
-        - playbookInputQuery:
-            fromDate: 2000-01-23T04:56:07.000+00:00
-            runFromLastJobTime: true
-            fromDateLicense: 2000-01-23T04:56:07.000+00:00
-            period:
-              fromValue: fromValue
-              toValue: toValue
-              byFrom: byFrom
-              field: field
-              by: by
-              byTo: byTo
-            queryEntity: queryEntity
-            query: query
-            toDate: 2000-01-23T04:56:07.000+00:00
-            queryState:
-              totalResults: 5
-              searchAfter:
-              - searchAfter
-              - searchAfter
-              batchSize: 6
-              currentPage: 1
-            results: '{}'
-          description: description
-          value:
-            complex:
-              transformers:
-              - args:
-                  key:
-                    isContext: true
-                operator: operator
-              - args:
-                  key:
-                    isContext: true
-                operator: operator
-              root: root
-              accessor: accessor
-              filters:
-              - null
-              - null
-            simple: simple
-          key: key
-          required: true
-        - playbookInputQuery:
-            fromDate: 2000-01-23T04:56:07.000+00:00
-            runFromLastJobTime: true
-            fromDateLicense: 2000-01-23T04:56:07.000+00:00
-            period:
-              fromValue: fromValue
-              toValue: toValue
-              byFrom: byFrom
-              field: field
-              by: by
-              byTo: byTo
-            queryEntity: queryEntity
-            query: query
-            toDate: 2000-01-23T04:56:07.000+00:00
-            queryState:
-              totalResults: 5
-              searchAfter:
-              - searchAfter
-              - searchAfter
-              batchSize: 6
-              currentPage: 1
-            results: '{}'
-          description: description
-          value:
-            complex:
-              transformers:
-              - args:
-                  key:
-                    isContext: true
-                operator: operator
-              - args:
-                  key:
-                    isContext: true
-                operator: operator
-              root: root
-              accessor: accessor
-              filters:
-              - null
-              - null
-            simple: simple
-          key: key
-          required: true
         deprecated: true
         scriptIds:
         - scriptIds
@@ -17736,7 +16270,7 @@ components:
             view: '{}'
             loop:
               scriptId: scriptId
-              wait: 1
+              wait: 4
               scriptArguments:
                 key:
                   complex:
@@ -17755,7 +16289,7 @@ components:
                     - null
                     - null
                   simple: simple
-              max: 1
+              max: 2
               forEach: true
               isCommand: true
               scriptName: scriptName
@@ -17846,9 +16380,9 @@ components:
             separateContext: true
             skipUnavailable: true
             sla:
-              hours: 6
-              weeks: 8
-              days: 9
+              hours: 5
+              weeks: 9
+              days: 4
             message:
               cc:
                 complex:
@@ -17909,9 +16443,9 @@ components:
               - replyOptions
               format: format
               timings:
-                retriesCount: 6
-                retriesInterval: 7
-                completeAfterReplies: 1
+                retriesCount: 1
+                retriesInterval: 1
+                completeAfterReplies: 7
               defaultOption: defaultOption
               to:
                 complex:
@@ -17948,9 +16482,9 @@ components:
                   - null
                 simple: simple
             slaReminder:
-              hours: 6
-              weeks: 8
-              days: 9
+              hours: 5
+              weeks: 9
+              days: 4
             formDisplay:
               bodyBackgroundColor: bodyBackgroundColor
               submitButtonBackgroundColor: submitButtonBackgroundColor
@@ -18005,7 +16539,7 @@ components:
             task:
               clonedFrom: clonedFrom
               numericId: 9
-              sequenceNumber: 3
+              sequenceNumber: 8
               isTitleTask: true
               primaryTerm: 6
               description: description
@@ -18013,7 +16547,7 @@ components:
               sortValues:
               - sortValues
               - sortValues
-              version: 6
+              version: 9
               tags:
               - tags
               - tags
@@ -18035,7 +16569,7 @@ components:
               - conditions
               brand: brand
             form:
-              totalAnswers: 4
+              totalAnswers: 9
               expired: true
               sender: sender
               questions:
@@ -18377,11 +16911,7 @@ components:
           type: string
           x-go-name: ID
         inputs:
-          description: PlaybookInputs - array of PlaybookInput
-          items:
-            $ref: '#/components/schemas/PlaybookInput'
-          type: array
-          x-go-package: github.com/demisto/server/domain
+          $ref: '#/components/schemas/PlaybookInputs'
         itemVersion:
           $ref: '#/components/schemas/Version'
         locked:
@@ -18407,11 +16937,7 @@ components:
           type: integer
           x-go-name: NumericID
         outputs:
-          description: PlaybookOutputs - array of PlaybookOutput
-          items:
-            $ref: '#/components/schemas/PlaybookOutput'
-          type: array
-          x-go-package: github.com/demisto/server/domain
+          $ref: '#/components/schemas/PlaybookOutputs'
         packID:
           type: string
           x-go-name: PackID
@@ -18533,49 +17059,6 @@ components:
       x-go-package: github.com/demisto/server/domain
     PlaybookInput:
       description: PlaybookInput represents the playbook input
-      example:
-        playbookInputQuery:
-          fromDate: 2000-01-23T04:56:07.000+00:00
-          runFromLastJobTime: true
-          fromDateLicense: 2000-01-23T04:56:07.000+00:00
-          period:
-            fromValue: fromValue
-            toValue: toValue
-            byFrom: byFrom
-            field: field
-            by: by
-            byTo: byTo
-          queryEntity: queryEntity
-          query: query
-          toDate: 2000-01-23T04:56:07.000+00:00
-          queryState:
-            totalResults: 5
-            searchAfter:
-            - searchAfter
-            - searchAfter
-            batchSize: 6
-            currentPage: 1
-          results: '{}'
-        description: description
-        value:
-          complex:
-            transformers:
-            - args:
-                key:
-                  isContext: true
-              operator: operator
-            - args:
-                key:
-                  isContext: true
-              operator: operator
-            root: root
-            accessor: accessor
-            filters:
-            - null
-            - null
-          simple: simple
-        key: key
-        required: true
       properties:
         description:
           type: string
@@ -18594,28 +17077,6 @@ components:
       x-go-package: github.com/demisto/server/domain
     PlaybookInputQuery:
       description: PlaybookInputQuery represents the playbook query input
-      example:
-        fromDate: 2000-01-23T04:56:07.000+00:00
-        runFromLastJobTime: true
-        fromDateLicense: 2000-01-23T04:56:07.000+00:00
-        period:
-          fromValue: fromValue
-          toValue: toValue
-          byFrom: byFrom
-          field: field
-          by: by
-          byTo: byTo
-        queryEntity: queryEntity
-        query: query
-        toDate: 2000-01-23T04:56:07.000+00:00
-        queryState:
-          totalResults: 5
-          searchAfter:
-          - searchAfter
-          - searchAfter
-          batchSize: 6
-          currentPage: 1
-        results: '{}'
       properties:
         fromDate:
           format: date-time
@@ -18656,10 +17117,6 @@ components:
       x-go-package: github.com/demisto/server/domain
     PlaybookOutput:
       description: PlaybookOutput represents the playbook output
-      example:
-        contextPath: contextPath
-        description: description
-        type: type
       properties:
         contextPath:
           type: string
@@ -18706,7 +17163,7 @@ components:
         view: '{}'
         loop:
           scriptId: scriptId
-          wait: 1
+          wait: 4
           scriptArguments:
             key:
               complex:
@@ -18725,7 +17182,7 @@ components:
                 - null
                 - null
               simple: simple
-          max: 1
+          max: 2
           forEach: true
           isCommand: true
           scriptName: scriptName
@@ -18816,9 +17273,9 @@ components:
         separateContext: true
         skipUnavailable: true
         sla:
-          hours: 6
-          weeks: 8
-          days: 9
+          hours: 5
+          weeks: 9
+          days: 4
         message:
           cc:
             complex:
@@ -18879,9 +17336,9 @@ components:
           - replyOptions
           format: format
           timings:
-            retriesCount: 6
-            retriesInterval: 7
-            completeAfterReplies: 1
+            retriesCount: 1
+            retriesInterval: 1
+            completeAfterReplies: 7
           defaultOption: defaultOption
           to:
             complex:
@@ -18918,9 +17375,9 @@ components:
               - null
             simple: simple
         slaReminder:
-          hours: 6
-          weeks: 8
-          days: 9
+          hours: 5
+          weeks: 9
+          days: 4
         formDisplay:
           bodyBackgroundColor: bodyBackgroundColor
           submitButtonBackgroundColor: submitButtonBackgroundColor
@@ -18975,7 +17432,7 @@ components:
         task:
           clonedFrom: clonedFrom
           numericId: 9
-          sequenceNumber: 3
+          sequenceNumber: 8
           isTitleTask: true
           primaryTerm: 6
           description: description
@@ -18983,7 +17440,7 @@ components:
           sortValues:
           - sortValues
           - sortValues
-          version: 6
+          version: 9
           tags:
           - tags
           - tags
@@ -19005,7 +17462,7 @@ components:
           - conditions
           brand: brand
         form:
-          totalAnswers: 4
+          totalAnswers: 9
           expired: true
           sender: sender
           questions:
@@ -19719,13 +18176,6 @@ components:
       x-go-package: github.com/demisto/server/util/workers/workersInfo
     QueryState:
       description: QueryState represents the playbook query state
-      example:
-        totalResults: 5
-        searchAfter:
-        - searchAfter
-        - searchAfter
-        batchSize: 6
-        currentPage: 1
       properties:
         batchSize:
           format: int64
@@ -19953,22 +18403,6 @@ components:
       type: object
       x-go-package: github.com/demisto/server/web
     RelationshipAPI:
-      example:
-        entityA: entityA
-        entityB: entityB
-        instance: instance
-        reverseName: reverseName
-        entityBType: entityBType
-        reliability: reliability
-        entityAType: entityAType
-        entityAFamily: entityAFamily
-        type: type
-        entityBFamily: entityBFamily
-        name: name
-        id: id
-        fields:
-          key: '{}'
-        brand: brand
       properties:
         brand:
           type: string
@@ -19992,15 +18426,7 @@ components:
           type: string
           x-go-name: EntityBType
         fields:
-          additionalProperties:
-            properties: {}
-            type: object
-          description: |-
-            The keys should be the field's display name all lower and without spaces. For example: Scan IP -> scanip
-            To get the actual key name you can also go to Cortex XSOAR CLI and run /incident_add and look for the key that you would like to update
-          title: CustomFields ...
-          type: object
-          x-go-package: github.com/demisto/server/domain
+          $ref: '#/components/schemas/CustomFields'
         id:
           type: string
           x-go-name: ID
@@ -20204,7 +18630,7 @@ components:
         dashboard:
           dbotCreatedBy: dbotCreatedBy
           commitMessage: commitMessage
-          primaryTerm: 4
+          primaryTerm: 6
           roles:
           - roles
           - roles
@@ -20235,8 +18661,8 @@ components:
             Label: Label
           owner: owner
           allReadWrite: true
-          numericId: 2
-          sequenceNumber: 7
+          numericId: 0
+          sequenceNumber: 1
           period:
             fromValue: fromValue
             toValue: toValue
@@ -20266,165 +18692,8 @@ components:
           - sortValues
           - sortValues
           vcShouldKeepItemLegacyProdMachine: true
-          version: 1
+          version: 5
           fromDate: 2000-01-23T04:56:07.000+00:00
-          layout:
-          - reflectDimensions: true
-            widget:
-              commitMessage: commitMessage
-              dateRange:
-                fromDate: 2000-01-23T04:56:07.000+00:00
-                fromDateLicense: 2000-01-23T04:56:07.000+00:00
-                period:
-                  fromValue: fromValue
-                  toValue: toValue
-                  byFrom: byFrom
-                  field: field
-                  by: by
-                  byTo: byTo
-                toDate: 2000-01-23T04:56:07.000+00:00
-              primaryTerm: 5
-              description: description
-              packID: packID
-              highlight:
-                key:
-                - highlight
-                - highlight
-              toServerVersion:
-                Digits:
-                - 0
-                - 0
-                Label: Label
-              vcShouldIgnore: true
-              modified: 2000-01-23T04:56:07.000+00:00
-              prevName: prevName
-              id: id
-              locked: true
-              fromServerVersion:
-                Digits:
-                - 0
-                - 0
-                Label: Label
-              numericId: 1
-              sequenceNumber: 5
-              isPredefined: true
-              dataType: dataType
-              itemVersion:
-                Digits:
-                - 0
-                - 0
-                Label: Label
-              packPropagationLabels:
-              - packPropagationLabels
-              - packPropagationLabels
-              query: query
-              sort:
-              - asc: true
-                field: field
-                fieldType: fieldType
-              - asc: true
-                field: field
-                fieldType: fieldType
-              params:
-                key: '{}'
-              shouldCommit: true
-              sortValues:
-              - sortValues
-              - sortValues
-              vcShouldKeepItemLegacyProdMachine: true
-              version: 7
-              widgetType: widgetType
-              size: 2
-              name: name
-              category: category
-              propagationLabels:
-              - propagationLabels
-              - propagationLabels
-            w: 6
-            h: 0
-            x: 9
-            i: i
-            y: 3
-            forceRange: true
-            id: id
-          - reflectDimensions: true
-            widget:
-              commitMessage: commitMessage
-              dateRange:
-                fromDate: 2000-01-23T04:56:07.000+00:00
-                fromDateLicense: 2000-01-23T04:56:07.000+00:00
-                period:
-                  fromValue: fromValue
-                  toValue: toValue
-                  byFrom: byFrom
-                  field: field
-                  by: by
-                  byTo: byTo
-                toDate: 2000-01-23T04:56:07.000+00:00
-              primaryTerm: 5
-              description: description
-              packID: packID
-              highlight:
-                key:
-                - highlight
-                - highlight
-              toServerVersion:
-                Digits:
-                - 0
-                - 0
-                Label: Label
-              vcShouldIgnore: true
-              modified: 2000-01-23T04:56:07.000+00:00
-              prevName: prevName
-              id: id
-              locked: true
-              fromServerVersion:
-                Digits:
-                - 0
-                - 0
-                Label: Label
-              numericId: 1
-              sequenceNumber: 5
-              isPredefined: true
-              dataType: dataType
-              itemVersion:
-                Digits:
-                - 0
-                - 0
-                Label: Label
-              packPropagationLabels:
-              - packPropagationLabels
-              - packPropagationLabels
-              query: query
-              sort:
-              - asc: true
-                field: field
-                fieldType: fieldType
-              - asc: true
-                field: field
-                fieldType: fieldType
-              params:
-                key: '{}'
-              shouldCommit: true
-              sortValues:
-              - sortValues
-              - sortValues
-              vcShouldKeepItemLegacyProdMachine: true
-              version: 7
-              widgetType: widgetType
-              size: 2
-              name: name
-              category: category
-              propagationLabels:
-              - propagationLabels
-              - propagationLabels
-            w: 6
-            h: 0
-            x: 9
-            i: i
-            y: 3
-            forceRange: true
-            id: id
           previousAllReadWrite: true
           system: true
           allRead: true
@@ -20459,17 +18728,6 @@ components:
         - data: '{}'
           query:
             filter: '{}'
-            customGroupBy:
-            - key:
-                name: name
-                conditions:
-                - null
-                - null
-            - key:
-                name: name
-                conditions:
-                - null
-                - null
             keys:
             - keys
             - keys
@@ -20486,8 +18744,6 @@ components:
           layout: '{}'
           displayType: displayType
           automation:
-            args:
-              key: '{}'
             noEvent: true
             name: name
             id: id
@@ -20497,17 +18753,6 @@ components:
         - data: '{}'
           query:
             filter: '{}'
-            customGroupBy:
-            - key:
-                name: name
-                conditions:
-                - null
-                - null
-            - key:
-                name: name
-                conditions:
-                - null
-                - null
             keys:
             - keys
             - keys
@@ -20524,8 +18769,6 @@ components:
           layout: '{}'
           displayType: displayType
           automation:
-            args:
-              key: '{}'
             noEvent: true
             name: name
             id: id
@@ -20794,19 +19037,12 @@ components:
       x-go-package: github.com/demisto/server/domain
     ReportAutomation:
       example:
-        args:
-          key: '{}'
         noEvent: true
         name: name
         id: id
       properties:
         args:
-          additionalProperties:
-            properties: {}
-            type: object
-          description: ModuleArgs represents module args
-          type: object
-          x-go-package: github.com/demisto/server/domain
+          $ref: '#/components/schemas/ModuleArgs'
         id:
           type: string
           x-go-name: ID
@@ -20836,17 +19072,6 @@ components:
     ReportQuery:
       example:
         filter: '{}'
-        customGroupBy:
-        - key:
-            name: name
-            conditions:
-            - null
-            - null
-        - key:
-            name: name
-            conditions:
-            - null
-            - null
         keys:
         - keys
         - keys
@@ -20856,13 +19081,7 @@ components:
         type: type
       properties:
         customGroupBy:
-          description: CustomGroups - a custom group for each group-by element
-          items:
-            additionalProperties:
-              $ref: '#/components/schemas/CustomGroup'
-            type: object
-          type: array
-          x-go-package: github.com/demisto/server/domain
+          $ref: '#/components/schemas/CustomGroups'
         filter:
           properties: {}
           type: object
@@ -20999,9 +19218,9 @@ components:
       x-go-package: github.com/demisto/server/domain
     SLA:
       example:
-        hours: 6
-        weeks: 8
-        days: 9
+        hours: 5
+        weeks: 9
+        days: 4
       properties:
         days:
           format: int64
@@ -21575,17 +19794,6 @@ components:
         data: '{}'
         query:
           filter: '{}'
-          customGroupBy:
-          - key:
-              name: name
-              conditions:
-              - null
-              - null
-          - key:
-              name: name
-              conditions:
-              - null
-              - null
           keys:
           - keys
           - keys
@@ -21602,8 +19810,6 @@ components:
         layout: '{}'
         displayType: displayType
         automation:
-          args:
-            key: '{}'
           noEvent: true
           name: name
           id: id
@@ -21716,11 +19922,7 @@ components:
     StatsResponseWithReferenceLine:
       properties:
         groups:
-          description: Groups is a list of group entities
-          items:
-            $ref: '#/components/schemas/Group'
-          type: array
-          x-go-package: github.com/demisto/server/repo/entities
+          $ref: '#/components/schemas/Groups'
         referenceLineY:
           format: double
           type: number
@@ -21732,11 +19934,7 @@ components:
     StatsScatterResponse:
       properties:
         data:
-          description: Groups is a list of group entities
-          items:
-            $ref: '#/components/schemas/Group'
-          type: array
-          x-go-package: github.com/demisto/server/repo/entities
+          $ref: '#/components/schemas/Groups'
         range:
           items:
             format: int64
@@ -21761,11 +19959,7 @@ components:
     StatsTextResponse:
       properties:
         groups:
-          description: Groups is a list of group entities
-          items:
-            $ref: '#/components/schemas/Group'
-          type: array
-          x-go-package: github.com/demisto/server/repo/entities
+          $ref: '#/components/schemas/Groups'
         text:
           description: Describe the complete text for the text widget, after placeholders
             injection.
@@ -21908,7 +20102,7 @@ components:
       example:
         clonedFrom: clonedFrom
         numericId: 9
-        sequenceNumber: 3
+        sequenceNumber: 8
         isTitleTask: true
         primaryTerm: 6
         description: description
@@ -21916,7 +20110,7 @@ components:
         sortValues:
         - sortValues
         - sortValues
-        version: 6
+        version: 9
         tags:
         - tags
         - tags
@@ -22046,7 +20240,7 @@ components:
       description: TaskLoop contains loop details
       example:
         scriptId: scriptId
-        wait: 1
+        wait: 4
         scriptArguments:
           key:
             complex:
@@ -22065,7 +20259,7 @@ components:
               - null
               - null
             simple: simple
-        max: 1
+        max: 2
         forEach: true
         isCommand: true
         scriptName: scriptName
@@ -22645,7 +20839,7 @@ components:
             by: by
             byTo: byTo
           toDate: 2000-01-23T04:56:07.000+00:00
-        primaryTerm: 5
+        primaryTerm: 6
         description: description
         packID: packID
         highlight:
@@ -22667,8 +20861,8 @@ components:
           - 0
           - 0
           Label: Label
-        numericId: 1
-        sequenceNumber: 5
+        numericId: 0
+        sequenceNumber: 1
         isPredefined: true
         dataType: dataType
         itemVersion:
@@ -22694,9 +20888,9 @@ components:
         - sortValues
         - sortValues
         vcShouldKeepItemLegacyProdMachine: true
-        version: 7
+        version: 5
         widgetType: widgetType
-        size: 2
+        size: 5
         name: name
         category: category
         propagationLabels:
@@ -22838,85 +21032,6 @@ components:
       type: object
       x-go-package: github.com/demisto/server/domain
     WidgetCell:
-      example:
-        reflectDimensions: true
-        widget:
-          commitMessage: commitMessage
-          dateRange:
-            fromDate: 2000-01-23T04:56:07.000+00:00
-            fromDateLicense: 2000-01-23T04:56:07.000+00:00
-            period:
-              fromValue: fromValue
-              toValue: toValue
-              byFrom: byFrom
-              field: field
-              by: by
-              byTo: byTo
-            toDate: 2000-01-23T04:56:07.000+00:00
-          primaryTerm: 5
-          description: description
-          packID: packID
-          highlight:
-            key:
-            - highlight
-            - highlight
-          toServerVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
-          vcShouldIgnore: true
-          modified: 2000-01-23T04:56:07.000+00:00
-          prevName: prevName
-          id: id
-          locked: true
-          fromServerVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
-          numericId: 1
-          sequenceNumber: 5
-          isPredefined: true
-          dataType: dataType
-          itemVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
-          packPropagationLabels:
-          - packPropagationLabels
-          - packPropagationLabels
-          query: query
-          sort:
-          - asc: true
-            field: field
-            fieldType: fieldType
-          - asc: true
-            field: field
-            fieldType: fieldType
-          params:
-            key: '{}'
-          shouldCommit: true
-          sortValues:
-          - sortValues
-          - sortValues
-          vcShouldKeepItemLegacyProdMachine: true
-          version: 7
-          widgetType: widgetType
-          size: 2
-          name: name
-          category: category
-          propagationLabels:
-          - propagationLabels
-          - propagationLabels
-        w: 6
-        h: 0
-        x: 9
-        i: i
-        y: 3
-        forceRange: true
-        id: id
       properties:
         forceRange:
           type: boolean
@@ -23816,99 +21931,7 @@ components:
         - warnings
         - warnings
         playbook:
-          outputs:
-          - contextPath: contextPath
-            description: description
-            type: type
-          - contextPath: contextPath
-            description: description
-            type: type
           dbotCreatedBy: dbotCreatedBy
-          inputs:
-          - playbookInputQuery:
-              fromDate: 2000-01-23T04:56:07.000+00:00
-              runFromLastJobTime: true
-              fromDateLicense: 2000-01-23T04:56:07.000+00:00
-              period:
-                fromValue: fromValue
-                toValue: toValue
-                byFrom: byFrom
-                field: field
-                by: by
-                byTo: byTo
-              queryEntity: queryEntity
-              query: query
-              toDate: 2000-01-23T04:56:07.000+00:00
-              queryState:
-                totalResults: 5
-                searchAfter:
-                - searchAfter
-                - searchAfter
-                batchSize: 6
-                currentPage: 1
-              results: '{}'
-            description: description
-            value:
-              complex:
-                transformers:
-                - args:
-                    key:
-                      isContext: true
-                  operator: operator
-                - args:
-                    key:
-                      isContext: true
-                  operator: operator
-                root: root
-                accessor: accessor
-                filters:
-                - null
-                - null
-              simple: simple
-            key: key
-            required: true
-          - playbookInputQuery:
-              fromDate: 2000-01-23T04:56:07.000+00:00
-              runFromLastJobTime: true
-              fromDateLicense: 2000-01-23T04:56:07.000+00:00
-              period:
-                fromValue: fromValue
-                toValue: toValue
-                byFrom: byFrom
-                field: field
-                by: by
-                byTo: byTo
-              queryEntity: queryEntity
-              query: query
-              toDate: 2000-01-23T04:56:07.000+00:00
-              queryState:
-                totalResults: 5
-                searchAfter:
-                - searchAfter
-                - searchAfter
-                batchSize: 6
-                currentPage: 1
-              results: '{}'
-            description: description
-            value:
-              complex:
-                transformers:
-                - args:
-                    key:
-                      isContext: true
-                  operator: operator
-                - args:
-                    key:
-                      isContext: true
-                  operator: operator
-                root: root
-                accessor: accessor
-                filters:
-                - null
-                - null
-              simple: simple
-            key: key
-            required: true
           deprecated: true
           scriptIds:
           - scriptIds
@@ -23955,7 +21978,7 @@ components:
               view: '{}'
               loop:
                 scriptId: scriptId
-                wait: 1
+                wait: 4
                 scriptArguments:
                   key:
                     complex:
@@ -23974,7 +21997,7 @@ components:
                       - null
                       - null
                     simple: simple
-                max: 1
+                max: 2
                 forEach: true
                 isCommand: true
                 scriptName: scriptName
@@ -24065,9 +22088,9 @@ components:
               separateContext: true
               skipUnavailable: true
               sla:
-                hours: 6
-                weeks: 8
-                days: 9
+                hours: 5
+                weeks: 9
+                days: 4
               message:
                 cc:
                   complex:
@@ -24128,9 +22151,9 @@ components:
                 - replyOptions
                 format: format
                 timings:
-                  retriesCount: 6
-                  retriesInterval: 7
-                  completeAfterReplies: 1
+                  retriesCount: 1
+                  retriesInterval: 1
+                  completeAfterReplies: 7
                 defaultOption: defaultOption
                 to:
                   complex:
@@ -24167,9 +22190,9 @@ components:
                     - null
                   simple: simple
               slaReminder:
-                hours: 6
-                weeks: 8
-                days: 9
+                hours: 5
+                weeks: 9
+                days: 4
               formDisplay:
                 bodyBackgroundColor: bodyBackgroundColor
                 submitButtonBackgroundColor: submitButtonBackgroundColor
@@ -24224,7 +22247,7 @@ components:
               task:
                 clonedFrom: clonedFrom
                 numericId: 9
-                sequenceNumber: 3
+                sequenceNumber: 8
                 isTitleTask: true
                 primaryTerm: 6
                 description: description
@@ -24232,7 +22255,7 @@ components:
                 sortValues:
                 - sortValues
                 - sortValues
-                version: 6
+                version: 9
                 tags:
                 - tags
                 - tags
@@ -24254,7 +22277,7 @@ components:
                 - conditions
                 brand: brand
               form:
-                totalAnswers: 4
+                totalAnswers: 9
                 expired: true
                 sender: sender
                 questions:
@@ -24682,6 +22705,16 @@ components:
           x-go-name: InvestigationID
       type: object
       x-go-package: github.com/demisto/server/web
+    inline_object:
+      properties:
+        name:
+          type: string
+      type: object
+    inline_object_1:
+      properties:
+        name:
+          type: string
+      type: object
     inline_response_200:
       example:
         total: 1
@@ -24922,12 +22955,12 @@ components:
         total:
           type: integer
       type: object
-    inline_object:
+    inline_object_2:
       properties:
         size:
           type: integer
       type: object
-    inline_object_1:
+    inline_object_3:
       properties:
         size:
           type: integer

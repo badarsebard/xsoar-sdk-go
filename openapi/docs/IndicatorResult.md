@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IocObjects** | Pointer to [**[]IocObject**](IocObject.md) |  | [optional] 
+**IocObjects** | Pointer to [**IocObjects**](IocObjects.md) |  | [optional] 
 **Total** | Pointer to **int64** |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetIocObjects
 
-`func (o *IndicatorResult) GetIocObjects() []IocObject`
+`func (o *IndicatorResult) GetIocObjects() IocObjects`
 
 GetIocObjects returns the IocObjects field if non-nil, zero value otherwise.
 
 ### GetIocObjectsOk
 
-`func (o *IndicatorResult) GetIocObjectsOk() (*[]IocObject, bool)`
+`func (o *IndicatorResult) GetIocObjectsOk() (*IocObjects, bool)`
 
 GetIocObjectsOk returns a tuple with the IocObjects field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIocObjects
 
-`func (o *IndicatorResult) SetIocObjects(v []IocObject)`
+`func (o *IndicatorResult) SetIocObjects(v IocObjects)`
 
 SetIocObjects sets IocObjects field to given value.
 

@@ -16,12 +16,11 @@ import (
 
 // ReportQuery struct for ReportQuery
 type ReportQuery struct {
-	// CustomGroups - a custom group for each group-by element
-	CustomGroupBy *[]map[string]CustomGroup `json:"customGroupBy,omitempty"`
-	Filter        *map[string]interface{}   `json:"filter,omitempty"`
-	GroupBy       *[]string                 `json:"groupBy,omitempty"`
-	Keys          *[]string                 `json:"keys,omitempty"`
-	Type          *string                   `json:"type,omitempty"`
+	CustomGroupBy *CustomGroups           `json:"customGroupBy,omitempty"`
+	Filter        *map[string]interface{} `json:"filter,omitempty"`
+	GroupBy       *[]string               `json:"groupBy,omitempty"`
+	Keys          *[]string               `json:"keys,omitempty"`
+	Type          *string                 `json:"type,omitempty"`
 }
 
 // NewReportQuery instantiates a new ReportQuery object
@@ -42,9 +41,9 @@ func NewReportQueryWithDefaults() *ReportQuery {
 }
 
 // GetCustomGroupBy returns the CustomGroupBy field value if set, zero value otherwise.
-func (o *ReportQuery) GetCustomGroupBy() []map[string]CustomGroup {
+func (o *ReportQuery) GetCustomGroupBy() CustomGroups {
 	if o == nil || o.CustomGroupBy == nil {
-		var ret []map[string]CustomGroup
+		var ret CustomGroups
 		return ret
 	}
 	return *o.CustomGroupBy
@@ -52,7 +51,7 @@ func (o *ReportQuery) GetCustomGroupBy() []map[string]CustomGroup {
 
 // GetCustomGroupByOk returns a tuple with the CustomGroupBy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ReportQuery) GetCustomGroupByOk() (*[]map[string]CustomGroup, bool) {
+func (o *ReportQuery) GetCustomGroupByOk() (*CustomGroups, bool) {
 	if o == nil || o.CustomGroupBy == nil {
 		return nil, false
 	}
@@ -68,8 +67,8 @@ func (o *ReportQuery) HasCustomGroupBy() bool {
 	return false
 }
 
-// SetCustomGroupBy gets a reference to the given []map[string]CustomGroup and assigns it to the CustomGroupBy field.
-func (o *ReportQuery) SetCustomGroupBy(v []map[string]CustomGroup) {
+// SetCustomGroupBy gets a reference to the given CustomGroups and assigns it to the CustomGroupBy field.
+func (o *ReportQuery) SetCustomGroupBy(v CustomGroups) {
 	o.CustomGroupBy = &v
 }
 

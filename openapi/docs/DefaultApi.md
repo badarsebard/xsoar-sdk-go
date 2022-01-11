@@ -20,6 +20,8 @@ Method | HTTP request | Description
 [**CreateIncidentsBatch**](DefaultApi.md#CreateIncidentsBatch) | **Post** /incident/batch | Batch create incidents
 [**CreateOrUpdateIncidentType**](DefaultApi.md#CreateOrUpdateIncidentType) | **Post** /incidenttype | Create new Incident Type
 [**CreateOrUpdateWhitelisted**](DefaultApi.md#CreateOrUpdateWhitelisted) | **Post** /indicators/whitelist/update | Create whitelisted
+[**CreateUpdateClassifier**](DefaultApi.md#CreateUpdateClassifier) | **Post** /classifier | Create or update a classifier
+[**CreateUpdateClassifierAccount**](DefaultApi.md#CreateUpdateClassifierAccount) | **Post** /{acc}/classifier | Create or update a classifier
 [**CreateUpdateIntegrationInstance**](DefaultApi.md#CreateUpdateIntegrationInstance) | **Put** /settings/integration | Create/update an integration instance
 [**CreateUpdateIntegrationInstanceAccount**](DefaultApi.md#CreateUpdateIntegrationInstanceAccount) | **Put** /{acc}/settings/integration | Create/update an integration instance
 [**DeleteAccount**](DefaultApi.md#DeleteAccount) | **Delete** /account/purge/{accountname} | 
@@ -80,6 +82,8 @@ Method | HTTP request | Description
 [**InvestigationAddFormattedEntryHandler**](DefaultApi.md#InvestigationAddFormattedEntryHandler) | **Post** /entry/formatted | Create new formatted entry in existing investigation
 [**ListAccounts**](DefaultApi.md#ListAccounts) | **Get** /accounts | List accounts
 [**ListAccountsDetails**](DefaultApi.md#ListAccountsDetails) | **Get** /accounts/data | Detailed accounts
+[**ListClassifiers**](DefaultApi.md#ListClassifiers) | **Post** /classifier/search | search classifiers
+[**ListClassifiersAccount**](DefaultApi.md#ListClassifiersAccount) | **Post** /{acc}/classifier/search | search classifiers
 [**ListHAGroups**](DefaultApi.md#ListHAGroups) | **Get** /ha-groups | 
 [**ListHosts**](DefaultApi.md#ListHosts) | **Get** /hosts | 
 [**ListIntegrations**](DefaultApi.md#ListIntegrations) | **Post** /settings/integration/search | List integrations
@@ -179,7 +183,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -245,7 +249,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -469,7 +473,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -479,7 +483,7 @@ Name | Type | Description  | Notes
 
 ## CreateAccount
 
-> []map[string]interface{} CreateAccount(ctx).CreateAccountRequest(createAccountRequest).Execute()
+> AccountsWrapper CreateAccount(ctx).CreateAccountRequest(createAccountRequest).Execute()
 
 Create an account
 
@@ -507,7 +511,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateAccount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateAccount`: []map[string]interface{}
+    // response from `CreateAccount`: AccountsWrapper
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.CreateAccount`: %v\n", resp)
 }
 ```
@@ -527,7 +531,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**[]map[string]interface{}**
+[**AccountsWrapper**](AccountsWrapper.md)
 
 ### Authorization
 
@@ -535,7 +539,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -545,7 +549,7 @@ Name | Type | Description  | Notes
 
 ## CreateDockerImage
 
-> NewDockerImageResult CreateDockerImage(ctx).NewDockerImageRequest(newDockerImageRequest).Execute()
+> NewDockerImageResult CreateDockerImage(ctx).NewDockerImage(newDockerImage).Execute()
 
 Create Image
 
@@ -564,11 +568,11 @@ import (
 )
 
 func main() {
-    newDockerImageRequest := *openapiclient.NewNewDockerImageRequest() // NewDockerImageRequest |  (optional)
+    newDockerImage := *openapiclient.NewNewDockerImage() // NewDockerImage |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.CreateDockerImage(context.Background()).NewDockerImageRequest(newDockerImageRequest).Execute()
+    resp, r, err := api_client.DefaultApi.CreateDockerImage(context.Background()).NewDockerImage(newDockerImage).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateDockerImage``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -589,7 +593,7 @@ Other parameters are passed through a pointer to a apiCreateDockerImageRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newDockerImageRequest** | [**NewDockerImageRequest**](NewDockerImageRequest.md) |  | 
+ **newDockerImage** | [**NewDockerImage**](NewDockerImage.md) |  | 
 
 ### Return type
 
@@ -601,7 +605,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -665,7 +669,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -731,7 +735,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -928,7 +932,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1055,7 +1059,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1121,7 +1125,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1187,7 +1191,145 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateUpdateClassifier
+
+> InstanceClassifier CreateUpdateClassifier(ctx).CreateUpdateClassifierRequest(createUpdateClassifierRequest).Execute()
+
+Create or update a classifier
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    createUpdateClassifierRequest := *openapiclient.NewCreateUpdateClassifierRequest() // CreateUpdateClassifierRequest |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.CreateUpdateClassifier(context.Background()).CreateUpdateClassifierRequest(createUpdateClassifierRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateUpdateClassifier``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateUpdateClassifier`: InstanceClassifier
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.CreateUpdateClassifier`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateUpdateClassifierRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createUpdateClassifierRequest** | [**CreateUpdateClassifierRequest**](CreateUpdateClassifierRequest.md) |  | 
+
+### Return type
+
+[**InstanceClassifier**](InstanceClassifier.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateUpdateClassifierAccount
+
+> InstanceClassifier CreateUpdateClassifierAccount(ctx, acc).CreateUpdateClassifierAccountRequest(createUpdateClassifierAccountRequest).Execute()
+
+Create or update a classifier
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    acc := "acc_example" // string | 
+    createUpdateClassifierAccountRequest := *openapiclient.NewCreateUpdateClassifierRequest() // CreateUpdateClassifierRequest |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.CreateUpdateClassifierAccount(context.Background(), acc).CreateUpdateClassifierAccountRequest(createUpdateClassifierAccountRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateUpdateClassifierAccount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateUpdateClassifierAccount`: InstanceClassifier
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.CreateUpdateClassifierAccount`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**acc** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateUpdateClassifierAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **createUpdateClassifierAccountRequest** | [**CreateUpdateClassifierRequest**](CreateUpdateClassifierRequest.md) |  | 
+
+### Return type
+
+[**InstanceClassifier**](InstanceClassifier.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1216,7 +1358,7 @@ import (
 )
 
 func main() {
-    createIntegrationRequest := map[string]interface{}(Object) // map[string]interface{} |  (optional)
+    createIntegrationRequest := *openapiclient.NewCreateIntegrationRequest() // CreateIntegrationRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -1241,7 +1383,7 @@ Other parameters are passed through a pointer to a apiCreateUpdateIntegrationIns
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createIntegrationRequest** | **map[string]interface{}** |  | 
+ **createIntegrationRequest** | [**CreateIntegrationRequest**](CreateIntegrationRequest.md) |  | 
 
 ### Return type
 
@@ -1253,7 +1395,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1283,7 +1425,7 @@ import (
 
 func main() {
     acc := "acc_example" // string | 
-    createIntegrationRequest := map[string]interface{}(Object) // map[string]interface{} |  (optional)
+    createIntegrationRequest := *openapiclient.NewCreateIntegrationRequest() // CreateIntegrationRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -1313,7 +1455,7 @@ Other parameters are passed through a pointer to a apiCreateUpdateIntegrationIns
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createIntegrationRequest** | **map[string]interface{}** |  | 
+ **createIntegrationRequest** | [**CreateIntegrationRequest**](CreateIntegrationRequest.md) |  | 
 
 ### Return type
 
@@ -1325,7 +1467,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1335,7 +1477,7 @@ Name | Type | Description  | Notes
 
 ## DeleteAccount
 
-> []map[string]interface{} DeleteAccount(ctx, accountname).Execute()
+> AccountsWrapper DeleteAccount(ctx, accountname).Execute()
 
 
 
@@ -1363,7 +1505,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteAccount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `DeleteAccount`: []map[string]interface{}
+    // response from `DeleteAccount`: AccountsWrapper
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.DeleteAccount`: %v\n", resp)
 }
 ```
@@ -1387,7 +1529,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**[]map[string]interface{}**
+[**AccountsWrapper**](AccountsWrapper.md)
 
 ### Authorization
 
@@ -1532,7 +1674,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1596,7 +1738,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1802,7 +1944,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1868,7 +2010,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2287,7 +2429,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2351,7 +2493,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2488,7 +2630,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2554,7 +2696,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2620,7 +2762,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2808,7 +2950,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -2874,7 +3016,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -4466,7 +4608,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -4532,7 +4674,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -4542,7 +4684,7 @@ Name | Type | Description  | Notes
 
 ## IndicatorsCreateBatch
 
-> []IocObject IndicatorsCreateBatch(ctx).File(file).FileName(fileName).Execute()
+> IocObjects IndicatorsCreateBatch(ctx).File(file).FileName(fileName).Execute()
 
 Create indicators
 
@@ -4571,7 +4713,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.IndicatorsCreateBatch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `IndicatorsCreateBatch`: []IocObject
+    // response from `IndicatorsCreateBatch`: IocObjects
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.IndicatorsCreateBatch`: %v\n", resp)
 }
 ```
@@ -4592,7 +4734,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]IocObject**](IocObject.md)
+[**IocObjects**](IocObjects.md)
 
 ### Authorization
 
@@ -4666,7 +4808,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -4732,7 +4874,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -4798,7 +4940,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -4930,7 +5072,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -4996,7 +5138,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -5062,7 +5204,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -5072,7 +5214,7 @@ Name | Type | Description  | Notes
 
 ## ListAccounts
 
-> []map[string]interface{} ListAccounts(ctx).Execute()
+> AccountsWrapper ListAccounts(ctx).Execute()
 
 List accounts
 
@@ -5099,7 +5241,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListAccounts``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListAccounts`: []map[string]interface{}
+    // response from `ListAccounts`: AccountsWrapper
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListAccounts`: %v\n", resp)
 }
 ```
@@ -5115,7 +5257,7 @@ Other parameters are passed through a pointer to a apiListAccountsRequest struct
 
 ### Return type
 
-**[]map[string]interface{}**
+[**AccountsWrapper**](AccountsWrapper.md)
 
 ### Authorization
 
@@ -5192,9 +5334,147 @@ Other parameters are passed through a pointer to a apiListAccountsDetailsRequest
 [[Back to README]](../README.md)
 
 
+## ListClassifiers
+
+> InstanceClassifiers ListClassifiers(ctx).SearchClassifiers(searchClassifiers).Execute()
+
+search classifiers
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    searchClassifiers := *openapiclient.NewInlineObject() // InlineObject |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.ListClassifiers(context.Background()).SearchClassifiers(searchClassifiers).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListClassifiers``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListClassifiers`: InstanceClassifiers
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListClassifiers`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListClassifiersRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **searchClassifiers** | [**InlineObject**](InlineObject.md) |  | 
+
+### Return type
+
+[**InstanceClassifiers**](InstanceClassifiers.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListClassifiersAccount
+
+> InstanceClassifiers ListClassifiersAccount(ctx, acc).SearchClassifiersAccount(searchClassifiersAccount).Execute()
+
+search classifiers
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    acc := "acc_example" // string | 
+    searchClassifiersAccount := *openapiclient.NewInlineObject1() // InlineObject1 |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.ListClassifiersAccount(context.Background(), acc).SearchClassifiersAccount(searchClassifiersAccount).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListClassifiersAccount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListClassifiersAccount`: InstanceClassifiers
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListClassifiersAccount`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**acc** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListClassifiersAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **searchClassifiersAccount** | [**InlineObject1**](InlineObject1.md) |  | 
+
+### Return type
+
+[**InstanceClassifiers**](InstanceClassifiers.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ListHAGroups
 
-> []map[string]interface{} ListHAGroups(ctx).Execute()
+> HAGroups ListHAGroups(ctx).Execute()
 
 
 
@@ -5221,7 +5501,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListHAGroups``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListHAGroups`: []map[string]interface{}
+    // response from `ListHAGroups`: HAGroups
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListHAGroups`: %v\n", resp)
 }
 ```
@@ -5237,7 +5517,7 @@ Other parameters are passed through a pointer to a apiListHAGroupsRequest struct
 
 ### Return type
 
-**[]map[string]interface{}**
+[**HAGroups**](HAGroups.md)
 
 ### Authorization
 
@@ -5255,7 +5535,7 @@ Other parameters are passed through a pointer to a apiListHAGroupsRequest struct
 
 ## ListHosts
 
-> []map[string]interface{} ListHosts(ctx).Execute()
+> Hosts ListHosts(ctx).Execute()
 
 
 
@@ -5282,7 +5562,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListHosts``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListHosts`: []map[string]interface{}
+    // response from `ListHosts`: Hosts
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListHosts`: %v\n", resp)
 }
 ```
@@ -5298,7 +5578,7 @@ Other parameters are passed through a pointer to a apiListHostsRequest struct vi
 
 ### Return type
 
-**[]map[string]interface{}**
+[**Hosts**](Hosts.md)
 
 ### Authorization
 
@@ -5335,7 +5615,7 @@ import (
 )
 
 func main() {
-    size := *openapiclient.NewInlineObject1() // InlineObject1 |  (optional)
+    size := *openapiclient.NewInlineObject2() // InlineObject2 |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -5360,7 +5640,7 @@ Other parameters are passed through a pointer to a apiListIntegrationsRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **size** | [**InlineObject1**](InlineObject1.md) |  | 
+ **size** | [**InlineObject2**](InlineObject2.md) |  | 
 
 ### Return type
 
@@ -5372,7 +5652,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -5402,7 +5682,7 @@ import (
 
 func main() {
     acc := "acc_example" // string | 
-    size := *openapiclient.NewInlineObject() // InlineObject |  (optional)
+    size := *openapiclient.NewInlineObject3() // InlineObject3 |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -5432,7 +5712,7 @@ Other parameters are passed through a pointer to a apiListIntegrationsAccountReq
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **size** | [**InlineObject**](InlineObject.md) |  | 
+ **size** | [**InlineObject3**](InlineObject3.md) |  | 
 
 ### Return type
 
@@ -5444,7 +5724,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -5454,7 +5734,7 @@ Name | Type | Description  | Notes
 
 ## ListMainHosts
 
-> []MainHost ListMainHosts(ctx).Execute()
+> MainHosts ListMainHosts(ctx).Execute()
 
 List the main hosts
 
@@ -5481,7 +5761,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListMainHosts``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListMainHosts`: []MainHost
+    // response from `ListMainHosts`: MainHosts
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListMainHosts`: %v\n", resp)
 }
 ```
@@ -5497,7 +5777,7 @@ Other parameters are passed through a pointer to a apiListMainHostsRequest struc
 
 ### Return type
 
-[**[]MainHost**](MainHost.md)
+[**MainHosts**](MainHosts.md)
 
 ### Authorization
 
@@ -6017,7 +6297,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -6083,7 +6363,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -6149,7 +6429,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -6215,7 +6495,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -6281,7 +6561,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -6347,7 +6627,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -6417,7 +6697,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -6483,7 +6763,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -6512,7 +6792,7 @@ import (
 )
 
 func main() {
-    startAccountsRequest := []map[string]interface{}{map[string]interface{}(123)} // []map[string]interface{} |  (optional)
+    startAccountsRequest := *openapiclient.NewAccountsWrapper() // AccountsWrapper |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -6535,7 +6815,7 @@ Other parameters are passed through a pointer to a apiStartAccountsRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startAccountsRequest** | **[]map[string]interface{}** |  | 
+ **startAccountsRequest** | [**AccountsWrapper**](AccountsWrapper.md) |  | 
 
 ### Return type
 
@@ -6547,7 +6827,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -6576,7 +6856,7 @@ import (
 )
 
 func main() {
-    stopAccountsRequest := []map[string]interface{}{map[string]interface{}(123)} // []map[string]interface{} |  (optional)
+    stopAccountsRequest := *openapiclient.NewAccountsWrapper() // AccountsWrapper |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -6599,7 +6879,7 @@ Other parameters are passed through a pointer to a apiStopAccountsRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stopAccountsRequest** | **[]map[string]interface{}** |  | 
+ **stopAccountsRequest** | [**AccountsWrapper**](AccountsWrapper.md) |  | 
 
 ### Return type
 
@@ -6611,7 +6891,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -6749,7 +7029,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -6815,7 +7095,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -6881,7 +7161,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -6947,7 +7227,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -7019,7 +7299,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -7029,7 +7309,7 @@ Name | Type | Description  | Notes
 
 ## UpdateAccountHost
 
-> []map[string]interface{} UpdateAccountHost(ctx, accountname, hostgroupid).Execute()
+> UpdateAccountHostResponse UpdateAccountHost(ctx, accountname, hostgroupid).Execute()
 
 
 
@@ -7058,7 +7338,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.UpdateAccountHost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UpdateAccountHost`: []map[string]interface{}
+    // response from `UpdateAccountHost`: UpdateAccountHostResponse
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.UpdateAccountHost`: %v\n", resp)
 }
 ```
@@ -7084,7 +7364,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**[]map[string]interface{}**
+[**UpdateAccountHostResponse**](UpdateAccountHostResponse.md)
 
 ### Authorization
 
@@ -7158,7 +7438,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -7224,7 +7504,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

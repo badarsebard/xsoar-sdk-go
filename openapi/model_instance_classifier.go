@@ -27,7 +27,7 @@ type InstanceClassifier struct {
 	Id                  *string              `json:"id,omitempty"`
 	// Incidents is a list of incident entities
 	IncidentSamples       *map[string]interface{} `json:"incidentSamples,omitempty"`
-	IndicatorSamples      *[]FeedIndicator        `json:"indicatorSamples,omitempty"`
+	IndicatorSamples      *FeedIndicators         `json:"indicatorSamples,omitempty"`
 	InstanceIds           *[]string               `json:"instanceIds,omitempty"`
 	ItemVersion           *Version                `json:"itemVersion,omitempty"`
 	KeyTypeMap            *map[string]string      `json:"keyTypeMap,omitempty"`
@@ -51,11 +51,11 @@ type InstanceClassifier struct {
 	ToServerVersion       *Version                `json:"toServerVersion,omitempty"`
 	Transformer           *AdvanceArg             `json:"transformer,omitempty"`
 	// MapperType for instance classifier
-	Type                              *string                      `json:"type,omitempty"`
-	UnclassifiedCases                 *map[string]map[string]int64 `json:"unclassifiedCases,omitempty"`
-	VcShouldIgnore                    *bool                        `json:"vcShouldIgnore,omitempty"`
-	VcShouldKeepItemLegacyProdMachine *bool                        `json:"vcShouldKeepItemLegacyProdMachine,omitempty"`
-	Version                           *int64                       `json:"version,omitempty"`
+	Type                              *string                       `json:"type,omitempty"`
+	UnclassifiedCases                 *map[string]UnclassifiedCases `json:"unclassifiedCases,omitempty"`
+	VcShouldIgnore                    *bool                         `json:"vcShouldIgnore,omitempty"`
+	VcShouldKeepItemLegacyProdMachine *bool                         `json:"vcShouldKeepItemLegacyProdMachine,omitempty"`
+	Version                           *int64                        `json:"version,omitempty"`
 }
 
 // NewInstanceClassifier instantiates a new InstanceClassifier object
@@ -364,9 +364,9 @@ func (o *InstanceClassifier) SetIncidentSamples(v map[string]interface{}) {
 }
 
 // GetIndicatorSamples returns the IndicatorSamples field value if set, zero value otherwise.
-func (o *InstanceClassifier) GetIndicatorSamples() []FeedIndicator {
+func (o *InstanceClassifier) GetIndicatorSamples() FeedIndicators {
 	if o == nil || o.IndicatorSamples == nil {
-		var ret []FeedIndicator
+		var ret FeedIndicators
 		return ret
 	}
 	return *o.IndicatorSamples
@@ -374,7 +374,7 @@ func (o *InstanceClassifier) GetIndicatorSamples() []FeedIndicator {
 
 // GetIndicatorSamplesOk returns a tuple with the IndicatorSamples field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InstanceClassifier) GetIndicatorSamplesOk() (*[]FeedIndicator, bool) {
+func (o *InstanceClassifier) GetIndicatorSamplesOk() (*FeedIndicators, bool) {
 	if o == nil || o.IndicatorSamples == nil {
 		return nil, false
 	}
@@ -390,8 +390,8 @@ func (o *InstanceClassifier) HasIndicatorSamples() bool {
 	return false
 }
 
-// SetIndicatorSamples gets a reference to the given []FeedIndicator and assigns it to the IndicatorSamples field.
-func (o *InstanceClassifier) SetIndicatorSamples(v []FeedIndicator) {
+// SetIndicatorSamples gets a reference to the given FeedIndicators and assigns it to the IndicatorSamples field.
+func (o *InstanceClassifier) SetIndicatorSamples(v FeedIndicators) {
 	o.IndicatorSamples = &v
 }
 
@@ -1132,9 +1132,9 @@ func (o *InstanceClassifier) SetType(v string) {
 }
 
 // GetUnclassifiedCases returns the UnclassifiedCases field value if set, zero value otherwise.
-func (o *InstanceClassifier) GetUnclassifiedCases() map[string]map[string]int64 {
+func (o *InstanceClassifier) GetUnclassifiedCases() map[string]UnclassifiedCases {
 	if o == nil || o.UnclassifiedCases == nil {
-		var ret map[string]map[string]int64
+		var ret map[string]UnclassifiedCases
 		return ret
 	}
 	return *o.UnclassifiedCases
@@ -1142,7 +1142,7 @@ func (o *InstanceClassifier) GetUnclassifiedCases() map[string]map[string]int64 
 
 // GetUnclassifiedCasesOk returns a tuple with the UnclassifiedCases field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InstanceClassifier) GetUnclassifiedCasesOk() (*map[string]map[string]int64, bool) {
+func (o *InstanceClassifier) GetUnclassifiedCasesOk() (*map[string]UnclassifiedCases, bool) {
 	if o == nil || o.UnclassifiedCases == nil {
 		return nil, false
 	}
@@ -1158,8 +1158,8 @@ func (o *InstanceClassifier) HasUnclassifiedCases() bool {
 	return false
 }
 
-// SetUnclassifiedCases gets a reference to the given map[string]map[string]int64 and assigns it to the UnclassifiedCases field.
-func (o *InstanceClassifier) SetUnclassifiedCases(v map[string]map[string]int64) {
+// SetUnclassifiedCases gets a reference to the given map[string]UnclassifiedCases and assigns it to the UnclassifiedCases field.
+func (o *InstanceClassifier) SetUnclassifiedCases(v map[string]UnclassifiedCases) {
 	o.UnclassifiedCases = &v
 }
 

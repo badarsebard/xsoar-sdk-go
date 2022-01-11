@@ -17,14 +17,13 @@ import (
 
 // IocObject IocObject - represents an Ioc (or simply an indicator) object
 type IocObject struct {
-	// The keys should be the field's display name all lower and without spaces. For example: Scan IP -> scanip To get the actual key name you can also go to Cortex XSOAR CLI and run /incident_add and look for the key that you would like to update
-	CustomFields          *map[string]map[string]interface{} `json:"CustomFields,omitempty"`
-	Account               *string                            `json:"account,omitempty"`
-	AggregatedReliability *string                            `json:"aggregatedReliability,omitempty"`
+	CustomFields          *CustomFields `json:"CustomFields,omitempty"`
+	Account               *string       `json:"account,omitempty"`
+	AggregatedReliability *string       `json:"aggregatedReliability,omitempty"`
 	// Do not set the fields bellow this line
 	CalculatedTime       *time.Time                `json:"calculatedTime,omitempty"`
 	Comment              *string                   `json:"comment,omitempty"`
-	Comments             *[]Comment                `json:"comments,omitempty"`
+	Comments             *Comments                 `json:"comments,omitempty"`
 	DeletedFeedFetchTime *time.Time                `json:"deletedFeedFetchTime,omitempty"`
 	Expiration           *time.Time                `json:"expiration,omitempty"`
 	ExpirationSource     *ExpirationSource         `json:"expirationSource,omitempty"`
@@ -80,9 +79,9 @@ func NewIocObjectWithDefaults() *IocObject {
 }
 
 // GetCustomFields returns the CustomFields field value if set, zero value otherwise.
-func (o *IocObject) GetCustomFields() map[string]map[string]interface{} {
+func (o *IocObject) GetCustomFields() CustomFields {
 	if o == nil || o.CustomFields == nil {
-		var ret map[string]map[string]interface{}
+		var ret CustomFields
 		return ret
 	}
 	return *o.CustomFields
@@ -90,7 +89,7 @@ func (o *IocObject) GetCustomFields() map[string]map[string]interface{} {
 
 // GetCustomFieldsOk returns a tuple with the CustomFields field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IocObject) GetCustomFieldsOk() (*map[string]map[string]interface{}, bool) {
+func (o *IocObject) GetCustomFieldsOk() (*CustomFields, bool) {
 	if o == nil || o.CustomFields == nil {
 		return nil, false
 	}
@@ -106,8 +105,8 @@ func (o *IocObject) HasCustomFields() bool {
 	return false
 }
 
-// SetCustomFields gets a reference to the given map[string]map[string]interface{} and assigns it to the CustomFields field.
-func (o *IocObject) SetCustomFields(v map[string]map[string]interface{}) {
+// SetCustomFields gets a reference to the given CustomFields and assigns it to the CustomFields field.
+func (o *IocObject) SetCustomFields(v CustomFields) {
 	o.CustomFields = &v
 }
 
@@ -240,9 +239,9 @@ func (o *IocObject) SetComment(v string) {
 }
 
 // GetComments returns the Comments field value if set, zero value otherwise.
-func (o *IocObject) GetComments() []Comment {
+func (o *IocObject) GetComments() Comments {
 	if o == nil || o.Comments == nil {
-		var ret []Comment
+		var ret Comments
 		return ret
 	}
 	return *o.Comments
@@ -250,7 +249,7 @@ func (o *IocObject) GetComments() []Comment {
 
 // GetCommentsOk returns a tuple with the Comments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IocObject) GetCommentsOk() (*[]Comment, bool) {
+func (o *IocObject) GetCommentsOk() (*Comments, bool) {
 	if o == nil || o.Comments == nil {
 		return nil, false
 	}
@@ -266,8 +265,8 @@ func (o *IocObject) HasComments() bool {
 	return false
 }
 
-// SetComments gets a reference to the given []Comment and assigns it to the Comments field.
-func (o *IocObject) SetComments(v []Comment) {
+// SetComments gets a reference to the given Comments and assigns it to the Comments field.
+func (o *IocObject) SetComments(v Comments) {
 	o.Comments = &v
 }
 

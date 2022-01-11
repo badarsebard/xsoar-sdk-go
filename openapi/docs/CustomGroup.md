@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Conditions** | Pointer to [**[][]Bucket**]([]Bucket.md) |  | [optional] 
+**Conditions** | Pointer to [**[]Buckets**](Buckets.md) |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetConditions
 
-`func (o *CustomGroup) GetConditions() [][]Bucket`
+`func (o *CustomGroup) GetConditions() []Buckets`
 
 GetConditions returns the Conditions field if non-nil, zero value otherwise.
 
 ### GetConditionsOk
 
-`func (o *CustomGroup) GetConditionsOk() (*[][]Bucket, bool)`
+`func (o *CustomGroup) GetConditionsOk() (*[]Buckets, bool)`
 
 GetConditionsOk returns a tuple with the Conditions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetConditions
 
-`func (o *CustomGroup) SetConditions(v [][]Bucket)`
+`func (o *CustomGroup) SetConditions(v []Buckets)`
 
 SetConditions sets Conditions field to given value.
 

@@ -16,8 +16,7 @@ import (
 
 // StatsResponseWithReferenceLine struct for StatsResponseWithReferenceLine
 type StatsResponseWithReferenceLine struct {
-	// Groups is a list of group entities
-	Groups         *[]Group `json:"groups,omitempty"`
+	Groups         *Groups  `json:"groups,omitempty"`
 	ReferenceLineY *float64 `json:"referenceLineY,omitempty"`
 }
 
@@ -39,9 +38,9 @@ func NewStatsResponseWithReferenceLineWithDefaults() *StatsResponseWithReference
 }
 
 // GetGroups returns the Groups field value if set, zero value otherwise.
-func (o *StatsResponseWithReferenceLine) GetGroups() []Group {
+func (o *StatsResponseWithReferenceLine) GetGroups() Groups {
 	if o == nil || o.Groups == nil {
-		var ret []Group
+		var ret Groups
 		return ret
 	}
 	return *o.Groups
@@ -49,7 +48,7 @@ func (o *StatsResponseWithReferenceLine) GetGroups() []Group {
 
 // GetGroupsOk returns a tuple with the Groups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StatsResponseWithReferenceLine) GetGroupsOk() (*[]Group, bool) {
+func (o *StatsResponseWithReferenceLine) GetGroupsOk() (*Groups, bool) {
 	if o == nil || o.Groups == nil {
 		return nil, false
 	}
@@ -65,8 +64,8 @@ func (o *StatsResponseWithReferenceLine) HasGroups() bool {
 	return false
 }
 
-// SetGroups gets a reference to the given []Group and assigns it to the Groups field.
-func (o *StatsResponseWithReferenceLine) SetGroups(v []Group) {
+// SetGroups gets a reference to the given Groups and assigns it to the Groups field.
+func (o *StatsResponseWithReferenceLine) SetGroups(v Groups) {
 	o.Groups = &v
 }
 

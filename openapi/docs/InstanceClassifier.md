@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **Highlight** | Pointer to **map[string][]string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **IncidentSamples** | Pointer to **map[string]interface{}** | Incidents is a list of incident entities | [optional] 
-**IndicatorSamples** | Pointer to [**[]FeedIndicator**](FeedIndicator.md) |  | [optional] 
+**IndicatorSamples** | Pointer to [**FeedIndicators**](FeedIndicators.md) |  | [optional] 
 **InstanceIds** | Pointer to **[]string** |  | [optional] 
 **ItemVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
 **KeyTypeMap** | Pointer to **map[string]string** |  | [optional] 
@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 **ToServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
 **Transformer** | Pointer to [**AdvanceArg**](AdvanceArg.md) |  | [optional] 
 **Type** | Pointer to **string** | MapperType for instance classifier | [optional] 
-**UnclassifiedCases** | Pointer to **map[string]map[string]int64** |  | [optional] 
+**UnclassifiedCases** | Pointer to [**map[string]UnclassifiedCases**](UnclassifiedCases.md) |  | [optional] 
 **VcShouldIgnore** | Pointer to **bool** |  | [optional] 
 **VcShouldKeepItemLegacyProdMachine** | Pointer to **bool** |  | [optional] 
 **Version** | Pointer to **int64** |  | [optional] 
@@ -288,20 +288,20 @@ HasIncidentSamples returns a boolean if a field has been set.
 
 ### GetIndicatorSamples
 
-`func (o *InstanceClassifier) GetIndicatorSamples() []FeedIndicator`
+`func (o *InstanceClassifier) GetIndicatorSamples() FeedIndicators`
 
 GetIndicatorSamples returns the IndicatorSamples field if non-nil, zero value otherwise.
 
 ### GetIndicatorSamplesOk
 
-`func (o *InstanceClassifier) GetIndicatorSamplesOk() (*[]FeedIndicator, bool)`
+`func (o *InstanceClassifier) GetIndicatorSamplesOk() (*FeedIndicators, bool)`
 
 GetIndicatorSamplesOk returns a tuple with the IndicatorSamples field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIndicatorSamples
 
-`func (o *InstanceClassifier) SetIndicatorSamples(v []FeedIndicator)`
+`func (o *InstanceClassifier) SetIndicatorSamples(v FeedIndicators)`
 
 SetIndicatorSamples sets IndicatorSamples field to given value.
 
@@ -888,20 +888,20 @@ HasType returns a boolean if a field has been set.
 
 ### GetUnclassifiedCases
 
-`func (o *InstanceClassifier) GetUnclassifiedCases() map[string]map[string]int64`
+`func (o *InstanceClassifier) GetUnclassifiedCases() map[string]UnclassifiedCases`
 
 GetUnclassifiedCases returns the UnclassifiedCases field if non-nil, zero value otherwise.
 
 ### GetUnclassifiedCasesOk
 
-`func (o *InstanceClassifier) GetUnclassifiedCasesOk() (*map[string]map[string]int64, bool)`
+`func (o *InstanceClassifier) GetUnclassifiedCasesOk() (*map[string]UnclassifiedCases, bool)`
 
 GetUnclassifiedCasesOk returns a tuple with the UnclassifiedCases field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUnclassifiedCases
 
-`func (o *InstanceClassifier) SetUnclassifiedCases(v map[string]map[string]int64)`
+`func (o *InstanceClassifier) SetUnclassifiedCases(v map[string]UnclassifiedCases)`
 
 SetUnclassifiedCases sets UnclassifiedCases field to given value.
 

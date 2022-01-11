@@ -17,30 +17,29 @@ import (
 
 // FeedIndicator struct for FeedIndicator
 type FeedIndicator struct {
-	ExpirationSource    *ExpirationSource       `json:"ExpirationSource,omitempty"`
-	BypassExclusionList *bool                   `json:"bypassExclusionList,omitempty"`
-	ClassifierId        *string                 `json:"classifierId,omitempty"`
-	ClassifierVersion   *int64                  `json:"classifierVersion,omitempty"`
-	Comments            *[]FeedIndicatorComment `json:"comments,omitempty"`
-	ExpirationInterval  *int64                  `json:"expirationInterval,omitempty"`
-	ExpirationPolicy    *string                 `json:"expirationPolicy,omitempty"`
-	FetchTime           *time.Time              `json:"fetchTime,omitempty"`
-	// The keys should be the field's display name all lower and without spaces. For example: Scan IP -> scanip To get the actual key name you can also go to Cortex XSOAR CLI and run /incident_add and look for the key that you would like to update
-	Fields         *map[string]map[string]interface{} `json:"fields,omitempty"`
-	IsEnrichment   *bool                              `json:"isEnrichment,omitempty"`
-	MapperId       *string                            `json:"mapperId,omitempty"`
-	MapperVersion  *int64                             `json:"mapperVersion,omitempty"`
-	ModifiedTime   *time.Time                         `json:"modifiedTime,omitempty"`
-	ModuleId       *string                            `json:"moduleId,omitempty"`
-	RawJSON        *map[string]map[string]interface{} `json:"rawJSON,omitempty"`
-	Relationships  *[]RelationshipAPI                 `json:"relationships,omitempty"`
-	Reliability    *string                            `json:"reliability,omitempty"`
-	Score          *int64                             `json:"score,omitempty"`
-	SourceBrand    *string                            `json:"sourceBrand,omitempty"`
-	SourceInstance *string                            `json:"sourceInstance,omitempty"`
-	Timestamp      *time.Time                         `json:"timestamp,omitempty"`
-	Type           *string                            `json:"type,omitempty"`
-	Value          *string                            `json:"value,omitempty"`
+	ExpirationSource    *ExpirationSource                  `json:"ExpirationSource,omitempty"`
+	BypassExclusionList *bool                              `json:"bypassExclusionList,omitempty"`
+	ClassifierId        *string                            `json:"classifierId,omitempty"`
+	ClassifierVersion   *int64                             `json:"classifierVersion,omitempty"`
+	Comments            *[]FeedIndicatorComment            `json:"comments,omitempty"`
+	ExpirationInterval  *int64                             `json:"expirationInterval,omitempty"`
+	ExpirationPolicy    *string                            `json:"expirationPolicy,omitempty"`
+	FetchTime           *time.Time                         `json:"fetchTime,omitempty"`
+	Fields              *CustomFields                      `json:"fields,omitempty"`
+	IsEnrichment        *bool                              `json:"isEnrichment,omitempty"`
+	MapperId            *string                            `json:"mapperId,omitempty"`
+	MapperVersion       *int64                             `json:"mapperVersion,omitempty"`
+	ModifiedTime        *time.Time                         `json:"modifiedTime,omitempty"`
+	ModuleId            *string                            `json:"moduleId,omitempty"`
+	RawJSON             *map[string]map[string]interface{} `json:"rawJSON,omitempty"`
+	Relationships       *RelationshipsAPI                  `json:"relationships,omitempty"`
+	Reliability         *string                            `json:"reliability,omitempty"`
+	Score               *int64                             `json:"score,omitempty"`
+	SourceBrand         *string                            `json:"sourceBrand,omitempty"`
+	SourceInstance      *string                            `json:"sourceInstance,omitempty"`
+	Timestamp           *time.Time                         `json:"timestamp,omitempty"`
+	Type                *string                            `json:"type,omitempty"`
+	Value               *string                            `json:"value,omitempty"`
 }
 
 // NewFeedIndicator instantiates a new FeedIndicator object
@@ -317,9 +316,9 @@ func (o *FeedIndicator) SetFetchTime(v time.Time) {
 }
 
 // GetFields returns the Fields field value if set, zero value otherwise.
-func (o *FeedIndicator) GetFields() map[string]map[string]interface{} {
+func (o *FeedIndicator) GetFields() CustomFields {
 	if o == nil || o.Fields == nil {
-		var ret map[string]map[string]interface{}
+		var ret CustomFields
 		return ret
 	}
 	return *o.Fields
@@ -327,7 +326,7 @@ func (o *FeedIndicator) GetFields() map[string]map[string]interface{} {
 
 // GetFieldsOk returns a tuple with the Fields field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FeedIndicator) GetFieldsOk() (*map[string]map[string]interface{}, bool) {
+func (o *FeedIndicator) GetFieldsOk() (*CustomFields, bool) {
 	if o == nil || o.Fields == nil {
 		return nil, false
 	}
@@ -343,8 +342,8 @@ func (o *FeedIndicator) HasFields() bool {
 	return false
 }
 
-// SetFields gets a reference to the given map[string]map[string]interface{} and assigns it to the Fields field.
-func (o *FeedIndicator) SetFields(v map[string]map[string]interface{}) {
+// SetFields gets a reference to the given CustomFields and assigns it to the Fields field.
+func (o *FeedIndicator) SetFields(v CustomFields) {
 	o.Fields = &v
 }
 
@@ -541,9 +540,9 @@ func (o *FeedIndicator) SetRawJSON(v map[string]map[string]interface{}) {
 }
 
 // GetRelationships returns the Relationships field value if set, zero value otherwise.
-func (o *FeedIndicator) GetRelationships() []RelationshipAPI {
+func (o *FeedIndicator) GetRelationships() RelationshipsAPI {
 	if o == nil || o.Relationships == nil {
-		var ret []RelationshipAPI
+		var ret RelationshipsAPI
 		return ret
 	}
 	return *o.Relationships
@@ -551,7 +550,7 @@ func (o *FeedIndicator) GetRelationships() []RelationshipAPI {
 
 // GetRelationshipsOk returns a tuple with the Relationships field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FeedIndicator) GetRelationshipsOk() (*[]RelationshipAPI, bool) {
+func (o *FeedIndicator) GetRelationshipsOk() (*RelationshipsAPI, bool) {
 	if o == nil || o.Relationships == nil {
 		return nil, false
 	}
@@ -567,8 +566,8 @@ func (o *FeedIndicator) HasRelationships() bool {
 	return false
 }
 
-// SetRelationships gets a reference to the given []RelationshipAPI and assigns it to the Relationships field.
-func (o *FeedIndicator) SetRelationships(v []RelationshipAPI) {
+// SetRelationships gets a reference to the given RelationshipsAPI and assigns it to the Relationships field.
+func (o *FeedIndicator) SetRelationships(v RelationshipsAPI) {
 	o.Relationships = &v
 }
 

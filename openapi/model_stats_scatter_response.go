@@ -16,8 +16,7 @@ import (
 
 // StatsScatterResponse struct for StatsScatterResponse
 type StatsScatterResponse struct {
-	// Groups is a list of group entities
-	Data   *[]Group `json:"data,omitempty"`
+	Data   *Groups  `json:"data,omitempty"`
 	Range  *[]int64 `json:"range,omitempty"`
 	RangeX *[]int64 `json:"rangeX,omitempty"`
 	RangeY *[]int64 `json:"rangeY,omitempty"`
@@ -41,9 +40,9 @@ func NewStatsScatterResponseWithDefaults() *StatsScatterResponse {
 }
 
 // GetData returns the Data field value if set, zero value otherwise.
-func (o *StatsScatterResponse) GetData() []Group {
+func (o *StatsScatterResponse) GetData() Groups {
 	if o == nil || o.Data == nil {
-		var ret []Group
+		var ret Groups
 		return ret
 	}
 	return *o.Data
@@ -51,7 +50,7 @@ func (o *StatsScatterResponse) GetData() []Group {
 
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StatsScatterResponse) GetDataOk() (*[]Group, bool) {
+func (o *StatsScatterResponse) GetDataOk() (*Groups, bool) {
 	if o == nil || o.Data == nil {
 		return nil, false
 	}
@@ -67,8 +66,8 @@ func (o *StatsScatterResponse) HasData() bool {
 	return false
 }
 
-// SetData gets a reference to the given []Group and assigns it to the Data field.
-func (o *StatsScatterResponse) SetData(v []Group) {
+// SetData gets a reference to the given Groups and assigns it to the Data field.
+func (o *StatsScatterResponse) SetData(v Groups) {
 	o.Data = &v
 }
 

@@ -20,13 +20,11 @@ type InvestigationPlaybookData struct {
 	ReadyPlaybookInputs *map[string]map[string]map[string]interface{} `json:"ReadyPlaybookInputs,omitempty"`
 	AutoExtracting      *bool                                         `json:"autoExtracting,omitempty"`
 	Comment             *string                                       `json:"comment,omitempty"`
-	// PlaybookInputs - array of PlaybookInput
-	Inputs          *[]PlaybookInput `json:"inputs,omitempty"`
-	InvestigationId *string          `json:"investigationId,omitempty"`
-	IsTIM           *bool            `json:"isTIM,omitempty"`
-	Name            *string          `json:"name,omitempty"`
-	// PlaybookOutputs - array of PlaybookOutput
-	Outputs *[]PlaybookOutput `json:"outputs,omitempty"`
+	Inputs              *PlaybookInputs                               `json:"inputs,omitempty"`
+	InvestigationId     *string                                       `json:"investigationId,omitempty"`
+	IsTIM               *bool                                         `json:"isTIM,omitempty"`
+	Name                *string                                       `json:"name,omitempty"`
+	Outputs             *PlaybookOutputs                              `json:"outputs,omitempty"`
 	// Tasks that are marked for running, but cannot yet run due to incomplete parents
 	PendingTasks *map[string]map[string]interface{} `json:"pendingTasks,omitempty"`
 	PlaybookId   *string                            `json:"playbookId,omitempty"`
@@ -36,8 +34,8 @@ type InvestigationPlaybookData struct {
 	StartTaskId *string `json:"startTaskId,omitempty"`
 	// InvestigationPlaybookState indicates the state of the running playbook
 	State              *string                               `json:"state,omitempty"`
-	SubPlaybookInputs  *map[string][]PlaybookInput           `json:"subPlaybookInputs,omitempty"`
-	SubPlaybookOutputs *map[string][]PlaybookOutput          `json:"subPlaybookOutputs,omitempty"`
+	SubPlaybookInputs  *map[string]PlaybookInputs            `json:"subPlaybookInputs,omitempty"`
+	SubPlaybookOutputs *map[string]PlaybookOutputs           `json:"subPlaybookOutputs,omitempty"`
 	Tasks              *map[string]InvestigationPlaybookTask `json:"tasks,omitempty"`
 	// PlaybookView represents the view in client of playbook graph
 	View *map[string]interface{} `json:"view,omitempty"`
@@ -157,9 +155,9 @@ func (o *InvestigationPlaybookData) SetComment(v string) {
 }
 
 // GetInputs returns the Inputs field value if set, zero value otherwise.
-func (o *InvestigationPlaybookData) GetInputs() []PlaybookInput {
+func (o *InvestigationPlaybookData) GetInputs() PlaybookInputs {
 	if o == nil || o.Inputs == nil {
-		var ret []PlaybookInput
+		var ret PlaybookInputs
 		return ret
 	}
 	return *o.Inputs
@@ -167,7 +165,7 @@ func (o *InvestigationPlaybookData) GetInputs() []PlaybookInput {
 
 // GetInputsOk returns a tuple with the Inputs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InvestigationPlaybookData) GetInputsOk() (*[]PlaybookInput, bool) {
+func (o *InvestigationPlaybookData) GetInputsOk() (*PlaybookInputs, bool) {
 	if o == nil || o.Inputs == nil {
 		return nil, false
 	}
@@ -183,8 +181,8 @@ func (o *InvestigationPlaybookData) HasInputs() bool {
 	return false
 }
 
-// SetInputs gets a reference to the given []PlaybookInput and assigns it to the Inputs field.
-func (o *InvestigationPlaybookData) SetInputs(v []PlaybookInput) {
+// SetInputs gets a reference to the given PlaybookInputs and assigns it to the Inputs field.
+func (o *InvestigationPlaybookData) SetInputs(v PlaybookInputs) {
 	o.Inputs = &v
 }
 
@@ -285,9 +283,9 @@ func (o *InvestigationPlaybookData) SetName(v string) {
 }
 
 // GetOutputs returns the Outputs field value if set, zero value otherwise.
-func (o *InvestigationPlaybookData) GetOutputs() []PlaybookOutput {
+func (o *InvestigationPlaybookData) GetOutputs() PlaybookOutputs {
 	if o == nil || o.Outputs == nil {
-		var ret []PlaybookOutput
+		var ret PlaybookOutputs
 		return ret
 	}
 	return *o.Outputs
@@ -295,7 +293,7 @@ func (o *InvestigationPlaybookData) GetOutputs() []PlaybookOutput {
 
 // GetOutputsOk returns a tuple with the Outputs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InvestigationPlaybookData) GetOutputsOk() (*[]PlaybookOutput, bool) {
+func (o *InvestigationPlaybookData) GetOutputsOk() (*PlaybookOutputs, bool) {
 	if o == nil || o.Outputs == nil {
 		return nil, false
 	}
@@ -311,8 +309,8 @@ func (o *InvestigationPlaybookData) HasOutputs() bool {
 	return false
 }
 
-// SetOutputs gets a reference to the given []PlaybookOutput and assigns it to the Outputs field.
-func (o *InvestigationPlaybookData) SetOutputs(v []PlaybookOutput) {
+// SetOutputs gets a reference to the given PlaybookOutputs and assigns it to the Outputs field.
+func (o *InvestigationPlaybookData) SetOutputs(v PlaybookOutputs) {
 	o.Outputs = &v
 }
 
@@ -509,9 +507,9 @@ func (o *InvestigationPlaybookData) SetState(v string) {
 }
 
 // GetSubPlaybookInputs returns the SubPlaybookInputs field value if set, zero value otherwise.
-func (o *InvestigationPlaybookData) GetSubPlaybookInputs() map[string][]PlaybookInput {
+func (o *InvestigationPlaybookData) GetSubPlaybookInputs() map[string]PlaybookInputs {
 	if o == nil || o.SubPlaybookInputs == nil {
-		var ret map[string][]PlaybookInput
+		var ret map[string]PlaybookInputs
 		return ret
 	}
 	return *o.SubPlaybookInputs
@@ -519,7 +517,7 @@ func (o *InvestigationPlaybookData) GetSubPlaybookInputs() map[string][]Playbook
 
 // GetSubPlaybookInputsOk returns a tuple with the SubPlaybookInputs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InvestigationPlaybookData) GetSubPlaybookInputsOk() (*map[string][]PlaybookInput, bool) {
+func (o *InvestigationPlaybookData) GetSubPlaybookInputsOk() (*map[string]PlaybookInputs, bool) {
 	if o == nil || o.SubPlaybookInputs == nil {
 		return nil, false
 	}
@@ -535,15 +533,15 @@ func (o *InvestigationPlaybookData) HasSubPlaybookInputs() bool {
 	return false
 }
 
-// SetSubPlaybookInputs gets a reference to the given map[string][]PlaybookInput and assigns it to the SubPlaybookInputs field.
-func (o *InvestigationPlaybookData) SetSubPlaybookInputs(v map[string][]PlaybookInput) {
+// SetSubPlaybookInputs gets a reference to the given map[string]PlaybookInputs and assigns it to the SubPlaybookInputs field.
+func (o *InvestigationPlaybookData) SetSubPlaybookInputs(v map[string]PlaybookInputs) {
 	o.SubPlaybookInputs = &v
 }
 
 // GetSubPlaybookOutputs returns the SubPlaybookOutputs field value if set, zero value otherwise.
-func (o *InvestigationPlaybookData) GetSubPlaybookOutputs() map[string][]PlaybookOutput {
+func (o *InvestigationPlaybookData) GetSubPlaybookOutputs() map[string]PlaybookOutputs {
 	if o == nil || o.SubPlaybookOutputs == nil {
-		var ret map[string][]PlaybookOutput
+		var ret map[string]PlaybookOutputs
 		return ret
 	}
 	return *o.SubPlaybookOutputs
@@ -551,7 +549,7 @@ func (o *InvestigationPlaybookData) GetSubPlaybookOutputs() map[string][]Playboo
 
 // GetSubPlaybookOutputsOk returns a tuple with the SubPlaybookOutputs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InvestigationPlaybookData) GetSubPlaybookOutputsOk() (*map[string][]PlaybookOutput, bool) {
+func (o *InvestigationPlaybookData) GetSubPlaybookOutputsOk() (*map[string]PlaybookOutputs, bool) {
 	if o == nil || o.SubPlaybookOutputs == nil {
 		return nil, false
 	}
@@ -567,8 +565,8 @@ func (o *InvestigationPlaybookData) HasSubPlaybookOutputs() bool {
 	return false
 }
 
-// SetSubPlaybookOutputs gets a reference to the given map[string][]PlaybookOutput and assigns it to the SubPlaybookOutputs field.
-func (o *InvestigationPlaybookData) SetSubPlaybookOutputs(v map[string][]PlaybookOutput) {
+// SetSubPlaybookOutputs gets a reference to the given map[string]PlaybookOutputs and assigns it to the SubPlaybookOutputs field.
+func (o *InvestigationPlaybookData) SetSubPlaybookOutputs(v map[string]PlaybookOutputs) {
 	o.SubPlaybookOutputs = &v
 }
 

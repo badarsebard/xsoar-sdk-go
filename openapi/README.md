@@ -80,7 +80,7 @@ Note, enum values are always validated and all unused variables are silently ign
 ### URLs Configuration per Operation
 
 Each operation can use different server URL defined using `OperationServers` map in the `Configuration`.
-An operation is uniquely identifield by `"{classname}Service.{nickname}"` string.
+An operation is uniquely identified by `"{classname}Service.{nickname}"` string.
 Similar rules for overriding default operation server index and variables applies by using `sw.ContextOperationServerIndices` and `sw.ContextOperationServerVariables` context maps.
 
 ```
@@ -116,6 +116,8 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**CreateIncidentsBatch**](docs/DefaultApi.md#createincidentsbatch) | **Post** /incident/batch | Batch create incidents
 *DefaultApi* | [**CreateOrUpdateIncidentType**](docs/DefaultApi.md#createorupdateincidenttype) | **Post** /incidenttype | Create new Incident Type
 *DefaultApi* | [**CreateOrUpdateWhitelisted**](docs/DefaultApi.md#createorupdatewhitelisted) | **Post** /indicators/whitelist/update | Create whitelisted
+*DefaultApi* | [**CreateUpdateClassifier**](docs/DefaultApi.md#createupdateclassifier) | **Post** /classifier | Create or update a classifier
+*DefaultApi* | [**CreateUpdateClassifierAccount**](docs/DefaultApi.md#createupdateclassifieraccount) | **Post** /{acc}/classifier | Create or update a classifier
 *DefaultApi* | [**CreateUpdateIntegrationInstance**](docs/DefaultApi.md#createupdateintegrationinstance) | **Put** /settings/integration | Create/update an integration instance
 *DefaultApi* | [**CreateUpdateIntegrationInstanceAccount**](docs/DefaultApi.md#createupdateintegrationinstanceaccount) | **Put** /{acc}/settings/integration | Create/update an integration instance
 *DefaultApi* | [**DeleteAccount**](docs/DefaultApi.md#deleteaccount) | **Delete** /account/purge/{accountname} | 
@@ -176,6 +178,8 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**InvestigationAddFormattedEntryHandler**](docs/DefaultApi.md#investigationaddformattedentryhandler) | **Post** /entry/formatted | Create new formatted entry in existing investigation
 *DefaultApi* | [**ListAccounts**](docs/DefaultApi.md#listaccounts) | **Get** /accounts | List accounts
 *DefaultApi* | [**ListAccountsDetails**](docs/DefaultApi.md#listaccountsdetails) | **Get** /accounts/data | Detailed accounts
+*DefaultApi* | [**ListClassifiers**](docs/DefaultApi.md#listclassifiers) | **Post** /classifier/search | search classifiers
+*DefaultApi* | [**ListClassifiersAccount**](docs/DefaultApi.md#listclassifiersaccount) | **Post** /{acc}/classifier/search | search classifiers
 *DefaultApi* | [**ListHAGroups**](docs/DefaultApi.md#listhagroups) | **Get** /ha-groups | 
 *DefaultApi* | [**ListHosts**](docs/DefaultApi.md#listhosts) | **Get** /hosts | 
 *DefaultApi* | [**ListIntegrations**](docs/DefaultApi.md#listintegrations) | **Post** /settings/integration/search | List integrations
@@ -212,10 +216,13 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AccountsWrapper](docs/AccountsWrapper.md)
  - [AdvanceArg](docs/AdvanceArg.md)
  - [ArgAtomicFilter](docs/ArgAtomicFilter.md)
+ - [ArgFilter](docs/ArgFilter.md)
  - [ArgTransformer](docs/ArgTransformer.md)
  - [Argument](docs/Argument.md)
+ - [ArrayPositions](docs/ArrayPositions.md)
  - [Attachment](docs/Attachment.md)
  - [Audit](docs/Audit.md)
  - [AuditResult](docs/AuditResult.md)
@@ -225,9 +232,11 @@ Class | Method | HTTP request | Description
  - [AutomationScriptFilterWrapper](docs/AutomationScriptFilterWrapper.md)
  - [AutomationScriptResult](docs/AutomationScriptResult.md)
  - [Bucket](docs/Bucket.md)
+ - [Buckets](docs/Buckets.md)
  - [Command](docs/Command.md)
  - [Comment](docs/Comment.md)
  - [CommentUpdate](docs/CommentUpdate.md)
+ - [Comments](docs/Comments.md)
  - [CommentsFields](docs/CommentsFields.md)
  - [CommonFields](docs/CommonFields.md)
  - [CommonUpdateBatch](docs/CommonUpdateBatch.md)
@@ -246,8 +255,12 @@ Class | Method | HTTP request | Description
  - [CreateAccountRequest](docs/CreateAccountRequest.md)
  - [CreateHAGroupRequest](docs/CreateHAGroupRequest.md)
  - [CreateIncidentRequest](docs/CreateIncidentRequest.md)
+ - [CreateIntegrationRequest](docs/CreateIntegrationRequest.md)
+ - [CreateUpdateClassifierRequest](docs/CreateUpdateClassifierRequest.md)
  - [CreateUpdateHAGroup](docs/CreateUpdateHAGroup.md)
+ - [CustomFields](docs/CustomFields.md)
  - [CustomGroup](docs/CustomGroup.md)
+ - [CustomGroups](docs/CustomGroups.md)
  - [DBotScore](docs/DBotScore.md)
  - [Dashboard](docs/Dashboard.md)
  - [DataCollectionForm](docs/DataCollectionForm.md)
@@ -267,6 +280,7 @@ Class | Method | HTTP request | Description
  - [ErrorResponse](docs/ErrorResponse.md)
  - [Evidence](docs/Evidence.md)
  - [EvidenceData](docs/EvidenceData.md)
+ - [Evidences](docs/Evidences.md)
  - [EvidencesFilterWrapper](docs/EvidencesFilterWrapper.md)
  - [EvidencesSearchResponse](docs/EvidencesSearchResponse.md)
  - [ExpirationIndicator](docs/ExpirationIndicator.md)
@@ -274,10 +288,12 @@ Class | Method | HTTP request | Description
  - [FeedIndicator](docs/FeedIndicator.md)
  - [FeedIndicatorComment](docs/FeedIndicatorComment.md)
  - [FeedIndicatorCommentsFields](docs/FeedIndicatorCommentsFields.md)
+ - [FeedIndicators](docs/FeedIndicators.md)
  - [FeedIndicatorsRequest](docs/FeedIndicatorsRequest.md)
  - [FeedMetadata](docs/FeedMetadata.md)
  - [FieldExtractSetting](docs/FieldExtractSetting.md)
  - [FieldMapping](docs/FieldMapping.md)
+ - [FieldTermLocationMap](docs/FieldTermLocationMap.md)
  - [FileMetadata](docs/FileMetadata.md)
  - [FormDisplay](docs/FormDisplay.md)
  - [FullVersion](docs/FullVersion.md)
@@ -287,6 +303,9 @@ Class | Method | HTTP request | Description
  - [GraphDriverData](docs/GraphDriverData.md)
  - [GridColumn](docs/GridColumn.md)
  - [Group](docs/Group.md)
+ - [Groups](docs/Groups.md)
+ - [HAGroups](docs/HAGroups.md)
+ - [Hosts](docs/Hosts.md)
  - [HumanCron](docs/HumanCron.md)
  - [IdResponse](docs/IdResponse.md)
  - [ImageDeleteResponseItem](docs/ImageDeleteResponseItem.md)
@@ -305,13 +324,17 @@ Class | Method | HTTP request | Description
  - [IndicatorEditBulkResponse](docs/IndicatorEditBulkResponse.md)
  - [IndicatorFilter](docs/IndicatorFilter.md)
  - [IndicatorResult](docs/IndicatorResult.md)
+ - [IndicatorTimeline](docs/IndicatorTimeline.md)
  - [IndicatorTimelineFromEntry](docs/IndicatorTimelineFromEntry.md)
  - [Info](docs/Info.md)
  - [InlineObject](docs/InlineObject.md)
  - [InlineObject1](docs/InlineObject1.md)
+ - [InlineObject2](docs/InlineObject2.md)
+ - [InlineObject3](docs/InlineObject3.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [InsightCache](docs/InsightCache.md)
  - [InstanceClassifier](docs/InstanceClassifier.md)
+ - [InstanceClassifiers](docs/InstanceClassifiers.md)
  - [IntegrationScript](docs/IntegrationScript.md)
  - [InvPlaybookAssignee](docs/InvPlaybookAssignee.md)
  - [InvPlaybookDebugInfo](docs/InvPlaybookDebugInfo.md)
@@ -326,7 +349,9 @@ Class | Method | HTTP request | Description
  - [InvestigationPlaybookData](docs/InvestigationPlaybookData.md)
  - [InvestigationPlaybookTask](docs/InvestigationPlaybookTask.md)
  - [InvestigationSearchResponse](docs/InvestigationSearchResponse.md)
+ - [Investigations](docs/Investigations.md)
  - [IocObject](docs/IocObject.md)
+ - [IocObjects](docs/IocObjects.md)
  - [Label](docs/Label.md)
  - [Layout](docs/Layout.md)
  - [LayoutAPI](docs/LayoutAPI.md)
@@ -334,10 +359,13 @@ Class | Method | HTTP request | Description
  - [LayoutField](docs/LayoutField.md)
  - [LayoutSection](docs/LayoutSection.md)
  - [Location](docs/Location.md)
+ - [Locations](docs/Locations.md)
  - [MainHost](docs/MainHost.md)
+ - [MainHosts](docs/MainHosts.md)
  - [Mapper](docs/Mapper.md)
+ - [ModuleArgs](docs/ModuleArgs.md)
  - [ModuleConfiguration](docs/ModuleConfiguration.md)
- - [NewDockerImageRequest](docs/NewDockerImageRequest.md)
+ - [NewDockerImage](docs/NewDockerImage.md)
  - [NewDockerImageResult](docs/NewDockerImageResult.md)
  - [NotifiableItem](docs/NotifiableItem.md)
  - [NotifyTimings](docs/NotifyTimings.md)
@@ -348,7 +376,9 @@ Class | Method | HTTP request | Description
  - [Playbook](docs/Playbook.md)
  - [PlaybookInput](docs/PlaybookInput.md)
  - [PlaybookInputQuery](docs/PlaybookInputQuery.md)
+ - [PlaybookInputs](docs/PlaybookInputs.md)
  - [PlaybookOutput](docs/PlaybookOutput.md)
+ - [PlaybookOutputs](docs/PlaybookOutputs.md)
  - [PlaybookTask](docs/PlaybookTask.md)
  - [PlaybookWithWarnings](docs/PlaybookWithWarnings.md)
  - [Plugin](docs/Plugin.md)
@@ -369,9 +399,11 @@ Class | Method | HTTP request | Description
  - [QueryState](docs/QueryState.md)
  - [Question](docs/Question.md)
  - [RBAC](docs/RBAC.md)
+ - [RawFeedIndicator](docs/RawFeedIndicator.md)
  - [RelationshipAPI](docs/RelationshipAPI.md)
  - [RelationshipCommonFields](docs/RelationshipCommonFields.md)
  - [RelationshipFilter](docs/RelationshipFilter.md)
+ - [RelationshipsAPI](docs/RelationshipsAPI.md)
  - [Report](docs/Report.md)
  - [ReportAutomation](docs/ReportAutomation.md)
  - [ReportFieldsDecoder](docs/ReportFieldsDecoder.md)
@@ -404,9 +436,12 @@ Class | Method | HTTP request | Description
  - [Task](docs/Task.md)
  - [TaskCondition](docs/TaskCondition.md)
  - [TaskLoop](docs/TaskLoop.md)
+ - [TermLocationMap](docs/TermLocationMap.md)
  - [TerminalOptions](docs/TerminalOptions.md)
  - [TimerTrigger](docs/TimerTrigger.md)
  - [TypeAndKind](docs/TypeAndKind.md)
+ - [UnclassifiedCases](docs/UnclassifiedCases.md)
+ - [UpdateAccountHostResponse](docs/UpdateAccountHostResponse.md)
  - [UpdateDataBatch](docs/UpdateDataBatch.md)
  - [UpdateEntry](docs/UpdateEntry.md)
  - [UpdateEntryTags](docs/UpdateEntryTags.md)
@@ -422,6 +457,7 @@ Class | Method | HTTP request | Description
  - [WhitelistedIndicator](docs/WhitelistedIndicator.md)
  - [Widget](docs/Widget.md)
  - [WidgetCell](docs/WidgetCell.md)
+ - [WidgetCells](docs/WidgetCells.md)
 
 
 ## Documentation For Authorization

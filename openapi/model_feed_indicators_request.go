@@ -16,10 +16,10 @@ import (
 
 // FeedIndicatorsRequest FeedIndicatorsRequest is the input for JSON feed indicator ingestion
 type FeedIndicatorsRequest struct {
-	BypassExclusionList *bool                                `json:"bypassExclusionList,omitempty"`
-	ClassifierId        *string                              `json:"classifierId,omitempty"`
-	Indicators          *[]map[string]map[string]interface{} `json:"indicators,omitempty"`
-	MapperId            *string                              `json:"mapperId,omitempty"`
+	BypassExclusionList *bool               `json:"bypassExclusionList,omitempty"`
+	ClassifierId        *string             `json:"classifierId,omitempty"`
+	Indicators          *[]RawFeedIndicator `json:"indicators,omitempty"`
+	MapperId            *string             `json:"mapperId,omitempty"`
 }
 
 // NewFeedIndicatorsRequest instantiates a new FeedIndicatorsRequest object
@@ -104,9 +104,9 @@ func (o *FeedIndicatorsRequest) SetClassifierId(v string) {
 }
 
 // GetIndicators returns the Indicators field value if set, zero value otherwise.
-func (o *FeedIndicatorsRequest) GetIndicators() []map[string]map[string]interface{} {
+func (o *FeedIndicatorsRequest) GetIndicators() []RawFeedIndicator {
 	if o == nil || o.Indicators == nil {
-		var ret []map[string]map[string]interface{}
+		var ret []RawFeedIndicator
 		return ret
 	}
 	return *o.Indicators
@@ -114,7 +114,7 @@ func (o *FeedIndicatorsRequest) GetIndicators() []map[string]map[string]interfac
 
 // GetIndicatorsOk returns a tuple with the Indicators field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FeedIndicatorsRequest) GetIndicatorsOk() (*[]map[string]map[string]interface{}, bool) {
+func (o *FeedIndicatorsRequest) GetIndicatorsOk() (*[]RawFeedIndicator, bool) {
 	if o == nil || o.Indicators == nil {
 		return nil, false
 	}
@@ -130,8 +130,8 @@ func (o *FeedIndicatorsRequest) HasIndicators() bool {
 	return false
 }
 
-// SetIndicators gets a reference to the given []map[string]map[string]interface{} and assigns it to the Indicators field.
-func (o *FeedIndicatorsRequest) SetIndicators(v []map[string]map[string]interface{}) {
+// SetIndicators gets a reference to the given []RawFeedIndicator and assigns it to the Indicators field.
+func (o *FeedIndicatorsRequest) SetIndicators(v []RawFeedIndicator) {
 	o.Indicators = &v
 }
 

@@ -16,8 +16,8 @@ import (
 
 // IndicatorResult struct for IndicatorResult
 type IndicatorResult struct {
-	IocObjects *[]IocObject `json:"iocObjects,omitempty"`
-	Total      *int64       `json:"total,omitempty"`
+	IocObjects *IocObjects `json:"iocObjects,omitempty"`
+	Total      *int64      `json:"total,omitempty"`
 }
 
 // NewIndicatorResult instantiates a new IndicatorResult object
@@ -38,9 +38,9 @@ func NewIndicatorResultWithDefaults() *IndicatorResult {
 }
 
 // GetIocObjects returns the IocObjects field value if set, zero value otherwise.
-func (o *IndicatorResult) GetIocObjects() []IocObject {
+func (o *IndicatorResult) GetIocObjects() IocObjects {
 	if o == nil || o.IocObjects == nil {
-		var ret []IocObject
+		var ret IocObjects
 		return ret
 	}
 	return *o.IocObjects
@@ -48,7 +48,7 @@ func (o *IndicatorResult) GetIocObjects() []IocObject {
 
 // GetIocObjectsOk returns a tuple with the IocObjects field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IndicatorResult) GetIocObjectsOk() (*[]IocObject, bool) {
+func (o *IndicatorResult) GetIocObjectsOk() (*IocObjects, bool) {
 	if o == nil || o.IocObjects == nil {
 		return nil, false
 	}
@@ -64,8 +64,8 @@ func (o *IndicatorResult) HasIocObjects() bool {
 	return false
 }
 
-// SetIocObjects gets a reference to the given []IocObject and assigns it to the IocObjects field.
-func (o *IndicatorResult) SetIocObjects(v []IocObject) {
+// SetIocObjects gets a reference to the given IocObjects and assigns it to the IocObjects field.
+func (o *IndicatorResult) SetIocObjects(v IocObjects) {
 	o.IocObjects = &v
 }
 

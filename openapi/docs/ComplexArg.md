@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Accessor** | Pointer to **string** |  | [optional] 
-**Filters** | Pointer to [**[][]ArgAtomicFilter**]([]ArgAtomicFilter.md) |  | [optional] 
+**Filters** | Pointer to [**[]ArgFilter**](ArgFilter.md) |  | [optional] 
 **Root** | Pointer to **string** |  | [optional] 
 **Transformers** | Pointer to [**[]ArgTransformer**](ArgTransformer.md) |  | [optional] 
 
@@ -55,20 +55,20 @@ HasAccessor returns a boolean if a field has been set.
 
 ### GetFilters
 
-`func (o *ComplexArg) GetFilters() [][]ArgAtomicFilter`
+`func (o *ComplexArg) GetFilters() []ArgFilter`
 
 GetFilters returns the Filters field if non-nil, zero value otherwise.
 
 ### GetFiltersOk
 
-`func (o *ComplexArg) GetFiltersOk() (*[][]ArgAtomicFilter, bool)`
+`func (o *ComplexArg) GetFiltersOk() (*[]ArgFilter, bool)`
 
 GetFiltersOk returns a tuple with the Filters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFilters
 
-`func (o *ComplexArg) SetFilters(v [][]ArgAtomicFilter)`
+`func (o *ComplexArg) SetFilters(v []ArgFilter)`
 
 SetFilters sets Filters field to given value.
 

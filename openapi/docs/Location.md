@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ArrayPositions** | Pointer to **[]int32** |  | [optional] 
+**ArrayPositions** | Pointer to [**ArrayPositions**](ArrayPositions.md) |  | [optional] 
 **End** | Pointer to **int32** |  | [optional] 
 **Pos** | Pointer to **int32** | Pos is the position of the term within the field, starting at 1 | [optional] 
 **Start** | Pointer to **int32** | Start and End are the byte offsets of the term in the field | [optional] 
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetArrayPositions
 
-`func (o *Location) GetArrayPositions() []int32`
+`func (o *Location) GetArrayPositions() ArrayPositions`
 
 GetArrayPositions returns the ArrayPositions field if non-nil, zero value otherwise.
 
 ### GetArrayPositionsOk
 
-`func (o *Location) GetArrayPositionsOk() (*[]int32, bool)`
+`func (o *Location) GetArrayPositionsOk() (*ArrayPositions, bool)`
 
 GetArrayPositionsOk returns a tuple with the ArrayPositions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetArrayPositions
 
-`func (o *Location) SetArrayPositions(v []int32)`
+`func (o *Location) SetArrayPositions(v ArrayPositions)`
 
 SetArrayPositions sets ArrayPositions field to given value.
 

@@ -17,14 +17,14 @@ import (
 
 // Entry Entry holds a single entry in an investigation. Entries entered within a short amount of time by the same user are combined
 type Entry struct {
-	IndicatorTimeline *[]IndicatorTimelineFromEntry `json:"IndicatorTimeline,omitempty"`
-	InstanceID        *string                       `json:"InstanceID,omitempty"`
-	Relationships     *[]RelationshipAPI            `json:"Relationships,omitempty"`
-	ShardID           *int64                        `json:"ShardID,omitempty"`
-	AllRead           *bool                         `json:"allRead,omitempty"`
-	AllReadWrite      *bool                         `json:"allReadWrite,omitempty"`
-	Brand             *string                       `json:"brand,omitempty"`
-	Category          *string                       `json:"category,omitempty"`
+	IndicatorTimeline *IndicatorTimeline `json:"IndicatorTimeline,omitempty"`
+	InstanceID        *string            `json:"InstanceID,omitempty"`
+	Relationships     *RelationshipsAPI  `json:"Relationships,omitempty"`
+	ShardID           *int64             `json:"ShardID,omitempty"`
+	AllRead           *bool              `json:"allRead,omitempty"`
+	AllReadWrite      *bool              `json:"allReadWrite,omitempty"`
+	Brand             *string            `json:"brand,omitempty"`
+	Category          *string            `json:"category,omitempty"`
 	// The contents of the entry that is actually indexed - should not be used
 	Contents *map[string]interface{} `json:"contents,omitempty"`
 	// ContentsSize the total size of the contents
@@ -82,12 +82,11 @@ type Entry struct {
 	// PlaybookID - if the entry is assigned as note to a playbook task, it will hold the playbook
 	PlaybookId *string `json:"playbookId,omitempty"`
 	// Only used for polling entries
-	Polling *bool `json:"polling,omitempty"`
-	// ModuleArgs represents module args
-	PollingArgs          *map[string]map[string]interface{} `json:"pollingArgs,omitempty"`
-	PollingCommand       *string                            `json:"pollingCommand,omitempty"`
-	PreviousAllRead      *bool                              `json:"previousAllRead,omitempty"`
-	PreviousAllReadWrite *bool                              `json:"previousAllReadWrite,omitempty"`
+	Polling              *bool       `json:"polling,omitempty"`
+	PollingArgs          *ModuleArgs `json:"pollingArgs,omitempty"`
+	PollingCommand       *string     `json:"pollingCommand,omitempty"`
+	PreviousAllRead      *bool       `json:"previousAllRead,omitempty"`
+	PreviousAllReadWrite *bool       `json:"previousAllReadWrite,omitempty"`
 	// Do not change this field manually
 	PreviousRoles *[]string `json:"previousRoles,omitempty"`
 	PrimaryTerm   *int64    `json:"primaryTerm,omitempty"`
@@ -147,9 +146,9 @@ func NewEntryWithDefaults() *Entry {
 }
 
 // GetIndicatorTimeline returns the IndicatorTimeline field value if set, zero value otherwise.
-func (o *Entry) GetIndicatorTimeline() []IndicatorTimelineFromEntry {
+func (o *Entry) GetIndicatorTimeline() IndicatorTimeline {
 	if o == nil || o.IndicatorTimeline == nil {
-		var ret []IndicatorTimelineFromEntry
+		var ret IndicatorTimeline
 		return ret
 	}
 	return *o.IndicatorTimeline
@@ -157,7 +156,7 @@ func (o *Entry) GetIndicatorTimeline() []IndicatorTimelineFromEntry {
 
 // GetIndicatorTimelineOk returns a tuple with the IndicatorTimeline field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Entry) GetIndicatorTimelineOk() (*[]IndicatorTimelineFromEntry, bool) {
+func (o *Entry) GetIndicatorTimelineOk() (*IndicatorTimeline, bool) {
 	if o == nil || o.IndicatorTimeline == nil {
 		return nil, false
 	}
@@ -173,8 +172,8 @@ func (o *Entry) HasIndicatorTimeline() bool {
 	return false
 }
 
-// SetIndicatorTimeline gets a reference to the given []IndicatorTimelineFromEntry and assigns it to the IndicatorTimeline field.
-func (o *Entry) SetIndicatorTimeline(v []IndicatorTimelineFromEntry) {
+// SetIndicatorTimeline gets a reference to the given IndicatorTimeline and assigns it to the IndicatorTimeline field.
+func (o *Entry) SetIndicatorTimeline(v IndicatorTimeline) {
 	o.IndicatorTimeline = &v
 }
 
@@ -211,9 +210,9 @@ func (o *Entry) SetInstanceID(v string) {
 }
 
 // GetRelationships returns the Relationships field value if set, zero value otherwise.
-func (o *Entry) GetRelationships() []RelationshipAPI {
+func (o *Entry) GetRelationships() RelationshipsAPI {
 	if o == nil || o.Relationships == nil {
-		var ret []RelationshipAPI
+		var ret RelationshipsAPI
 		return ret
 	}
 	return *o.Relationships
@@ -221,7 +220,7 @@ func (o *Entry) GetRelationships() []RelationshipAPI {
 
 // GetRelationshipsOk returns a tuple with the Relationships field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Entry) GetRelationshipsOk() (*[]RelationshipAPI, bool) {
+func (o *Entry) GetRelationshipsOk() (*RelationshipsAPI, bool) {
 	if o == nil || o.Relationships == nil {
 		return nil, false
 	}
@@ -237,8 +236,8 @@ func (o *Entry) HasRelationships() bool {
 	return false
 }
 
-// SetRelationships gets a reference to the given []RelationshipAPI and assigns it to the Relationships field.
-func (o *Entry) SetRelationships(v []RelationshipAPI) {
+// SetRelationships gets a reference to the given RelationshipsAPI and assigns it to the Relationships field.
+func (o *Entry) SetRelationships(v RelationshipsAPI) {
 	o.Relationships = &v
 }
 
@@ -1555,9 +1554,9 @@ func (o *Entry) SetPolling(v bool) {
 }
 
 // GetPollingArgs returns the PollingArgs field value if set, zero value otherwise.
-func (o *Entry) GetPollingArgs() map[string]map[string]interface{} {
+func (o *Entry) GetPollingArgs() ModuleArgs {
 	if o == nil || o.PollingArgs == nil {
-		var ret map[string]map[string]interface{}
+		var ret ModuleArgs
 		return ret
 	}
 	return *o.PollingArgs
@@ -1565,7 +1564,7 @@ func (o *Entry) GetPollingArgs() map[string]map[string]interface{} {
 
 // GetPollingArgsOk returns a tuple with the PollingArgs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Entry) GetPollingArgsOk() (*map[string]map[string]interface{}, bool) {
+func (o *Entry) GetPollingArgsOk() (*ModuleArgs, bool) {
 	if o == nil || o.PollingArgs == nil {
 		return nil, false
 	}
@@ -1581,8 +1580,8 @@ func (o *Entry) HasPollingArgs() bool {
 	return false
 }
 
-// SetPollingArgs gets a reference to the given map[string]map[string]interface{} and assigns it to the PollingArgs field.
-func (o *Entry) SetPollingArgs(v map[string]map[string]interface{}) {
+// SetPollingArgs gets a reference to the given ModuleArgs and assigns it to the PollingArgs field.
+func (o *Entry) SetPollingArgs(v ModuleArgs) {
 	o.PollingArgs = &v
 }
 

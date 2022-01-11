@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Comments** | Pointer to [**[]Comment**](Comment.md) |  | [optional] 
+**Comments** | Pointer to [**Comments**](Comments.md) |  | [optional] 
 
 ## Methods
 
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetComments
 
-`func (o *CommentsFields) GetComments() []Comment`
+`func (o *CommentsFields) GetComments() Comments`
 
 GetComments returns the Comments field if non-nil, zero value otherwise.
 
 ### GetCommentsOk
 
-`func (o *CommentsFields) GetCommentsOk() (*[]Comment, bool)`
+`func (o *CommentsFields) GetCommentsOk() (*Comments, bool)`
 
 GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetComments
 
-`func (o *CommentsFields) SetComments(v []Comment)`
+`func (o *CommentsFields) SetComments(v Comments)`
 
 SetComments sets Comments field to given value.
 

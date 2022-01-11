@@ -16,8 +16,7 @@ import (
 
 // InvTaskDebug struct for InvTaskDebug
 type InvTaskDebug struct {
-	// ArgFilter - represent a slice of atomic filters with OR condition between them (e.i. - atomic1 OR atomic2 OR ...)
-	BreakpointCondition     *[]ArgAtomicFilter                 `json:"breakpointCondition,omitempty"`
+	BreakpointCondition     *ArgFilter                         `json:"breakpointCondition,omitempty"`
 	InputOverrides          *map[string]string                 `json:"inputOverrides,omitempty"`
 	IsMarkedWithBreakpoint  *bool                              `json:"isMarkedWithBreakpoint,omitempty"`
 	IsMarkedWithSkip        *bool                              `json:"isMarkedWithSkip,omitempty"`
@@ -45,9 +44,9 @@ func NewInvTaskDebugWithDefaults() *InvTaskDebug {
 }
 
 // GetBreakpointCondition returns the BreakpointCondition field value if set, zero value otherwise.
-func (o *InvTaskDebug) GetBreakpointCondition() []ArgAtomicFilter {
+func (o *InvTaskDebug) GetBreakpointCondition() ArgFilter {
 	if o == nil || o.BreakpointCondition == nil {
-		var ret []ArgAtomicFilter
+		var ret ArgFilter
 		return ret
 	}
 	return *o.BreakpointCondition
@@ -55,7 +54,7 @@ func (o *InvTaskDebug) GetBreakpointCondition() []ArgAtomicFilter {
 
 // GetBreakpointConditionOk returns a tuple with the BreakpointCondition field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InvTaskDebug) GetBreakpointConditionOk() (*[]ArgAtomicFilter, bool) {
+func (o *InvTaskDebug) GetBreakpointConditionOk() (*ArgFilter, bool) {
 	if o == nil || o.BreakpointCondition == nil {
 		return nil, false
 	}
@@ -71,8 +70,8 @@ func (o *InvTaskDebug) HasBreakpointCondition() bool {
 	return false
 }
 
-// SetBreakpointCondition gets a reference to the given []ArgAtomicFilter and assigns it to the BreakpointCondition field.
-func (o *InvTaskDebug) SetBreakpointCondition(v []ArgAtomicFilter) {
+// SetBreakpointCondition gets a reference to the given ArgFilter and assigns it to the BreakpointCondition field.
+func (o *InvTaskDebug) SetBreakpointCondition(v ArgFilter) {
 	o.BreakpointCondition = &v
 }
 

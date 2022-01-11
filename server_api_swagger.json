@@ -1,7 +1,6 @@
 {
   "consumes": [
-    "application/json",
-    "application/xml"
+    "application/json"
   ],
   "produces": [
     "application/json"
@@ -338,6 +337,136 @@
               "items": {
                 "$ref": "#/definitions/InstanceClassifier"
               }
+            }
+          }
+        }
+      }
+    },
+    "/classifier": {
+      "post": {
+        "description": "Create new or update existing classifier",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "summary": "Create or update a classifier",
+        "operationId": "createUpdateClassifier",
+        "parameters": [
+          {
+            "name": "createUpdateClassifierRequest",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateUpdateClassifierRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The saved classifier",
+            "schema": {
+              "$ref": "#/definitions/InstanceClassifier"
+            }
+          }
+        }
+      }
+    },
+    "/{acc}/classifier": {
+      "post": {
+        "description": "Create new or update existing classifier",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "summary": "Create or update a classifier",
+        "operationId": "createUpdateClassifierAccount",
+        "parameters": [
+          {
+            "name": "createUpdateClassifierAccountRequest",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateUpdateClassifierRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "acc",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The saved classifier",
+            "schema": {
+              "$ref": "#/definitions/InstanceClassifier"
+            }
+          }
+        }
+      }
+    },
+    "/classifier/search": {
+      "post": {
+        "description": "Search classifiers in Cortex XSOAR",
+        "summary": "search classifiers",
+        "operationId": "listClassifiers",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "searchClassifiers",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The classifiers",
+            "schema": {
+              "$ref": "#/definitions/InstanceClassifiers"
+            }
+          }
+        }
+      }
+    },
+    "/{acc}/classifier/search": {
+      "post": {
+        "description": "Search classifiers in Cortex XSOAR",
+        "summary": "search classifiers",
+        "operationId": "listClassifiersAccount",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "searchClassifiersAccount",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          {
+            "in": "path",
+            "name": "acc",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The classifiers",
+            "schema": {
+              "$ref": "#/definitions/InstanceClassifiers"
             }
           }
         }
@@ -2166,10 +2295,10 @@
         "operationId": "createDockerImage",
         "parameters": [
           {
-            "name": "NewDockerImageRequest",
+            "name": "NewDockerImage",
             "in": "body",
             "schema": {
-              "$ref": "#/definitions/NewDockerImageRequest"
+              "$ref": "#/definitions/NewDockerImage"
             }
           }
         ],
@@ -2178,97 +2307,6 @@
             "description": "NewDockerImageResult",
             "schema": {
               "$ref": "#/definitions/NewDockerImageResult"
-            }
-          }
-        }
-      }
-    },
-    "/{acc}/settings/integration": {
-      "put": {
-        "description": "Create or update an instance of an integration",
-        "summary": "Create/update an integration instance",
-        "operationId": "createUpdateIntegrationInstanceAccount",
-        "parameters": [
-          {
-            "name": "CreateIntegrationRequest",
-            "in": "body",
-            "schema": {
-              "$ref": "#/definitions/CreateIntegrationRequest"
-            }
-          },
-          {
-            "name": "acc",
-            "in": "path",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "IntegrationWrapper",
-            "schema": {
-              "$ref": "#/definitions/IntegrationWrapper"
-            }
-          }
-        }
-      }
-    },
-    "/{acc}/settings/integration/{id}": {
-      "delete": {
-        "description": "Delete an integration instance",
-        "summary": "Delete integration instance",
-        "operationId": "deleteIntegrationInstanceAccount",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "type": "string",
-            "required": true
-          },
-          {
-            "name": "acc",
-            "in": "path",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully deleted integration instance"
-          }
-        }
-      }
-    },
-    "/{acc}/settings/integration/search": {
-      "post": {
-        "description": "List all integrations",
-        "summary": "List integrations",
-        "operationId": "listIntegrationsAccount",
-        "parameters": [
-          {
-            "name": "Size",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "size": {
-                  "type": "integer"
-                }
-              }
-            }
-          },
-          {
-            "name": "acc",
-            "in": "path",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "IntegrationWrapper",
-            "schema": {
-              "$ref": "#/definitions/IntegrationWrapper"
             }
           }
         }
@@ -2286,6 +2324,36 @@
             "schema": {
               "$ref": "#/definitions/CreateIntegrationRequest"
             }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "IntegrationWrapper",
+            "schema": {
+              "$ref": "#/definitions/IntegrationWrapper"
+            }
+          }
+        }
+      }
+    },
+    "/{acc}/settings/integration": {
+      "put": {
+        "description": "Create or update an instance of an integration",
+        "summary": "Create/update an integration instance",
+        "operationId": "createUpdateIntegrationInstanceAccount",
+        "parameters": [
+          {
+            "name": "createIntegrationRequest",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateIntegrationRequest"
+            }
+          },
+          {
+            "name": "acc",
+            "in": "path",
+            "type": "string",
+            "required": true
           }
         ],
         "responses": {
@@ -2318,6 +2386,32 @@
         }
       }
     },
+    "/{acc}/settings/integration/{id}": {
+      "delete": {
+        "description": "Delete an integration instance",
+        "summary": "Delete integration instance",
+        "operationId": "deleteIntegrationInstanceAccount",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "acc",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully deleted integration instance"
+          }
+        }
+      }
+    },
     "/settings/integration/search": {
       "post": {
         "description": "List all integrations",
@@ -2335,6 +2429,41 @@
                 }
               }
             }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "IntegrationWrapper",
+            "schema": {
+              "$ref": "#/definitions/IntegrationWrapper"
+            }
+          }
+        }
+      }
+    },
+    "/{acc}/settings/integration/search": {
+      "post": {
+        "description": "List all integrations",
+        "summary": "List integrations",
+        "operationId": "listIntegrationsAccount",
+        "parameters": [
+          {
+            "name": "Size",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "size": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          {
+            "name": "acc",
+            "in": "path",
+            "type": "string",
+            "required": true
           }
         ],
         "responses": {
@@ -4431,8 +4560,39 @@
       "x-go-package": "github.com/demisto/server/domain"
     },
     "CreateIntegrationRequest": {
-      "description": "Create or update an integration instance",
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "CreateUpdateClassifierRequest": {
+      "description": "Request to create new or update a classifier",
+      "type": "object",
+      "properties": {
+        "defaultIncidentType": {
+          "type": "string"
+        },
+        "keyTypeMap": {
+          "type": "object"
+        },
+        "name": {
+          "type": "string"
+        },
+        "transformer": {
+          "type": "string"
+        },
+        "mapping": {
+          "type": "object"
+        },
+        "type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      }
     },
     "CreateUpdateHAGroup": {
       "description": "Create or update an HA group",
@@ -8890,6 +9050,18 @@
       },
       "x-go-package": "github.com/demisto/server/domain"
     },
+    "InstanceClassifiers": {
+      "description": "An array of classifiers",
+      "type": "object",
+      "properties": {
+        "classifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/InstanceClassifier"
+          }
+        }
+      }
+    },
     "IntegrationWrapper": {
       "type": "object"
     },
@@ -11325,8 +11497,8 @@
       },
       "x-go-package": "github.com/demisto/server/domain"
     },
-    "NewDockerImageRequest": {
-      "description": "NewDockerImageRequest creation request",
+    "NewDockerImage": {
+      "description": "NewDockerImage creation request",
       "type": "object",
       "properties": {
         "base": {

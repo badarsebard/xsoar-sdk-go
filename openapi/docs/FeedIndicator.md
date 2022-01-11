@@ -12,14 +12,14 @@ Name | Type | Description | Notes
 **ExpirationInterval** | Pointer to **int64** |  | [optional] 
 **ExpirationPolicy** | Pointer to **string** |  | [optional] 
 **FetchTime** | Pointer to **time.Time** |  | [optional] 
-**Fields** | Pointer to **map[string]map[string]interface{}** | The keys should be the field&#39;s display name all lower and without spaces. For example: Scan IP -&gt; scanip To get the actual key name you can also go to Cortex XSOAR CLI and run /incident_add and look for the key that you would like to update | [optional] 
+**Fields** | Pointer to [**CustomFields**](CustomFields.md) |  | [optional] 
 **IsEnrichment** | Pointer to **bool** |  | [optional] 
 **MapperId** | Pointer to **string** |  | [optional] 
 **MapperVersion** | Pointer to **int64** |  | [optional] 
 **ModifiedTime** | Pointer to **time.Time** |  | [optional] 
 **ModuleId** | Pointer to **string** |  | [optional] 
 **RawJSON** | Pointer to **map[string]map[string]interface{}** |  | [optional] 
-**Relationships** | Pointer to [**[]RelationshipAPI**](RelationshipAPI.md) |  | [optional] 
+**Relationships** | Pointer to [**RelationshipsAPI**](RelationshipsAPI.md) |  | [optional] 
 **Reliability** | Pointer to **string** |  | [optional] 
 **Score** | Pointer to **int64** |  | [optional] 
 **SourceBrand** | Pointer to **string** |  | [optional] 
@@ -249,20 +249,20 @@ HasFetchTime returns a boolean if a field has been set.
 
 ### GetFields
 
-`func (o *FeedIndicator) GetFields() map[string]map[string]interface{}`
+`func (o *FeedIndicator) GetFields() CustomFields`
 
 GetFields returns the Fields field if non-nil, zero value otherwise.
 
 ### GetFieldsOk
 
-`func (o *FeedIndicator) GetFieldsOk() (*map[string]map[string]interface{}, bool)`
+`func (o *FeedIndicator) GetFieldsOk() (*CustomFields, bool)`
 
 GetFieldsOk returns a tuple with the Fields field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFields
 
-`func (o *FeedIndicator) SetFields(v map[string]map[string]interface{})`
+`func (o *FeedIndicator) SetFields(v CustomFields)`
 
 SetFields sets Fields field to given value.
 
@@ -424,20 +424,20 @@ HasRawJSON returns a boolean if a field has been set.
 
 ### GetRelationships
 
-`func (o *FeedIndicator) GetRelationships() []RelationshipAPI`
+`func (o *FeedIndicator) GetRelationships() RelationshipsAPI`
 
 GetRelationships returns the Relationships field if non-nil, zero value otherwise.
 
 ### GetRelationshipsOk
 
-`func (o *FeedIndicator) GetRelationshipsOk() (*[]RelationshipAPI, bool)`
+`func (o *FeedIndicator) GetRelationshipsOk() (*RelationshipsAPI, bool)`
 
 GetRelationshipsOk returns a tuple with the Relationships field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRelationships
 
-`func (o *FeedIndicator) SetRelationships(v []RelationshipAPI)`
+`func (o *FeedIndicator) SetRelationships(v RelationshipsAPI)`
 
 SetRelationships sets Relationships field to given value.
 

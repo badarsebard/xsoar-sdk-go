@@ -7,19 +7,19 @@ Name | Type | Description | Notes
 **ReadyPlaybookInputs** | Pointer to **map[string]map[string]map[string]interface{}** |  | [optional] 
 **AutoExtracting** | Pointer to **bool** |  | [optional] 
 **Comment** | Pointer to **string** |  | [optional] 
-**Inputs** | Pointer to [**[]PlaybookInput**](PlaybookInput.md) | PlaybookInputs - array of PlaybookInput | [optional] 
+**Inputs** | Pointer to [**PlaybookInputs**](PlaybookInputs.md) |  | [optional] 
 **InvestigationId** | Pointer to **string** |  | [optional] 
 **IsTIM** | Pointer to **bool** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**Outputs** | Pointer to [**[]PlaybookOutput**](PlaybookOutput.md) | PlaybookOutputs - array of PlaybookOutput | [optional] 
+**Outputs** | Pointer to [**PlaybookOutputs**](PlaybookOutputs.md) |  | [optional] 
 **PendingTasks** | Pointer to **map[string]map[string]interface{}** | Tasks that are marked for running, but cannot yet run due to incomplete parents | [optional] 
 **PlaybookId** | Pointer to **string** |  | [optional] 
 **Quiet** | Pointer to **bool** |  | [optional] 
 **StartDate** | Pointer to **time.Time** |  | [optional] 
 **StartTaskId** | Pointer to **string** | FirstTask is the root task of the playbook | [optional] 
 **State** | Pointer to **string** | InvestigationPlaybookState indicates the state of the running playbook | [optional] 
-**SubPlaybookInputs** | Pointer to [**map[string][]PlaybookInput**](array.md) |  | [optional] 
-**SubPlaybookOutputs** | Pointer to [**map[string][]PlaybookOutput**](array.md) |  | [optional] 
+**SubPlaybookInputs** | Pointer to [**map[string]PlaybookInputs**](PlaybookInputs.md) |  | [optional] 
+**SubPlaybookOutputs** | Pointer to [**map[string]PlaybookOutputs**](PlaybookOutputs.md) |  | [optional] 
 **Tasks** | Pointer to [**map[string]InvestigationPlaybookTask**](InvestigationPlaybookTask.md) |  | [optional] 
 **View** | Pointer to **map[string]interface{}** | PlaybookView represents the view in client of playbook graph | [optional] 
 
@@ -119,20 +119,20 @@ HasComment returns a boolean if a field has been set.
 
 ### GetInputs
 
-`func (o *InvestigationPlaybookData) GetInputs() []PlaybookInput`
+`func (o *InvestigationPlaybookData) GetInputs() PlaybookInputs`
 
 GetInputs returns the Inputs field if non-nil, zero value otherwise.
 
 ### GetInputsOk
 
-`func (o *InvestigationPlaybookData) GetInputsOk() (*[]PlaybookInput, bool)`
+`func (o *InvestigationPlaybookData) GetInputsOk() (*PlaybookInputs, bool)`
 
 GetInputsOk returns a tuple with the Inputs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetInputs
 
-`func (o *InvestigationPlaybookData) SetInputs(v []PlaybookInput)`
+`func (o *InvestigationPlaybookData) SetInputs(v PlaybookInputs)`
 
 SetInputs sets Inputs field to given value.
 
@@ -219,20 +219,20 @@ HasName returns a boolean if a field has been set.
 
 ### GetOutputs
 
-`func (o *InvestigationPlaybookData) GetOutputs() []PlaybookOutput`
+`func (o *InvestigationPlaybookData) GetOutputs() PlaybookOutputs`
 
 GetOutputs returns the Outputs field if non-nil, zero value otherwise.
 
 ### GetOutputsOk
 
-`func (o *InvestigationPlaybookData) GetOutputsOk() (*[]PlaybookOutput, bool)`
+`func (o *InvestigationPlaybookData) GetOutputsOk() (*PlaybookOutputs, bool)`
 
 GetOutputsOk returns a tuple with the Outputs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOutputs
 
-`func (o *InvestigationPlaybookData) SetOutputs(v []PlaybookOutput)`
+`func (o *InvestigationPlaybookData) SetOutputs(v PlaybookOutputs)`
 
 SetOutputs sets Outputs field to given value.
 
@@ -394,20 +394,20 @@ HasState returns a boolean if a field has been set.
 
 ### GetSubPlaybookInputs
 
-`func (o *InvestigationPlaybookData) GetSubPlaybookInputs() map[string][]PlaybookInput`
+`func (o *InvestigationPlaybookData) GetSubPlaybookInputs() map[string]PlaybookInputs`
 
 GetSubPlaybookInputs returns the SubPlaybookInputs field if non-nil, zero value otherwise.
 
 ### GetSubPlaybookInputsOk
 
-`func (o *InvestigationPlaybookData) GetSubPlaybookInputsOk() (*map[string][]PlaybookInput, bool)`
+`func (o *InvestigationPlaybookData) GetSubPlaybookInputsOk() (*map[string]PlaybookInputs, bool)`
 
 GetSubPlaybookInputsOk returns a tuple with the SubPlaybookInputs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSubPlaybookInputs
 
-`func (o *InvestigationPlaybookData) SetSubPlaybookInputs(v map[string][]PlaybookInput)`
+`func (o *InvestigationPlaybookData) SetSubPlaybookInputs(v map[string]PlaybookInputs)`
 
 SetSubPlaybookInputs sets SubPlaybookInputs field to given value.
 
@@ -419,20 +419,20 @@ HasSubPlaybookInputs returns a boolean if a field has been set.
 
 ### GetSubPlaybookOutputs
 
-`func (o *InvestigationPlaybookData) GetSubPlaybookOutputs() map[string][]PlaybookOutput`
+`func (o *InvestigationPlaybookData) GetSubPlaybookOutputs() map[string]PlaybookOutputs`
 
 GetSubPlaybookOutputs returns the SubPlaybookOutputs field if non-nil, zero value otherwise.
 
 ### GetSubPlaybookOutputsOk
 
-`func (o *InvestigationPlaybookData) GetSubPlaybookOutputsOk() (*map[string][]PlaybookOutput, bool)`
+`func (o *InvestigationPlaybookData) GetSubPlaybookOutputsOk() (*map[string]PlaybookOutputs, bool)`
 
 GetSubPlaybookOutputsOk returns a tuple with the SubPlaybookOutputs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSubPlaybookOutputs
 
-`func (o *InvestigationPlaybookData) SetSubPlaybookOutputs(v map[string][]PlaybookOutput)`
+`func (o *InvestigationPlaybookData) SetSubPlaybookOutputs(v map[string]PlaybookOutputs)`
 
 SetSubPlaybookOutputs sets SubPlaybookOutputs field to given value.
 

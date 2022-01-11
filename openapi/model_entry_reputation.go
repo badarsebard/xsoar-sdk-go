@@ -16,8 +16,8 @@ import (
 
 // EntryReputation EntryReputation holds the entry reputations and the highlights
 type EntryReputation struct {
-	Highlights      *map[string]map[string][]Location `json:"highlights,omitempty"`
-	ReputationsData *[]ReputationData                 `json:"reputationsData,omitempty"`
+	Highlights      *FieldTermLocationMap `json:"highlights,omitempty"`
+	ReputationsData *[]ReputationData     `json:"reputationsData,omitempty"`
 }
 
 // NewEntryReputation instantiates a new EntryReputation object
@@ -38,9 +38,9 @@ func NewEntryReputationWithDefaults() *EntryReputation {
 }
 
 // GetHighlights returns the Highlights field value if set, zero value otherwise.
-func (o *EntryReputation) GetHighlights() map[string]map[string][]Location {
+func (o *EntryReputation) GetHighlights() FieldTermLocationMap {
 	if o == nil || o.Highlights == nil {
-		var ret map[string]map[string][]Location
+		var ret FieldTermLocationMap
 		return ret
 	}
 	return *o.Highlights
@@ -48,7 +48,7 @@ func (o *EntryReputation) GetHighlights() map[string]map[string][]Location {
 
 // GetHighlightsOk returns a tuple with the Highlights field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EntryReputation) GetHighlightsOk() (*map[string]map[string][]Location, bool) {
+func (o *EntryReputation) GetHighlightsOk() (*FieldTermLocationMap, bool) {
 	if o == nil || o.Highlights == nil {
 		return nil, false
 	}
@@ -64,8 +64,8 @@ func (o *EntryReputation) HasHighlights() bool {
 	return false
 }
 
-// SetHighlights gets a reference to the given map[string]map[string][]Location and assigns it to the Highlights field.
-func (o *EntryReputation) SetHighlights(v map[string]map[string][]Location) {
+// SetHighlights gets a reference to the given FieldTermLocationMap and assigns it to the Highlights field.
+func (o *EntryReputation) SetHighlights(v FieldTermLocationMap) {
 	o.Highlights = &v
 }
 

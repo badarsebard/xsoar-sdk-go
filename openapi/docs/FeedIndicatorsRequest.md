@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BypassExclusionList** | Pointer to **bool** |  | [optional] 
 **ClassifierId** | Pointer to **string** |  | [optional] 
-**Indicators** | Pointer to **[]map[string]map[string]interface{}** |  | [optional] 
+**Indicators** | Pointer to [**[]RawFeedIndicator**](RawFeedIndicator.md) |  | [optional] 
 **MapperId** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -80,20 +80,20 @@ HasClassifierId returns a boolean if a field has been set.
 
 ### GetIndicators
 
-`func (o *FeedIndicatorsRequest) GetIndicators() []map[string]map[string]interface{}`
+`func (o *FeedIndicatorsRequest) GetIndicators() []RawFeedIndicator`
 
 GetIndicators returns the Indicators field if non-nil, zero value otherwise.
 
 ### GetIndicatorsOk
 
-`func (o *FeedIndicatorsRequest) GetIndicatorsOk() (*[]map[string]map[string]interface{}, bool)`
+`func (o *FeedIndicatorsRequest) GetIndicatorsOk() (*[]RawFeedIndicator, bool)`
 
 GetIndicatorsOk returns a tuple with the Indicators field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIndicators
 
-`func (o *FeedIndicatorsRequest) SetIndicators(v []map[string]map[string]interface{})`
+`func (o *FeedIndicatorsRequest) SetIndicators(v []RawFeedIndicator)`
 
 SetIndicators sets Indicators field to given value.
 

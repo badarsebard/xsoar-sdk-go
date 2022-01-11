@@ -16,7 +16,7 @@ import (
 
 // InlineObject struct for InlineObject
 type InlineObject struct {
-	Size *int32 `json:"size,omitempty"`
+	Name *string `json:"name,omitempty"`
 }
 
 // NewInlineObject instantiates a new InlineObject object
@@ -36,42 +36,42 @@ func NewInlineObjectWithDefaults() *InlineObject {
 	return &this
 }
 
-// GetSize returns the Size field value if set, zero value otherwise.
-func (o *InlineObject) GetSize() int32 {
-	if o == nil || o.Size == nil {
-		var ret int32
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *InlineObject) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
 		return ret
 	}
-	return *o.Size
+	return *o.Name
 }
 
-// GetSizeOk returns a tuple with the Size field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineObject) GetSizeOk() (*int32, bool) {
-	if o == nil || o.Size == nil {
+func (o *InlineObject) GetNameOk() (*string, bool) {
+	if o == nil || o.Name == nil {
 		return nil, false
 	}
-	return o.Size, true
+	return o.Name, true
 }
 
-// HasSize returns a boolean if a field has been set.
-func (o *InlineObject) HasSize() bool {
-	if o != nil && o.Size != nil {
+// HasName returns a boolean if a field has been set.
+func (o *InlineObject) HasName() bool {
+	if o != nil && o.Name != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetSize gets a reference to the given int32 and assigns it to the Size field.
-func (o *InlineObject) SetSize(v int32) {
-	o.Size = &v
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *InlineObject) SetName(v string) {
+	o.Name = &v
 }
 
 func (o InlineObject) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Size != nil {
-		toSerialize["size"] = o.Size
+	if o.Name != nil {
+		toSerialize["name"] = o.Name
 	}
 	return json.Marshal(toSerialize)
 }

@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CustomFields** | Pointer to **map[string]map[string]interface{}** | The keys should be the field&#39;s display name all lower and without spaces. For example: Scan IP -&gt; scanip To get the actual key name you can also go to Cortex XSOAR CLI and run /incident_add and look for the key that you would like to update | [optional] 
+**CustomFields** | Pointer to [**CustomFields**](CustomFields.md) |  | [optional] 
 **Account** | Pointer to **string** |  | [optional] 
 **AggregatedReliability** | Pointer to **string** |  | [optional] 
 **CalculatedTime** | Pointer to **time.Time** | Do not set the fields bellow this line | [optional] 
 **Comment** | Pointer to **string** |  | [optional] 
-**Comments** | Pointer to [**[]Comment**](Comment.md) |  | [optional] 
+**Comments** | Pointer to [**Comments**](Comments.md) |  | [optional] 
 **DeletedFeedFetchTime** | Pointer to **time.Time** |  | [optional] 
 **Expiration** | Pointer to **time.Time** |  | [optional] 
 **ExpirationSource** | Pointer to [**ExpirationSource**](ExpirationSource.md) |  | [optional] 
@@ -67,20 +67,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCustomFields
 
-`func (o *IocObject) GetCustomFields() map[string]map[string]interface{}`
+`func (o *IocObject) GetCustomFields() CustomFields`
 
 GetCustomFields returns the CustomFields field if non-nil, zero value otherwise.
 
 ### GetCustomFieldsOk
 
-`func (o *IocObject) GetCustomFieldsOk() (*map[string]map[string]interface{}, bool)`
+`func (o *IocObject) GetCustomFieldsOk() (*CustomFields, bool)`
 
 GetCustomFieldsOk returns a tuple with the CustomFields field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCustomFields
 
-`func (o *IocObject) SetCustomFields(v map[string]map[string]interface{})`
+`func (o *IocObject) SetCustomFields(v CustomFields)`
 
 SetCustomFields sets CustomFields field to given value.
 
@@ -192,20 +192,20 @@ HasComment returns a boolean if a field has been set.
 
 ### GetComments
 
-`func (o *IocObject) GetComments() []Comment`
+`func (o *IocObject) GetComments() Comments`
 
 GetComments returns the Comments field if non-nil, zero value otherwise.
 
 ### GetCommentsOk
 
-`func (o *IocObject) GetCommentsOk() (*[]Comment, bool)`
+`func (o *IocObject) GetCommentsOk() (*Comments, bool)`
 
 GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetComments
 
-`func (o *IocObject) SetComments(v []Comment)`
+`func (o *IocObject) SetComments(v Comments)`
 
 SetComments sets Comments field to given value.
 

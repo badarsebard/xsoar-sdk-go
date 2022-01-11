@@ -4,10 +4,15 @@
     <option name="configurationPath" value="" />
     <option name="customJreEnabled" value="false" />
     <option name="customTemplatesPath" value="" />
-    <option name="enableDebugLogging" value="false" />
+    <option name="enableDebugLogging" value="true" />
     <option name="generateToPath" value="$PROJECT_DIR$/openapi" />
     <option name="generationParameters">
-      <list />
+      <list>
+        <CliArgumentViewModel>
+          <option name="name" value="generateAliasAsModel" />
+          <option name="value" value="true" />
+        </CliArgumentViewModel>
+      </list>
     </option>
     <option name="generatorPath" value="$PROJECT_DIR$/.run/openapi-generator-cli.jar" />
     <option name="jdkPath" value="Default" />

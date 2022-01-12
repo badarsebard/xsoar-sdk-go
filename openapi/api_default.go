@@ -65,10 +65,12 @@ func (a *DefaultApiService) AddAdHocTask(ctx _context.Context, investigationId s
 //  @return InvestigationPlaybook
 func (a *DefaultApiService) AddAdHocTaskExecute(r ApiAddAdHocTaskRequest) (InvestigationPlaybook, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue InvestigationPlaybook
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  InvestigationPlaybook
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.AddAdHocTask")
@@ -116,7 +118,7 @@ func (a *DefaultApiService) AddAdHocTaskExecute(r ApiAddAdHocTaskRequest) (Inves
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -189,10 +191,12 @@ func (a *DefaultApiService) CloseIncidentsBatch(ctx _context.Context) ApiCloseIn
 //  @return IncidentSearchResponseWrapper
 func (a *DefaultApiService) CloseIncidentsBatchExecute(r ApiCloseIncidentsBatchRequest) (IncidentSearchResponseWrapper, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue IncidentSearchResponseWrapper
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  IncidentSearchResponseWrapper
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CloseIncidentsBatch")
@@ -239,7 +243,7 @@ func (a *DefaultApiService) CloseIncidentsBatchExecute(r ApiCloseIncidentsBatchR
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -354,10 +358,12 @@ func (a *DefaultApiService) CompleteTask(ctx _context.Context) ApiCompleteTaskRe
 //  @return InvestigationPlaybook
 func (a *DefaultApiService) CompleteTaskExecute(r ApiCompleteTaskRequest) (InvestigationPlaybook, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue InvestigationPlaybook
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  InvestigationPlaybook
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CompleteTask")
@@ -414,20 +420,14 @@ func (a *DefaultApiService) CompleteTaskExecute(r ApiCompleteTaskRequest) (Inves
 	localVarFormParams.Add("taskId", parameterToString(*r.taskId, ""))
 	localVarFormParams.Add("taskInput", parameterToString(*r.taskInput, ""))
 	localVarFormParams.Add("version", parameterToString(*r.version, ""))
-	var fileLocalVarFormFileName string
-	var fileLocalVarFileName string
-	var fileLocalVarFileBytes []byte
-
-	fileLocalVarFormFileName = "file"
-
-	fileLocalVarFile := *r.file
-	if fileLocalVarFile != nil {
-		fbs, _ := _ioutil.ReadAll(fileLocalVarFile)
-		fileLocalVarFileBytes = fbs
-		fileLocalVarFileName = fileLocalVarFile.Name()
-		fileLocalVarFile.Close()
+	localVarFormFileName = "file"
+	localVarFile := *r.file
+	if localVarFile != nil {
+		fbs, _ := _ioutil.ReadAll(localVarFile)
+		localVarFileBytes = fbs
+		localVarFileName = localVarFile.Name()
+		localVarFile.Close()
 	}
-	formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -442,7 +442,7 @@ func (a *DefaultApiService) CompleteTaskExecute(r ApiCompleteTaskRequest) (Inves
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -563,10 +563,12 @@ func (a *DefaultApiService) CompleteTaskV2(ctx _context.Context) ApiCompleteTask
 //  @return InvestigationPlaybook
 func (a *DefaultApiService) CompleteTaskV2Execute(r ApiCompleteTaskV2Request) (InvestigationPlaybook, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue InvestigationPlaybook
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  InvestigationPlaybook
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CompleteTaskV2")
@@ -619,20 +621,14 @@ func (a *DefaultApiService) CompleteTaskV2Execute(r ApiCompleteTaskV2Request) (I
 	}
 	localVarFormParams.Add("taskInput", parameterToString(*r.taskInput, ""))
 	localVarFormParams.Add("version", parameterToString(*r.version, ""))
-	var fileLocalVarFormFileName string
-	var fileLocalVarFileName string
-	var fileLocalVarFileBytes []byte
-
-	fileLocalVarFormFileName = "file"
-
-	fileLocalVarFile := *r.file
-	if fileLocalVarFile != nil {
-		fbs, _ := _ioutil.ReadAll(fileLocalVarFile)
-		fileLocalVarFileBytes = fbs
-		fileLocalVarFileName = fileLocalVarFile.Name()
-		fileLocalVarFile.Close()
+	localVarFormFileName = "file"
+	localVarFile := *r.file
+	if localVarFile != nil {
+		fbs, _ := _ioutil.ReadAll(localVarFile)
+		localVarFileBytes = fbs
+		localVarFileName = localVarFile.Name()
+		localVarFile.Close()
 	}
-	formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
 	if r.fileNames != nil {
 		localVarFormParams.Add("fileNames", parameterToString(*r.fileNames, ""))
 	}
@@ -653,7 +649,7 @@ func (a *DefaultApiService) CompleteTaskV2Execute(r ApiCompleteTaskV2Request) (I
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -724,10 +720,12 @@ func (a *DefaultApiService) CopyScript(ctx _context.Context) ApiCopyScriptReques
 //  @return AutomationScriptResult
 func (a *DefaultApiService) CopyScriptExecute(r ApiCopyScriptRequest) (AutomationScriptResult, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue AutomationScriptResult
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  AutomationScriptResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CopyScript")
@@ -774,7 +772,7 @@ func (a *DefaultApiService) CopyScriptExecute(r ApiCopyScriptRequest) (Automatio
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -845,10 +843,12 @@ func (a *DefaultApiService) CreateAccount(ctx _context.Context) ApiCreateAccount
 //  @return AccountsWrapper
 func (a *DefaultApiService) CreateAccountExecute(r ApiCreateAccountRequest) (AccountsWrapper, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue AccountsWrapper
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  AccountsWrapper
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CreateAccount")
@@ -895,7 +895,7 @@ func (a *DefaultApiService) CreateAccountExecute(r ApiCreateAccountRequest) (Acc
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -966,10 +966,12 @@ func (a *DefaultApiService) CreateDockerImage(ctx _context.Context) ApiCreateDoc
 //  @return NewDockerImageResult
 func (a *DefaultApiService) CreateDockerImageExecute(r ApiCreateDockerImageRequest) (NewDockerImageResult, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue NewDockerImageResult
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  NewDockerImageResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CreateDockerImage")
@@ -1016,7 +1018,7 @@ func (a *DefaultApiService) CreateDockerImageExecute(r ApiCreateDockerImageReque
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1092,9 +1094,11 @@ func (a *DefaultApiService) CreateFeedIndicatorsJson(ctx _context.Context) ApiCr
 // Execute executes the request
 func (a *DefaultApiService) CreateFeedIndicatorsJsonExecute(r ApiCreateFeedIndicatorsJsonRequest) (*_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod = _nethttp.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CreateFeedIndicatorsJson")
@@ -1144,7 +1148,7 @@ func (a *DefaultApiService) CreateFeedIndicatorsJsonExecute(r ApiCreateFeedIndic
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -1206,10 +1210,12 @@ func (a *DefaultApiService) CreateHAGroup(ctx _context.Context) ApiCreateHAGroup
 //  @return CreateUpdateHAGroup
 func (a *DefaultApiService) CreateHAGroupExecute(r ApiCreateHAGroupRequest) (CreateUpdateHAGroup, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue CreateUpdateHAGroup
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  CreateUpdateHAGroup
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CreateHAGroup")
@@ -1256,7 +1262,7 @@ func (a *DefaultApiService) CreateHAGroupExecute(r ApiCreateHAGroupRequest) (Cre
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1324,10 +1330,12 @@ func (a *DefaultApiService) CreateHAInstaller(ctx _context.Context, id string) A
 //  @return string
 func (a *DefaultApiService) CreateHAInstallerExecute(r ApiCreateHAInstallerRequest) (string, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue string
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CreateHAInstaller")
@@ -1373,7 +1381,7 @@ func (a *DefaultApiService) CreateHAInstallerExecute(r ApiCreateHAInstallerReque
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1438,10 +1446,12 @@ func (a *DefaultApiService) CreateHostInstaller(ctx _context.Context) ApiCreateH
 //  @return string
 func (a *DefaultApiService) CreateHostInstallerExecute(r ApiCreateHostInstallerRequest) (string, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue string
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CreateHostInstaller")
@@ -1486,7 +1496,7 @@ func (a *DefaultApiService) CreateHostInstallerExecute(r ApiCreateHostInstallerR
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1561,10 +1571,12 @@ func (a *DefaultApiService) CreateIncident(ctx _context.Context) ApiCreateIncide
 //  @return IncidentWrapper
 func (a *DefaultApiService) CreateIncidentExecute(r ApiCreateIncidentRequest) (IncidentWrapper, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue IncidentWrapper
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  IncidentWrapper
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CreateIncident")
@@ -1611,7 +1623,7 @@ func (a *DefaultApiService) CreateIncidentExecute(r ApiCreateIncidentRequest) (I
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1676,10 +1688,12 @@ func (a *DefaultApiService) CreateIncidentJson(ctx _context.Context) ApiCreateIn
 //  @return IncidentWrapper
 func (a *DefaultApiService) CreateIncidentJsonExecute(r ApiCreateIncidentJsonRequest) (IncidentWrapper, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue IncidentWrapper
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  IncidentWrapper
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CreateIncidentJson")
@@ -1724,7 +1738,7 @@ func (a *DefaultApiService) CreateIncidentJsonExecute(r ApiCreateIncidentJsonReq
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1797,10 +1811,12 @@ func (a *DefaultApiService) CreateIncidentsBatch(ctx _context.Context) ApiCreate
 //  @return IncidentSearchResponseWrapper
 func (a *DefaultApiService) CreateIncidentsBatchExecute(r ApiCreateIncidentsBatchRequest) (IncidentSearchResponseWrapper, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue IncidentSearchResponseWrapper
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  IncidentSearchResponseWrapper
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CreateIncidentsBatch")
@@ -1847,7 +1863,7 @@ func (a *DefaultApiService) CreateIncidentsBatchExecute(r ApiCreateIncidentsBatc
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1918,10 +1934,12 @@ func (a *DefaultApiService) CreateOrUpdateIncidentType(ctx _context.Context) Api
 //  @return IncidentType
 func (a *DefaultApiService) CreateOrUpdateIncidentTypeExecute(r ApiCreateOrUpdateIncidentTypeRequest) (IncidentType, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue IncidentType
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  IncidentType
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CreateOrUpdateIncidentType")
@@ -1968,7 +1986,7 @@ func (a *DefaultApiService) CreateOrUpdateIncidentTypeExecute(r ApiCreateOrUpdat
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2039,10 +2057,12 @@ func (a *DefaultApiService) CreateOrUpdateWhitelisted(ctx _context.Context) ApiC
 //  @return WhitelistedIndicator
 func (a *DefaultApiService) CreateOrUpdateWhitelistedExecute(r ApiCreateOrUpdateWhitelistedRequest) (WhitelistedIndicator, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue WhitelistedIndicator
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  WhitelistedIndicator
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CreateOrUpdateWhitelisted")
@@ -2092,7 +2112,7 @@ func (a *DefaultApiService) CreateOrUpdateWhitelistedExecute(r ApiCreateOrUpdate
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2163,10 +2183,12 @@ func (a *DefaultApiService) CreateUpdateClassifier(ctx _context.Context) ApiCrea
 //  @return InstanceClassifier
 func (a *DefaultApiService) CreateUpdateClassifierExecute(r ApiCreateUpdateClassifierRequest) (InstanceClassifier, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue InstanceClassifier
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  InstanceClassifier
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CreateUpdateClassifier")
@@ -2213,7 +2235,7 @@ func (a *DefaultApiService) CreateUpdateClassifierExecute(r ApiCreateUpdateClass
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2287,10 +2309,12 @@ func (a *DefaultApiService) CreateUpdateClassifierAccount(ctx _context.Context, 
 //  @return InstanceClassifier
 func (a *DefaultApiService) CreateUpdateClassifierAccountExecute(r ApiCreateUpdateClassifierAccountRequest) (InstanceClassifier, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue InstanceClassifier
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  InstanceClassifier
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CreateUpdateClassifierAccount")
@@ -2338,7 +2362,7 @@ func (a *DefaultApiService) CreateUpdateClassifierAccountExecute(r ApiCreateUpda
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2378,10 +2402,10 @@ func (a *DefaultApiService) CreateUpdateClassifierAccountExecute(r ApiCreateUpda
 type ApiCreateUpdateIntegrationInstanceRequest struct {
 	ctx                      _context.Context
 	ApiService               *DefaultApiService
-	createIntegrationRequest *CreateIntegrationRequest
+	createIntegrationRequest *map[string]interface{}
 }
 
-func (r ApiCreateUpdateIntegrationInstanceRequest) CreateIntegrationRequest(createIntegrationRequest CreateIntegrationRequest) ApiCreateUpdateIntegrationInstanceRequest {
+func (r ApiCreateUpdateIntegrationInstanceRequest) CreateIntegrationRequest(createIntegrationRequest map[string]interface{}) ApiCreateUpdateIntegrationInstanceRequest {
 	r.createIntegrationRequest = &createIntegrationRequest
 	return r
 }
@@ -2409,10 +2433,12 @@ func (a *DefaultApiService) CreateUpdateIntegrationInstance(ctx _context.Context
 //  @return map[string]interface{}
 func (a *DefaultApiService) CreateUpdateIntegrationInstanceExecute(r ApiCreateUpdateIntegrationInstanceRequest) (map[string]interface{}, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPut
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue map[string]interface{}
+		localVarHTTPMethod   = _nethttp.MethodPut
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CreateUpdateIntegrationInstance")
@@ -2459,7 +2485,7 @@ func (a *DefaultApiService) CreateUpdateIntegrationInstanceExecute(r ApiCreateUp
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2500,10 +2526,10 @@ type ApiCreateUpdateIntegrationInstanceAccountRequest struct {
 	ctx                      _context.Context
 	ApiService               *DefaultApiService
 	acc                      string
-	createIntegrationRequest *CreateIntegrationRequest
+	createIntegrationRequest *map[string]interface{}
 }
 
-func (r ApiCreateUpdateIntegrationInstanceAccountRequest) CreateIntegrationRequest(createIntegrationRequest CreateIntegrationRequest) ApiCreateUpdateIntegrationInstanceAccountRequest {
+func (r ApiCreateUpdateIntegrationInstanceAccountRequest) CreateIntegrationRequest(createIntegrationRequest map[string]interface{}) ApiCreateUpdateIntegrationInstanceAccountRequest {
 	r.createIntegrationRequest = &createIntegrationRequest
 	return r
 }
@@ -2533,10 +2559,12 @@ func (a *DefaultApiService) CreateUpdateIntegrationInstanceAccount(ctx _context.
 //  @return map[string]interface{}
 func (a *DefaultApiService) CreateUpdateIntegrationInstanceAccountExecute(r ApiCreateUpdateIntegrationInstanceAccountRequest) (map[string]interface{}, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPut
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue map[string]interface{}
+		localVarHTTPMethod   = _nethttp.MethodPut
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CreateUpdateIntegrationInstanceAccount")
@@ -2584,7 +2612,7 @@ func (a *DefaultApiService) CreateUpdateIntegrationInstanceAccountExecute(r ApiC
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2652,10 +2680,12 @@ func (a *DefaultApiService) DeleteAccount(ctx _context.Context, accountname stri
 //  @return AccountsWrapper
 func (a *DefaultApiService) DeleteAccountExecute(r ApiDeleteAccountRequest) (AccountsWrapper, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue AccountsWrapper
+		localVarHTTPMethod   = _nethttp.MethodDelete
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  AccountsWrapper
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.DeleteAccount")
@@ -2701,7 +2731,7 @@ func (a *DefaultApiService) DeleteAccountExecute(r ApiDeleteAccountRequest) (Acc
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2772,10 +2802,12 @@ func (a *DefaultApiService) DeleteAdHocTask(ctx _context.Context, investigationI
 //  @return InvestigationPlaybook
 func (a *DefaultApiService) DeleteAdHocTaskExecute(r ApiDeleteAdHocTaskRequest) (InvestigationPlaybook, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue InvestigationPlaybook
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  InvestigationPlaybook
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.DeleteAdHocTask")
@@ -2822,7 +2854,7 @@ func (a *DefaultApiService) DeleteAdHocTaskExecute(r ApiDeleteAdHocTaskRequest) 
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2892,9 +2924,11 @@ func (a *DefaultApiService) DeleteAutomationScript(ctx _context.Context) ApiDele
 // Execute executes the request
 func (a *DefaultApiService) DeleteAutomationScriptExecute(r ApiDeleteAutomationScriptRequest) (*_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod = _nethttp.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.DeleteAutomationScript")
@@ -2941,7 +2975,7 @@ func (a *DefaultApiService) DeleteAutomationScriptExecute(r ApiDeleteAutomationS
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -3002,9 +3036,11 @@ func (a *DefaultApiService) DeleteEvidenceOp(ctx _context.Context) ApiDeleteEvid
 // Execute executes the request
 func (a *DefaultApiService) DeleteEvidenceOpExecute(r ApiDeleteEvidenceOpRequest) (*_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod = _nethttp.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.DeleteEvidenceOp")
@@ -3051,7 +3087,7 @@ func (a *DefaultApiService) DeleteEvidenceOpExecute(r ApiDeleteEvidenceOpRequest
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -3110,10 +3146,12 @@ func (a *DefaultApiService) DeleteHAGroup(ctx _context.Context, id string) ApiDe
 //  @return string
 func (a *DefaultApiService) DeleteHAGroupExecute(r ApiDeleteHAGroupRequest) (string, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue string
+		localVarHTTPMethod   = _nethttp.MethodDelete
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.DeleteHAGroup")
@@ -3159,7 +3197,7 @@ func (a *DefaultApiService) DeleteHAGroupExecute(r ApiDeleteHAGroupRequest) (str
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -3227,10 +3265,12 @@ func (a *DefaultApiService) DeleteHost(ctx _context.Context, id string) ApiDelet
 //  @return string
 func (a *DefaultApiService) DeleteHostExecute(r ApiDeleteHostRequest) (string, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue string
+		localVarHTTPMethod   = _nethttp.MethodDelete
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.DeleteHost")
@@ -3276,7 +3316,7 @@ func (a *DefaultApiService) DeleteHostExecute(r ApiDeleteHostRequest) (string, *
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -3347,10 +3387,12 @@ func (a *DefaultApiService) DeleteIncidentsBatch(ctx _context.Context) ApiDelete
 //  @return IncidentSearchResponseWrapper
 func (a *DefaultApiService) DeleteIncidentsBatchExecute(r ApiDeleteIncidentsBatchRequest) (IncidentSearchResponseWrapper, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue IncidentSearchResponseWrapper
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  IncidentSearchResponseWrapper
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.DeleteIncidentsBatch")
@@ -3397,7 +3439,7 @@ func (a *DefaultApiService) DeleteIncidentsBatchExecute(r ApiDeleteIncidentsBatc
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -3469,10 +3511,12 @@ func (a *DefaultApiService) DeleteIndicatorsBatch(ctx _context.Context) ApiDelet
 //  @return UpdateResponse
 func (a *DefaultApiService) DeleteIndicatorsBatchExecute(r ApiDeleteIndicatorsBatchRequest) (UpdateResponse, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue UpdateResponse
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  UpdateResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.DeleteIndicatorsBatch")
@@ -3519,7 +3563,7 @@ func (a *DefaultApiService) DeleteIndicatorsBatchExecute(r ApiDeleteIndicatorsBa
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -3586,9 +3630,11 @@ func (a *DefaultApiService) DeleteIntegrationInstance(ctx _context.Context, id s
 // Execute executes the request
 func (a *DefaultApiService) DeleteIntegrationInstanceExecute(r ApiDeleteIntegrationInstanceRequest) (*_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod = _nethttp.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = _nethttp.MethodDelete
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.DeleteIntegrationInstance")
@@ -3634,7 +3680,7 @@ func (a *DefaultApiService) DeleteIntegrationInstanceExecute(r ApiDeleteIntegrat
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -3695,9 +3741,11 @@ func (a *DefaultApiService) DeleteIntegrationInstanceAccount(ctx _context.Contex
 // Execute executes the request
 func (a *DefaultApiService) DeleteIntegrationInstanceAccountExecute(r ApiDeleteIntegrationInstanceAccountRequest) (*_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod = _nethttp.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = _nethttp.MethodDelete
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.DeleteIntegrationInstanceAccount")
@@ -3744,7 +3792,7 @@ func (a *DefaultApiService) DeleteIntegrationInstanceAccountExecute(r ApiDeleteI
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -3802,9 +3850,11 @@ func (a *DefaultApiService) DeleteWidget(ctx _context.Context, id string) ApiDel
 // Execute executes the request
 func (a *DefaultApiService) DeleteWidgetExecute(r ApiDeleteWidgetRequest) (*_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod = _nethttp.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = _nethttp.MethodDelete
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.DeleteWidget")
@@ -3850,7 +3900,7 @@ func (a *DefaultApiService) DeleteWidgetExecute(r ApiDeleteWidgetRequest) (*_net
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -3909,10 +3959,12 @@ func (a *DefaultApiService) DownloadFile(ctx _context.Context, entryid string) A
 //  @return *os.File
 func (a *DefaultApiService) DownloadFileExecute(r ApiDownloadFileRequest) (*os.File, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *os.File
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.DownloadFile")
@@ -3958,7 +4010,7 @@ func (a *DefaultApiService) DownloadFileExecute(r ApiDownloadFileRequest) (*os.F
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -4026,10 +4078,12 @@ func (a *DefaultApiService) DownloadLatestReport(ctx _context.Context, id string
 //  @return *os.File
 func (a *DefaultApiService) DownloadLatestReportExecute(r ApiDownloadLatestReportRequest) (*os.File, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *os.File
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.DownloadLatestReport")
@@ -4075,7 +4129,7 @@ func (a *DefaultApiService) DownloadLatestReportExecute(r ApiDownloadLatestRepor
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -4149,10 +4203,12 @@ func (a *DefaultApiService) EditAdHocTask(ctx _context.Context, investigationId 
 //  @return InvestigationPlaybook
 func (a *DefaultApiService) EditAdHocTaskExecute(r ApiEditAdHocTaskRequest) (InvestigationPlaybook, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue InvestigationPlaybook
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  InvestigationPlaybook
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.EditAdHocTask")
@@ -4200,7 +4256,7 @@ func (a *DefaultApiService) EditAdHocTaskExecute(r ApiEditAdHocTaskRequest) (Inv
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -4270,9 +4326,11 @@ func (a *DefaultApiService) EntryExportArtifact(ctx _context.Context) ApiEntryEx
 // Execute executes the request
 func (a *DefaultApiService) EntryExportArtifactExecute(r ApiEntryExportArtifactRequest) (*_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod = _nethttp.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.EntryExportArtifact")
@@ -4319,7 +4377,7 @@ func (a *DefaultApiService) EntryExportArtifactExecute(r ApiEntryExportArtifactR
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -4380,9 +4438,11 @@ func (a *DefaultApiService) ExecuteReport(ctx _context.Context, id string, reque
 // Execute executes the request
 func (a *DefaultApiService) ExecuteReportExecute(r ApiExecuteReportRequest) (*_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod = _nethttp.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ExecuteReport")
@@ -4429,7 +4489,7 @@ func (a *DefaultApiService) ExecuteReportExecute(r ApiExecuteReportRequest) (*_n
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -4491,10 +4551,12 @@ func (a *DefaultApiService) ExportIncidentsToCsvBatch(ctx _context.Context) ApiE
 //  @return string
 func (a *DefaultApiService) ExportIncidentsToCsvBatchExecute(r ApiExportIncidentsToCsvBatchRequest) (string, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue string
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ExportIncidentsToCsvBatch")
@@ -4541,7 +4603,7 @@ func (a *DefaultApiService) ExportIncidentsToCsvBatchExecute(r ApiExportIncident
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -4613,10 +4675,12 @@ func (a *DefaultApiService) ExportIndicatorsToCsvBatch(ctx _context.Context) Api
 //  @return string
 func (a *DefaultApiService) ExportIndicatorsToCsvBatchExecute(r ApiExportIndicatorsToCsvBatchRequest) (string, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue string
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ExportIndicatorsToCsvBatch")
@@ -4663,7 +4727,7 @@ func (a *DefaultApiService) ExportIndicatorsToCsvBatchExecute(r ApiExportIndicat
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -4734,10 +4798,12 @@ func (a *DefaultApiService) ExportIndicatorsToStixBatch(ctx _context.Context) Ap
 //  @return string
 func (a *DefaultApiService) ExportIndicatorsToStixBatchExecute(r ApiExportIndicatorsToStixBatchRequest) (string, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue string
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ExportIndicatorsToStixBatch")
@@ -4784,7 +4850,7 @@ func (a *DefaultApiService) ExportIndicatorsToStixBatchExecute(r ApiExportIndica
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -4849,10 +4915,12 @@ func (a *DefaultApiService) GetAllReports(ctx _context.Context) ApiGetAllReports
 //  @return []Report
 func (a *DefaultApiService) GetAllReportsExecute(r ApiGetAllReportsRequest) ([]Report, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Report
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  []Report
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetAllReports")
@@ -4897,7 +4965,7 @@ func (a *DefaultApiService) GetAllReportsExecute(r ApiGetAllReportsRequest) ([]R
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -4962,10 +5030,12 @@ func (a *DefaultApiService) GetAllWidgets(ctx _context.Context) ApiGetAllWidgets
 //  @return []Widget
 func (a *DefaultApiService) GetAllWidgetsExecute(r ApiGetAllWidgetsRequest) ([]Widget, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Widget
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  []Widget
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetAllWidgets")
@@ -5010,7 +5080,7 @@ func (a *DefaultApiService) GetAllWidgetsExecute(r ApiGetAllWidgetsRequest) ([]W
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -5081,10 +5151,12 @@ func (a *DefaultApiService) GetAudits(ctx _context.Context) ApiGetAuditsRequest 
 //  @return AuditResult
 func (a *DefaultApiService) GetAuditsExecute(r ApiGetAuditsRequest) (AuditResult, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue AuditResult
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  AuditResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetAudits")
@@ -5131,7 +5203,7 @@ func (a *DefaultApiService) GetAuditsExecute(r ApiGetAuditsRequest) (AuditResult
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -5202,10 +5274,12 @@ func (a *DefaultApiService) GetAutomationScripts(ctx _context.Context) ApiGetAut
 //  @return AutomationScriptResult
 func (a *DefaultApiService) GetAutomationScriptsExecute(r ApiGetAutomationScriptsRequest) (AutomationScriptResult, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue AutomationScriptResult
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  AutomationScriptResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetAutomationScripts")
@@ -5252,7 +5326,7 @@ func (a *DefaultApiService) GetAutomationScriptsExecute(r ApiGetAutomationScript
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -5317,10 +5391,12 @@ func (a *DefaultApiService) GetContainers(ctx _context.Context) ApiGetContainers
 //  @return ContainersInfo
 func (a *DefaultApiService) GetContainersExecute(r ApiGetContainersRequest) (ContainersInfo, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue ContainersInfo
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  ContainersInfo
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetContainers")
@@ -5365,7 +5441,7 @@ func (a *DefaultApiService) GetContainersExecute(r ApiGetContainersRequest) (Con
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -5430,10 +5506,12 @@ func (a *DefaultApiService) GetDockerImages(ctx _context.Context) ApiGetDockerIm
 //  @return DockerImagesResult
 func (a *DefaultApiService) GetDockerImagesExecute(r ApiGetDockerImagesRequest) (DockerImagesResult, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue DockerImagesResult
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  DockerImagesResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetDockerImages")
@@ -5478,7 +5556,7 @@ func (a *DefaultApiService) GetDockerImagesExecute(r ApiGetDockerImagesRequest) 
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -5546,10 +5624,12 @@ func (a *DefaultApiService) GetHAGroup(ctx _context.Context, id string) ApiGetHA
 //  @return CreateUpdateHAGroup
 func (a *DefaultApiService) GetHAGroupExecute(r ApiGetHAGroupRequest) (CreateUpdateHAGroup, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue CreateUpdateHAGroup
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  CreateUpdateHAGroup
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetHAGroup")
@@ -5595,7 +5675,7 @@ func (a *DefaultApiService) GetHAGroupExecute(r ApiGetHAGroupRequest) (CreateUpd
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -5663,10 +5743,12 @@ func (a *DefaultApiService) GetHAInstaller(ctx _context.Context, id string) ApiG
 //  @return *os.File
 func (a *DefaultApiService) GetHAInstallerExecute(r ApiGetHAInstallerRequest) (*os.File, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *os.File
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetHAInstaller")
@@ -5712,7 +5794,7 @@ func (a *DefaultApiService) GetHAInstallerExecute(r ApiGetHAInstallerRequest) (*
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -5777,10 +5859,12 @@ func (a *DefaultApiService) GetHostInstaller(ctx _context.Context) ApiGetHostIns
 //  @return *os.File
 func (a *DefaultApiService) GetHostInstallerExecute(r ApiGetHostInstallerRequest) (*os.File, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *os.File
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetHostInstaller")
@@ -5825,7 +5909,7 @@ func (a *DefaultApiService) GetHostInstallerExecute(r ApiGetHostInstallerRequest
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -5893,10 +5977,12 @@ func (a *DefaultApiService) GetIncidentAsCsv(ctx _context.Context, id string) Ap
 //  @return *os.File
 func (a *DefaultApiService) GetIncidentAsCsvExecute(r ApiGetIncidentAsCsvRequest) (*os.File, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *os.File
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetIncidentAsCsv")
@@ -5942,7 +6028,7 @@ func (a *DefaultApiService) GetIncidentAsCsvExecute(r ApiGetIncidentAsCsvRequest
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -6010,10 +6096,12 @@ func (a *DefaultApiService) GetIncidentsFieldsByIncidentType(ctx _context.Contex
 //  @return []IncidentField
 func (a *DefaultApiService) GetIncidentsFieldsByIncidentTypeExecute(r ApiGetIncidentsFieldsByIncidentTypeRequest) ([]IncidentField, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []IncidentField
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  []IncidentField
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetIncidentsFieldsByIncidentType")
@@ -6059,7 +6147,7 @@ func (a *DefaultApiService) GetIncidentsFieldsByIncidentTypeExecute(r ApiGetInci
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -6127,10 +6215,12 @@ func (a *DefaultApiService) GetIndicatorsAsCsv(ctx _context.Context, id string) 
 //  @return *os.File
 func (a *DefaultApiService) GetIndicatorsAsCsvExecute(r ApiGetIndicatorsAsCsvRequest) (*os.File, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *os.File
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetIndicatorsAsCsv")
@@ -6176,7 +6266,7 @@ func (a *DefaultApiService) GetIndicatorsAsCsvExecute(r ApiGetIndicatorsAsCsvReq
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -6244,10 +6334,12 @@ func (a *DefaultApiService) GetIndicatorsAsSTIX(ctx _context.Context, id string)
 //  @return *os.File
 func (a *DefaultApiService) GetIndicatorsAsSTIXExecute(r ApiGetIndicatorsAsSTIXRequest) (*os.File, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *os.File
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetIndicatorsAsSTIX")
@@ -6293,7 +6385,7 @@ func (a *DefaultApiService) GetIndicatorsAsSTIXExecute(r ApiGetIndicatorsAsSTIXR
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -6361,10 +6453,12 @@ func (a *DefaultApiService) GetReportByID(ctx _context.Context, id string) ApiGe
 //  @return Report
 func (a *DefaultApiService) GetReportByIDExecute(r ApiGetReportByIDRequest) (Report, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue Report
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  Report
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetReportByID")
@@ -6410,7 +6504,7 @@ func (a *DefaultApiService) GetReportByIDExecute(r ApiGetReportByIDRequest) (Rep
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -6475,10 +6569,12 @@ func (a *DefaultApiService) GetStatsForDashboard(ctx _context.Context) ApiGetSta
 //  @return []StatsQueryResponse
 func (a *DefaultApiService) GetStatsForDashboardExecute(r ApiGetStatsForDashboardRequest) ([]StatsQueryResponse, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []StatsQueryResponse
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  []StatsQueryResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetStatsForDashboard")
@@ -6523,7 +6619,7 @@ func (a *DefaultApiService) GetStatsForDashboardExecute(r ApiGetStatsForDashboar
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -6589,10 +6685,12 @@ func (a *DefaultApiService) GetStatsForDashboardOldFormat(ctx _context.Context) 
 //  @return []StatsQueryResponse
 func (a *DefaultApiService) GetStatsForDashboardOldFormatExecute(r ApiGetStatsForDashboardOldFormatRequest) ([]StatsQueryResponse, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []StatsQueryResponse
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  []StatsQueryResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetStatsForDashboardOldFormat")
@@ -6637,7 +6735,7 @@ func (a *DefaultApiService) GetStatsForDashboardOldFormatExecute(r ApiGetStatsFo
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -6703,10 +6801,12 @@ func (a *DefaultApiService) GetStatsForWidget(ctx _context.Context) ApiGetStatsF
 //  @return map[string]interface{}
 func (a *DefaultApiService) GetStatsForWidgetExecute(r ApiGetStatsForWidgetRequest) (map[string]interface{}, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue map[string]interface{}
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetStatsForWidget")
@@ -6751,7 +6851,7 @@ func (a *DefaultApiService) GetStatsForWidgetExecute(r ApiGetStatsForWidgetReque
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -6819,10 +6919,12 @@ func (a *DefaultApiService) GetStatsForWidgetOldFormat(ctx _context.Context) Api
 //  @return map[string]interface{}
 func (a *DefaultApiService) GetStatsForWidgetOldFormatExecute(r ApiGetStatsForWidgetOldFormatRequest) (map[string]interface{}, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue map[string]interface{}
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetStatsForWidgetOldFormat")
@@ -6867,7 +6969,7 @@ func (a *DefaultApiService) GetStatsForWidgetOldFormatExecute(r ApiGetStatsForWi
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -6935,10 +7037,12 @@ func (a *DefaultApiService) GetWidget(ctx _context.Context, id string) ApiGetWid
 //  @return Widget
 func (a *DefaultApiService) GetWidgetExecute(r ApiGetWidgetRequest) (Widget, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue Widget
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  Widget
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GetWidget")
@@ -6984,7 +7088,7 @@ func (a *DefaultApiService) GetWidgetExecute(r ApiGetWidgetRequest) (Widget, *_n
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -7049,10 +7153,12 @@ func (a *DefaultApiService) HealthHandler(ctx _context.Context) ApiHealthHandler
 //  @return string
 func (a *DefaultApiService) HealthHandlerExecute(r ApiHealthHandlerRequest) (string, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue string
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.HealthHandler")
@@ -7097,7 +7203,7 @@ func (a *DefaultApiService) HealthHandlerExecute(r ApiHealthHandlerRequest) (str
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -7169,10 +7275,12 @@ func (a *DefaultApiService) ImportClassifier(ctx _context.Context) ApiImportClas
 //  @return []InstanceClassifier
 func (a *DefaultApiService) ImportClassifierExecute(r ApiImportClassifierRequest) ([]InstanceClassifier, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []InstanceClassifier
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  []InstanceClassifier
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ImportClassifier")
@@ -7206,20 +7314,14 @@ func (a *DefaultApiService) ImportClassifierExecute(r ApiImportClassifierRequest
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	var fileLocalVarFormFileName string
-	var fileLocalVarFileName string
-	var fileLocalVarFileBytes []byte
-
-	fileLocalVarFormFileName = "file"
-
-	fileLocalVarFile := *r.file
-	if fileLocalVarFile != nil {
-		fbs, _ := _ioutil.ReadAll(fileLocalVarFile)
-		fileLocalVarFileBytes = fbs
-		fileLocalVarFileName = fileLocalVarFile.Name()
-		fileLocalVarFile.Close()
+	localVarFormFileName = "file"
+	localVarFile := *r.file
+	if localVarFile != nil {
+		fbs, _ := _ioutil.ReadAll(localVarFile)
+		localVarFileBytes = fbs
+		localVarFileName = localVarFile.Name()
+		localVarFile.Close()
 	}
-	formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -7234,7 +7336,7 @@ func (a *DefaultApiService) ImportClassifierExecute(r ApiImportClassifierRequest
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -7306,10 +7408,12 @@ func (a *DefaultApiService) ImportDashboard(ctx _context.Context) ApiImportDashb
 //  @return Dashboard
 func (a *DefaultApiService) ImportDashboardExecute(r ApiImportDashboardRequest) (Dashboard, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue Dashboard
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  Dashboard
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ImportDashboard")
@@ -7343,20 +7447,14 @@ func (a *DefaultApiService) ImportDashboardExecute(r ApiImportDashboardRequest) 
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	var fileLocalVarFormFileName string
-	var fileLocalVarFileName string
-	var fileLocalVarFileBytes []byte
-
-	fileLocalVarFormFileName = "file"
-
-	fileLocalVarFile := *r.file
-	if fileLocalVarFile != nil {
-		fbs, _ := _ioutil.ReadAll(fileLocalVarFile)
-		fileLocalVarFileBytes = fbs
-		fileLocalVarFileName = fileLocalVarFile.Name()
-		fileLocalVarFile.Close()
+	localVarFormFileName = "file"
+	localVarFile := *r.file
+	if localVarFile != nil {
+		fbs, _ := _ioutil.ReadAll(localVarFile)
+		localVarFileBytes = fbs
+		localVarFileName = localVarFile.Name()
+		localVarFile.Close()
 	}
-	formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -7371,7 +7469,7 @@ func (a *DefaultApiService) ImportDashboardExecute(r ApiImportDashboardRequest) 
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -7443,10 +7541,12 @@ func (a *DefaultApiService) ImportIncidentFields(ctx _context.Context) ApiImport
 //  @return IncidentFieldsWithErrors
 func (a *DefaultApiService) ImportIncidentFieldsExecute(r ApiImportIncidentFieldsRequest) (IncidentFieldsWithErrors, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue IncidentFieldsWithErrors
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  IncidentFieldsWithErrors
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ImportIncidentFields")
@@ -7480,20 +7580,14 @@ func (a *DefaultApiService) ImportIncidentFieldsExecute(r ApiImportIncidentField
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	var fileLocalVarFormFileName string
-	var fileLocalVarFileName string
-	var fileLocalVarFileBytes []byte
-
-	fileLocalVarFormFileName = "file"
-
-	fileLocalVarFile := *r.file
-	if fileLocalVarFile != nil {
-		fbs, _ := _ioutil.ReadAll(fileLocalVarFile)
-		fileLocalVarFileBytes = fbs
-		fileLocalVarFileName = fileLocalVarFile.Name()
-		fileLocalVarFile.Close()
+	localVarFormFileName = "file"
+	localVarFile := *r.file
+	if localVarFile != nil {
+		fbs, _ := _ioutil.ReadAll(localVarFile)
+		localVarFileBytes = fbs
+		localVarFileName = localVarFile.Name()
+		localVarFile.Close()
 	}
-	formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -7508,7 +7602,7 @@ func (a *DefaultApiService) ImportIncidentFieldsExecute(r ApiImportIncidentField
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -7580,10 +7674,12 @@ func (a *DefaultApiService) ImportIncidentTypesHandler(ctx _context.Context) Api
 //  @return IncidentTypesWithErrors
 func (a *DefaultApiService) ImportIncidentTypesHandlerExecute(r ApiImportIncidentTypesHandlerRequest) (IncidentTypesWithErrors, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue IncidentTypesWithErrors
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  IncidentTypesWithErrors
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ImportIncidentTypesHandler")
@@ -7617,20 +7713,14 @@ func (a *DefaultApiService) ImportIncidentTypesHandlerExecute(r ApiImportInciden
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	var fileLocalVarFormFileName string
-	var fileLocalVarFileName string
-	var fileLocalVarFileBytes []byte
-
-	fileLocalVarFormFileName = "file"
-
-	fileLocalVarFile := *r.file
-	if fileLocalVarFile != nil {
-		fbs, _ := _ioutil.ReadAll(fileLocalVarFile)
-		fileLocalVarFileBytes = fbs
-		fileLocalVarFileName = fileLocalVarFile.Name()
-		fileLocalVarFile.Close()
+	localVarFormFileName = "file"
+	localVarFile := *r.file
+	if localVarFile != nil {
+		fbs, _ := _ioutil.ReadAll(localVarFile)
+		localVarFileBytes = fbs
+		localVarFileName = localVarFile.Name()
+		localVarFile.Close()
 	}
-	formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -7645,7 +7735,7 @@ func (a *DefaultApiService) ImportIncidentTypesHandlerExecute(r ApiImportInciden
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -7717,10 +7807,12 @@ func (a *DefaultApiService) ImportScript(ctx _context.Context) ApiImportScriptRe
 //  @return AutomationScript
 func (a *DefaultApiService) ImportScriptExecute(r ApiImportScriptRequest) (AutomationScript, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue AutomationScript
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  AutomationScript
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ImportScript")
@@ -7754,20 +7846,14 @@ func (a *DefaultApiService) ImportScriptExecute(r ApiImportScriptRequest) (Autom
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	var fileLocalVarFormFileName string
-	var fileLocalVarFileName string
-	var fileLocalVarFileBytes []byte
-
-	fileLocalVarFormFileName = "file"
-
-	fileLocalVarFile := *r.file
-	if fileLocalVarFile != nil {
-		fbs, _ := _ioutil.ReadAll(fileLocalVarFile)
-		fileLocalVarFileBytes = fbs
-		fileLocalVarFileName = fileLocalVarFile.Name()
-		fileLocalVarFile.Close()
+	localVarFormFileName = "file"
+	localVarFile := *r.file
+	if localVarFile != nil {
+		fbs, _ := _ioutil.ReadAll(localVarFile)
+		localVarFileBytes = fbs
+		localVarFileName = localVarFile.Name()
+		localVarFile.Close()
 	}
-	formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -7782,7 +7868,7 @@ func (a *DefaultApiService) ImportScriptExecute(r ApiImportScriptRequest) (Autom
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -7854,10 +7940,12 @@ func (a *DefaultApiService) ImportWidget(ctx _context.Context) ApiImportWidgetRe
 //  @return Widget
 func (a *DefaultApiService) ImportWidgetExecute(r ApiImportWidgetRequest) (Widget, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue Widget
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  Widget
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ImportWidget")
@@ -7891,20 +7979,14 @@ func (a *DefaultApiService) ImportWidgetExecute(r ApiImportWidgetRequest) (Widge
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	var fileLocalVarFormFileName string
-	var fileLocalVarFileName string
-	var fileLocalVarFileBytes []byte
-
-	fileLocalVarFormFileName = "file"
-
-	fileLocalVarFile := *r.file
-	if fileLocalVarFile != nil {
-		fbs, _ := _ioutil.ReadAll(fileLocalVarFile)
-		fileLocalVarFileBytes = fbs
-		fileLocalVarFileName = fileLocalVarFile.Name()
-		fileLocalVarFile.Close()
+	localVarFormFileName = "file"
+	localVarFile := *r.file
+	if localVarFile != nil {
+		fbs, _ := _ioutil.ReadAll(localVarFile)
+		localVarFileBytes = fbs
+		localVarFileName = localVarFile.Name()
+		localVarFile.Close()
 	}
-	formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -7919,7 +8001,7 @@ func (a *DefaultApiService) ImportWidgetExecute(r ApiImportWidgetRequest) (Widge
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -8029,10 +8111,12 @@ func (a *DefaultApiService) IncidentFileUpload(ctx _context.Context, id string) 
 //  @return IncidentWrapper
 func (a *DefaultApiService) IncidentFileUploadExecute(r ApiIncidentFileUploadRequest) (IncidentWrapper, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue IncidentWrapper
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  IncidentWrapper
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.IncidentFileUpload")
@@ -8082,20 +8166,14 @@ func (a *DefaultApiService) IncidentFileUploadExecute(r ApiIncidentFileUploadReq
 	if r.last != nil {
 		localVarFormParams.Add("last", parameterToString(*r.last, ""))
 	}
-	var fileLocalVarFormFileName string
-	var fileLocalVarFileName string
-	var fileLocalVarFileBytes []byte
-
-	fileLocalVarFormFileName = "file"
-
-	fileLocalVarFile := *r.file
-	if fileLocalVarFile != nil {
-		fbs, _ := _ioutil.ReadAll(fileLocalVarFile)
-		fileLocalVarFileBytes = fbs
-		fileLocalVarFileName = fileLocalVarFile.Name()
-		fileLocalVarFile.Close()
+	localVarFormFileName = "file"
+	localVarFile := *r.file
+	if localVarFile != nil {
+		fbs, _ := _ioutil.ReadAll(localVarFile)
+		localVarFileBytes = fbs
+		localVarFileName = localVarFile.Name()
+		localVarFile.Close()
 	}
-	formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -8110,7 +8188,7 @@ func (a *DefaultApiService) IncidentFileUploadExecute(r ApiIncidentFileUploadReq
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -8182,10 +8260,12 @@ func (a *DefaultApiService) IndicatorWhitelist(ctx _context.Context) ApiIndicato
 //  @return UpdateResponse
 func (a *DefaultApiService) IndicatorWhitelistExecute(r ApiIndicatorWhitelistRequest) (UpdateResponse, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue UpdateResponse
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  UpdateResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.IndicatorWhitelist")
@@ -8232,7 +8312,7 @@ func (a *DefaultApiService) IndicatorWhitelistExecute(r ApiIndicatorWhitelistReq
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -8304,10 +8384,12 @@ func (a *DefaultApiService) IndicatorsCreate(ctx _context.Context) ApiIndicators
 //  @return IocObject
 func (a *DefaultApiService) IndicatorsCreateExecute(r ApiIndicatorsCreateRequest) (IocObject, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue IocObject
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  IocObject
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.IndicatorsCreate")
@@ -8354,7 +8436,7 @@ func (a *DefaultApiService) IndicatorsCreateExecute(r ApiIndicatorsCreateRequest
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -8433,10 +8515,12 @@ func (a *DefaultApiService) IndicatorsCreateBatch(ctx _context.Context) ApiIndic
 //  @return IocObjects
 func (a *DefaultApiService) IndicatorsCreateBatchExecute(r ApiIndicatorsCreateBatchRequest) (IocObjects, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue IocObjects
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  IocObjects
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.IndicatorsCreateBatch")
@@ -8473,20 +8557,14 @@ func (a *DefaultApiService) IndicatorsCreateBatchExecute(r ApiIndicatorsCreateBa
 	if r.fileName != nil {
 		localVarFormParams.Add("fileName", parameterToString(*r.fileName, ""))
 	}
-	var fileLocalVarFormFileName string
-	var fileLocalVarFileName string
-	var fileLocalVarFileBytes []byte
-
-	fileLocalVarFormFileName = "file"
-
-	fileLocalVarFile := *r.file
-	if fileLocalVarFile != nil {
-		fbs, _ := _ioutil.ReadAll(fileLocalVarFile)
-		fileLocalVarFileBytes = fbs
-		fileLocalVarFileName = fileLocalVarFile.Name()
-		fileLocalVarFile.Close()
+	localVarFormFileName = "file"
+	localVarFile := *r.file
+	if localVarFile != nil {
+		fbs, _ := _ioutil.ReadAll(localVarFile)
+		localVarFileBytes = fbs
+		localVarFileName = localVarFile.Name()
+		localVarFile.Close()
 	}
-	formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -8501,7 +8579,7 @@ func (a *DefaultApiService) IndicatorsCreateBatchExecute(r ApiIndicatorsCreateBa
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -8573,10 +8651,12 @@ func (a *DefaultApiService) IndicatorsEdit(ctx _context.Context) ApiIndicatorsEd
 //  @return IocObject
 func (a *DefaultApiService) IndicatorsEditExecute(r ApiIndicatorsEditRequest) (IocObject, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue IocObject
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  IocObject
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.IndicatorsEdit")
@@ -8623,7 +8703,7 @@ func (a *DefaultApiService) IndicatorsEditExecute(r ApiIndicatorsEditRequest) (I
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -8694,10 +8774,12 @@ func (a *DefaultApiService) IndicatorsSearch(ctx _context.Context) ApiIndicators
 //  @return IndicatorResult
 func (a *DefaultApiService) IndicatorsSearchExecute(r ApiIndicatorsSearchRequest) (IndicatorResult, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue IndicatorResult
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  IndicatorResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.IndicatorsSearch")
@@ -8744,7 +8826,7 @@ func (a *DefaultApiService) IndicatorsSearchExecute(r ApiIndicatorsSearchRequest
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -8815,10 +8897,12 @@ func (a *DefaultApiService) IndicatorsTimelineDelete(ctx _context.Context) ApiIn
 //  @return IndicatorEditBulkResponse
 func (a *DefaultApiService) IndicatorsTimelineDeleteExecute(r ApiIndicatorsTimelineDeleteRequest) (IndicatorEditBulkResponse, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue IndicatorEditBulkResponse
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  IndicatorEditBulkResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.IndicatorsTimelineDelete")
@@ -8865,7 +8949,7 @@ func (a *DefaultApiService) IndicatorsTimelineDeleteExecute(r ApiIndicatorsTimel
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -8937,10 +9021,12 @@ func (a *DefaultApiService) IntegrationUpload(ctx _context.Context) ApiIntegrati
 //  @return ModuleConfiguration
 func (a *DefaultApiService) IntegrationUploadExecute(r ApiIntegrationUploadRequest) (ModuleConfiguration, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue ModuleConfiguration
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  ModuleConfiguration
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.IntegrationUpload")
@@ -8974,20 +9060,14 @@ func (a *DefaultApiService) IntegrationUploadExecute(r ApiIntegrationUploadReque
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	var fileLocalVarFormFileName string
-	var fileLocalVarFileName string
-	var fileLocalVarFileBytes []byte
-
-	fileLocalVarFormFileName = "file"
-
-	fileLocalVarFile := *r.file
-	if fileLocalVarFile != nil {
-		fbs, _ := _ioutil.ReadAll(fileLocalVarFile)
-		fileLocalVarFileBytes = fbs
-		fileLocalVarFileName = fileLocalVarFile.Name()
-		fileLocalVarFile.Close()
+	localVarFormFileName = "file"
+	localVarFile := *r.file
+	if localVarFile != nil {
+		fbs, _ := _ioutil.ReadAll(localVarFile)
+		localVarFileBytes = fbs
+		localVarFileName = localVarFile.Name()
+		localVarFile.Close()
 	}
-	formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -9002,7 +9082,7 @@ func (a *DefaultApiService) IntegrationUploadExecute(r ApiIntegrationUploadReque
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -9074,10 +9154,12 @@ func (a *DefaultApiService) InvestigationAddEntriesSync(ctx _context.Context) Ap
 //  @return []Entry
 func (a *DefaultApiService) InvestigationAddEntriesSyncExecute(r ApiInvestigationAddEntriesSyncRequest) ([]Entry, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue []Entry
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  []Entry
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.InvestigationAddEntriesSync")
@@ -9124,7 +9206,7 @@ func (a *DefaultApiService) InvestigationAddEntriesSyncExecute(r ApiInvestigatio
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -9196,10 +9278,12 @@ func (a *DefaultApiService) InvestigationAddEntryHandler(ctx _context.Context) A
 //  @return Entry
 func (a *DefaultApiService) InvestigationAddEntryHandlerExecute(r ApiInvestigationAddEntryHandlerRequest) (Entry, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue Entry
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  Entry
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.InvestigationAddEntryHandler")
@@ -9246,7 +9330,7 @@ func (a *DefaultApiService) InvestigationAddEntryHandlerExecute(r ApiInvestigati
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -9318,10 +9402,12 @@ func (a *DefaultApiService) InvestigationAddFormattedEntryHandler(ctx _context.C
 //  @return Entry
 func (a *DefaultApiService) InvestigationAddFormattedEntryHandlerExecute(r ApiInvestigationAddFormattedEntryHandlerRequest) (Entry, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue Entry
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  Entry
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.InvestigationAddFormattedEntryHandler")
@@ -9368,7 +9454,7 @@ func (a *DefaultApiService) InvestigationAddFormattedEntryHandlerExecute(r ApiIn
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -9433,10 +9519,12 @@ func (a *DefaultApiService) ListAccounts(ctx _context.Context) ApiListAccountsRe
 //  @return AccountsWrapper
 func (a *DefaultApiService) ListAccountsExecute(r ApiListAccountsRequest) (AccountsWrapper, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue AccountsWrapper
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  AccountsWrapper
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ListAccounts")
@@ -9481,7 +9569,7 @@ func (a *DefaultApiService) ListAccountsExecute(r ApiListAccountsRequest) (Accou
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -9546,10 +9634,12 @@ func (a *DefaultApiService) ListAccountsDetails(ctx _context.Context) ApiListAcc
 //  @return map[string]interface{}
 func (a *DefaultApiService) ListAccountsDetailsExecute(r ApiListAccountsDetailsRequest) (map[string]interface{}, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue map[string]interface{}
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ListAccountsDetails")
@@ -9594,7 +9684,7 @@ func (a *DefaultApiService) ListAccountsDetailsExecute(r ApiListAccountsDetailsR
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -9665,10 +9755,12 @@ func (a *DefaultApiService) ListClassifiers(ctx _context.Context) ApiListClassif
 //  @return InstanceClassifiers
 func (a *DefaultApiService) ListClassifiersExecute(r ApiListClassifiersRequest) (InstanceClassifiers, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue InstanceClassifiers
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  InstanceClassifiers
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ListClassifiers")
@@ -9715,7 +9807,7 @@ func (a *DefaultApiService) ListClassifiersExecute(r ApiListClassifiersRequest) 
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -9789,10 +9881,12 @@ func (a *DefaultApiService) ListClassifiersAccount(ctx _context.Context, acc str
 //  @return InstanceClassifiers
 func (a *DefaultApiService) ListClassifiersAccountExecute(r ApiListClassifiersAccountRequest) (InstanceClassifiers, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue InstanceClassifiers
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  InstanceClassifiers
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ListClassifiersAccount")
@@ -9840,7 +9934,7 @@ func (a *DefaultApiService) ListClassifiersAccountExecute(r ApiListClassifiersAc
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -9905,10 +9999,12 @@ func (a *DefaultApiService) ListHAGroups(ctx _context.Context) ApiListHAGroupsRe
 //  @return HAGroups
 func (a *DefaultApiService) ListHAGroupsExecute(r ApiListHAGroupsRequest) (HAGroups, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue HAGroups
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  HAGroups
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ListHAGroups")
@@ -9953,7 +10049,7 @@ func (a *DefaultApiService) ListHAGroupsExecute(r ApiListHAGroupsRequest) (HAGro
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -10018,10 +10114,12 @@ func (a *DefaultApiService) ListHosts(ctx _context.Context) ApiListHostsRequest 
 //  @return Hosts
 func (a *DefaultApiService) ListHostsExecute(r ApiListHostsRequest) (Hosts, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue Hosts
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  Hosts
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ListHosts")
@@ -10066,7 +10164,7 @@ func (a *DefaultApiService) ListHostsExecute(r ApiListHostsRequest) (Hosts, *_ne
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -10137,10 +10235,12 @@ func (a *DefaultApiService) ListIntegrations(ctx _context.Context) ApiListIntegr
 //  @return map[string]interface{}
 func (a *DefaultApiService) ListIntegrationsExecute(r ApiListIntegrationsRequest) (map[string]interface{}, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue map[string]interface{}
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ListIntegrations")
@@ -10187,7 +10287,7 @@ func (a *DefaultApiService) ListIntegrationsExecute(r ApiListIntegrationsRequest
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -10261,10 +10361,12 @@ func (a *DefaultApiService) ListIntegrationsAccount(ctx _context.Context, acc st
 //  @return map[string]interface{}
 func (a *DefaultApiService) ListIntegrationsAccountExecute(r ApiListIntegrationsAccountRequest) (map[string]interface{}, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue map[string]interface{}
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ListIntegrationsAccount")
@@ -10312,7 +10414,7 @@ func (a *DefaultApiService) ListIntegrationsAccountExecute(r ApiListIntegrations
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -10377,10 +10479,12 @@ func (a *DefaultApiService) ListMainHosts(ctx _context.Context) ApiListMainHosts
 //  @return MainHosts
 func (a *DefaultApiService) ListMainHostsExecute(r ApiListMainHostsRequest) (MainHosts, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue MainHosts
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  MainHosts
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ListMainHosts")
@@ -10425,7 +10529,7 @@ func (a *DefaultApiService) ListMainHostsExecute(r ApiListMainHostsRequest) (Mai
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -10490,10 +10594,12 @@ func (a *DefaultApiService) LogoutEveryoneHandler(ctx _context.Context) ApiLogou
 //  @return string
 func (a *DefaultApiService) LogoutEveryoneHandlerExecute(r ApiLogoutEveryoneHandlerRequest) (string, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue string
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.LogoutEveryoneHandler")
@@ -10538,7 +10644,7 @@ func (a *DefaultApiService) LogoutEveryoneHandlerExecute(r ApiLogoutEveryoneHand
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -10603,10 +10709,12 @@ func (a *DefaultApiService) LogoutMyselfHandler(ctx _context.Context) ApiLogoutM
 //  @return string
 func (a *DefaultApiService) LogoutMyselfHandlerExecute(r ApiLogoutMyselfHandlerRequest) (string, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue string
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.LogoutMyselfHandler")
@@ -10651,7 +10759,7 @@ func (a *DefaultApiService) LogoutMyselfHandlerExecute(r ApiLogoutMyselfHandlerR
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -10716,10 +10824,12 @@ func (a *DefaultApiService) LogoutMyselfOtherSessionsHandler(ctx _context.Contex
 //  @return string
 func (a *DefaultApiService) LogoutMyselfOtherSessionsHandlerExecute(r ApiLogoutMyselfOtherSessionsHandlerRequest) (string, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue string
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.LogoutMyselfOtherSessionsHandler")
@@ -10764,7 +10874,7 @@ func (a *DefaultApiService) LogoutMyselfOtherSessionsHandlerExecute(r ApiLogoutM
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -10832,10 +10942,12 @@ func (a *DefaultApiService) LogoutUserSessionsHandler(ctx _context.Context, user
 //  @return string
 func (a *DefaultApiService) LogoutUserSessionsHandlerExecute(r ApiLogoutUserSessionsHandlerRequest) (string, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue string
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.LogoutUserSessionsHandler")
@@ -10881,7 +10993,7 @@ func (a *DefaultApiService) LogoutUserSessionsHandlerExecute(r ApiLogoutUserSess
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -10953,10 +11065,12 @@ func (a *DefaultApiService) OverridePlaybookYaml(ctx _context.Context) ApiOverri
 //  @return PlaybookWithWarnings
 func (a *DefaultApiService) OverridePlaybookYamlExecute(r ApiOverridePlaybookYamlRequest) (PlaybookWithWarnings, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue PlaybookWithWarnings
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  PlaybookWithWarnings
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.OverridePlaybookYaml")
@@ -10990,20 +11104,14 @@ func (a *DefaultApiService) OverridePlaybookYamlExecute(r ApiOverridePlaybookYam
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	var fileLocalVarFormFileName string
-	var fileLocalVarFileName string
-	var fileLocalVarFileBytes []byte
-
-	fileLocalVarFormFileName = "file"
-
-	fileLocalVarFile := *r.file
-	if fileLocalVarFile != nil {
-		fbs, _ := _ioutil.ReadAll(fileLocalVarFile)
-		fileLocalVarFileBytes = fbs
-		fileLocalVarFileName = fileLocalVarFile.Name()
-		fileLocalVarFile.Close()
+	localVarFormFileName = "file"
+	localVarFile := *r.file
+	if localVarFile != nil {
+		fbs, _ := _ioutil.ReadAll(localVarFile)
+		localVarFileBytes = fbs
+		localVarFileName = localVarFile.Name()
+		localVarFile.Close()
 	}
-	formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -11018,7 +11126,7 @@ func (a *DefaultApiService) OverridePlaybookYamlExecute(r ApiOverridePlaybookYam
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -11082,9 +11190,11 @@ func (a *DefaultApiService) ResetROIWidget(ctx _context.Context) ApiResetROIWidg
 // Execute executes the request
 func (a *DefaultApiService) ResetROIWidgetExecute(r ApiResetROIWidgetRequest) (*_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod = _nethttp.MethodDelete
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = _nethttp.MethodDelete
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ResetROIWidget")
@@ -11129,7 +11239,7 @@ func (a *DefaultApiService) ResetROIWidgetExecute(r ApiResetROIWidgetRequest) (*
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -11187,9 +11297,11 @@ func (a *DefaultApiService) RevokeUserAPIKey(ctx _context.Context, username stri
 // Execute executes the request
 func (a *DefaultApiService) RevokeUserAPIKeyExecute(r ApiRevokeUserAPIKeyRequest) (*_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod = _nethttp.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.RevokeUserAPIKey")
@@ -11235,7 +11347,7 @@ func (a *DefaultApiService) RevokeUserAPIKeyExecute(r ApiRevokeUserAPIKeyRequest
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -11298,10 +11410,12 @@ func (a *DefaultApiService) SaveEvidence(ctx _context.Context) ApiSaveEvidenceRe
 //  @return Evidence
 func (a *DefaultApiService) SaveEvidenceExecute(r ApiSaveEvidenceRequest) (Evidence, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue Evidence
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  Evidence
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.SaveEvidence")
@@ -11348,7 +11462,7 @@ func (a *DefaultApiService) SaveEvidenceExecute(r ApiSaveEvidenceRequest) (Evide
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -11419,10 +11533,12 @@ func (a *DefaultApiService) SaveOrUpdateScript(ctx _context.Context) ApiSaveOrUp
 //  @return AutomationScriptResult
 func (a *DefaultApiService) SaveOrUpdateScriptExecute(r ApiSaveOrUpdateScriptRequest) (AutomationScriptResult, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue AutomationScriptResult
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  AutomationScriptResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.SaveOrUpdateScript")
@@ -11469,7 +11585,7 @@ func (a *DefaultApiService) SaveOrUpdateScriptExecute(r ApiSaveOrUpdateScriptReq
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -11540,10 +11656,12 @@ func (a *DefaultApiService) SaveWidget(ctx _context.Context) ApiSaveWidgetReques
 //  @return Widget
 func (a *DefaultApiService) SaveWidgetExecute(r ApiSaveWidgetRequest) (Widget, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue Widget
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  Widget
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.SaveWidget")
@@ -11590,7 +11708,7 @@ func (a *DefaultApiService) SaveWidgetExecute(r ApiSaveWidgetRequest) (Widget, *
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -11661,10 +11779,12 @@ func (a *DefaultApiService) SearchEvidence(ctx _context.Context) ApiSearchEviden
 //  @return EvidencesSearchResponse
 func (a *DefaultApiService) SearchEvidenceExecute(r ApiSearchEvidenceRequest) (EvidencesSearchResponse, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue EvidencesSearchResponse
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  EvidencesSearchResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.SearchEvidence")
@@ -11711,7 +11831,7 @@ func (a *DefaultApiService) SearchEvidenceExecute(r ApiSearchEvidenceRequest) (E
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -11783,10 +11903,12 @@ func (a *DefaultApiService) SearchIncidents(ctx _context.Context) ApiSearchIncid
 //  @return InlineResponse200
 func (a *DefaultApiService) SearchIncidentsExecute(r ApiSearchIncidentsRequest) (InlineResponse200, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue InlineResponse200
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  InlineResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.SearchIncidents")
@@ -11836,7 +11958,7 @@ func (a *DefaultApiService) SearchIncidentsExecute(r ApiSearchIncidentsRequest) 
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -11908,10 +12030,12 @@ func (a *DefaultApiService) SearchInvestigations(ctx _context.Context) ApiSearch
 //  @return InvestigationSearchResponse
 func (a *DefaultApiService) SearchInvestigationsExecute(r ApiSearchInvestigationsRequest) (InvestigationSearchResponse, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue InvestigationSearchResponse
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  InvestigationSearchResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.SearchInvestigations")
@@ -11958,7 +12082,7 @@ func (a *DefaultApiService) SearchInvestigationsExecute(r ApiSearchInvestigation
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -12033,9 +12157,11 @@ func (a *DefaultApiService) SetTagsField(ctx _context.Context, id string) ApiSet
 // Execute executes the request
 func (a *DefaultApiService) SetTagsFieldExecute(r ApiSetTagsFieldRequest) (*_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod = _nethttp.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.SetTagsField")
@@ -12086,7 +12212,7 @@ func (a *DefaultApiService) SetTagsFieldExecute(r ApiSetTagsFieldRequest) (*_net
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -12148,10 +12274,12 @@ func (a *DefaultApiService) SimpleCompleteTask(ctx _context.Context) ApiSimpleCo
 //  @return InvestigationPlaybook
 func (a *DefaultApiService) SimpleCompleteTaskExecute(r ApiSimpleCompleteTaskRequest) (InvestigationPlaybook, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue InvestigationPlaybook
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  InvestigationPlaybook
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.SimpleCompleteTask")
@@ -12198,7 +12326,7 @@ func (a *DefaultApiService) SimpleCompleteTaskExecute(r ApiSimpleCompleteTaskReq
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -12268,9 +12396,11 @@ func (a *DefaultApiService) StartAccounts(ctx _context.Context) ApiStartAccounts
 // Execute executes the request
 func (a *DefaultApiService) StartAccountsExecute(r ApiStartAccountsRequest) (*_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod = _nethttp.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.StartAccounts")
@@ -12317,7 +12447,7 @@ func (a *DefaultApiService) StartAccountsExecute(r ApiStartAccountsRequest) (*_n
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -12378,9 +12508,11 @@ func (a *DefaultApiService) StopAccounts(ctx _context.Context) ApiStopAccountsRe
 // Execute executes the request
 func (a *DefaultApiService) StopAccountsExecute(r ApiStopAccountsRequest) (*_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod = _nethttp.MethodPost
-		localVarPostBody   interface{}
-		formFiles          []formFile
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.StopAccounts")
@@ -12427,7 +12559,7 @@ func (a *DefaultApiService) StopAccountsExecute(r ApiStopAccountsRequest) (*_net
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -12511,10 +12643,12 @@ func (a *DefaultApiService) SubmitTaskForm(ctx _context.Context) ApiSubmitTaskFo
 //  @return InvestigationPlaybook
 func (a *DefaultApiService) SubmitTaskFormExecute(r ApiSubmitTaskFormRequest) (InvestigationPlaybook, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue InvestigationPlaybook
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  InvestigationPlaybook
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.SubmitTaskForm")
@@ -12557,23 +12691,17 @@ func (a *DefaultApiService) SubmitTaskFormExecute(r ApiSubmitTaskFormRequest) (I
 	localVarFormParams.Add("investigationId", parameterToString(*r.investigationId, ""))
 	localVarFormParams.Add("taskId", parameterToString(*r.taskId, ""))
 	localVarFormParams.Add("answers", parameterToString(*r.answers, ""))
-	var fileLocalVarFormFileName string
-	var fileLocalVarFileName string
-	var fileLocalVarFileBytes []byte
-
-	fileLocalVarFormFileName = "file"
-
-	var fileLocalVarFile *os.File
+	localVarFormFileName = "file"
+	var localVarFile *os.File
 	if r.file != nil {
-		fileLocalVarFile = *r.file
+		localVarFile = *r.file
 	}
-	if fileLocalVarFile != nil {
-		fbs, _ := _ioutil.ReadAll(fileLocalVarFile)
-		fileLocalVarFileBytes = fbs
-		fileLocalVarFileName = fileLocalVarFile.Name()
-		fileLocalVarFile.Close()
+	if localVarFile != nil {
+		fbs, _ := _ioutil.ReadAll(localVarFile)
+		localVarFileBytes = fbs
+		localVarFileName = localVarFile.Name()
+		localVarFile.Close()
 	}
-	formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -12588,7 +12716,7 @@ func (a *DefaultApiService) SubmitTaskFormExecute(r ApiSubmitTaskFormRequest) (I
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -12659,10 +12787,12 @@ func (a *DefaultApiService) TaskAddComment(ctx _context.Context) ApiTaskAddComme
 //  @return InvestigationPlaybook
 func (a *DefaultApiService) TaskAddCommentExecute(r ApiTaskAddCommentRequest) (InvestigationPlaybook, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue InvestigationPlaybook
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  InvestigationPlaybook
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.TaskAddComment")
@@ -12709,7 +12839,7 @@ func (a *DefaultApiService) TaskAddCommentExecute(r ApiTaskAddCommentRequest) (I
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -12780,10 +12910,12 @@ func (a *DefaultApiService) TaskAssign(ctx _context.Context) ApiTaskAssignReques
 //  @return InvestigationPlaybook
 func (a *DefaultApiService) TaskAssignExecute(r ApiTaskAssignRequest) (InvestigationPlaybook, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue InvestigationPlaybook
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  InvestigationPlaybook
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.TaskAssign")
@@ -12830,7 +12962,7 @@ func (a *DefaultApiService) TaskAssignExecute(r ApiTaskAssignRequest) (Investiga
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -12901,10 +13033,12 @@ func (a *DefaultApiService) TaskSetDue(ctx _context.Context) ApiTaskSetDueReques
 //  @return InvestigationPlaybook
 func (a *DefaultApiService) TaskSetDueExecute(r ApiTaskSetDueRequest) (InvestigationPlaybook, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue InvestigationPlaybook
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  InvestigationPlaybook
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.TaskSetDue")
@@ -12951,7 +13085,7 @@ func (a *DefaultApiService) TaskSetDueExecute(r ApiTaskSetDueRequest) (Investiga
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -13022,10 +13156,12 @@ func (a *DefaultApiService) TaskUnComplete(ctx _context.Context) ApiTaskUnComple
 //  @return InvestigationPlaybook
 func (a *DefaultApiService) TaskUnCompleteExecute(r ApiTaskUnCompleteRequest) (InvestigationPlaybook, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue InvestigationPlaybook
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  InvestigationPlaybook
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.TaskUnComplete")
@@ -13072,7 +13208,7 @@ func (a *DefaultApiService) TaskUnCompleteExecute(r ApiTaskUnCompleteRequest) (I
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -13146,10 +13282,12 @@ func (a *DefaultApiService) UpdateAccount(ctx _context.Context, accountname stri
 //  @return RolesAndPropagationLabelsWrapper
 func (a *DefaultApiService) UpdateAccountExecute(r ApiUpdateAccountRequest) (RolesAndPropagationLabelsWrapper, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue RolesAndPropagationLabelsWrapper
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  RolesAndPropagationLabelsWrapper
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.UpdateAccount")
@@ -13197,7 +13335,7 @@ func (a *DefaultApiService) UpdateAccountExecute(r ApiUpdateAccountRequest) (Rol
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -13268,10 +13406,12 @@ func (a *DefaultApiService) UpdateAccountHost(ctx _context.Context, accountname 
 //  @return UpdateAccountHostResponse
 func (a *DefaultApiService) UpdateAccountHostExecute(r ApiUpdateAccountHostRequest) (UpdateAccountHostResponse, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue UpdateAccountHostResponse
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  UpdateAccountHostResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.UpdateAccountHost")
@@ -13318,7 +13458,7 @@ func (a *DefaultApiService) UpdateAccountHostExecute(r ApiUpdateAccountHostReque
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -13390,10 +13530,12 @@ func (a *DefaultApiService) UpdateEntryNote(ctx _context.Context) ApiUpdateEntry
 //  @return Entry
 func (a *DefaultApiService) UpdateEntryNoteExecute(r ApiUpdateEntryNoteRequest) (Entry, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue Entry
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  Entry
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.UpdateEntryNote")
@@ -13440,7 +13582,7 @@ func (a *DefaultApiService) UpdateEntryNoteExecute(r ApiUpdateEntryNoteRequest) 
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -13512,10 +13654,12 @@ func (a *DefaultApiService) UpdateEntryTagsOp(ctx _context.Context) ApiUpdateEnt
 //  @return Entry
 func (a *DefaultApiService) UpdateEntryTagsOpExecute(r ApiUpdateEntryTagsOpRequest) (Entry, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue Entry
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  Entry
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.UpdateEntryTagsOp")
@@ -13562,7 +13706,7 @@ func (a *DefaultApiService) UpdateEntryTagsOpExecute(r ApiUpdateEntryTagsOpReque
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -13627,10 +13771,12 @@ func (a *DefaultApiService) WorkersStatusHandler(ctx _context.Context) ApiWorker
 //  @return Info
 func (a *DefaultApiService) WorkersStatusHandlerExecute(r ApiWorkersStatusHandlerRequest) (Info, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod  = _nethttp.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue Info
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  Info
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.WorkersStatusHandler")
@@ -13675,7 +13821,7 @@ func (a *DefaultApiService) WorkersStatusHandlerExecute(r ApiWorkersStatusHandle
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}

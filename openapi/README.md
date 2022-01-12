@@ -80,7 +80,7 @@ Note, enum values are always validated and all unused variables are silently ign
 ### URLs Configuration per Operation
 
 Each operation can use different server URL defined using `OperationServers` map in the `Configuration`.
-An operation is uniquely identified by `"{classname}Service.{nickname}"` string.
+An operation is uniquely identifield by `"{classname}Service.{nickname}"` string.
 Similar rules for overriding default operation server index and variables applies by using `sw.ContextOperationServerIndices` and `sw.ContextOperationServerVariables` context maps.
 
 ```
@@ -255,7 +255,6 @@ Class | Method | HTTP request | Description
  - [CreateAccountRequest](docs/CreateAccountRequest.md)
  - [CreateHAGroupRequest](docs/CreateHAGroupRequest.md)
  - [CreateIncidentRequest](docs/CreateIncidentRequest.md)
- - [CreateIntegrationRequest](docs/CreateIntegrationRequest.md)
  - [CreateUpdateClassifierRequest](docs/CreateUpdateClassifierRequest.md)
  - [CreateUpdateHAGroup](docs/CreateUpdateHAGroup.md)
  - [CustomFields](docs/CustomFields.md)

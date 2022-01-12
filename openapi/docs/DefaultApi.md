@@ -1358,7 +1358,7 @@ import (
 )
 
 func main() {
-    createIntegrationRequest := *openapiclient.NewCreateIntegrationRequest() // CreateIntegrationRequest |  (optional)
+    createIntegrationRequest := map[string]interface{}(Object) // map[string]interface{} |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -1383,7 +1383,7 @@ Other parameters are passed through a pointer to a apiCreateUpdateIntegrationIns
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createIntegrationRequest** | [**CreateIntegrationRequest**](CreateIntegrationRequest.md) |  | 
+ **createIntegrationRequest** | **map[string]interface{}** |  | 
 
 ### Return type
 
@@ -1425,7 +1425,7 @@ import (
 
 func main() {
     acc := "acc_example" // string | 
-    createIntegrationRequest := *openapiclient.NewCreateIntegrationRequest() // CreateIntegrationRequest |  (optional)
+    createIntegrationRequest := map[string]interface{}(Object) // map[string]interface{} |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -1455,7 +1455,7 @@ Other parameters are passed through a pointer to a apiCreateUpdateIntegrationIns
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createIntegrationRequest** | [**CreateIntegrationRequest**](CreateIntegrationRequest.md) |  | 
+ **createIntegrationRequest** | **map[string]interface{}** |  | 
 
 ### Return type
 

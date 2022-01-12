@@ -4560,12 +4560,7 @@
       "x-go-package": "github.com/demisto/server/domain"
     },
     "CreateIntegrationRequest": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        }
-      }
+      "type": "object"
     },
     "CreateUpdateClassifierRequest": {
       "description": "Request to create new or update a classifier",

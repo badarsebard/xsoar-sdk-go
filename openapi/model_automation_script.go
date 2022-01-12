@@ -34,15 +34,15 @@ type AutomationScript struct {
 	// Engine that will run the script
 	Engine *string `json:"engine,omitempty"`
 	// EngineGroup that will run the script
-	EngineGroup       *string  `json:"engineGroup,omitempty"`
-	FromServerVersion *Version `json:"fromServerVersion,omitempty"`
+	EngineGroup       *string `json:"engineGroup,omitempty"`
+	FromServerVersion *string `json:"fromServerVersion,omitempty"`
 	// Internal field to make queries on role faster
 	HasRole               *bool                `json:"hasRole,omitempty"`
 	Hidden                *bool                `json:"hidden,omitempty"`
 	Highlight             *map[string][]string `json:"highlight,omitempty"`
 	Id                    *string              `json:"id,omitempty"`
 	Important             *[]Important         `json:"important,omitempty"`
-	ItemVersion           *Version             `json:"itemVersion,omitempty"`
+	ItemVersion           *string              `json:"itemVersion,omitempty"`
 	Locked                *bool                `json:"locked,omitempty"`
 	Modified              *time.Time           `json:"modified,omitempty"`
 	Name                  *string              `json:"name,omitempty"`
@@ -79,8 +79,8 @@ type AutomationScript struct {
 	System  *bool     `json:"system,omitempty"`
 	Tags    *[]string `json:"tags,omitempty"`
 	// A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years.
-	Timeout         *int64   `json:"timeout,omitempty"`
-	ToServerVersion *Version `json:"toServerVersion,omitempty"`
+	Timeout         *int64  `json:"timeout,omitempty"`
+	ToServerVersion *string `json:"toServerVersion,omitempty"`
 	// ScriptType holds the type of a script
 	Type                              *string   `json:"type,omitempty"`
 	User                              *string   `json:"user,omitempty"`
@@ -559,9 +559,9 @@ func (o *AutomationScript) SetEngineGroup(v string) {
 }
 
 // GetFromServerVersion returns the FromServerVersion field value if set, zero value otherwise.
-func (o *AutomationScript) GetFromServerVersion() Version {
+func (o *AutomationScript) GetFromServerVersion() string {
 	if o == nil || o.FromServerVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.FromServerVersion
@@ -569,7 +569,7 @@ func (o *AutomationScript) GetFromServerVersion() Version {
 
 // GetFromServerVersionOk returns a tuple with the FromServerVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AutomationScript) GetFromServerVersionOk() (*Version, bool) {
+func (o *AutomationScript) GetFromServerVersionOk() (*string, bool) {
 	if o == nil || o.FromServerVersion == nil {
 		return nil, false
 	}
@@ -585,8 +585,8 @@ func (o *AutomationScript) HasFromServerVersion() bool {
 	return false
 }
 
-// SetFromServerVersion gets a reference to the given Version and assigns it to the FromServerVersion field.
-func (o *AutomationScript) SetFromServerVersion(v Version) {
+// SetFromServerVersion gets a reference to the given string and assigns it to the FromServerVersion field.
+func (o *AutomationScript) SetFromServerVersion(v string) {
 	o.FromServerVersion = &v
 }
 
@@ -751,9 +751,9 @@ func (o *AutomationScript) SetImportant(v []Important) {
 }
 
 // GetItemVersion returns the ItemVersion field value if set, zero value otherwise.
-func (o *AutomationScript) GetItemVersion() Version {
+func (o *AutomationScript) GetItemVersion() string {
 	if o == nil || o.ItemVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.ItemVersion
@@ -761,7 +761,7 @@ func (o *AutomationScript) GetItemVersion() Version {
 
 // GetItemVersionOk returns a tuple with the ItemVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AutomationScript) GetItemVersionOk() (*Version, bool) {
+func (o *AutomationScript) GetItemVersionOk() (*string, bool) {
 	if o == nil || o.ItemVersion == nil {
 		return nil, false
 	}
@@ -777,8 +777,8 @@ func (o *AutomationScript) HasItemVersion() bool {
 	return false
 }
 
-// SetItemVersion gets a reference to the given Version and assigns it to the ItemVersion field.
-func (o *AutomationScript) SetItemVersion(v Version) {
+// SetItemVersion gets a reference to the given string and assigns it to the ItemVersion field.
+func (o *AutomationScript) SetItemVersion(v string) {
 	o.ItemVersion = &v
 }
 
@@ -1807,9 +1807,9 @@ func (o *AutomationScript) SetTimeout(v int64) {
 }
 
 // GetToServerVersion returns the ToServerVersion field value if set, zero value otherwise.
-func (o *AutomationScript) GetToServerVersion() Version {
+func (o *AutomationScript) GetToServerVersion() string {
 	if o == nil || o.ToServerVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.ToServerVersion
@@ -1817,7 +1817,7 @@ func (o *AutomationScript) GetToServerVersion() Version {
 
 // GetToServerVersionOk returns a tuple with the ToServerVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AutomationScript) GetToServerVersionOk() (*Version, bool) {
+func (o *AutomationScript) GetToServerVersionOk() (*string, bool) {
 	if o == nil || o.ToServerVersion == nil {
 		return nil, false
 	}
@@ -1833,8 +1833,8 @@ func (o *AutomationScript) HasToServerVersion() bool {
 	return false
 }
 
-// SetToServerVersion gets a reference to the given Version and assigns it to the ToServerVersion field.
-func (o *AutomationScript) SetToServerVersion(v Version) {
+// SetToServerVersion gets a reference to the given string and assigns it to the ToServerVersion field.
+func (o *AutomationScript) SetToServerVersion(v string) {
 	o.ToServerVersion = &v
 }
 

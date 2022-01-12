@@ -31,14 +31,14 @@ type IncidentField struct {
 	Description       *string                              `json:"description,omitempty"`
 	EditForm          *bool                                `json:"editForm,omitempty"`
 	FieldCalcScript   *string                              `json:"fieldCalcScript,omitempty"`
-	FromServerVersion *Version                             `json:"fromServerVersion,omitempty"`
+	FromServerVersion *string                              `json:"fromServerVersion,omitempty"`
 	// FieldGroup is the field group
 	Group       *float64             `json:"group,omitempty"`
 	Hidden      *bool                `json:"hidden,omitempty"`
 	Highlight   *map[string][]string `json:"highlight,omitempty"`
 	Id          *string              `json:"id,omitempty"`
 	IsReadOnly  *bool                `json:"isReadOnly,omitempty"`
-	ItemVersion *Version             `json:"itemVersion,omitempty"`
+	ItemVersion *string              `json:"itemVersion,omitempty"`
 	Locked      *bool                `json:"locked,omitempty"`
 	// FieldMergeStrategy strategy for merging of indicator fields
 	MergeStrategy                     *string    `json:"mergeStrategy,omitempty"`
@@ -64,7 +64,7 @@ type IncidentField struct {
 	System                            *bool      `json:"system,omitempty"`
 	SystemAssociatedTypes             *[]string  `json:"systemAssociatedTypes,omitempty"`
 	Threshold                         *float64   `json:"threshold,omitempty"`
-	ToServerVersion                   *Version   `json:"toServerVersion,omitempty"`
+	ToServerVersion                   *string    `json:"toServerVersion,omitempty"`
 	Type                              *string    `json:"type,omitempty"`
 	Unmapped                          *bool      `json:"unmapped,omitempty"`
 	Unsearchable                      *bool      `json:"unsearchable,omitempty"`
@@ -510,9 +510,9 @@ func (o *IncidentField) SetFieldCalcScript(v string) {
 }
 
 // GetFromServerVersion returns the FromServerVersion field value if set, zero value otherwise.
-func (o *IncidentField) GetFromServerVersion() Version {
+func (o *IncidentField) GetFromServerVersion() string {
 	if o == nil || o.FromServerVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.FromServerVersion
@@ -520,7 +520,7 @@ func (o *IncidentField) GetFromServerVersion() Version {
 
 // GetFromServerVersionOk returns a tuple with the FromServerVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IncidentField) GetFromServerVersionOk() (*Version, bool) {
+func (o *IncidentField) GetFromServerVersionOk() (*string, bool) {
 	if o == nil || o.FromServerVersion == nil {
 		return nil, false
 	}
@@ -536,8 +536,8 @@ func (o *IncidentField) HasFromServerVersion() bool {
 	return false
 }
 
-// SetFromServerVersion gets a reference to the given Version and assigns it to the FromServerVersion field.
-func (o *IncidentField) SetFromServerVersion(v Version) {
+// SetFromServerVersion gets a reference to the given string and assigns it to the FromServerVersion field.
+func (o *IncidentField) SetFromServerVersion(v string) {
 	o.FromServerVersion = &v
 }
 
@@ -702,9 +702,9 @@ func (o *IncidentField) SetIsReadOnly(v bool) {
 }
 
 // GetItemVersion returns the ItemVersion field value if set, zero value otherwise.
-func (o *IncidentField) GetItemVersion() Version {
+func (o *IncidentField) GetItemVersion() string {
 	if o == nil || o.ItemVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.ItemVersion
@@ -712,7 +712,7 @@ func (o *IncidentField) GetItemVersion() Version {
 
 // GetItemVersionOk returns a tuple with the ItemVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IncidentField) GetItemVersionOk() (*Version, bool) {
+func (o *IncidentField) GetItemVersionOk() (*string, bool) {
 	if o == nil || o.ItemVersion == nil {
 		return nil, false
 	}
@@ -728,8 +728,8 @@ func (o *IncidentField) HasItemVersion() bool {
 	return false
 }
 
-// SetItemVersion gets a reference to the given Version and assigns it to the ItemVersion field.
-func (o *IncidentField) SetItemVersion(v Version) {
+// SetItemVersion gets a reference to the given string and assigns it to the ItemVersion field.
+func (o *IncidentField) SetItemVersion(v string) {
 	o.ItemVersion = &v
 }
 
@@ -1502,9 +1502,9 @@ func (o *IncidentField) SetThreshold(v float64) {
 }
 
 // GetToServerVersion returns the ToServerVersion field value if set, zero value otherwise.
-func (o *IncidentField) GetToServerVersion() Version {
+func (o *IncidentField) GetToServerVersion() string {
 	if o == nil || o.ToServerVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.ToServerVersion
@@ -1512,7 +1512,7 @@ func (o *IncidentField) GetToServerVersion() Version {
 
 // GetToServerVersionOk returns a tuple with the ToServerVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IncidentField) GetToServerVersionOk() (*Version, bool) {
+func (o *IncidentField) GetToServerVersionOk() (*string, bool) {
 	if o == nil || o.ToServerVersion == nil {
 		return nil, false
 	}
@@ -1528,8 +1528,8 @@ func (o *IncidentField) HasToServerVersion() bool {
 	return false
 }
 
-// SetToServerVersion gets a reference to the given Version and assigns it to the ToServerVersion field.
-func (o *IncidentField) SetToServerVersion(v Version) {
+// SetToServerVersion gets a reference to the given string and assigns it to the ToServerVersion field.
+func (o *IncidentField) SetToServerVersion(v string) {
 	o.ToServerVersion = &v
 }
 

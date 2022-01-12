@@ -16,12 +16,12 @@ import (
 
 // ContentItemExportableFields struct for ContentItemExportableFields
 type ContentItemExportableFields struct {
-	FromServerVersion     *Version  `json:"fromServerVersion,omitempty"`
-	ItemVersion           *Version  `json:"itemVersion,omitempty"`
+	FromServerVersion     *string   `json:"fromServerVersion,omitempty"`
+	ItemVersion           *string   `json:"itemVersion,omitempty"`
 	PackID                *string   `json:"packID,omitempty"`
 	PackPropagationLabels *[]string `json:"packPropagationLabels,omitempty"`
 	PropagationLabels     *[]string `json:"propagationLabels,omitempty"`
-	ToServerVersion       *Version  `json:"toServerVersion,omitempty"`
+	ToServerVersion       *string   `json:"toServerVersion,omitempty"`
 }
 
 // NewContentItemExportableFields instantiates a new ContentItemExportableFields object
@@ -42,9 +42,9 @@ func NewContentItemExportableFieldsWithDefaults() *ContentItemExportableFields {
 }
 
 // GetFromServerVersion returns the FromServerVersion field value if set, zero value otherwise.
-func (o *ContentItemExportableFields) GetFromServerVersion() Version {
+func (o *ContentItemExportableFields) GetFromServerVersion() string {
 	if o == nil || o.FromServerVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.FromServerVersion
@@ -52,7 +52,7 @@ func (o *ContentItemExportableFields) GetFromServerVersion() Version {
 
 // GetFromServerVersionOk returns a tuple with the FromServerVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContentItemExportableFields) GetFromServerVersionOk() (*Version, bool) {
+func (o *ContentItemExportableFields) GetFromServerVersionOk() (*string, bool) {
 	if o == nil || o.FromServerVersion == nil {
 		return nil, false
 	}
@@ -68,15 +68,15 @@ func (o *ContentItemExportableFields) HasFromServerVersion() bool {
 	return false
 }
 
-// SetFromServerVersion gets a reference to the given Version and assigns it to the FromServerVersion field.
-func (o *ContentItemExportableFields) SetFromServerVersion(v Version) {
+// SetFromServerVersion gets a reference to the given string and assigns it to the FromServerVersion field.
+func (o *ContentItemExportableFields) SetFromServerVersion(v string) {
 	o.FromServerVersion = &v
 }
 
 // GetItemVersion returns the ItemVersion field value if set, zero value otherwise.
-func (o *ContentItemExportableFields) GetItemVersion() Version {
+func (o *ContentItemExportableFields) GetItemVersion() string {
 	if o == nil || o.ItemVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.ItemVersion
@@ -84,7 +84,7 @@ func (o *ContentItemExportableFields) GetItemVersion() Version {
 
 // GetItemVersionOk returns a tuple with the ItemVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContentItemExportableFields) GetItemVersionOk() (*Version, bool) {
+func (o *ContentItemExportableFields) GetItemVersionOk() (*string, bool) {
 	if o == nil || o.ItemVersion == nil {
 		return nil, false
 	}
@@ -100,8 +100,8 @@ func (o *ContentItemExportableFields) HasItemVersion() bool {
 	return false
 }
 
-// SetItemVersion gets a reference to the given Version and assigns it to the ItemVersion field.
-func (o *ContentItemExportableFields) SetItemVersion(v Version) {
+// SetItemVersion gets a reference to the given string and assigns it to the ItemVersion field.
+func (o *ContentItemExportableFields) SetItemVersion(v string) {
 	o.ItemVersion = &v
 }
 
@@ -202,9 +202,9 @@ func (o *ContentItemExportableFields) SetPropagationLabels(v []string) {
 }
 
 // GetToServerVersion returns the ToServerVersion field value if set, zero value otherwise.
-func (o *ContentItemExportableFields) GetToServerVersion() Version {
+func (o *ContentItemExportableFields) GetToServerVersion() string {
 	if o == nil || o.ToServerVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.ToServerVersion
@@ -212,7 +212,7 @@ func (o *ContentItemExportableFields) GetToServerVersion() Version {
 
 // GetToServerVersionOk returns a tuple with the ToServerVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContentItemExportableFields) GetToServerVersionOk() (*Version, bool) {
+func (o *ContentItemExportableFields) GetToServerVersionOk() (*string, bool) {
 	if o == nil || o.ToServerVersion == nil {
 		return nil, false
 	}
@@ -228,8 +228,8 @@ func (o *ContentItemExportableFields) HasToServerVersion() bool {
 	return false
 }
 
-// SetToServerVersion gets a reference to the given Version and assigns it to the ToServerVersion field.
-func (o *ContentItemExportableFields) SetToServerVersion(v Version) {
+// SetToServerVersion gets a reference to the given string and assigns it to the ToServerVersion field.
+func (o *ContentItemExportableFields) SetToServerVersion(v string) {
 	o.ToServerVersion = &v
 }
 

@@ -18,10 +18,10 @@ import (
 // Layout struct for Layout
 type Layout struct {
 	CommitMessage                     *string              `json:"commitMessage,omitempty"`
-	FromServerVersion                 *Version             `json:"fromServerVersion,omitempty"`
+	FromServerVersion                 *string              `json:"fromServerVersion,omitempty"`
 	Highlight                         *map[string][]string `json:"highlight,omitempty"`
 	Id                                *string              `json:"id,omitempty"`
-	ItemVersion                       *Version             `json:"itemVersion,omitempty"`
+	ItemVersion                       *string              `json:"itemVersion,omitempty"`
 	Kind                              *string              `json:"kind,omitempty"`
 	Locked                            *bool                `json:"locked,omitempty"`
 	Modified                          *time.Time           `json:"modified,omitempty"`
@@ -38,7 +38,7 @@ type Layout struct {
 	ShouldCommit                      *bool                `json:"shouldCommit,omitempty"`
 	SortValues                        *[]string            `json:"sortValues,omitempty"`
 	System                            *bool                `json:"system,omitempty"`
-	ToServerVersion                   *Version             `json:"toServerVersion,omitempty"`
+	ToServerVersion                   *string              `json:"toServerVersion,omitempty"`
 	TypeId                            *string              `json:"typeId,omitempty"`
 	VcShouldIgnore                    *bool                `json:"vcShouldIgnore,omitempty"`
 	VcShouldKeepItemLegacyProdMachine *bool                `json:"vcShouldKeepItemLegacyProdMachine,omitempty"`
@@ -95,9 +95,9 @@ func (o *Layout) SetCommitMessage(v string) {
 }
 
 // GetFromServerVersion returns the FromServerVersion field value if set, zero value otherwise.
-func (o *Layout) GetFromServerVersion() Version {
+func (o *Layout) GetFromServerVersion() string {
 	if o == nil || o.FromServerVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.FromServerVersion
@@ -105,7 +105,7 @@ func (o *Layout) GetFromServerVersion() Version {
 
 // GetFromServerVersionOk returns a tuple with the FromServerVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Layout) GetFromServerVersionOk() (*Version, bool) {
+func (o *Layout) GetFromServerVersionOk() (*string, bool) {
 	if o == nil || o.FromServerVersion == nil {
 		return nil, false
 	}
@@ -121,8 +121,8 @@ func (o *Layout) HasFromServerVersion() bool {
 	return false
 }
 
-// SetFromServerVersion gets a reference to the given Version and assigns it to the FromServerVersion field.
-func (o *Layout) SetFromServerVersion(v Version) {
+// SetFromServerVersion gets a reference to the given string and assigns it to the FromServerVersion field.
+func (o *Layout) SetFromServerVersion(v string) {
 	o.FromServerVersion = &v
 }
 
@@ -191,9 +191,9 @@ func (o *Layout) SetId(v string) {
 }
 
 // GetItemVersion returns the ItemVersion field value if set, zero value otherwise.
-func (o *Layout) GetItemVersion() Version {
+func (o *Layout) GetItemVersion() string {
 	if o == nil || o.ItemVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.ItemVersion
@@ -201,7 +201,7 @@ func (o *Layout) GetItemVersion() Version {
 
 // GetItemVersionOk returns a tuple with the ItemVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Layout) GetItemVersionOk() (*Version, bool) {
+func (o *Layout) GetItemVersionOk() (*string, bool) {
 	if o == nil || o.ItemVersion == nil {
 		return nil, false
 	}
@@ -217,8 +217,8 @@ func (o *Layout) HasItemVersion() bool {
 	return false
 }
 
-// SetItemVersion gets a reference to the given Version and assigns it to the ItemVersion field.
-func (o *Layout) SetItemVersion(v Version) {
+// SetItemVersion gets a reference to the given string and assigns it to the ItemVersion field.
+func (o *Layout) SetItemVersion(v string) {
 	o.ItemVersion = &v
 }
 
@@ -735,9 +735,9 @@ func (o *Layout) SetSystem(v bool) {
 }
 
 // GetToServerVersion returns the ToServerVersion field value if set, zero value otherwise.
-func (o *Layout) GetToServerVersion() Version {
+func (o *Layout) GetToServerVersion() string {
 	if o == nil || o.ToServerVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.ToServerVersion
@@ -745,7 +745,7 @@ func (o *Layout) GetToServerVersion() Version {
 
 // GetToServerVersionOk returns a tuple with the ToServerVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Layout) GetToServerVersionOk() (*Version, bool) {
+func (o *Layout) GetToServerVersionOk() (*string, bool) {
 	if o == nil || o.ToServerVersion == nil {
 		return nil, false
 	}
@@ -761,8 +761,8 @@ func (o *Layout) HasToServerVersion() bool {
 	return false
 }
 
-// SetToServerVersion gets a reference to the given Version and assigns it to the ToServerVersion field.
-func (o *Layout) SetToServerVersion(v Version) {
+// SetToServerVersion gets a reference to the given string and assigns it to the ToServerVersion field.
+func (o *Layout) SetToServerVersion(v string) {
 	o.ToServerVersion = &v
 }
 

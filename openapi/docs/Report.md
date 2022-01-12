@@ -14,11 +14,11 @@ Name | Type | Description | Notes
 **DisableHeader** | Pointer to **bool** |  | [optional] 
 **EndingDate** | Pointer to **time.Time** |  | [optional] 
 **EndingType** | Pointer to **string** | EndingType holds the type of schedule Ending | [optional] 
-**FromServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**FromServerVersion** | Pointer to **string** |  | [optional] 
 **Highlight** | Pointer to **map[string][]string** |  | [optional] 
 **HumanCron** | Pointer to [**HumanCron**](HumanCron.md) |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
-**ItemVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**ItemVersion** | Pointer to **string** |  | [optional] 
 **LatestReportName** | Pointer to **string** |  | [optional] 
 **LatestReportTime** | Pointer to **time.Time** |  | [optional] 
 **LatestReportUsername** | Pointer to **string** |  | [optional] 
@@ -54,7 +54,7 @@ Name | Type | Description | Notes
 **Times** | Pointer to **int64** |  | [optional] 
 **Timezone** | Pointer to **string** |  | [optional] 
 **TimezoneOffset** | Pointer to **int64** |  | [optional] 
-**ToServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**ToServerVersion** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
 **UserAPIKey** | Pointer to **string** |  | [optional] 
 **UserAPIKeyID** | Pointer to **string** |  | [optional] 
@@ -333,20 +333,20 @@ HasEndingType returns a boolean if a field has been set.
 
 ### GetFromServerVersion
 
-`func (o *Report) GetFromServerVersion() Version`
+`func (o *Report) GetFromServerVersion() string`
 
 GetFromServerVersion returns the FromServerVersion field if non-nil, zero value otherwise.
 
 ### GetFromServerVersionOk
 
-`func (o *Report) GetFromServerVersionOk() (*Version, bool)`
+`func (o *Report) GetFromServerVersionOk() (*string, bool)`
 
 GetFromServerVersionOk returns a tuple with the FromServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFromServerVersion
 
-`func (o *Report) SetFromServerVersion(v Version)`
+`func (o *Report) SetFromServerVersion(v string)`
 
 SetFromServerVersion sets FromServerVersion field to given value.
 
@@ -433,20 +433,20 @@ HasId returns a boolean if a field has been set.
 
 ### GetItemVersion
 
-`func (o *Report) GetItemVersion() Version`
+`func (o *Report) GetItemVersion() string`
 
 GetItemVersion returns the ItemVersion field if non-nil, zero value otherwise.
 
 ### GetItemVersionOk
 
-`func (o *Report) GetItemVersionOk() (*Version, bool)`
+`func (o *Report) GetItemVersionOk() (*string, bool)`
 
 GetItemVersionOk returns a tuple with the ItemVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItemVersion
 
-`func (o *Report) SetItemVersion(v Version)`
+`func (o *Report) SetItemVersion(v string)`
 
 SetItemVersion sets ItemVersion field to given value.
 
@@ -1333,20 +1333,20 @@ HasTimezoneOffset returns a boolean if a field has been set.
 
 ### GetToServerVersion
 
-`func (o *Report) GetToServerVersion() Version`
+`func (o *Report) GetToServerVersion() string`
 
 GetToServerVersion returns the ToServerVersion field if non-nil, zero value otherwise.
 
 ### GetToServerVersionOk
 
-`func (o *Report) GetToServerVersionOk() (*Version, bool)`
+`func (o *Report) GetToServerVersionOk() (*string, bool)`
 
 GetToServerVersionOk returns a tuple with the ToServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetToServerVersion
 
-`func (o *Report) SetToServerVersion(v Version)`
+`func (o *Report) SetToServerVersion(v string)`
 
 SetToServerVersion sets ToServerVersion field to given value.
 

@@ -27,12 +27,12 @@ type IncidentType struct {
 	Detached                          *bool                        `json:"detached,omitempty"`
 	Disabled                          *bool                        `json:"disabled,omitempty"`
 	ExtractSettings                   *IncidentTypeExtractSettings `json:"extractSettings,omitempty"`
-	FromServerVersion                 *Version                     `json:"fromServerVersion,omitempty"`
+	FromServerVersion                 *string                      `json:"fromServerVersion,omitempty"`
 	Highlight                         *map[string][]string         `json:"highlight,omitempty"`
 	Hours                             *int64                       `json:"hours,omitempty"`
 	HoursR                            *int64                       `json:"hoursR,omitempty"`
 	Id                                *string                      `json:"id,omitempty"`
-	ItemVersion                       *Version                     `json:"itemVersion,omitempty"`
+	ItemVersion                       *string                      `json:"itemVersion,omitempty"`
 	Layout                            *string                      `json:"layout,omitempty"`
 	Locked                            *bool                        `json:"locked,omitempty"`
 	Modified                          *time.Time                   `json:"modified,omitempty"`
@@ -54,7 +54,7 @@ type IncidentType struct {
 	SlaReminder                       *int64                       `json:"slaReminder,omitempty"`
 	SortValues                        *[]string                    `json:"sortValues,omitempty"`
 	System                            *bool                        `json:"system,omitempty"`
-	ToServerVersion                   *Version                     `json:"toServerVersion,omitempty"`
+	ToServerVersion                   *string                      `json:"toServerVersion,omitempty"`
 	VcShouldIgnore                    *bool                        `json:"vcShouldIgnore,omitempty"`
 	VcShouldKeepItemLegacyProdMachine *bool                        `json:"vcShouldKeepItemLegacyProdMachine,omitempty"`
 	Version                           *int64                       `json:"version,omitempty"`
@@ -400,9 +400,9 @@ func (o *IncidentType) SetExtractSettings(v IncidentTypeExtractSettings) {
 }
 
 // GetFromServerVersion returns the FromServerVersion field value if set, zero value otherwise.
-func (o *IncidentType) GetFromServerVersion() Version {
+func (o *IncidentType) GetFromServerVersion() string {
 	if o == nil || o.FromServerVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.FromServerVersion
@@ -410,7 +410,7 @@ func (o *IncidentType) GetFromServerVersion() Version {
 
 // GetFromServerVersionOk returns a tuple with the FromServerVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IncidentType) GetFromServerVersionOk() (*Version, bool) {
+func (o *IncidentType) GetFromServerVersionOk() (*string, bool) {
 	if o == nil || o.FromServerVersion == nil {
 		return nil, false
 	}
@@ -426,8 +426,8 @@ func (o *IncidentType) HasFromServerVersion() bool {
 	return false
 }
 
-// SetFromServerVersion gets a reference to the given Version and assigns it to the FromServerVersion field.
-func (o *IncidentType) SetFromServerVersion(v Version) {
+// SetFromServerVersion gets a reference to the given string and assigns it to the FromServerVersion field.
+func (o *IncidentType) SetFromServerVersion(v string) {
 	o.FromServerVersion = &v
 }
 
@@ -560,9 +560,9 @@ func (o *IncidentType) SetId(v string) {
 }
 
 // GetItemVersion returns the ItemVersion field value if set, zero value otherwise.
-func (o *IncidentType) GetItemVersion() Version {
+func (o *IncidentType) GetItemVersion() string {
 	if o == nil || o.ItemVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.ItemVersion
@@ -570,7 +570,7 @@ func (o *IncidentType) GetItemVersion() Version {
 
 // GetItemVersionOk returns a tuple with the ItemVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IncidentType) GetItemVersionOk() (*Version, bool) {
+func (o *IncidentType) GetItemVersionOk() (*string, bool) {
 	if o == nil || o.ItemVersion == nil {
 		return nil, false
 	}
@@ -586,8 +586,8 @@ func (o *IncidentType) HasItemVersion() bool {
 	return false
 }
 
-// SetItemVersion gets a reference to the given Version and assigns it to the ItemVersion field.
-func (o *IncidentType) SetItemVersion(v Version) {
+// SetItemVersion gets a reference to the given string and assigns it to the ItemVersion field.
+func (o *IncidentType) SetItemVersion(v string) {
 	o.ItemVersion = &v
 }
 
@@ -1264,9 +1264,9 @@ func (o *IncidentType) SetSystem(v bool) {
 }
 
 // GetToServerVersion returns the ToServerVersion field value if set, zero value otherwise.
-func (o *IncidentType) GetToServerVersion() Version {
+func (o *IncidentType) GetToServerVersion() string {
 	if o == nil || o.ToServerVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.ToServerVersion
@@ -1274,7 +1274,7 @@ func (o *IncidentType) GetToServerVersion() Version {
 
 // GetToServerVersionOk returns a tuple with the ToServerVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IncidentType) GetToServerVersionOk() (*Version, bool) {
+func (o *IncidentType) GetToServerVersionOk() (*string, bool) {
 	if o == nil || o.ToServerVersion == nil {
 		return nil, false
 	}
@@ -1290,8 +1290,8 @@ func (o *IncidentType) HasToServerVersion() bool {
 	return false
 }
 
-// SetToServerVersion gets a reference to the given Version and assigns it to the ToServerVersion field.
-func (o *IncidentType) SetToServerVersion(v Version) {
+// SetToServerVersion gets a reference to the given string and assigns it to the ToServerVersion field.
+func (o *IncidentType) SetToServerVersion(v string) {
 	o.ToServerVersion = &v
 }
 

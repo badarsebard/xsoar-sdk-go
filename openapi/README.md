@@ -451,7 +451,6 @@ Class | Method | HTTP request | Description
  - [UpdateResponse](docs/UpdateResponse.md)
  - [UpdateRolesAndPropagationLabelsRequest](docs/UpdateRolesAndPropagationLabelsRequest.md)
  - [UploadedEntry](docs/UploadedEntry.md)
- - [Version](docs/Version.md)
  - [VersionedCommit](docs/VersionedCommit.md)
  - [Volume](docs/Volume.md)
  - [VolumeUsageData](docs/VolumeUsageData.md)

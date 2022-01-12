@@ -10,12 +10,12 @@ Name | Type | Description | Notes
 **DbotCreatedBy** | Pointer to **string** | Who has created this event - relevant only for manual incidents | [optional] 
 **FromDate** | Pointer to **time.Time** |  | [optional] 
 **FromDateLicense** | Pointer to **time.Time** |  | [optional] 
-**FromServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**FromServerVersion** | Pointer to **string** |  | [optional] 
 **HasRole** | Pointer to **bool** | Internal field to make queries on role faster | [optional] 
 **Highlight** | Pointer to **map[string][]string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **IsCommon** | Pointer to **bool** |  | [optional] 
-**ItemVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**ItemVersion** | Pointer to **string** |  | [optional] 
 **Layout** | Pointer to [**WidgetCells**](WidgetCells.md) |  | [optional] 
 **Locked** | Pointer to **bool** |  | [optional] 
 **Modified** | Pointer to **time.Time** |  | [optional] 
@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 **SortValues** | Pointer to **[]string** |  | [optional] 
 **System** | Pointer to **bool** |  | [optional] 
 **ToDate** | Pointer to **time.Time** |  | [optional] 
-**ToServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**ToServerVersion** | Pointer to **string** |  | [optional] 
 **VcShouldIgnore** | Pointer to **bool** |  | [optional] 
 **VcShouldKeepItemLegacyProdMachine** | Pointer to **bool** |  | [optional] 
 **Version** | Pointer to **int64** |  | [optional] 
@@ -216,20 +216,20 @@ HasFromDateLicense returns a boolean if a field has been set.
 
 ### GetFromServerVersion
 
-`func (o *Dashboard) GetFromServerVersion() Version`
+`func (o *Dashboard) GetFromServerVersion() string`
 
 GetFromServerVersion returns the FromServerVersion field if non-nil, zero value otherwise.
 
 ### GetFromServerVersionOk
 
-`func (o *Dashboard) GetFromServerVersionOk() (*Version, bool)`
+`func (o *Dashboard) GetFromServerVersionOk() (*string, bool)`
 
 GetFromServerVersionOk returns a tuple with the FromServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFromServerVersion
 
-`func (o *Dashboard) SetFromServerVersion(v Version)`
+`func (o *Dashboard) SetFromServerVersion(v string)`
 
 SetFromServerVersion sets FromServerVersion field to given value.
 
@@ -341,20 +341,20 @@ HasIsCommon returns a boolean if a field has been set.
 
 ### GetItemVersion
 
-`func (o *Dashboard) GetItemVersion() Version`
+`func (o *Dashboard) GetItemVersion() string`
 
 GetItemVersion returns the ItemVersion field if non-nil, zero value otherwise.
 
 ### GetItemVersionOk
 
-`func (o *Dashboard) GetItemVersionOk() (*Version, bool)`
+`func (o *Dashboard) GetItemVersionOk() (*string, bool)`
 
 GetItemVersionOk returns a tuple with the ItemVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItemVersion
 
-`func (o *Dashboard) SetItemVersion(v Version)`
+`func (o *Dashboard) SetItemVersion(v string)`
 
 SetItemVersion sets ItemVersion field to given value.
 
@@ -891,20 +891,20 @@ HasToDate returns a boolean if a field has been set.
 
 ### GetToServerVersion
 
-`func (o *Dashboard) GetToServerVersion() Version`
+`func (o *Dashboard) GetToServerVersion() string`
 
 GetToServerVersion returns the ToServerVersion field if non-nil, zero value otherwise.
 
 ### GetToServerVersionOk
 
-`func (o *Dashboard) GetToServerVersionOk() (*Version, bool)`
+`func (o *Dashboard) GetToServerVersionOk() (*string, bool)`
 
 GetToServerVersionOk returns a tuple with the ToServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetToServerVersion
 
-`func (o *Dashboard) SetToServerVersion(v Version)`
+`func (o *Dashboard) SetToServerVersion(v string)`
 
 SetToServerVersion sets ToServerVersion field to given value.
 

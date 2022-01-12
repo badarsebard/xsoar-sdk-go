@@ -24,13 +24,13 @@ type Dashboard struct {
 	DbotCreatedBy     *string    `json:"dbotCreatedBy,omitempty"`
 	FromDate          *time.Time `json:"fromDate,omitempty"`
 	FromDateLicense   *time.Time `json:"fromDateLicense,omitempty"`
-	FromServerVersion *Version   `json:"fromServerVersion,omitempty"`
+	FromServerVersion *string    `json:"fromServerVersion,omitempty"`
 	// Internal field to make queries on role faster
 	HasRole               *bool                `json:"hasRole,omitempty"`
 	Highlight             *map[string][]string `json:"highlight,omitempty"`
 	Id                    *string              `json:"id,omitempty"`
 	IsCommon              *bool                `json:"isCommon,omitempty"`
-	ItemVersion           *Version             `json:"itemVersion,omitempty"`
+	ItemVersion           *string              `json:"itemVersion,omitempty"`
 	Layout                *WidgetCells         `json:"layout,omitempty"`
 	Locked                *bool                `json:"locked,omitempty"`
 	Modified              *time.Time           `json:"modified,omitempty"`
@@ -54,7 +54,7 @@ type Dashboard struct {
 	SortValues                        *[]string  `json:"sortValues,omitempty"`
 	System                            *bool      `json:"system,omitempty"`
 	ToDate                            *time.Time `json:"toDate,omitempty"`
-	ToServerVersion                   *Version   `json:"toServerVersion,omitempty"`
+	ToServerVersion                   *string    `json:"toServerVersion,omitempty"`
 	VcShouldIgnore                    *bool      `json:"vcShouldIgnore,omitempty"`
 	VcShouldKeepItemLegacyProdMachine *bool      `json:"vcShouldKeepItemLegacyProdMachine,omitempty"`
 	Version                           *int64     `json:"version,omitempty"`
@@ -273,9 +273,9 @@ func (o *Dashboard) SetFromDateLicense(v time.Time) {
 }
 
 // GetFromServerVersion returns the FromServerVersion field value if set, zero value otherwise.
-func (o *Dashboard) GetFromServerVersion() Version {
+func (o *Dashboard) GetFromServerVersion() string {
 	if o == nil || o.FromServerVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.FromServerVersion
@@ -283,7 +283,7 @@ func (o *Dashboard) GetFromServerVersion() Version {
 
 // GetFromServerVersionOk returns a tuple with the FromServerVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Dashboard) GetFromServerVersionOk() (*Version, bool) {
+func (o *Dashboard) GetFromServerVersionOk() (*string, bool) {
 	if o == nil || o.FromServerVersion == nil {
 		return nil, false
 	}
@@ -299,8 +299,8 @@ func (o *Dashboard) HasFromServerVersion() bool {
 	return false
 }
 
-// SetFromServerVersion gets a reference to the given Version and assigns it to the FromServerVersion field.
-func (o *Dashboard) SetFromServerVersion(v Version) {
+// SetFromServerVersion gets a reference to the given string and assigns it to the FromServerVersion field.
+func (o *Dashboard) SetFromServerVersion(v string) {
 	o.FromServerVersion = &v
 }
 
@@ -433,9 +433,9 @@ func (o *Dashboard) SetIsCommon(v bool) {
 }
 
 // GetItemVersion returns the ItemVersion field value if set, zero value otherwise.
-func (o *Dashboard) GetItemVersion() Version {
+func (o *Dashboard) GetItemVersion() string {
 	if o == nil || o.ItemVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.ItemVersion
@@ -443,7 +443,7 @@ func (o *Dashboard) GetItemVersion() Version {
 
 // GetItemVersionOk returns a tuple with the ItemVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Dashboard) GetItemVersionOk() (*Version, bool) {
+func (o *Dashboard) GetItemVersionOk() (*string, bool) {
 	if o == nil || o.ItemVersion == nil {
 		return nil, false
 	}
@@ -459,8 +459,8 @@ func (o *Dashboard) HasItemVersion() bool {
 	return false
 }
 
-// SetItemVersion gets a reference to the given Version and assigns it to the ItemVersion field.
-func (o *Dashboard) SetItemVersion(v Version) {
+// SetItemVersion gets a reference to the given string and assigns it to the ItemVersion field.
+func (o *Dashboard) SetItemVersion(v string) {
 	o.ItemVersion = &v
 }
 
@@ -1137,9 +1137,9 @@ func (o *Dashboard) SetToDate(v time.Time) {
 }
 
 // GetToServerVersion returns the ToServerVersion field value if set, zero value otherwise.
-func (o *Dashboard) GetToServerVersion() Version {
+func (o *Dashboard) GetToServerVersion() string {
 	if o == nil || o.ToServerVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.ToServerVersion
@@ -1147,7 +1147,7 @@ func (o *Dashboard) GetToServerVersion() Version {
 
 // GetToServerVersionOk returns a tuple with the ToServerVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Dashboard) GetToServerVersionOk() (*Version, bool) {
+func (o *Dashboard) GetToServerVersionOk() (*string, bool) {
 	if o == nil || o.ToServerVersion == nil {
 		return nil, false
 	}
@@ -1163,8 +1163,8 @@ func (o *Dashboard) HasToServerVersion() bool {
 	return false
 }
 
-// SetToServerVersion gets a reference to the given Version and assigns it to the ToServerVersion field.
-func (o *Dashboard) SetToServerVersion(v Version) {
+// SetToServerVersion gets a reference to the given string and assigns it to the ToServerVersion field.
+func (o *Dashboard) SetToServerVersion(v string) {
 	o.ToServerVersion = &v
 }
 

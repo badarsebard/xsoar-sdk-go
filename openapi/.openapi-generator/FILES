@@ -239,7 +239,6 @@ docs/UpdateIndicatorReputationData.md
 docs/UpdateResponse.md
 docs/UpdateRolesAndPropagationLabelsRequest.md
 docs/UploadedEntry.md
-docs/Version.md
 docs/VersionedCommit.md
 docs/Volume.md
 docs/VolumeUsageData.md
@@ -483,7 +482,6 @@ model_update_indicator_reputation_data.go
 model_update_response.go
 model_update_roles_and_propagation_labels_request.go
 model_uploaded_entry.go
-model_version.go
 model_versioned_commit.go
 model_volume.go
 model_volume_usage_data.go

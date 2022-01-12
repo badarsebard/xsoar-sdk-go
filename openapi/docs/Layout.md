@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CommitMessage** | Pointer to **string** |  | [optional] 
-**FromServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**FromServerVersion** | Pointer to **string** |  | [optional] 
 **Highlight** | Pointer to **map[string][]string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
-**ItemVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**ItemVersion** | Pointer to **string** |  | [optional] 
 **Kind** | Pointer to **string** |  | [optional] 
 **Locked** | Pointer to **bool** |  | [optional] 
 **Modified** | Pointer to **time.Time** |  | [optional] 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **ShouldCommit** | Pointer to **bool** |  | [optional] 
 **SortValues** | Pointer to **[]string** |  | [optional] 
 **System** | Pointer to **bool** |  | [optional] 
-**ToServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**ToServerVersion** | Pointer to **string** |  | [optional] 
 **TypeId** | Pointer to **string** |  | [optional] 
 **VcShouldIgnore** | Pointer to **bool** |  | [optional] 
 **VcShouldKeepItemLegacyProdMachine** | Pointer to **bool** |  | [optional] 
@@ -77,20 +77,20 @@ HasCommitMessage returns a boolean if a field has been set.
 
 ### GetFromServerVersion
 
-`func (o *Layout) GetFromServerVersion() Version`
+`func (o *Layout) GetFromServerVersion() string`
 
 GetFromServerVersion returns the FromServerVersion field if non-nil, zero value otherwise.
 
 ### GetFromServerVersionOk
 
-`func (o *Layout) GetFromServerVersionOk() (*Version, bool)`
+`func (o *Layout) GetFromServerVersionOk() (*string, bool)`
 
 GetFromServerVersionOk returns a tuple with the FromServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFromServerVersion
 
-`func (o *Layout) SetFromServerVersion(v Version)`
+`func (o *Layout) SetFromServerVersion(v string)`
 
 SetFromServerVersion sets FromServerVersion field to given value.
 
@@ -152,20 +152,20 @@ HasId returns a boolean if a field has been set.
 
 ### GetItemVersion
 
-`func (o *Layout) GetItemVersion() Version`
+`func (o *Layout) GetItemVersion() string`
 
 GetItemVersion returns the ItemVersion field if non-nil, zero value otherwise.
 
 ### GetItemVersionOk
 
-`func (o *Layout) GetItemVersionOk() (*Version, bool)`
+`func (o *Layout) GetItemVersionOk() (*string, bool)`
 
 GetItemVersionOk returns a tuple with the ItemVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItemVersion
 
-`func (o *Layout) SetItemVersion(v Version)`
+`func (o *Layout) SetItemVersion(v string)`
 
 SetItemVersion sets ItemVersion field to given value.
 
@@ -577,20 +577,20 @@ HasSystem returns a boolean if a field has been set.
 
 ### GetToServerVersion
 
-`func (o *Layout) GetToServerVersion() Version`
+`func (o *Layout) GetToServerVersion() string`
 
 GetToServerVersion returns the ToServerVersion field if non-nil, zero value otherwise.
 
 ### GetToServerVersionOk
 
-`func (o *Layout) GetToServerVersionOk() (*Version, bool)`
+`func (o *Layout) GetToServerVersionOk() (*string, bool)`
 
 GetToServerVersionOk returns a tuple with the ToServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetToServerVersion
 
-`func (o *Layout) SetToServerVersion(v Version)`
+`func (o *Layout) SetToServerVersion(v string)`
 
 SetToServerVersion sets ToServerVersion field to given value.
 

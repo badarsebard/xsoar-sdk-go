@@ -24,18 +24,18 @@ type Playbook struct {
 	Comment       *string   `json:"comment,omitempty"`
 	CommitMessage *string   `json:"commitMessage,omitempty"`
 	// Who has created this event - relevant only for manual incidents
-	DbotCreatedBy     *string  `json:"dbotCreatedBy,omitempty"`
-	Deprecated        *bool    `json:"deprecated,omitempty"`
-	Detached          *bool    `json:"detached,omitempty"`
-	EncTasks          *string  `json:"encTasks,omitempty"`
-	FromServerVersion *Version `json:"fromServerVersion,omitempty"`
+	DbotCreatedBy     *string `json:"dbotCreatedBy,omitempty"`
+	Deprecated        *bool   `json:"deprecated,omitempty"`
+	Detached          *bool   `json:"detached,omitempty"`
+	EncTasks          *string `json:"encTasks,omitempty"`
+	FromServerVersion *string `json:"fromServerVersion,omitempty"`
 	// Internal field to make queries on role faster
 	HasRole               *bool                `json:"hasRole,omitempty"`
 	Hidden                *bool                `json:"hidden,omitempty"`
 	Highlight             *map[string][]string `json:"highlight,omitempty"`
 	Id                    *string              `json:"id,omitempty"`
 	Inputs                *PlaybookInputs      `json:"inputs,omitempty"`
-	ItemVersion           *Version             `json:"itemVersion,omitempty"`
+	ItemVersion           *string              `json:"itemVersion,omitempty"`
 	Locked                *bool                `json:"locked,omitempty"`
 	MissingScriptsIds     *[]string            `json:"missingScriptsIds,omitempty"`
 	Modified              *time.Time           `json:"modified,omitempty"`
@@ -67,7 +67,7 @@ type Playbook struct {
 	// auto generated field that will contain all task ids in this playbook Needed for searching with bleve
 	TaskIds                           *[]string                `json:"taskIds,omitempty"`
 	Tasks                             *map[string]PlaybookTask `json:"tasks,omitempty"`
-	ToServerVersion                   *Version                 `json:"toServerVersion,omitempty"`
+	ToServerVersion                   *string                  `json:"toServerVersion,omitempty"`
 	VcShouldIgnore                    *bool                    `json:"vcShouldIgnore,omitempty"`
 	VcShouldKeepItemLegacyProdMachine *bool                    `json:"vcShouldKeepItemLegacyProdMachine,omitempty"`
 	Version                           *int64                   `json:"version,omitempty"`
@@ -416,9 +416,9 @@ func (o *Playbook) SetEncTasks(v string) {
 }
 
 // GetFromServerVersion returns the FromServerVersion field value if set, zero value otherwise.
-func (o *Playbook) GetFromServerVersion() Version {
+func (o *Playbook) GetFromServerVersion() string {
 	if o == nil || o.FromServerVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.FromServerVersion
@@ -426,7 +426,7 @@ func (o *Playbook) GetFromServerVersion() Version {
 
 // GetFromServerVersionOk returns a tuple with the FromServerVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Playbook) GetFromServerVersionOk() (*Version, bool) {
+func (o *Playbook) GetFromServerVersionOk() (*string, bool) {
 	if o == nil || o.FromServerVersion == nil {
 		return nil, false
 	}
@@ -442,8 +442,8 @@ func (o *Playbook) HasFromServerVersion() bool {
 	return false
 }
 
-// SetFromServerVersion gets a reference to the given Version and assigns it to the FromServerVersion field.
-func (o *Playbook) SetFromServerVersion(v Version) {
+// SetFromServerVersion gets a reference to the given string and assigns it to the FromServerVersion field.
+func (o *Playbook) SetFromServerVersion(v string) {
 	o.FromServerVersion = &v
 }
 
@@ -608,9 +608,9 @@ func (o *Playbook) SetInputs(v PlaybookInputs) {
 }
 
 // GetItemVersion returns the ItemVersion field value if set, zero value otherwise.
-func (o *Playbook) GetItemVersion() Version {
+func (o *Playbook) GetItemVersion() string {
 	if o == nil || o.ItemVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.ItemVersion
@@ -618,7 +618,7 @@ func (o *Playbook) GetItemVersion() Version {
 
 // GetItemVersionOk returns a tuple with the ItemVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Playbook) GetItemVersionOk() (*Version, bool) {
+func (o *Playbook) GetItemVersionOk() (*string, bool) {
 	if o == nil || o.ItemVersion == nil {
 		return nil, false
 	}
@@ -634,8 +634,8 @@ func (o *Playbook) HasItemVersion() bool {
 	return false
 }
 
-// SetItemVersion gets a reference to the given Version and assigns it to the ItemVersion field.
-func (o *Playbook) SetItemVersion(v Version) {
+// SetItemVersion gets a reference to the given string and assigns it to the ItemVersion field.
+func (o *Playbook) SetItemVersion(v string) {
 	o.ItemVersion = &v
 }
 
@@ -1536,9 +1536,9 @@ func (o *Playbook) SetTasks(v map[string]PlaybookTask) {
 }
 
 // GetToServerVersion returns the ToServerVersion field value if set, zero value otherwise.
-func (o *Playbook) GetToServerVersion() Version {
+func (o *Playbook) GetToServerVersion() string {
 	if o == nil || o.ToServerVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.ToServerVersion
@@ -1546,7 +1546,7 @@ func (o *Playbook) GetToServerVersion() Version {
 
 // GetToServerVersionOk returns a tuple with the ToServerVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Playbook) GetToServerVersionOk() (*Version, bool) {
+func (o *Playbook) GetToServerVersionOk() (*string, bool) {
 	if o == nil || o.ToServerVersion == nil {
 		return nil, false
 	}
@@ -1562,8 +1562,8 @@ func (o *Playbook) HasToServerVersion() bool {
 	return false
 }
 
-// SetToServerVersion gets a reference to the given Version and assigns it to the ToServerVersion field.
-func (o *Playbook) SetToServerVersion(v Version) {
+// SetToServerVersion gets a reference to the given string and assigns it to the ToServerVersion field.
+func (o *Playbook) SetToServerVersion(v string) {
 	o.ToServerVersion = &v
 }
 

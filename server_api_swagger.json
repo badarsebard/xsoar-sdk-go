@@ -14847,22 +14847,7 @@
       }
     },
     "Version": {
-      "type": "object",
-      "title": "Version represents a version.",
-      "properties": {
-        "Digits": {
-          "description": "WARNING: when adding new attributes or changing the names\nof the existing ones, remember to add support in UnmarshalJSON\nfor items that were exported by msgpack.",
-          "type": "array",
-          "items": {
-            "type": "integer",
-            "format": "int64"
-          }
-        },
-        "Label": {
-          "type": "string"
-        }
-      },
-      "x-go-package": "github.com/demisto/server/domain"
+      "type": "string"
     },
     "VersionedCommit": {
       "type": "object",

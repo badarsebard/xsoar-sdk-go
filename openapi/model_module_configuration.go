@@ -32,7 +32,7 @@ type ModuleConfiguration struct {
 	DetailedDescription               *string              `json:"detailedDescription,omitempty"`
 	Display                           *string              `json:"display,omitempty"`
 	Executable                        *string              `json:"executable,omitempty"`
-	FromServerVersion                 *Version             `json:"fromServerVersion,omitempty"`
+	FromServerVersion                 *string              `json:"fromServerVersion,omitempty"`
 	Hidden                            *bool                `json:"hidden,omitempty"`
 	HideEngines                       *bool                `json:"hideEngines,omitempty"`
 	Highlight                         *map[string][]string `json:"highlight,omitempty"`
@@ -41,7 +41,7 @@ type ModuleConfiguration struct {
 	Image                             *string              `json:"image,omitempty"`
 	IntegrationScript                 *IntegrationScript   `json:"integrationScript,omitempty"`
 	IsPasswordProtected               *bool                `json:"isPasswordProtected,omitempty"`
-	ItemVersion                       *Version             `json:"itemVersion,omitempty"`
+	ItemVersion                       *string              `json:"itemVersion,omitempty"`
 	Locked                            *bool                `json:"locked,omitempty"`
 	Modified                          *time.Time           `json:"modified,omitempty"`
 	Name                              *string              `json:"name,omitempty"`
@@ -60,7 +60,7 @@ type ModuleConfiguration struct {
 	SortValues                        *[]string            `json:"sortValues,omitempty"`
 	SourceModuleID                    *string              `json:"sourceModuleID,omitempty"`
 	System                            *bool                `json:"system,omitempty"`
-	ToServerVersion                   *Version             `json:"toServerVersion,omitempty"`
+	ToServerVersion                   *string              `json:"toServerVersion,omitempty"`
 	VcShouldIgnore                    *bool                `json:"vcShouldIgnore,omitempty"`
 	VcShouldKeepItemLegacyProdMachine *bool                `json:"vcShouldKeepItemLegacyProdMachine,omitempty"`
 	Version                           *int64               `json:"version,omitempty"`
@@ -564,9 +564,9 @@ func (o *ModuleConfiguration) SetExecutable(v string) {
 }
 
 // GetFromServerVersion returns the FromServerVersion field value if set, zero value otherwise.
-func (o *ModuleConfiguration) GetFromServerVersion() Version {
+func (o *ModuleConfiguration) GetFromServerVersion() string {
 	if o == nil || o.FromServerVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.FromServerVersion
@@ -574,7 +574,7 @@ func (o *ModuleConfiguration) GetFromServerVersion() Version {
 
 // GetFromServerVersionOk returns a tuple with the FromServerVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModuleConfiguration) GetFromServerVersionOk() (*Version, bool) {
+func (o *ModuleConfiguration) GetFromServerVersionOk() (*string, bool) {
 	if o == nil || o.FromServerVersion == nil {
 		return nil, false
 	}
@@ -590,8 +590,8 @@ func (o *ModuleConfiguration) HasFromServerVersion() bool {
 	return false
 }
 
-// SetFromServerVersion gets a reference to the given Version and assigns it to the FromServerVersion field.
-func (o *ModuleConfiguration) SetFromServerVersion(v Version) {
+// SetFromServerVersion gets a reference to the given string and assigns it to the FromServerVersion field.
+func (o *ModuleConfiguration) SetFromServerVersion(v string) {
 	o.FromServerVersion = &v
 }
 
@@ -852,9 +852,9 @@ func (o *ModuleConfiguration) SetIsPasswordProtected(v bool) {
 }
 
 // GetItemVersion returns the ItemVersion field value if set, zero value otherwise.
-func (o *ModuleConfiguration) GetItemVersion() Version {
+func (o *ModuleConfiguration) GetItemVersion() string {
 	if o == nil || o.ItemVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.ItemVersion
@@ -862,7 +862,7 @@ func (o *ModuleConfiguration) GetItemVersion() Version {
 
 // GetItemVersionOk returns a tuple with the ItemVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModuleConfiguration) GetItemVersionOk() (*Version, bool) {
+func (o *ModuleConfiguration) GetItemVersionOk() (*string, bool) {
 	if o == nil || o.ItemVersion == nil {
 		return nil, false
 	}
@@ -878,8 +878,8 @@ func (o *ModuleConfiguration) HasItemVersion() bool {
 	return false
 }
 
-// SetItemVersion gets a reference to the given Version and assigns it to the ItemVersion field.
-func (o *ModuleConfiguration) SetItemVersion(v Version) {
+// SetItemVersion gets a reference to the given string and assigns it to the ItemVersion field.
+func (o *ModuleConfiguration) SetItemVersion(v string) {
 	o.ItemVersion = &v
 }
 
@@ -1460,9 +1460,9 @@ func (o *ModuleConfiguration) SetSystem(v bool) {
 }
 
 // GetToServerVersion returns the ToServerVersion field value if set, zero value otherwise.
-func (o *ModuleConfiguration) GetToServerVersion() Version {
+func (o *ModuleConfiguration) GetToServerVersion() string {
 	if o == nil || o.ToServerVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.ToServerVersion
@@ -1470,7 +1470,7 @@ func (o *ModuleConfiguration) GetToServerVersion() Version {
 
 // GetToServerVersionOk returns a tuple with the ToServerVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ModuleConfiguration) GetToServerVersionOk() (*Version, bool) {
+func (o *ModuleConfiguration) GetToServerVersionOk() (*string, bool) {
 	if o == nil || o.ToServerVersion == nil {
 		return nil, false
 	}
@@ -1486,8 +1486,8 @@ func (o *ModuleConfiguration) HasToServerVersion() bool {
 	return false
 }
 
-// SetToServerVersion gets a reference to the given Version and assigns it to the ToServerVersion field.
-func (o *ModuleConfiguration) SetToServerVersion(v Version) {
+// SetToServerVersion gets a reference to the given string and assigns it to the ToServerVersion field.
+func (o *ModuleConfiguration) SetToServerVersion(v string) {
 	o.ToServerVersion = &v
 }
 

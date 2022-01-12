@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **DetailedDescription** | Pointer to **string** |  | [optional] 
 **Display** | Pointer to **string** |  | [optional] 
 **Executable** | Pointer to **string** |  | [optional] 
-**FromServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**FromServerVersion** | Pointer to **string** |  | [optional] 
 **Hidden** | Pointer to **bool** |  | [optional] 
 **HideEngines** | Pointer to **bool** |  | [optional] 
 **Highlight** | Pointer to **map[string][]string** |  | [optional] 
@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **Image** | Pointer to **string** |  | [optional] 
 **IntegrationScript** | Pointer to [**IntegrationScript**](IntegrationScript.md) |  | [optional] 
 **IsPasswordProtected** | Pointer to **bool** |  | [optional] 
-**ItemVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**ItemVersion** | Pointer to **string** |  | [optional] 
 **Locked** | Pointer to **bool** |  | [optional] 
 **Modified** | Pointer to **time.Time** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
@@ -47,7 +47,7 @@ Name | Type | Description | Notes
 **SortValues** | Pointer to **[]string** |  | [optional] 
 **SourceModuleID** | Pointer to **string** |  | [optional] 
 **System** | Pointer to **bool** |  | [optional] 
-**ToServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**ToServerVersion** | Pointer to **string** |  | [optional] 
 **VcShouldIgnore** | Pointer to **bool** |  | [optional] 
 **VcShouldKeepItemLegacyProdMachine** | Pointer to **bool** |  | [optional] 
 **Version** | Pointer to **int64** |  | [optional] 
@@ -448,20 +448,20 @@ HasExecutable returns a boolean if a field has been set.
 
 ### GetFromServerVersion
 
-`func (o *ModuleConfiguration) GetFromServerVersion() Version`
+`func (o *ModuleConfiguration) GetFromServerVersion() string`
 
 GetFromServerVersion returns the FromServerVersion field if non-nil, zero value otherwise.
 
 ### GetFromServerVersionOk
 
-`func (o *ModuleConfiguration) GetFromServerVersionOk() (*Version, bool)`
+`func (o *ModuleConfiguration) GetFromServerVersionOk() (*string, bool)`
 
 GetFromServerVersionOk returns a tuple with the FromServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFromServerVersion
 
-`func (o *ModuleConfiguration) SetFromServerVersion(v Version)`
+`func (o *ModuleConfiguration) SetFromServerVersion(v string)`
 
 SetFromServerVersion sets FromServerVersion field to given value.
 
@@ -673,20 +673,20 @@ HasIsPasswordProtected returns a boolean if a field has been set.
 
 ### GetItemVersion
 
-`func (o *ModuleConfiguration) GetItemVersion() Version`
+`func (o *ModuleConfiguration) GetItemVersion() string`
 
 GetItemVersion returns the ItemVersion field if non-nil, zero value otherwise.
 
 ### GetItemVersionOk
 
-`func (o *ModuleConfiguration) GetItemVersionOk() (*Version, bool)`
+`func (o *ModuleConfiguration) GetItemVersionOk() (*string, bool)`
 
 GetItemVersionOk returns a tuple with the ItemVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItemVersion
 
-`func (o *ModuleConfiguration) SetItemVersion(v Version)`
+`func (o *ModuleConfiguration) SetItemVersion(v string)`
 
 SetItemVersion sets ItemVersion field to given value.
 
@@ -1148,20 +1148,20 @@ HasSystem returns a boolean if a field has been set.
 
 ### GetToServerVersion
 
-`func (o *ModuleConfiguration) GetToServerVersion() Version`
+`func (o *ModuleConfiguration) GetToServerVersion() string`
 
 GetToServerVersion returns the ToServerVersion field if non-nil, zero value otherwise.
 
 ### GetToServerVersionOk
 
-`func (o *ModuleConfiguration) GetToServerVersionOk() (*Version, bool)`
+`func (o *ModuleConfiguration) GetToServerVersionOk() (*string, bool)`
 
 GetToServerVersionOk returns a tuple with the ToServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetToServerVersion
 
-`func (o *ModuleConfiguration) SetToServerVersion(v Version)`
+`func (o *ModuleConfiguration) SetToServerVersion(v string)`
 
 SetToServerVersion sets ToServerVersion field to given value.
 

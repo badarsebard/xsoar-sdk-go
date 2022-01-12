@@ -9,13 +9,13 @@ Name | Type | Description | Notes
 **DefaultIncidentType** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Feed** | Pointer to **bool** |  | [optional] 
-**FromServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**FromServerVersion** | Pointer to **string** |  | [optional] 
 **Highlight** | Pointer to **map[string][]string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **IncidentSamples** | Pointer to **map[string]interface{}** | Incidents is a list of incident entities | [optional] 
 **IndicatorSamples** | Pointer to [**FeedIndicators**](FeedIndicators.md) |  | [optional] 
 **InstanceIds** | Pointer to **[]string** |  | [optional] 
-**ItemVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**ItemVersion** | Pointer to **string** |  | [optional] 
 **KeyTypeMap** | Pointer to **string** |  | [optional] 
 **Locked** | Pointer to **bool** |  | [optional] 
 **LogicalVersion** | Pointer to **int64** |  | [optional] 
@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **SortValues** | Pointer to **[]string** |  | [optional] 
 **SourceClassifierId** | Pointer to **string** |  | [optional] 
 **System** | Pointer to **bool** |  | [optional] 
-**ToServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**ToServerVersion** | Pointer to **string** |  | [optional] 
 **Transformer** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to **string** | MapperType for instance classifier | [optional] 
 **UnclassifiedCases** | Pointer to [**map[string]UnclassifiedCases**](UnclassifiedCases.md) |  | [optional] 
@@ -188,20 +188,20 @@ HasFeed returns a boolean if a field has been set.
 
 ### GetFromServerVersion
 
-`func (o *InstanceClassifier) GetFromServerVersion() Version`
+`func (o *InstanceClassifier) GetFromServerVersion() string`
 
 GetFromServerVersion returns the FromServerVersion field if non-nil, zero value otherwise.
 
 ### GetFromServerVersionOk
 
-`func (o *InstanceClassifier) GetFromServerVersionOk() (*Version, bool)`
+`func (o *InstanceClassifier) GetFromServerVersionOk() (*string, bool)`
 
 GetFromServerVersionOk returns a tuple with the FromServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFromServerVersion
 
-`func (o *InstanceClassifier) SetFromServerVersion(v Version)`
+`func (o *InstanceClassifier) SetFromServerVersion(v string)`
 
 SetFromServerVersion sets FromServerVersion field to given value.
 
@@ -338,20 +338,20 @@ HasInstanceIds returns a boolean if a field has been set.
 
 ### GetItemVersion
 
-`func (o *InstanceClassifier) GetItemVersion() Version`
+`func (o *InstanceClassifier) GetItemVersion() string`
 
 GetItemVersion returns the ItemVersion field if non-nil, zero value otherwise.
 
 ### GetItemVersionOk
 
-`func (o *InstanceClassifier) GetItemVersionOk() (*Version, bool)`
+`func (o *InstanceClassifier) GetItemVersionOk() (*string, bool)`
 
 GetItemVersionOk returns a tuple with the ItemVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItemVersion
 
-`func (o *InstanceClassifier) SetItemVersion(v Version)`
+`func (o *InstanceClassifier) SetItemVersion(v string)`
 
 SetItemVersion sets ItemVersion field to given value.
 
@@ -813,20 +813,20 @@ HasSystem returns a boolean if a field has been set.
 
 ### GetToServerVersion
 
-`func (o *InstanceClassifier) GetToServerVersion() Version`
+`func (o *InstanceClassifier) GetToServerVersion() string`
 
 GetToServerVersion returns the ToServerVersion field if non-nil, zero value otherwise.
 
 ### GetToServerVersionOk
 
-`func (o *InstanceClassifier) GetToServerVersionOk() (*Version, bool)`
+`func (o *InstanceClassifier) GetToServerVersionOk() (*string, bool)`
 
 GetToServerVersionOk returns a tuple with the ToServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetToServerVersion
 
-`func (o *InstanceClassifier) SetToServerVersion(v Version)`
+`func (o *InstanceClassifier) SetToServerVersion(v string)`
 
 SetToServerVersion sets ToServerVersion field to given value.
 

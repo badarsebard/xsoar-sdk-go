@@ -18,13 +18,13 @@ Name | Type | Description | Notes
 **Enabled** | Pointer to **bool** |  | [optional] 
 **Engine** | Pointer to **string** | Engine that will run the script | [optional] 
 **EngineGroup** | Pointer to **string** | EngineGroup that will run the script | [optional] 
-**FromServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**FromServerVersion** | Pointer to **string** |  | [optional] 
 **HasRole** | Pointer to **bool** | Internal field to make queries on role faster | [optional] 
 **Hidden** | Pointer to **bool** |  | [optional] 
 **Highlight** | Pointer to **map[string][]string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **Important** | Pointer to [**[]Important**](Important.md) |  | [optional] 
-**ItemVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**ItemVersion** | Pointer to **string** |  | [optional] 
 **Locked** | Pointer to **bool** |  | [optional] 
 **Modified** | Pointer to **time.Time** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
@@ -57,7 +57,7 @@ Name | Type | Description | Notes
 **System** | Pointer to **bool** |  | [optional] 
 **Tags** | Pointer to **[]string** |  | [optional] 
 **Timeout** | Pointer to **int64** | A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years. | [optional] 
-**ToServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**ToServerVersion** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to **string** | ScriptType holds the type of a script | [optional] 
 **User** | Pointer to **string** |  | [optional] 
 **VcShouldIgnore** | Pointer to **bool** |  | [optional] 
@@ -439,20 +439,20 @@ HasEngineGroup returns a boolean if a field has been set.
 
 ### GetFromServerVersion
 
-`func (o *AutomationScript) GetFromServerVersion() Version`
+`func (o *AutomationScript) GetFromServerVersion() string`
 
 GetFromServerVersion returns the FromServerVersion field if non-nil, zero value otherwise.
 
 ### GetFromServerVersionOk
 
-`func (o *AutomationScript) GetFromServerVersionOk() (*Version, bool)`
+`func (o *AutomationScript) GetFromServerVersionOk() (*string, bool)`
 
 GetFromServerVersionOk returns a tuple with the FromServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFromServerVersion
 
-`func (o *AutomationScript) SetFromServerVersion(v Version)`
+`func (o *AutomationScript) SetFromServerVersion(v string)`
 
 SetFromServerVersion sets FromServerVersion field to given value.
 
@@ -589,20 +589,20 @@ HasImportant returns a boolean if a field has been set.
 
 ### GetItemVersion
 
-`func (o *AutomationScript) GetItemVersion() Version`
+`func (o *AutomationScript) GetItemVersion() string`
 
 GetItemVersion returns the ItemVersion field if non-nil, zero value otherwise.
 
 ### GetItemVersionOk
 
-`func (o *AutomationScript) GetItemVersionOk() (*Version, bool)`
+`func (o *AutomationScript) GetItemVersionOk() (*string, bool)`
 
 GetItemVersionOk returns a tuple with the ItemVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItemVersion
 
-`func (o *AutomationScript) SetItemVersion(v Version)`
+`func (o *AutomationScript) SetItemVersion(v string)`
 
 SetItemVersion sets ItemVersion field to given value.
 
@@ -1414,20 +1414,20 @@ HasTimeout returns a boolean if a field has been set.
 
 ### GetToServerVersion
 
-`func (o *AutomationScript) GetToServerVersion() Version`
+`func (o *AutomationScript) GetToServerVersion() string`
 
 GetToServerVersion returns the ToServerVersion field if non-nil, zero value otherwise.
 
 ### GetToServerVersionOk
 
-`func (o *AutomationScript) GetToServerVersionOk() (*Version, bool)`
+`func (o *AutomationScript) GetToServerVersionOk() (*string, bool)`
 
 GetToServerVersionOk returns a tuple with the ToServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetToServerVersion
 
-`func (o *AutomationScript) SetToServerVersion(v Version)`
+`func (o *AutomationScript) SetToServerVersion(v string)`
 
 SetToServerVersion sets ToServerVersion field to given value.
 

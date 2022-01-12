@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CommitMessage** | Pointer to **string** |  | [optional] 
-**FromServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
-**ItemVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**FromServerVersion** | Pointer to **string** |  | [optional] 
+**ItemVersion** | Pointer to **string** |  | [optional] 
 **PackID** | Pointer to **string** |  | [optional] 
 **PackPropagationLabels** | Pointer to **[]string** |  | [optional] 
 **PropagationLabels** | Pointer to **[]string** |  | [optional] 
 **ShouldCommit** | Pointer to **bool** |  | [optional] 
-**ToServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**ToServerVersion** | Pointer to **string** |  | [optional] 
 **VcShouldIgnore** | Pointer to **bool** |  | [optional] 
 **VcShouldKeepItemLegacyProdMachine** | Pointer to **bool** |  | [optional] 
 
@@ -61,20 +61,20 @@ HasCommitMessage returns a boolean if a field has been set.
 
 ### GetFromServerVersion
 
-`func (o *ContentItemVersionedFields) GetFromServerVersion() Version`
+`func (o *ContentItemVersionedFields) GetFromServerVersion() string`
 
 GetFromServerVersion returns the FromServerVersion field if non-nil, zero value otherwise.
 
 ### GetFromServerVersionOk
 
-`func (o *ContentItemVersionedFields) GetFromServerVersionOk() (*Version, bool)`
+`func (o *ContentItemVersionedFields) GetFromServerVersionOk() (*string, bool)`
 
 GetFromServerVersionOk returns a tuple with the FromServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFromServerVersion
 
-`func (o *ContentItemVersionedFields) SetFromServerVersion(v Version)`
+`func (o *ContentItemVersionedFields) SetFromServerVersion(v string)`
 
 SetFromServerVersion sets FromServerVersion field to given value.
 
@@ -86,20 +86,20 @@ HasFromServerVersion returns a boolean if a field has been set.
 
 ### GetItemVersion
 
-`func (o *ContentItemVersionedFields) GetItemVersion() Version`
+`func (o *ContentItemVersionedFields) GetItemVersion() string`
 
 GetItemVersion returns the ItemVersion field if non-nil, zero value otherwise.
 
 ### GetItemVersionOk
 
-`func (o *ContentItemVersionedFields) GetItemVersionOk() (*Version, bool)`
+`func (o *ContentItemVersionedFields) GetItemVersionOk() (*string, bool)`
 
 GetItemVersionOk returns a tuple with the ItemVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItemVersion
 
-`func (o *ContentItemVersionedFields) SetItemVersion(v Version)`
+`func (o *ContentItemVersionedFields) SetItemVersion(v string)`
 
 SetItemVersion sets ItemVersion field to given value.
 
@@ -211,20 +211,20 @@ HasShouldCommit returns a boolean if a field has been set.
 
 ### GetToServerVersion
 
-`func (o *ContentItemVersionedFields) GetToServerVersion() Version`
+`func (o *ContentItemVersionedFields) GetToServerVersion() string`
 
 GetToServerVersion returns the ToServerVersion field if non-nil, zero value otherwise.
 
 ### GetToServerVersionOk
 
-`func (o *ContentItemVersionedFields) GetToServerVersionOk() (*Version, bool)`
+`func (o *ContentItemVersionedFields) GetToServerVersionOk() (*string, bool)`
 
 GetToServerVersionOk returns a tuple with the ToServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetToServerVersion
 
-`func (o *ContentItemVersionedFields) SetToServerVersion(v Version)`
+`func (o *ContentItemVersionedFields) SetToServerVersion(v string)`
 
 SetToServerVersion sets ToServerVersion field to given value.
 

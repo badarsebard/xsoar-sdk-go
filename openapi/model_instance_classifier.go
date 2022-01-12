@@ -22,14 +22,14 @@ type InstanceClassifier struct {
 	DefaultIncidentType *string              `json:"defaultIncidentType,omitempty"`
 	Description         *string              `json:"description,omitempty"`
 	Feed                *bool                `json:"feed,omitempty"`
-	FromServerVersion   *Version             `json:"fromServerVersion,omitempty"`
+	FromServerVersion   *string              `json:"fromServerVersion,omitempty"`
 	Highlight           *map[string][]string `json:"highlight,omitempty"`
 	Id                  *string              `json:"id,omitempty"`
 	// Incidents is a list of incident entities
 	IncidentSamples       *map[string]interface{} `json:"incidentSamples,omitempty"`
 	IndicatorSamples      *FeedIndicators         `json:"indicatorSamples,omitempty"`
 	InstanceIds           *[]string               `json:"instanceIds,omitempty"`
-	ItemVersion           *Version                `json:"itemVersion,omitempty"`
+	ItemVersion           *string                 `json:"itemVersion,omitempty"`
 	KeyTypeMap            *string                 `json:"keyTypeMap,omitempty"`
 	Locked                *bool                   `json:"locked,omitempty"`
 	LogicalVersion        *int64                  `json:"logicalVersion,omitempty"`
@@ -48,7 +48,7 @@ type InstanceClassifier struct {
 	SortValues            *[]string               `json:"sortValues,omitempty"`
 	SourceClassifierId    *string                 `json:"sourceClassifierId,omitempty"`
 	System                *bool                   `json:"system,omitempty"`
-	ToServerVersion       *Version                `json:"toServerVersion,omitempty"`
+	ToServerVersion       *string                 `json:"toServerVersion,omitempty"`
 	Transformer           *string                 `json:"transformer,omitempty"`
 	// MapperType for instance classifier
 	Type                              *string                       `json:"type,omitempty"`
@@ -236,9 +236,9 @@ func (o *InstanceClassifier) SetFeed(v bool) {
 }
 
 // GetFromServerVersion returns the FromServerVersion field value if set, zero value otherwise.
-func (o *InstanceClassifier) GetFromServerVersion() Version {
+func (o *InstanceClassifier) GetFromServerVersion() string {
 	if o == nil || o.FromServerVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.FromServerVersion
@@ -246,7 +246,7 @@ func (o *InstanceClassifier) GetFromServerVersion() Version {
 
 // GetFromServerVersionOk returns a tuple with the FromServerVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InstanceClassifier) GetFromServerVersionOk() (*Version, bool) {
+func (o *InstanceClassifier) GetFromServerVersionOk() (*string, bool) {
 	if o == nil || o.FromServerVersion == nil {
 		return nil, false
 	}
@@ -262,8 +262,8 @@ func (o *InstanceClassifier) HasFromServerVersion() bool {
 	return false
 }
 
-// SetFromServerVersion gets a reference to the given Version and assigns it to the FromServerVersion field.
-func (o *InstanceClassifier) SetFromServerVersion(v Version) {
+// SetFromServerVersion gets a reference to the given string and assigns it to the FromServerVersion field.
+func (o *InstanceClassifier) SetFromServerVersion(v string) {
 	o.FromServerVersion = &v
 }
 
@@ -428,9 +428,9 @@ func (o *InstanceClassifier) SetInstanceIds(v []string) {
 }
 
 // GetItemVersion returns the ItemVersion field value if set, zero value otherwise.
-func (o *InstanceClassifier) GetItemVersion() Version {
+func (o *InstanceClassifier) GetItemVersion() string {
 	if o == nil || o.ItemVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.ItemVersion
@@ -438,7 +438,7 @@ func (o *InstanceClassifier) GetItemVersion() Version {
 
 // GetItemVersionOk returns a tuple with the ItemVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InstanceClassifier) GetItemVersionOk() (*Version, bool) {
+func (o *InstanceClassifier) GetItemVersionOk() (*string, bool) {
 	if o == nil || o.ItemVersion == nil {
 		return nil, false
 	}
@@ -454,8 +454,8 @@ func (o *InstanceClassifier) HasItemVersion() bool {
 	return false
 }
 
-// SetItemVersion gets a reference to the given Version and assigns it to the ItemVersion field.
-func (o *InstanceClassifier) SetItemVersion(v Version) {
+// SetItemVersion gets a reference to the given string and assigns it to the ItemVersion field.
+func (o *InstanceClassifier) SetItemVersion(v string) {
 	o.ItemVersion = &v
 }
 
@@ -1036,9 +1036,9 @@ func (o *InstanceClassifier) SetSystem(v bool) {
 }
 
 // GetToServerVersion returns the ToServerVersion field value if set, zero value otherwise.
-func (o *InstanceClassifier) GetToServerVersion() Version {
+func (o *InstanceClassifier) GetToServerVersion() string {
 	if o == nil || o.ToServerVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.ToServerVersion
@@ -1046,7 +1046,7 @@ func (o *InstanceClassifier) GetToServerVersion() Version {
 
 // GetToServerVersionOk returns a tuple with the ToServerVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InstanceClassifier) GetToServerVersionOk() (*Version, bool) {
+func (o *InstanceClassifier) GetToServerVersionOk() (*string, bool) {
 	if o == nil || o.ToServerVersion == nil {
 		return nil, false
 	}
@@ -1062,8 +1062,8 @@ func (o *InstanceClassifier) HasToServerVersion() bool {
 	return false
 }
 
-// SetToServerVersion gets a reference to the given Version and assigns it to the ToServerVersion field.
-func (o *InstanceClassifier) SetToServerVersion(v Version) {
+// SetToServerVersion gets a reference to the given string and assigns it to the ToServerVersion field.
+func (o *InstanceClassifier) SetToServerVersion(v string) {
 	o.ToServerVersion = &v
 }
 

@@ -14,12 +14,12 @@ Name | Type | Description | Notes
 **Detached** | Pointer to **bool** |  | [optional] 
 **Disabled** | Pointer to **bool** |  | [optional] 
 **ExtractSettings** | Pointer to [**IncidentTypeExtractSettings**](IncidentTypeExtractSettings.md) |  | [optional] 
-**FromServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**FromServerVersion** | Pointer to **string** |  | [optional] 
 **Highlight** | Pointer to **map[string][]string** |  | [optional] 
 **Hours** | Pointer to **int64** |  | [optional] 
 **HoursR** | Pointer to **int64** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
-**ItemVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**ItemVersion** | Pointer to **string** |  | [optional] 
 **Layout** | Pointer to **string** |  | [optional] 
 **Locked** | Pointer to **bool** |  | [optional] 
 **Modified** | Pointer to **time.Time** |  | [optional] 
@@ -41,7 +41,7 @@ Name | Type | Description | Notes
 **SlaReminder** | Pointer to **int64** |  | [optional] 
 **SortValues** | Pointer to **[]string** |  | [optional] 
 **System** | Pointer to **bool** |  | [optional] 
-**ToServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**ToServerVersion** | Pointer to **string** |  | [optional] 
 **VcShouldIgnore** | Pointer to **bool** |  | [optional] 
 **VcShouldKeepItemLegacyProdMachine** | Pointer to **bool** |  | [optional] 
 **Version** | Pointer to **int64** |  | [optional] 
@@ -319,20 +319,20 @@ HasExtractSettings returns a boolean if a field has been set.
 
 ### GetFromServerVersion
 
-`func (o *IncidentType) GetFromServerVersion() Version`
+`func (o *IncidentType) GetFromServerVersion() string`
 
 GetFromServerVersion returns the FromServerVersion field if non-nil, zero value otherwise.
 
 ### GetFromServerVersionOk
 
-`func (o *IncidentType) GetFromServerVersionOk() (*Version, bool)`
+`func (o *IncidentType) GetFromServerVersionOk() (*string, bool)`
 
 GetFromServerVersionOk returns a tuple with the FromServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFromServerVersion
 
-`func (o *IncidentType) SetFromServerVersion(v Version)`
+`func (o *IncidentType) SetFromServerVersion(v string)`
 
 SetFromServerVersion sets FromServerVersion field to given value.
 
@@ -444,20 +444,20 @@ HasId returns a boolean if a field has been set.
 
 ### GetItemVersion
 
-`func (o *IncidentType) GetItemVersion() Version`
+`func (o *IncidentType) GetItemVersion() string`
 
 GetItemVersion returns the ItemVersion field if non-nil, zero value otherwise.
 
 ### GetItemVersionOk
 
-`func (o *IncidentType) GetItemVersionOk() (*Version, bool)`
+`func (o *IncidentType) GetItemVersionOk() (*string, bool)`
 
 GetItemVersionOk returns a tuple with the ItemVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItemVersion
 
-`func (o *IncidentType) SetItemVersion(v Version)`
+`func (o *IncidentType) SetItemVersion(v string)`
 
 SetItemVersion sets ItemVersion field to given value.
 
@@ -994,20 +994,20 @@ HasSystem returns a boolean if a field has been set.
 
 ### GetToServerVersion
 
-`func (o *IncidentType) GetToServerVersion() Version`
+`func (o *IncidentType) GetToServerVersion() string`
 
 GetToServerVersion returns the ToServerVersion field if non-nil, zero value otherwise.
 
 ### GetToServerVersionOk
 
-`func (o *IncidentType) GetToServerVersionOk() (*Version, bool)`
+`func (o *IncidentType) GetToServerVersionOk() (*string, bool)`
 
 GetToServerVersionOk returns a tuple with the ToServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetToServerVersion
 
-`func (o *IncidentType) SetToServerVersion(v Version)`
+`func (o *IncidentType) SetToServerVersion(v string)`
 
 SetToServerVersion sets ToServerVersion field to given value.
 

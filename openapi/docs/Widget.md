@@ -9,11 +9,11 @@ Name | Type | Description | Notes
 **DataType** | Pointer to **string** | Data type of the widget. Describes what data does the widget query. supporting data types \&quot;incidents\&quot;,\&quot;messages\&quot;,\&quot;system\&quot;,\&quot;entries\&quot;,\&quot;tasks\&quot;, \&quot;audit\&quot;. | [optional] 
 **DateRange** | Pointer to [**DateRange**](DateRange.md) |  | [optional] 
 **Description** | Pointer to **string** | The description of the widget&#39;s usage and data representation. | [optional] 
-**FromServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**FromServerVersion** | Pointer to **string** |  | [optional] 
 **Highlight** | Pointer to **map[string][]string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **IsPredefined** | Pointer to **bool** | Is the widget a system widget. | [optional] 
-**ItemVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**ItemVersion** | Pointer to **string** |  | [optional] 
 **Locked** | Pointer to **bool** | Is the widget locked for editing. | [optional] 
 **Modified** | Pointer to **time.Time** |  | [optional] 
 **Name** | **string** | Default name of the widget. | 
@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **Size** | Pointer to **int64** | Maximum size for this widget data returned. | [optional] 
 **Sort** | Pointer to [**[]Order**](Order.md) | Sorting array to sort the data received by the given Order parameters. | [optional] 
 **SortValues** | Pointer to **[]string** |  | [optional] 
-**ToServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**ToServerVersion** | Pointer to **string** |  | [optional] 
 **VcShouldIgnore** | Pointer to **bool** |  | [optional] 
 **VcShouldKeepItemLegacyProdMachine** | Pointer to **bool** |  | [optional] 
 **Version** | Pointer to **int64** |  | [optional] 
@@ -182,20 +182,20 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetFromServerVersion
 
-`func (o *Widget) GetFromServerVersion() Version`
+`func (o *Widget) GetFromServerVersion() string`
 
 GetFromServerVersion returns the FromServerVersion field if non-nil, zero value otherwise.
 
 ### GetFromServerVersionOk
 
-`func (o *Widget) GetFromServerVersionOk() (*Version, bool)`
+`func (o *Widget) GetFromServerVersionOk() (*string, bool)`
 
 GetFromServerVersionOk returns a tuple with the FromServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFromServerVersion
 
-`func (o *Widget) SetFromServerVersion(v Version)`
+`func (o *Widget) SetFromServerVersion(v string)`
 
 SetFromServerVersion sets FromServerVersion field to given value.
 
@@ -282,20 +282,20 @@ HasIsPredefined returns a boolean if a field has been set.
 
 ### GetItemVersion
 
-`func (o *Widget) GetItemVersion() Version`
+`func (o *Widget) GetItemVersion() string`
 
 GetItemVersion returns the ItemVersion field if non-nil, zero value otherwise.
 
 ### GetItemVersionOk
 
-`func (o *Widget) GetItemVersionOk() (*Version, bool)`
+`func (o *Widget) GetItemVersionOk() (*string, bool)`
 
 GetItemVersionOk returns a tuple with the ItemVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItemVersion
 
-`func (o *Widget) SetItemVersion(v Version)`
+`func (o *Widget) SetItemVersion(v string)`
 
 SetItemVersion sets ItemVersion field to given value.
 
@@ -702,20 +702,20 @@ HasSortValues returns a boolean if a field has been set.
 
 ### GetToServerVersion
 
-`func (o *Widget) GetToServerVersion() Version`
+`func (o *Widget) GetToServerVersion() string`
 
 GetToServerVersion returns the ToServerVersion field if non-nil, zero value otherwise.
 
 ### GetToServerVersionOk
 
-`func (o *Widget) GetToServerVersionOk() (*Version, bool)`
+`func (o *Widget) GetToServerVersionOk() (*string, bool)`
 
 GetToServerVersionOk returns a tuple with the ToServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetToServerVersion
 
-`func (o *Widget) SetToServerVersion(v Version)`
+`func (o *Widget) SetToServerVersion(v string)`
 
 SetToServerVersion sets ToServerVersion field to given value.
 

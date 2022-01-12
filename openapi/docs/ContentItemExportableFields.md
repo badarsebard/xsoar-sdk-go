@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FromServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
-**ItemVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**FromServerVersion** | Pointer to **string** |  | [optional] 
+**ItemVersion** | Pointer to **string** |  | [optional] 
 **PackID** | Pointer to **string** |  | [optional] 
 **PackPropagationLabels** | Pointer to **[]string** |  | [optional] 
 **PropagationLabels** | Pointer to **[]string** |  | [optional] 
-**ToServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**ToServerVersion** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -32,20 +32,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetFromServerVersion
 
-`func (o *ContentItemExportableFields) GetFromServerVersion() Version`
+`func (o *ContentItemExportableFields) GetFromServerVersion() string`
 
 GetFromServerVersion returns the FromServerVersion field if non-nil, zero value otherwise.
 
 ### GetFromServerVersionOk
 
-`func (o *ContentItemExportableFields) GetFromServerVersionOk() (*Version, bool)`
+`func (o *ContentItemExportableFields) GetFromServerVersionOk() (*string, bool)`
 
 GetFromServerVersionOk returns a tuple with the FromServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFromServerVersion
 
-`func (o *ContentItemExportableFields) SetFromServerVersion(v Version)`
+`func (o *ContentItemExportableFields) SetFromServerVersion(v string)`
 
 SetFromServerVersion sets FromServerVersion field to given value.
 
@@ -57,20 +57,20 @@ HasFromServerVersion returns a boolean if a field has been set.
 
 ### GetItemVersion
 
-`func (o *ContentItemExportableFields) GetItemVersion() Version`
+`func (o *ContentItemExportableFields) GetItemVersion() string`
 
 GetItemVersion returns the ItemVersion field if non-nil, zero value otherwise.
 
 ### GetItemVersionOk
 
-`func (o *ContentItemExportableFields) GetItemVersionOk() (*Version, bool)`
+`func (o *ContentItemExportableFields) GetItemVersionOk() (*string, bool)`
 
 GetItemVersionOk returns a tuple with the ItemVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItemVersion
 
-`func (o *ContentItemExportableFields) SetItemVersion(v Version)`
+`func (o *ContentItemExportableFields) SetItemVersion(v string)`
 
 SetItemVersion sets ItemVersion field to given value.
 
@@ -157,20 +157,20 @@ HasPropagationLabels returns a boolean if a field has been set.
 
 ### GetToServerVersion
 
-`func (o *ContentItemExportableFields) GetToServerVersion() Version`
+`func (o *ContentItemExportableFields) GetToServerVersion() string`
 
 GetToServerVersion returns the ToServerVersion field if non-nil, zero value otherwise.
 
 ### GetToServerVersionOk
 
-`func (o *ContentItemExportableFields) GetToServerVersionOk() (*Version, bool)`
+`func (o *ContentItemExportableFields) GetToServerVersionOk() (*string, bool)`
 
 GetToServerVersionOk returns a tuple with the ToServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetToServerVersion
 
-`func (o *ContentItemExportableFields) SetToServerVersion(v Version)`
+`func (o *ContentItemExportableFields) SetToServerVersion(v string)`
 
 SetToServerVersion sets ToServerVersion field to given value.
 

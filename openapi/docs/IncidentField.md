@@ -17,13 +17,13 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** |  | [optional] 
 **EditForm** | Pointer to **bool** |  | [optional] 
 **FieldCalcScript** | Pointer to **string** |  | [optional] 
-**FromServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**FromServerVersion** | Pointer to **string** |  | [optional] 
 **Group** | Pointer to **float64** | FieldGroup is the field group | [optional] 
 **Hidden** | Pointer to **bool** |  | [optional] 
 **Highlight** | Pointer to **map[string][]string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **IsReadOnly** | Pointer to **bool** |  | [optional] 
-**ItemVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**ItemVersion** | Pointer to **string** |  | [optional] 
 **Locked** | Pointer to **bool** |  | [optional] 
 **MergeStrategy** | Pointer to **string** | FieldMergeStrategy strategy for merging of indicator fields | [optional] 
 **Modified** | Pointer to **time.Time** |  | [optional] 
@@ -48,7 +48,7 @@ Name | Type | Description | Notes
 **System** | Pointer to **bool** |  | [optional] 
 **SystemAssociatedTypes** | Pointer to **[]string** |  | [optional] 
 **Threshold** | Pointer to **float64** |  | [optional] 
-**ToServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**ToServerVersion** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
 **Unmapped** | Pointer to **bool** |  | [optional] 
 **Unsearchable** | Pointer to **bool** |  | [optional] 
@@ -405,20 +405,20 @@ HasFieldCalcScript returns a boolean if a field has been set.
 
 ### GetFromServerVersion
 
-`func (o *IncidentField) GetFromServerVersion() Version`
+`func (o *IncidentField) GetFromServerVersion() string`
 
 GetFromServerVersion returns the FromServerVersion field if non-nil, zero value otherwise.
 
 ### GetFromServerVersionOk
 
-`func (o *IncidentField) GetFromServerVersionOk() (*Version, bool)`
+`func (o *IncidentField) GetFromServerVersionOk() (*string, bool)`
 
 GetFromServerVersionOk returns a tuple with the FromServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFromServerVersion
 
-`func (o *IncidentField) SetFromServerVersion(v Version)`
+`func (o *IncidentField) SetFromServerVersion(v string)`
 
 SetFromServerVersion sets FromServerVersion field to given value.
 
@@ -555,20 +555,20 @@ HasIsReadOnly returns a boolean if a field has been set.
 
 ### GetItemVersion
 
-`func (o *IncidentField) GetItemVersion() Version`
+`func (o *IncidentField) GetItemVersion() string`
 
 GetItemVersion returns the ItemVersion field if non-nil, zero value otherwise.
 
 ### GetItemVersionOk
 
-`func (o *IncidentField) GetItemVersionOk() (*Version, bool)`
+`func (o *IncidentField) GetItemVersionOk() (*string, bool)`
 
 GetItemVersionOk returns a tuple with the ItemVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItemVersion
 
-`func (o *IncidentField) SetItemVersion(v Version)`
+`func (o *IncidentField) SetItemVersion(v string)`
 
 SetItemVersion sets ItemVersion field to given value.
 
@@ -1180,20 +1180,20 @@ HasThreshold returns a boolean if a field has been set.
 
 ### GetToServerVersion
 
-`func (o *IncidentField) GetToServerVersion() Version`
+`func (o *IncidentField) GetToServerVersion() string`
 
 GetToServerVersion returns the ToServerVersion field if non-nil, zero value otherwise.
 
 ### GetToServerVersionOk
 
-`func (o *IncidentField) GetToServerVersionOk() (*Version, bool)`
+`func (o *IncidentField) GetToServerVersionOk() (*string, bool)`
 
 GetToServerVersionOk returns a tuple with the ToServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetToServerVersion
 
-`func (o *IncidentField) SetToServerVersion(v Version)`
+`func (o *IncidentField) SetToServerVersion(v string)`
 
 SetToServerVersion sets ToServerVersion field to given value.
 

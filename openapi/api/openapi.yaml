@@ -2704,16 +2704,12 @@ components:
           description: '{}'
           type: type
         dbotCreatedBy: dbotCreatedBy
-        scriptTarget: 5
+        scriptTarget: 1
         deprecated: true
         polling: true
         type: type
         searchableName: searchableName
-        toServerVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        toServerVersion: toServerVersion
         contextKeys:
         - contextKeys
         - contextKeys
@@ -2728,7 +2724,7 @@ components:
         - rawTags
         - rawTags
         allReadWrite: true
-        numericId: 6
+        numericId: 0
         sequenceNumber: 5
         previousAllRead: true
         dependsOn:
@@ -2739,7 +2735,7 @@ components:
         xsoarHasReadOnlyRole: true
         sensitive: true
         shouldCommit: true
-        version: 7
+        version: 2
         script: script
         tags:
         - tags
@@ -2763,13 +2759,13 @@ components:
         dockerImage: dockerImage
         commitMessage: commitMessage
         hidden: true
-        primaryTerm: 1
+        primaryTerm: 6
         roles:
         - roles
         - roles
         runOnce: true
         enabled: true
-        timeout: 2
+        timeout: 5
         engineGroup: engineGroup
         packID: packID
         highlight:
@@ -2780,20 +2776,12 @@ components:
         subtype: subtype
         vcShouldIgnore: true
         prevName: prevName
-        fromServerVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        fromServerVersion: fromServerVersion
         runAs: runAs
         previousRoles:
         - previousRoles
         - previousRoles
-        itemVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        itemVersion: itemVersion
         packPropagationLabels:
         - packPropagationLabels
         - packPropagationLabels
@@ -2889,7 +2877,7 @@ components:
           type: string
           x-go-name: EngineGroup
         fromServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         hasRole:
           description: Internal field to make queries on role faster
           type: boolean
@@ -2913,7 +2901,7 @@ components:
           type: array
           x-go-name: Important
         itemVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         locked:
           type: boolean
           x-go-name: Locked
@@ -3042,7 +3030,7 @@ components:
           type: integer
           x-go-package: time
         toServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         type:
           description: ScriptType holds the type of a script
           type: string
@@ -3569,9 +3557,9 @@ components:
     ContentItemExportableFields:
       properties:
         fromServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         itemVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         packID:
           type: string
           x-go-name: PackID
@@ -3586,7 +3574,7 @@ components:
           type: array
           x-go-name: PropagationLabels
         toServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
       title: ContentItemExportableFields holds ContentItemExportableFields fields.
       type: object
       x-go-package: github.com/demisto/server/domain
@@ -3594,9 +3582,9 @@ components:
       description: ContentItemFields holds ContentItem fields
       properties:
         fromServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         itemVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         packID:
           type: string
           x-go-name: PackID
@@ -3611,7 +3599,7 @@ components:
           type: array
           x-go-name: PropagationLabels
         toServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
       type: object
       x-go-package: github.com/demisto/server/domain
     ContentItemVersionedFields:
@@ -3620,9 +3608,9 @@ components:
           type: string
           x-go-name: CommitMessage
         fromServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         itemVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         packID:
           type: string
           x-go-name: PackID
@@ -3640,7 +3628,7 @@ components:
           type: boolean
           x-go-name: ShouldCommit
         toServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         vcShouldIgnore:
           type: boolean
           x-go-name: VCShouldIgnore
@@ -4296,11 +4284,7 @@ components:
           key:
           - highlight
           - highlight
-        toServerVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        toServerVersion: toServerVersion
         vcShouldIgnore: true
         isCommon: true
         modified: 2000-01-23T04:56:07.000+00:00
@@ -4310,11 +4294,7 @@ components:
         - xsoarReadOnlyRoles
         id: id
         locked: true
-        fromServerVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        fromServerVersion: fromServerVersion
         owner: owner
         allReadWrite: true
         numericId: 0
@@ -4331,11 +4311,7 @@ components:
         - previousRoles
         - previousRoles
         xsoarHasReadOnlyRole: true
-        itemVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        itemVersion: itemVersion
         packPropagationLabels:
         - packPropagationLabels
         - packPropagationLabels
@@ -4381,7 +4357,7 @@ components:
           type: string
           x-go-name: FromDateLicenseVal
         fromServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         hasRole:
           description: Internal field to make queries on role faster
           type: boolean
@@ -4400,7 +4376,7 @@ components:
           type: boolean
           x-go-name: IsCommon
         itemVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         layout:
           $ref: '#/components/schemas/WidgetCells'
         locked:
@@ -4480,7 +4456,7 @@ components:
           type: string
           x-go-name: ToDate
         toServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         vcShouldIgnore:
           type: boolean
           x-go-name: VCShouldIgnore
@@ -7231,11 +7207,7 @@ components:
         associatedTypes:
         - associatedTypes
         - associatedTypes
-        toServerVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        toServerVersion: toServerVersion
         editForm: true
         caseInsensitive: true
         modified: 2000-01-23T04:56:07.000+00:00
@@ -7302,17 +7274,9 @@ components:
         placeholder: placeholder
         validatedError: validatedError
         validationRegex: validationRegex
-        fromServerVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        fromServerVersion: fromServerVersion
         mergeStrategy: mergeStrategy
-        itemVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        itemVersion: itemVersion
         packPropagationLabels:
         - packPropagationLabels
         - packPropagationLabels
@@ -7379,7 +7343,7 @@ components:
           type: string
           x-go-name: FieldCalcScript
         fromServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         group:
           description: FieldGroup is the field group
           format: double
@@ -7402,7 +7366,7 @@ components:
           type: boolean
           x-go-name: IsReadOnly
         itemVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         locked:
           type: boolean
           x-go-name: Locked
@@ -7493,7 +7457,7 @@ components:
           type: number
           x-go-name: Threshold
         toServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         type:
           type: string
           x-go-name: Type
@@ -8146,11 +8110,7 @@ components:
         default: true
         readonly: true
         closureScript: closureScript
-        toServerVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        toServerVersion: toServerVersion
         vcShouldIgnore: true
         modified: 2000-01-23T04:56:07.000+00:00
         prevName: prevName
@@ -8158,19 +8118,11 @@ components:
         disabled: true
         id: id
         locked: true
-        fromServerVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        fromServerVersion: fromServerVersion
         numericId: 5
         sequenceNumber: 3
         hours: 1
-        itemVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        itemVersion: itemVersion
         packPropagationLabels:
         - packPropagationLabels
         - packPropagationLabels
@@ -8238,7 +8190,7 @@ components:
         extractSettings:
           $ref: '#/components/schemas/IncidentTypeExtractSettings'
         fromServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         highlight:
           additionalProperties:
             items:
@@ -8258,7 +8210,7 @@ components:
           type: string
           x-go-name: ID
         itemVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         layout:
           type: string
           x-go-name: Layout
@@ -8339,7 +8291,7 @@ components:
           type: boolean
           x-go-name: System
         toServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         vcShouldIgnore:
           type: boolean
           x-go-name: VCShouldIgnore
@@ -9226,22 +9178,14 @@ components:
         instanceIds:
         - instanceIds
         - instanceIds
-        toServerVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        toServerVersion: toServerVersion
         vcShouldIgnore: true
         modified: 2000-01-23T04:56:07.000+00:00
         prevName: prevName
         id: id
         keyTypeMap: keyTypeMap
         locked: true
-        fromServerVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        fromServerVersion: fromServerVersion
         numericId: 6
         sequenceNumber: 5
         mapping: mapping
@@ -9250,11 +9194,7 @@ components:
         - brands
         incidentSamples: '{}'
         logicalVersion: 0
-        itemVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        itemVersion: itemVersion
         packPropagationLabels:
         - packPropagationLabels
         - packPropagationLabels
@@ -9293,7 +9233,7 @@ components:
           type: boolean
           x-go-name: Feed
         fromServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         highlight:
           additionalProperties:
             items:
@@ -9315,7 +9255,7 @@ components:
           type: array
           x-go-name: InstanceIDs
         itemVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         keyTypeMap:
           type: string
           x-go-name: KeyTypeMap
@@ -9382,7 +9322,7 @@ components:
           type: boolean
           x-go-name: System
         toServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         transformer:
           type: string
         type:
@@ -9423,22 +9363,14 @@ components:
           instanceIds:
           - instanceIds
           - instanceIds
-          toServerVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          toServerVersion: toServerVersion
           vcShouldIgnore: true
           modified: 2000-01-23T04:56:07.000+00:00
           prevName: prevName
           id: id
           keyTypeMap: keyTypeMap
           locked: true
-          fromServerVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          fromServerVersion: fromServerVersion
           numericId: 6
           sequenceNumber: 5
           mapping: mapping
@@ -9447,11 +9379,7 @@ components:
           - brands
           incidentSamples: '{}'
           logicalVersion: 0
-          itemVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          itemVersion: itemVersion
           packPropagationLabels:
           - packPropagationLabels
           - packPropagationLabels
@@ -9484,22 +9412,14 @@ components:
           instanceIds:
           - instanceIds
           - instanceIds
-          toServerVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          toServerVersion: toServerVersion
           vcShouldIgnore: true
           modified: 2000-01-23T04:56:07.000+00:00
           prevName: prevName
           id: id
           keyTypeMap: keyTypeMap
           locked: true
-          fromServerVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          fromServerVersion: fromServerVersion
           numericId: 6
           sequenceNumber: 5
           mapping: mapping
@@ -9508,11 +9428,7 @@ components:
           - brands
           incidentSamples: '{}'
           logicalVersion: 0
-          itemVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          itemVersion: itemVersion
           packPropagationLabels:
           - packPropagationLabels
           - packPropagationLabels
@@ -15073,7 +14989,7 @@ components:
           type: string
           x-go-name: CommitMessage
         fromServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         highlight:
           additionalProperties:
             items:
@@ -15085,7 +15001,7 @@ components:
           type: string
           x-go-name: ID
         itemVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         kind:
           type: string
           x-go-name: Kind
@@ -15147,7 +15063,7 @@ components:
           type: boolean
           x-go-name: System
         toServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         typeId:
           type: string
           x-go-name: TypeID
@@ -15185,7 +15101,7 @@ components:
           type: string
           x-go-name: CommitMessage
         fromServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         highlight:
           additionalProperties:
             items:
@@ -15197,7 +15113,7 @@ components:
           type: string
           x-go-name: ID
         itemVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         kind:
           type: string
           x-go-name: Kind
@@ -15254,7 +15170,7 @@ components:
           type: boolean
           x-go-name: System
         toServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         typeId:
           type: string
           x-go-name: TypeID
@@ -15628,11 +15544,7 @@ components:
         cmdline: cmdline
         isPasswordProtected: true
         readonly: true
-        toServerVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        toServerVersion: toServerVersion
         vcShouldIgnore: true
         modified: 2000-01-23T04:56:07.000+00:00
         prevName: prevName
@@ -15641,20 +15553,12 @@ components:
         brand: brand
         beta: true
         defaultClassifier: defaultClassifier
-        fromServerVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        fromServerVersion: fromServerVersion
         image: image
         numericId: 1
         sequenceNumber: 5
         display: display
-        itemVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        itemVersion: itemVersion
         packPropagationLabels:
         - packPropagationLabels
         - packPropagationLabels
@@ -15723,7 +15627,7 @@ components:
           type: string
           x-go-name: Executable
         fromServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         hidden:
           type: boolean
           x-go-name: Hidden
@@ -15752,7 +15656,7 @@ components:
           type: boolean
           x-go-name: IsPasswordProtected
         itemVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         locked:
           type: boolean
           x-go-name: Locked
@@ -15818,7 +15722,7 @@ components:
           type: boolean
           x-go-name: System
         toServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         vcShouldIgnore:
           type: boolean
           x-go-name: VCShouldIgnore
@@ -16135,11 +16039,7 @@ components:
         - scriptIds
         - scriptIds
         view: '{}'
-        toServerVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        toServerVersion: toServerVersion
         modified: 2000-01-23T04:56:07.000+00:00
         xsoarReadOnlyRoles:
         - xsoarReadOnlyRoles
@@ -16732,22 +16632,14 @@ components:
         vcShouldIgnore: true
         prevName: prevName
         quiet: true
-        fromServerVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        fromServerVersion: fromServerVersion
         brands:
         - brands
         - brands
         previousRoles:
         - previousRoles
         - previousRoles
-        itemVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        itemVersion: itemVersion
         packPropagationLabels:
         - packPropagationLabels
         - packPropagationLabels
@@ -16798,7 +16690,7 @@ components:
           type: string
           x-go-name: EncTasks
         fromServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         hasRole:
           description: Internal field to make queries on role faster
           type: boolean
@@ -16819,7 +16711,7 @@ components:
         inputs:
           $ref: '#/components/schemas/PlaybookInputs'
         itemVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         locked:
           type: boolean
           x-go-name: Locked
@@ -16933,7 +16825,7 @@ components:
           type: object
           x-go-name: Tasks
         toServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         vcShouldIgnore:
           type: boolean
           x-go-name: VCShouldIgnore
@@ -18524,11 +18416,7 @@ components:
         type: type
         reportType: reportType
         timezoneOffset: 5
-        toServerVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        toServerVersion: toServerVersion
         modified: 2000-01-23T04:56:07.000+00:00
         id: id
         locked: true
@@ -18546,11 +18434,7 @@ components:
             key:
             - highlight
             - highlight
-          toServerVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          toServerVersion: toServerVersion
           vcShouldIgnore: true
           isCommon: true
           modified: 2000-01-23T04:56:07.000+00:00
@@ -18560,11 +18444,7 @@ components:
           - xsoarReadOnlyRoles
           id: id
           locked: true
-          fromServerVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          fromServerVersion: fromServerVersion
           owner: owner
           allReadWrite: true
           numericId: 0
@@ -18581,11 +18461,7 @@ components:
           - previousRoles
           - previousRoles
           xsoarHasReadOnlyRole: true
-          itemVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          itemVersion: itemVersion
           packPropagationLabels:
           - packPropagationLabels
           - packPropagationLabels
@@ -18713,20 +18589,12 @@ components:
         vcShouldIgnore: true
         prevName: prevName
         nextScheduledTime: 2000-01-23T04:56:07.000+00:00
-        fromServerVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        fromServerVersion: fromServerVersion
         orientation: orientation
         runningRoles:
         - runningRoles
         - runningRoles
-        itemVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        itemVersion: itemVersion
         packPropagationLabels:
         - packPropagationLabels
         - packPropagationLabels
@@ -18773,7 +18641,7 @@ components:
           type: string
           x-go-package: github.com/demisto/server/domain
         fromServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         highlight:
           additionalProperties:
             items:
@@ -18787,7 +18655,7 @@ components:
           type: string
           x-go-name: ID
         itemVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         latestReportName:
           type: string
           x-go-name: LatestReportName
@@ -18919,7 +18787,7 @@ components:
           type: integer
           x-go-name: TimezoneOffset
         toServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         type:
           type: string
           x-go-name: Type
@@ -20533,26 +20401,7 @@ components:
           type: array
       type: object
     Version:
-      example:
-        Digits:
-        - 0
-        - 0
-        Label: Label
-      properties:
-        Digits:
-          description: |-
-            WARNING: when adding new attributes or changing the names
-            of the existing ones, remember to add support in UnmarshalJSON
-            for items that were exported by msgpack.
-          items:
-            format: int64
-            type: integer
-          type: array
-        Label:
-          type: string
-      title: Version represents a version.
-      type: object
-      x-go-package: github.com/demisto/server/domain
+      type: string
     VersionedCommit:
       properties:
         commitMessage:
@@ -20752,30 +20601,18 @@ components:
           key:
           - highlight
           - highlight
-        toServerVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        toServerVersion: toServerVersion
         vcShouldIgnore: true
         modified: 2000-01-23T04:56:07.000+00:00
         prevName: prevName
         id: id
         locked: true
-        fromServerVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        fromServerVersion: fromServerVersion
         numericId: 0
         sequenceNumber: 1
         isPredefined: true
         dataType: dataType
-        itemVersion:
-          Digits:
-          - 0
-          - 0
-          Label: Label
+        itemVersion: itemVersion
         packPropagationLabels:
         - packPropagationLabels
         - packPropagationLabels
@@ -20824,7 +20661,7 @@ components:
           type: string
           x-go-name: Description
         fromServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         highlight:
           additionalProperties:
             items:
@@ -20840,7 +20677,7 @@ components:
           type: boolean
           x-go-name: IsPredefined
         itemVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         locked:
           description: Is the widget locked for editing.
           type: boolean
@@ -20915,7 +20752,7 @@ components:
           type: array
           x-go-name: SortValues
         toServerVersion:
-          $ref: '#/components/schemas/Version'
+          type: string
         vcShouldIgnore:
           type: boolean
           x-go-name: VCShouldIgnore
@@ -21364,11 +21201,7 @@ components:
           associatedTypes:
           - associatedTypes
           - associatedTypes
-          toServerVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          toServerVersion: toServerVersion
           editForm: true
           caseInsensitive: true
           modified: 2000-01-23T04:56:07.000+00:00
@@ -21435,17 +21268,9 @@ components:
           placeholder: placeholder
           validatedError: validatedError
           validationRegex: validationRegex
-          fromServerVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          fromServerVersion: fromServerVersion
           mergeStrategy: mergeStrategy
-          itemVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          itemVersion: itemVersion
           packPropagationLabels:
           - packPropagationLabels
           - packPropagationLabels
@@ -21471,11 +21296,7 @@ components:
           associatedTypes:
           - associatedTypes
           - associatedTypes
-          toServerVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          toServerVersion: toServerVersion
           editForm: true
           caseInsensitive: true
           modified: 2000-01-23T04:56:07.000+00:00
@@ -21542,17 +21363,9 @@ components:
           placeholder: placeholder
           validatedError: validatedError
           validationRegex: validationRegex
-          fromServerVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          fromServerVersion: fromServerVersion
           mergeStrategy: mergeStrategy
-          itemVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          itemVersion: itemVersion
           packPropagationLabels:
           - packPropagationLabels
           - packPropagationLabels
@@ -21595,11 +21408,7 @@ components:
           default: true
           readonly: true
           closureScript: closureScript
-          toServerVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          toServerVersion: toServerVersion
           vcShouldIgnore: true
           modified: 2000-01-23T04:56:07.000+00:00
           prevName: prevName
@@ -21607,19 +21416,11 @@ components:
           disabled: true
           id: id
           locked: true
-          fromServerVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          fromServerVersion: fromServerVersion
           numericId: 5
           sequenceNumber: 3
           hours: 1
-          itemVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          itemVersion: itemVersion
           packPropagationLabels:
           - packPropagationLabels
           - packPropagationLabels
@@ -21667,11 +21468,7 @@ components:
           default: true
           readonly: true
           closureScript: closureScript
-          toServerVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          toServerVersion: toServerVersion
           vcShouldIgnore: true
           modified: 2000-01-23T04:56:07.000+00:00
           prevName: prevName
@@ -21679,19 +21476,11 @@ components:
           disabled: true
           id: id
           locked: true
-          fromServerVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          fromServerVersion: fromServerVersion
           numericId: 5
           sequenceNumber: 3
           hours: 1
-          itemVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          itemVersion: itemVersion
           packPropagationLabels:
           - packPropagationLabels
           - packPropagationLabels
@@ -21843,11 +21632,7 @@ components:
           - scriptIds
           - scriptIds
           view: '{}'
-          toServerVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          toServerVersion: toServerVersion
           modified: 2000-01-23T04:56:07.000+00:00
           xsoarReadOnlyRoles:
           - xsoarReadOnlyRoles
@@ -22440,22 +22225,14 @@ components:
           vcShouldIgnore: true
           prevName: prevName
           quiet: true
-          fromServerVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          fromServerVersion: fromServerVersion
           brands:
           - brands
           - brands
           previousRoles:
           - previousRoles
           - previousRoles
-          itemVersion:
-            Digits:
-            - 0
-            - 0
-            Label: Label
+          itemVersion: itemVersion
           packPropagationLabels:
           - packPropagationLabels
           - packPropagationLabels

@@ -28,11 +28,11 @@ type Report struct {
 	EndingDate    *time.Time                      `json:"endingDate,omitempty"`
 	// EndingType holds the type of schedule Ending
 	EndingType                *string              `json:"endingType,omitempty"`
-	FromServerVersion         *Version             `json:"fromServerVersion,omitempty"`
+	FromServerVersion         *string              `json:"fromServerVersion,omitempty"`
 	Highlight                 *map[string][]string `json:"highlight,omitempty"`
 	HumanCron                 *HumanCron           `json:"humanCron,omitempty"`
 	Id                        *string              `json:"id,omitempty"`
-	ItemVersion               *Version             `json:"itemVersion,omitempty"`
+	ItemVersion               *string              `json:"itemVersion,omitempty"`
 	LatestReportName          *string              `json:"latestReportName,omitempty"`
 	LatestReportTime          *time.Time           `json:"latestReportTime,omitempty"`
 	LatestReportUsername      *string              `json:"latestReportUsername,omitempty"`
@@ -69,7 +69,7 @@ type Report struct {
 	Times                             *int64     `json:"times,omitempty"`
 	Timezone                          *string    `json:"timezone,omitempty"`
 	TimezoneOffset                    *int64     `json:"timezoneOffset,omitempty"`
-	ToServerVersion                   *Version   `json:"toServerVersion,omitempty"`
+	ToServerVersion                   *string    `json:"toServerVersion,omitempty"`
 	Type                              *string    `json:"type,omitempty"`
 	UserAPIKey                        *string    `json:"userAPIKey,omitempty"`
 	UserAPIKeyID                      *string    `json:"userAPIKeyID,omitempty"`
@@ -416,9 +416,9 @@ func (o *Report) SetEndingType(v string) {
 }
 
 // GetFromServerVersion returns the FromServerVersion field value if set, zero value otherwise.
-func (o *Report) GetFromServerVersion() Version {
+func (o *Report) GetFromServerVersion() string {
 	if o == nil || o.FromServerVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.FromServerVersion
@@ -426,7 +426,7 @@ func (o *Report) GetFromServerVersion() Version {
 
 // GetFromServerVersionOk returns a tuple with the FromServerVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Report) GetFromServerVersionOk() (*Version, bool) {
+func (o *Report) GetFromServerVersionOk() (*string, bool) {
 	if o == nil || o.FromServerVersion == nil {
 		return nil, false
 	}
@@ -442,8 +442,8 @@ func (o *Report) HasFromServerVersion() bool {
 	return false
 }
 
-// SetFromServerVersion gets a reference to the given Version and assigns it to the FromServerVersion field.
-func (o *Report) SetFromServerVersion(v Version) {
+// SetFromServerVersion gets a reference to the given string and assigns it to the FromServerVersion field.
+func (o *Report) SetFromServerVersion(v string) {
 	o.FromServerVersion = &v
 }
 
@@ -544,9 +544,9 @@ func (o *Report) SetId(v string) {
 }
 
 // GetItemVersion returns the ItemVersion field value if set, zero value otherwise.
-func (o *Report) GetItemVersion() Version {
+func (o *Report) GetItemVersion() string {
 	if o == nil || o.ItemVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.ItemVersion
@@ -554,7 +554,7 @@ func (o *Report) GetItemVersion() Version {
 
 // GetItemVersionOk returns a tuple with the ItemVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Report) GetItemVersionOk() (*Version, bool) {
+func (o *Report) GetItemVersionOk() (*string, bool) {
 	if o == nil || o.ItemVersion == nil {
 		return nil, false
 	}
@@ -570,8 +570,8 @@ func (o *Report) HasItemVersion() bool {
 	return false
 }
 
-// SetItemVersion gets a reference to the given Version and assigns it to the ItemVersion field.
-func (o *Report) SetItemVersion(v Version) {
+// SetItemVersion gets a reference to the given string and assigns it to the ItemVersion field.
+func (o *Report) SetItemVersion(v string) {
 	o.ItemVersion = &v
 }
 
@@ -1696,9 +1696,9 @@ func (o *Report) SetTimezoneOffset(v int64) {
 }
 
 // GetToServerVersion returns the ToServerVersion field value if set, zero value otherwise.
-func (o *Report) GetToServerVersion() Version {
+func (o *Report) GetToServerVersion() string {
 	if o == nil || o.ToServerVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.ToServerVersion
@@ -1706,7 +1706,7 @@ func (o *Report) GetToServerVersion() Version {
 
 // GetToServerVersionOk returns a tuple with the ToServerVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Report) GetToServerVersionOk() (*Version, bool) {
+func (o *Report) GetToServerVersionOk() (*string, bool) {
 	if o == nil || o.ToServerVersion == nil {
 		return nil, false
 	}
@@ -1722,8 +1722,8 @@ func (o *Report) HasToServerVersion() bool {
 	return false
 }
 
-// SetToServerVersion gets a reference to the given Version and assigns it to the ToServerVersion field.
-func (o *Report) SetToServerVersion(v Version) {
+// SetToServerVersion gets a reference to the given string and assigns it to the ToServerVersion field.
+func (o *Report) SetToServerVersion(v string) {
 	o.ToServerVersion = &v
 }
 

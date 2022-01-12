@@ -14,13 +14,13 @@ Name | Type | Description | Notes
 **Deprecated** | Pointer to **bool** |  | [optional] 
 **Detached** | Pointer to **bool** |  | [optional] 
 **EncTasks** | Pointer to **string** |  | [optional] 
-**FromServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**FromServerVersion** | Pointer to **string** |  | [optional] 
 **HasRole** | Pointer to **bool** | Internal field to make queries on role faster | [optional] 
 **Hidden** | Pointer to **bool** |  | [optional] 
 **Highlight** | Pointer to **map[string][]string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **Inputs** | Pointer to [**PlaybookInputs**](PlaybookInputs.md) |  | [optional] 
-**ItemVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**ItemVersion** | Pointer to **string** |  | [optional] 
 **Locked** | Pointer to **bool** |  | [optional] 
 **MissingScriptsIds** | Pointer to **[]string** |  | [optional] 
 **Modified** | Pointer to **time.Time** |  | [optional] 
@@ -49,7 +49,7 @@ Name | Type | Description | Notes
 **Tags** | Pointer to **[]string** |  | [optional] 
 **TaskIds** | Pointer to **[]string** | auto generated field that will contain all task ids in this playbook Needed for searching with bleve | [optional] 
 **Tasks** | Pointer to [**map[string]PlaybookTask**](PlaybookTask.md) |  | [optional] 
-**ToServerVersion** | Pointer to [**Version**](Version.md) |  | [optional] 
+**ToServerVersion** | Pointer to **string** |  | [optional] 
 **VcShouldIgnore** | Pointer to **bool** |  | [optional] 
 **VcShouldKeepItemLegacyProdMachine** | Pointer to **bool** |  | [optional] 
 **Version** | Pointer to **int64** |  | [optional] 
@@ -329,20 +329,20 @@ HasEncTasks returns a boolean if a field has been set.
 
 ### GetFromServerVersion
 
-`func (o *Playbook) GetFromServerVersion() Version`
+`func (o *Playbook) GetFromServerVersion() string`
 
 GetFromServerVersion returns the FromServerVersion field if non-nil, zero value otherwise.
 
 ### GetFromServerVersionOk
 
-`func (o *Playbook) GetFromServerVersionOk() (*Version, bool)`
+`func (o *Playbook) GetFromServerVersionOk() (*string, bool)`
 
 GetFromServerVersionOk returns a tuple with the FromServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFromServerVersion
 
-`func (o *Playbook) SetFromServerVersion(v Version)`
+`func (o *Playbook) SetFromServerVersion(v string)`
 
 SetFromServerVersion sets FromServerVersion field to given value.
 
@@ -479,20 +479,20 @@ HasInputs returns a boolean if a field has been set.
 
 ### GetItemVersion
 
-`func (o *Playbook) GetItemVersion() Version`
+`func (o *Playbook) GetItemVersion() string`
 
 GetItemVersion returns the ItemVersion field if non-nil, zero value otherwise.
 
 ### GetItemVersionOk
 
-`func (o *Playbook) GetItemVersionOk() (*Version, bool)`
+`func (o *Playbook) GetItemVersionOk() (*string, bool)`
 
 GetItemVersionOk returns a tuple with the ItemVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItemVersion
 
-`func (o *Playbook) SetItemVersion(v Version)`
+`func (o *Playbook) SetItemVersion(v string)`
 
 SetItemVersion sets ItemVersion field to given value.
 
@@ -1204,20 +1204,20 @@ HasTasks returns a boolean if a field has been set.
 
 ### GetToServerVersion
 
-`func (o *Playbook) GetToServerVersion() Version`
+`func (o *Playbook) GetToServerVersion() string`
 
 GetToServerVersion returns the ToServerVersion field if non-nil, zero value otherwise.
 
 ### GetToServerVersionOk
 
-`func (o *Playbook) GetToServerVersionOk() (*Version, bool)`
+`func (o *Playbook) GetToServerVersionOk() (*string, bool)`
 
 GetToServerVersionOk returns a tuple with the ToServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetToServerVersion
 
-`func (o *Playbook) SetToServerVersion(v Version)`
+`func (o *Playbook) SetToServerVersion(v string)`
 
 SetToServerVersion sets ToServerVersion field to given value.
 

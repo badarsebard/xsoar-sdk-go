@@ -25,12 +25,12 @@ type Widget struct {
 	DateRange *DateRange `json:"dateRange,omitempty"`
 	// The description of the widget's usage and data representation.
 	Description       *string              `json:"description,omitempty"`
-	FromServerVersion *Version             `json:"fromServerVersion,omitempty"`
+	FromServerVersion *string              `json:"fromServerVersion,omitempty"`
 	Highlight         *map[string][]string `json:"highlight,omitempty"`
 	Id                *string              `json:"id,omitempty"`
 	// Is the widget a system widget.
-	IsPredefined *bool    `json:"isPredefined,omitempty"`
-	ItemVersion  *Version `json:"itemVersion,omitempty"`
+	IsPredefined *bool   `json:"isPredefined,omitempty"`
+	ItemVersion  *string `json:"itemVersion,omitempty"`
 	// Is the widget locked for editing.
 	Locked   *bool      `json:"locked,omitempty"`
 	Modified *time.Time `json:"modified,omitempty"`
@@ -54,7 +54,7 @@ type Widget struct {
 	// Sorting array to sort the data received by the given Order parameters.
 	Sort                              *[]Order  `json:"sort,omitempty"`
 	SortValues                        *[]string `json:"sortValues,omitempty"`
-	ToServerVersion                   *Version  `json:"toServerVersion,omitempty"`
+	ToServerVersion                   *string   `json:"toServerVersion,omitempty"`
 	VcShouldIgnore                    *bool     `json:"vcShouldIgnore,omitempty"`
 	VcShouldKeepItemLegacyProdMachine *bool     `json:"vcShouldKeepItemLegacyProdMachine,omitempty"`
 	Version                           *int64    `json:"version,omitempty"`
@@ -242,9 +242,9 @@ func (o *Widget) SetDescription(v string) {
 }
 
 // GetFromServerVersion returns the FromServerVersion field value if set, zero value otherwise.
-func (o *Widget) GetFromServerVersion() Version {
+func (o *Widget) GetFromServerVersion() string {
 	if o == nil || o.FromServerVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.FromServerVersion
@@ -252,7 +252,7 @@ func (o *Widget) GetFromServerVersion() Version {
 
 // GetFromServerVersionOk returns a tuple with the FromServerVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Widget) GetFromServerVersionOk() (*Version, bool) {
+func (o *Widget) GetFromServerVersionOk() (*string, bool) {
 	if o == nil || o.FromServerVersion == nil {
 		return nil, false
 	}
@@ -268,8 +268,8 @@ func (o *Widget) HasFromServerVersion() bool {
 	return false
 }
 
-// SetFromServerVersion gets a reference to the given Version and assigns it to the FromServerVersion field.
-func (o *Widget) SetFromServerVersion(v Version) {
+// SetFromServerVersion gets a reference to the given string and assigns it to the FromServerVersion field.
+func (o *Widget) SetFromServerVersion(v string) {
 	o.FromServerVersion = &v
 }
 
@@ -370,9 +370,9 @@ func (o *Widget) SetIsPredefined(v bool) {
 }
 
 // GetItemVersion returns the ItemVersion field value if set, zero value otherwise.
-func (o *Widget) GetItemVersion() Version {
+func (o *Widget) GetItemVersion() string {
 	if o == nil || o.ItemVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.ItemVersion
@@ -380,7 +380,7 @@ func (o *Widget) GetItemVersion() Version {
 
 // GetItemVersionOk returns a tuple with the ItemVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Widget) GetItemVersionOk() (*Version, bool) {
+func (o *Widget) GetItemVersionOk() (*string, bool) {
 	if o == nil || o.ItemVersion == nil {
 		return nil, false
 	}
@@ -396,8 +396,8 @@ func (o *Widget) HasItemVersion() bool {
 	return false
 }
 
-// SetItemVersion gets a reference to the given Version and assigns it to the ItemVersion field.
-func (o *Widget) SetItemVersion(v Version) {
+// SetItemVersion gets a reference to the given string and assigns it to the ItemVersion field.
+func (o *Widget) SetItemVersion(v string) {
 	o.ItemVersion = &v
 }
 
@@ -906,9 +906,9 @@ func (o *Widget) SetSortValues(v []string) {
 }
 
 // GetToServerVersion returns the ToServerVersion field value if set, zero value otherwise.
-func (o *Widget) GetToServerVersion() Version {
+func (o *Widget) GetToServerVersion() string {
 	if o == nil || o.ToServerVersion == nil {
-		var ret Version
+		var ret string
 		return ret
 	}
 	return *o.ToServerVersion
@@ -916,7 +916,7 @@ func (o *Widget) GetToServerVersion() Version {
 
 // GetToServerVersionOk returns a tuple with the ToServerVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Widget) GetToServerVersionOk() (*Version, bool) {
+func (o *Widget) GetToServerVersionOk() (*string, bool) {
 	if o == nil || o.ToServerVersion == nil {
 		return nil, false
 	}
@@ -932,8 +932,8 @@ func (o *Widget) HasToServerVersion() bool {
 	return false
 }
 
-// SetToServerVersion gets a reference to the given Version and assigns it to the ToServerVersion field.
-func (o *Widget) SetToServerVersion(v Version) {
+// SetToServerVersion gets a reference to the given string and assigns it to the ToServerVersion field.
+func (o *Widget) SetToServerVersion(v string) {
 	o.ToServerVersion = &v
 }
 

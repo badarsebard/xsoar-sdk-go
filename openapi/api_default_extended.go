@@ -245,7 +245,7 @@ Get classifier
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetClassifierRequest
 */
-func (a *DefaultApiService) GetClassifier(ctx _context.Context, acc string) ApiGetClassifierRequest {
+func (a *DefaultApiService) GetClassifier(ctx _context.Context) ApiGetClassifierRequest {
 	return ApiGetClassifierRequest{
 		ApiService: a,
 		ctx:        ctx,

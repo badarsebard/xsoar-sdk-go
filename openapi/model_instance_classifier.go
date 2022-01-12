@@ -30,10 +30,10 @@ type InstanceClassifier struct {
 	IndicatorSamples      *FeedIndicators         `json:"indicatorSamples,omitempty"`
 	InstanceIds           *[]string               `json:"instanceIds,omitempty"`
 	ItemVersion           *string                 `json:"itemVersion,omitempty"`
-	KeyTypeMap            *string                 `json:"keyTypeMap,omitempty"`
+	KeyTypeMap            *map[string]interface{} `json:"keyTypeMap,omitempty"`
 	Locked                *bool                   `json:"locked,omitempty"`
 	LogicalVersion        *int64                  `json:"logicalVersion,omitempty"`
-	Mapping               *string                 `json:"mapping,omitempty"`
+	Mapping               *map[string]interface{} `json:"mapping,omitempty"`
 	Modified              *time.Time              `json:"modified,omitempty"`
 	Name                  *string                 `json:"name,omitempty"`
 	NameRaw               *string                 `json:"nameRaw,omitempty"`
@@ -49,7 +49,7 @@ type InstanceClassifier struct {
 	SourceClassifierId    *string                 `json:"sourceClassifierId,omitempty"`
 	System                *bool                   `json:"system,omitempty"`
 	ToServerVersion       *string                 `json:"toServerVersion,omitempty"`
-	Transformer           *string                 `json:"transformer,omitempty"`
+	Transformer           *map[string]interface{} `json:"transformer,omitempty"`
 	// MapperType for instance classifier
 	Type                              *string                       `json:"type,omitempty"`
 	UnclassifiedCases                 *map[string]UnclassifiedCases `json:"unclassifiedCases,omitempty"`
@@ -460,9 +460,9 @@ func (o *InstanceClassifier) SetItemVersion(v string) {
 }
 
 // GetKeyTypeMap returns the KeyTypeMap field value if set, zero value otherwise.
-func (o *InstanceClassifier) GetKeyTypeMap() string {
+func (o *InstanceClassifier) GetKeyTypeMap() map[string]interface{} {
 	if o == nil || o.KeyTypeMap == nil {
-		var ret string
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.KeyTypeMap
@@ -470,7 +470,7 @@ func (o *InstanceClassifier) GetKeyTypeMap() string {
 
 // GetKeyTypeMapOk returns a tuple with the KeyTypeMap field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InstanceClassifier) GetKeyTypeMapOk() (*string, bool) {
+func (o *InstanceClassifier) GetKeyTypeMapOk() (*map[string]interface{}, bool) {
 	if o == nil || o.KeyTypeMap == nil {
 		return nil, false
 	}
@@ -486,8 +486,8 @@ func (o *InstanceClassifier) HasKeyTypeMap() bool {
 	return false
 }
 
-// SetKeyTypeMap gets a reference to the given string and assigns it to the KeyTypeMap field.
-func (o *InstanceClassifier) SetKeyTypeMap(v string) {
+// SetKeyTypeMap gets a reference to the given map[string]interface{} and assigns it to the KeyTypeMap field.
+func (o *InstanceClassifier) SetKeyTypeMap(v map[string]interface{}) {
 	o.KeyTypeMap = &v
 }
 
@@ -556,9 +556,9 @@ func (o *InstanceClassifier) SetLogicalVersion(v int64) {
 }
 
 // GetMapping returns the Mapping field value if set, zero value otherwise.
-func (o *InstanceClassifier) GetMapping() string {
+func (o *InstanceClassifier) GetMapping() map[string]interface{} {
 	if o == nil || o.Mapping == nil {
-		var ret string
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.Mapping
@@ -566,7 +566,7 @@ func (o *InstanceClassifier) GetMapping() string {
 
 // GetMappingOk returns a tuple with the Mapping field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InstanceClassifier) GetMappingOk() (*string, bool) {
+func (o *InstanceClassifier) GetMappingOk() (*map[string]interface{}, bool) {
 	if o == nil || o.Mapping == nil {
 		return nil, false
 	}
@@ -582,8 +582,8 @@ func (o *InstanceClassifier) HasMapping() bool {
 	return false
 }
 
-// SetMapping gets a reference to the given string and assigns it to the Mapping field.
-func (o *InstanceClassifier) SetMapping(v string) {
+// SetMapping gets a reference to the given map[string]interface{} and assigns it to the Mapping field.
+func (o *InstanceClassifier) SetMapping(v map[string]interface{}) {
 	o.Mapping = &v
 }
 
@@ -1068,9 +1068,9 @@ func (o *InstanceClassifier) SetToServerVersion(v string) {
 }
 
 // GetTransformer returns the Transformer field value if set, zero value otherwise.
-func (o *InstanceClassifier) GetTransformer() string {
+func (o *InstanceClassifier) GetTransformer() map[string]interface{} {
 	if o == nil || o.Transformer == nil {
-		var ret string
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.Transformer
@@ -1078,7 +1078,7 @@ func (o *InstanceClassifier) GetTransformer() string {
 
 // GetTransformerOk returns a tuple with the Transformer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InstanceClassifier) GetTransformerOk() (*string, bool) {
+func (o *InstanceClassifier) GetTransformerOk() (*map[string]interface{}, bool) {
 	if o == nil || o.Transformer == nil {
 		return nil, false
 	}
@@ -1094,8 +1094,8 @@ func (o *InstanceClassifier) HasTransformer() bool {
 	return false
 }
 
-// SetTransformer gets a reference to the given string and assigns it to the Transformer field.
-func (o *InstanceClassifier) SetTransformer(v string) {
+// SetTransformer gets a reference to the given map[string]interface{} and assigns it to the Transformer field.
+func (o *InstanceClassifier) SetTransformer(v map[string]interface{}) {
 	o.Transformer = &v
 }
 

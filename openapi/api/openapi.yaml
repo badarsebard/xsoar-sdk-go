@@ -4139,12 +4139,12 @@ components:
     CreateUpdateClassifierRequest:
       description: Request to create new or update a classifier
       example:
-        mapping: mapping
+        mapping: '{}'
         name: name
-        transformer: transformer
+        transformer: '{}'
         defaultIncidentType: defaultIncidentType
         id: id
-        keyTypeMap: keyTypeMap
+        keyTypeMap: '{}'
         type: type
         propagationLabels:
         - propagationLabels
@@ -4153,13 +4153,16 @@ components:
         defaultIncidentType:
           type: string
         keyTypeMap:
-          type: string
+          properties: {}
+          type: object
         name:
           type: string
         transformer:
-          type: string
+          properties: {}
+          type: object
         mapping:
-          type: string
+          properties: {}
+          type: object
         type:
           type: string
         id:
@@ -9167,7 +9170,7 @@ components:
       example:
         commitMessage: commitMessage
         primaryTerm: 1
-        transformer: transformer
+        transformer: '{}'
         description: description
         type: type
         packID: packID
@@ -9183,12 +9186,12 @@ components:
         modified: 2000-01-23T04:56:07.000+00:00
         prevName: prevName
         id: id
-        keyTypeMap: keyTypeMap
+        keyTypeMap: '{}'
         locked: true
         fromServerVersion: fromServerVersion
         numericId: 6
         sequenceNumber: 5
-        mapping: mapping
+        mapping: '{}'
         brands:
         - brands
         - brands
@@ -9257,7 +9260,8 @@ components:
         itemVersion:
           type: string
         keyTypeMap:
-          type: string
+          properties: {}
+          type: object
           x-go-name: KeyTypeMap
         locked:
           type: boolean
@@ -9267,7 +9271,8 @@ components:
           type: integer
           x-go-name: LogicalVersion
         mapping:
-          type: string
+          properties: {}
+          type: object
           x-go-name: Mapping
         modified:
           format: date-time
@@ -9324,7 +9329,8 @@ components:
         toServerVersion:
           type: string
         transformer:
-          type: string
+          properties: {}
+          type: object
         type:
           description: MapperType for instance classifier
           type: string
@@ -9352,7 +9358,7 @@ components:
         classifiers:
         - commitMessage: commitMessage
           primaryTerm: 1
-          transformer: transformer
+          transformer: '{}'
           description: description
           type: type
           packID: packID
@@ -9368,12 +9374,12 @@ components:
           modified: 2000-01-23T04:56:07.000+00:00
           prevName: prevName
           id: id
-          keyTypeMap: keyTypeMap
+          keyTypeMap: '{}'
           locked: true
           fromServerVersion: fromServerVersion
           numericId: 6
           sequenceNumber: 5
-          mapping: mapping
+          mapping: '{}'
           brands:
           - brands
           - brands
@@ -9401,7 +9407,7 @@ components:
           nameRaw: nameRaw
         - commitMessage: commitMessage
           primaryTerm: 1
-          transformer: transformer
+          transformer: '{}'
           description: description
           type: type
           packID: packID
@@ -9417,12 +9423,12 @@ components:
           modified: 2000-01-23T04:56:07.000+00:00
           prevName: prevName
           id: id
-          keyTypeMap: keyTypeMap
+          keyTypeMap: '{}'
           locked: true
           fromServerVersion: fromServerVersion
           numericId: 6
           sequenceNumber: 5
-          mapping: mapping
+          mapping: '{}'
           brands:
           - brands
           - brands

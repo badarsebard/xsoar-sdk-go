@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DefaultIncidentType** | Pointer to **string** |  | [optional] 
-**KeyTypeMap** | Pointer to **string** |  | [optional] 
+**KeyTypeMap** | Pointer to **map[string]interface{}** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**Transformer** | Pointer to **string** |  | [optional] 
-**Mapping** | Pointer to **string** |  | [optional] 
+**Transformer** | Pointer to **map[string]interface{}** |  | [optional] 
+**Mapping** | Pointer to **map[string]interface{}** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **PropagationLabels** | Pointer to **[]string** |  | [optional] 
@@ -59,20 +59,20 @@ HasDefaultIncidentType returns a boolean if a field has been set.
 
 ### GetKeyTypeMap
 
-`func (o *CreateUpdateClassifierRequest) GetKeyTypeMap() string`
+`func (o *CreateUpdateClassifierRequest) GetKeyTypeMap() map[string]interface{}`
 
 GetKeyTypeMap returns the KeyTypeMap field if non-nil, zero value otherwise.
 
 ### GetKeyTypeMapOk
 
-`func (o *CreateUpdateClassifierRequest) GetKeyTypeMapOk() (*string, bool)`
+`func (o *CreateUpdateClassifierRequest) GetKeyTypeMapOk() (*map[string]interface{}, bool)`
 
 GetKeyTypeMapOk returns a tuple with the KeyTypeMap field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetKeyTypeMap
 
-`func (o *CreateUpdateClassifierRequest) SetKeyTypeMap(v string)`
+`func (o *CreateUpdateClassifierRequest) SetKeyTypeMap(v map[string]interface{})`
 
 SetKeyTypeMap sets KeyTypeMap field to given value.
 
@@ -109,20 +109,20 @@ HasName returns a boolean if a field has been set.
 
 ### GetTransformer
 
-`func (o *CreateUpdateClassifierRequest) GetTransformer() string`
+`func (o *CreateUpdateClassifierRequest) GetTransformer() map[string]interface{}`
 
 GetTransformer returns the Transformer field if non-nil, zero value otherwise.
 
 ### GetTransformerOk
 
-`func (o *CreateUpdateClassifierRequest) GetTransformerOk() (*string, bool)`
+`func (o *CreateUpdateClassifierRequest) GetTransformerOk() (*map[string]interface{}, bool)`
 
 GetTransformerOk returns a tuple with the Transformer field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTransformer
 
-`func (o *CreateUpdateClassifierRequest) SetTransformer(v string)`
+`func (o *CreateUpdateClassifierRequest) SetTransformer(v map[string]interface{})`
 
 SetTransformer sets Transformer field to given value.
 
@@ -134,20 +134,20 @@ HasTransformer returns a boolean if a field has been set.
 
 ### GetMapping
 
-`func (o *CreateUpdateClassifierRequest) GetMapping() string`
+`func (o *CreateUpdateClassifierRequest) GetMapping() map[string]interface{}`
 
 GetMapping returns the Mapping field if non-nil, zero value otherwise.
 
 ### GetMappingOk
 
-`func (o *CreateUpdateClassifierRequest) GetMappingOk() (*string, bool)`
+`func (o *CreateUpdateClassifierRequest) GetMappingOk() (*map[string]interface{}, bool)`
 
 GetMappingOk returns a tuple with the Mapping field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMapping
 
-`func (o *CreateUpdateClassifierRequest) SetMapping(v string)`
+`func (o *CreateUpdateClassifierRequest) SetMapping(v map[string]interface{})`
 
 SetMapping sets Mapping field to given value.
 

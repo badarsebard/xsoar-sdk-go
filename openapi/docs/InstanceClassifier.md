@@ -16,10 +16,10 @@ Name | Type | Description | Notes
 **IndicatorSamples** | Pointer to [**FeedIndicators**](FeedIndicators.md) |  | [optional] 
 **InstanceIds** | Pointer to **[]string** |  | [optional] 
 **ItemVersion** | Pointer to **string** |  | [optional] 
-**KeyTypeMap** | Pointer to **string** |  | [optional] 
+**KeyTypeMap** | Pointer to **map[string]interface{}** |  | [optional] 
 **Locked** | Pointer to **bool** |  | [optional] 
 **LogicalVersion** | Pointer to **int64** |  | [optional] 
-**Mapping** | Pointer to **string** |  | [optional] 
+**Mapping** | Pointer to **map[string]interface{}** |  | [optional] 
 **Modified** | Pointer to **time.Time** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **NameRaw** | Pointer to **string** |  | [optional] 
@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 **SourceClassifierId** | Pointer to **string** |  | [optional] 
 **System** | Pointer to **bool** |  | [optional] 
 **ToServerVersion** | Pointer to **string** |  | [optional] 
-**Transformer** | Pointer to **string** |  | [optional] 
+**Transformer** | Pointer to **map[string]interface{}** |  | [optional] 
 **Type** | Pointer to **string** | MapperType for instance classifier | [optional] 
 **UnclassifiedCases** | Pointer to [**map[string]UnclassifiedCases**](UnclassifiedCases.md) |  | [optional] 
 **VcShouldIgnore** | Pointer to **bool** |  | [optional] 
@@ -363,20 +363,20 @@ HasItemVersion returns a boolean if a field has been set.
 
 ### GetKeyTypeMap
 
-`func (o *InstanceClassifier) GetKeyTypeMap() string`
+`func (o *InstanceClassifier) GetKeyTypeMap() map[string]interface{}`
 
 GetKeyTypeMap returns the KeyTypeMap field if non-nil, zero value otherwise.
 
 ### GetKeyTypeMapOk
 
-`func (o *InstanceClassifier) GetKeyTypeMapOk() (*string, bool)`
+`func (o *InstanceClassifier) GetKeyTypeMapOk() (*map[string]interface{}, bool)`
 
 GetKeyTypeMapOk returns a tuple with the KeyTypeMap field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetKeyTypeMap
 
-`func (o *InstanceClassifier) SetKeyTypeMap(v string)`
+`func (o *InstanceClassifier) SetKeyTypeMap(v map[string]interface{})`
 
 SetKeyTypeMap sets KeyTypeMap field to given value.
 
@@ -438,20 +438,20 @@ HasLogicalVersion returns a boolean if a field has been set.
 
 ### GetMapping
 
-`func (o *InstanceClassifier) GetMapping() string`
+`func (o *InstanceClassifier) GetMapping() map[string]interface{}`
 
 GetMapping returns the Mapping field if non-nil, zero value otherwise.
 
 ### GetMappingOk
 
-`func (o *InstanceClassifier) GetMappingOk() (*string, bool)`
+`func (o *InstanceClassifier) GetMappingOk() (*map[string]interface{}, bool)`
 
 GetMappingOk returns a tuple with the Mapping field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMapping
 
-`func (o *InstanceClassifier) SetMapping(v string)`
+`func (o *InstanceClassifier) SetMapping(v map[string]interface{})`
 
 SetMapping sets Mapping field to given value.
 
@@ -838,20 +838,20 @@ HasToServerVersion returns a boolean if a field has been set.
 
 ### GetTransformer
 
-`func (o *InstanceClassifier) GetTransformer() string`
+`func (o *InstanceClassifier) GetTransformer() map[string]interface{}`
 
 GetTransformer returns the Transformer field if non-nil, zero value otherwise.
 
 ### GetTransformerOk
 
-`func (o *InstanceClassifier) GetTransformerOk() (*string, bool)`
+`func (o *InstanceClassifier) GetTransformerOk() (*map[string]interface{}, bool)`
 
 GetTransformerOk returns a tuple with the Transformer field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTransformer
 
-`func (o *InstanceClassifier) SetTransformer(v string)`
+`func (o *InstanceClassifier) SetTransformer(v map[string]interface{})`
 
 SetTransformer sets Transformer field to given value.
 

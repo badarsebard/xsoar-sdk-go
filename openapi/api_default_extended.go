@@ -152,7 +152,7 @@ func (a *DefaultApiService) GetIntegrationInstanceExecute(r ApiGetIntegrationIns
 		localVarHTTPResponse *_nethttp.Response
 	)
 	size := NewInlineObject2()
-	size.SetSize(100)
+	size.SetSize(500)
 	integrations, localVarHTTPResponse, err := a.ListIntegrations(r.ctx).Size(*size).Execute()
 	if err != nil {
 		return nil, localVarHTTPResponse, err
@@ -207,7 +207,7 @@ func (a *DefaultApiService) GetIntegrationInstanceAccountExecute(r ApiGetIntegra
 		localVarHTTPResponse *_nethttp.Response
 	)
 	size := NewInlineObject3()
-	size.SetSize(100)
+	size.SetSize(500)
 	integrations, localVarHTTPResponse, err := a.ListIntegrationsAccount(r.ctx, "acc_"+r.acc).Size(*size).Execute()
 	if err != nil {
 		return nil, localVarHTTPResponse, err
@@ -220,4 +220,107 @@ func (a *DefaultApiService) GetIntegrationInstanceAccountExecute(r ApiGetIntegra
 	}
 
 	return nil, localVarHTTPResponse, nil
+}
+
+type ApiGetClassifierRequest struct {
+	ctx        _context.Context
+	ApiService *DefaultApiService
+	identifier string
+}
+
+func (r ApiGetClassifierRequest) SetIdentifier(identifier string) ApiGetClassifierRequest {
+	r.identifier = identifier
+	return r
+}
+
+func (r ApiGetClassifierRequest) Execute() (InstanceClassifier, *_nethttp.Response, error) {
+	return r.ApiService.GetClassifierExecute(r)
+}
+
+/*
+GetClassifier Get classifier
+
+Get classifier
+
+ @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetClassifierRequest
+*/
+func (a *DefaultApiService) GetClassifier(ctx _context.Context, acc string) ApiGetClassifierRequest {
+	return ApiGetClassifierRequest{
+		ApiService: a,
+		ctx:        ctx,
+	}
+}
+
+// Execute executes the request
+//  @return map[string]interface{}
+func (a *DefaultApiService) GetClassifierExecute(r ApiGetClassifierRequest) (InstanceClassifier, *_nethttp.Response, error) {
+	var (
+		localVarHTTPResponse *_nethttp.Response
+	)
+	classifiers, localVarHTTPResponse, err := a.ListClassifiers(r.ctx).Execute()
+	if err != nil {
+		return InstanceClassifier{}, localVarHTTPResponse, err
+	}
+
+	for _, classifier := range classifiers.GetClassifiers() {
+		if *classifier.Name == r.identifier || *classifier.Id == r.identifier {
+			return classifier, localVarHTTPResponse, nil
+		}
+	}
+	notFoundErr := GenericOpenAPIError{error: "Could not find classifier with identifier: " + r.identifier}
+	return InstanceClassifier{}, localVarHTTPResponse, notFoundErr
+}
+
+type ApiGetClassifierAccountRequest struct {
+	ctx        _context.Context
+	ApiService *DefaultApiService
+	acc        string
+	identifier string
+}
+
+func (r ApiGetClassifierAccountRequest) SetIdentifier(identifier string) ApiGetClassifierAccountRequest {
+	r.identifier = identifier
+	return r
+}
+
+func (r ApiGetClassifierAccountRequest) Execute() (InstanceClassifier, *_nethttp.Response, error) {
+	return r.ApiService.GetClassifierAccountExecute(r)
+}
+
+/*
+GetClassifierAccount Get classifier
+
+Get classifier
+
+ @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param acc
+ @return ApiGetClassifierAccountRequest
+*/
+func (a *DefaultApiService) GetClassifierAccount(ctx _context.Context, acc string) ApiGetClassifierAccountRequest {
+	return ApiGetClassifierAccountRequest{
+		ApiService: a,
+		ctx:        ctx,
+		acc:        acc,
+	}
+}
+
+// Execute executes the request
+//  @return map[string]interface{}
+func (a *DefaultApiService) GetClassifierAccountExecute(r ApiGetClassifierAccountRequest) (InstanceClassifier, *_nethttp.Response, error) {
+	var (
+		localVarHTTPResponse *_nethttp.Response
+	)
+	classifiers, localVarHTTPResponse, err := a.ListClassifiersAccount(r.ctx, "acc_"+r.acc).Execute()
+	if err != nil {
+		return InstanceClassifier{}, localVarHTTPResponse, err
+	}
+
+	for _, classifier := range classifiers.GetClassifiers() {
+		if *classifier.Name == r.identifier || *classifier.Id == r.identifier {
+			return classifier, localVarHTTPResponse, nil
+		}
+	}
+	notFoundErr := GenericOpenAPIError{error: "Could not find classifier with identifier: " + r.identifier}
+	return InstanceClassifier{}, localVarHTTPResponse, notFoundErr
 }

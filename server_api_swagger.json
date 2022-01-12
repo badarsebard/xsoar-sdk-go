@@ -372,6 +372,35 @@
         }
       }
     },
+    "/classifier/{id}": {
+      "delete": {
+        "description": "Delete existing classifier",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "summary": "Delete a classifier",
+        "operationId": "deleteClassifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The saved classifier",
+            "schema": {
+              "$ref": "#/definitions/InstanceClassifier"
+            }
+          }
+        }
+      }
+    },
     "/{acc}/classifier": {
       "post": {
         "description": "Create new or update existing classifier",
@@ -394,6 +423,41 @@
           {
             "in": "path",
             "name": "acc",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The saved classifier",
+            "schema": {
+              "$ref": "#/definitions/InstanceClassifier"
+            }
+          }
+        }
+      }
+    },
+    "/{acc}/classifier/{id}": {
+      "delete": {
+        "description": "Delete existing classifier for account",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "summary": "Delete a classifier for account",
+        "operationId": "deleteClassifierAccount",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "acc",
+            "in": "path",
             "type": "string",
             "required": true
           }

@@ -123,6 +123,8 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**DeleteAccount**](docs/DefaultApi.md#deleteaccount) | **Delete** /account/purge/{accountname} | 
 *DefaultApi* | [**DeleteAdHocTask**](docs/DefaultApi.md#deleteadhoctask) | **Post** /inv-playbook/task/delete/{investigationId}/{invPBTaskId} | Delete ad-hoc task
 *DefaultApi* | [**DeleteAutomationScript**](docs/DefaultApi.md#deleteautomationscript) | **Post** /automation/delete | Delete existing automation
+*DefaultApi* | [**DeleteClassifier**](docs/DefaultApi.md#deleteclassifier) | **Delete** /classifier/{id} | Delete a classifier
+*DefaultApi* | [**DeleteClassifierAccount**](docs/DefaultApi.md#deleteclassifieraccount) | **Delete** /{acc}/classifier/{id} | Delete a classifier for account
 *DefaultApi* | [**DeleteEvidenceOp**](docs/DefaultApi.md#deleteevidenceop) | **Post** /evidence/delete | delete evidence
 *DefaultApi* | [**DeleteHAGroup**](docs/DefaultApi.md#deletehagroup) | **Delete** /ha-group/{id} | 
 *DefaultApi* | [**DeleteHost**](docs/DefaultApi.md#deletehost) | **Delete** /host/{id} | 

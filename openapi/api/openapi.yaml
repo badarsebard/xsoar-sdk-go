@@ -305,6 +305,24 @@ paths:
           description: The saved classifier
       summary: Create or update a classifier
       x-codegen-request-body-name: createUpdateClassifierRequest
+  /classifier/{id}:
+    delete:
+      description: Delete existing classifier
+      operationId: deleteClassifier
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InstanceClassifier'
+          description: The saved classifier
+      summary: Delete a classifier
   /{acc}/classifier:
     post:
       description: Create new or update existing classifier
@@ -330,6 +348,29 @@ paths:
           description: The saved classifier
       summary: Create or update a classifier
       x-codegen-request-body-name: createUpdateClassifierAccountRequest
+  /{acc}/classifier/{id}:
+    delete:
+      description: Delete existing classifier for account
+      operationId: deleteClassifierAccount
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: acc
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InstanceClassifier'
+          description: The saved classifier
+      summary: Delete a classifier for account
   /classifier/search:
     post:
       description: Search classifiers in Cortex XSOAR

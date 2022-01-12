@@ -27,6 +27,8 @@ Method | HTTP request | Description
 [**DeleteAccount**](DefaultApi.md#DeleteAccount) | **Delete** /account/purge/{accountname} | 
 [**DeleteAdHocTask**](DefaultApi.md#DeleteAdHocTask) | **Post** /inv-playbook/task/delete/{investigationId}/{invPBTaskId} | Delete ad-hoc task
 [**DeleteAutomationScript**](DefaultApi.md#DeleteAutomationScript) | **Post** /automation/delete | Delete existing automation
+[**DeleteClassifier**](DefaultApi.md#DeleteClassifier) | **Delete** /classifier/{id} | Delete a classifier
+[**DeleteClassifierAccount**](DefaultApi.md#DeleteClassifierAccount) | **Delete** /{acc}/classifier/{id} | Delete a classifier for account
 [**DeleteEvidenceOp**](DefaultApi.md#DeleteEvidenceOp) | **Post** /evidence/delete | delete evidence
 [**DeleteHAGroup**](DefaultApi.md#DeleteHAGroup) | **Delete** /ha-group/{id} | 
 [**DeleteHost**](DefaultApi.md#DeleteHost) | **Delete** /host/{id} | 
@@ -1676,6 +1678,149 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteClassifier
+
+> InstanceClassifier DeleteClassifier(ctx, id).Execute()
+
+Delete a classifier
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := "id_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.DeleteClassifier(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteClassifier``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteClassifier`: InstanceClassifier
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.DeleteClassifier`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteClassifierRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**InstanceClassifier**](InstanceClassifier.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteClassifierAccount
+
+> InstanceClassifier DeleteClassifierAccount(ctx, id, acc).Execute()
+
+Delete a classifier for account
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := "id_example" // string | 
+    acc := "acc_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.DeleteClassifierAccount(context.Background(), id, acc).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteClassifierAccount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteClassifierAccount`: InstanceClassifier
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.DeleteClassifierAccount`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+**acc** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteClassifierAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**InstanceClassifier**](InstanceClassifier.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

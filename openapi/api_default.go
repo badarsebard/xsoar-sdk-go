@@ -3009,7 +3009,7 @@ type ApiDeleteClassifierRequest struct {
 	id         string
 }
 
-func (r ApiDeleteClassifierRequest) Execute() (InstanceClassifier, *_nethttp.Response, error) {
+func (r ApiDeleteClassifierRequest) Execute() (*_nethttp.Response, error) {
 	return r.ApiService.DeleteClassifierExecute(r)
 }
 
@@ -3031,20 +3031,18 @@ func (a *DefaultApiService) DeleteClassifier(ctx _context.Context, id string) Ap
 }
 
 // Execute executes the request
-//  @return InstanceClassifier
-func (a *DefaultApiService) DeleteClassifierExecute(r ApiDeleteClassifierRequest) (InstanceClassifier, *_nethttp.Response, error) {
+func (a *DefaultApiService) DeleteClassifierExecute(r ApiDeleteClassifierRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InstanceClassifier
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.DeleteClassifier")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/classifier/{id}"
@@ -3064,7 +3062,7 @@ func (a *DefaultApiService) DeleteClassifierExecute(r ApiDeleteClassifierRequest
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -3087,19 +3085,19 @@ func (a *DefaultApiService) DeleteClassifierExecute(r ApiDeleteClassifierRequest
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -3107,19 +3105,10 @@ func (a *DefaultApiService) DeleteClassifierExecute(r ApiDeleteClassifierRequest
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
+		return localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
+	return localVarHTTPResponse, nil
 }
 
 type ApiDeleteClassifierAccountRequest struct {

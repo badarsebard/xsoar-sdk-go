@@ -1754,7 +1754,7 @@ Name | Type | Description  | Notes
 
 ## DeleteClassifierAccount
 
-> InstanceClassifier DeleteClassifierAccount(ctx, id, acc).Execute()
+> DeleteClassifierAccount(ctx, id, acc).Execute()
 
 Delete a classifier for account
 
@@ -1783,8 +1783,6 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteClassifierAccount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `DeleteClassifierAccount`: InstanceClassifier
-    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.DeleteClassifierAccount`: %v\n", resp)
 }
 ```
 
@@ -1809,7 +1807,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InstanceClassifier**](InstanceClassifier.md)
+ (empty response body)
 
 ### Authorization
 
@@ -1818,7 +1816,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

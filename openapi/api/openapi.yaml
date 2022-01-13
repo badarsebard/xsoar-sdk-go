@@ -362,10 +362,7 @@ paths:
           type: string
       responses:
         "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InstanceClassifier'
+          content: {}
           description: The saved classifier
       summary: Delete a classifier for account
   /classifier/search:

@@ -461,10 +461,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The saved classifier",
-            "schema": {
-              "$ref": "#/definitions/InstanceClassifier"
-            }
+            "description": "The saved classifier"
           }
         }
       }

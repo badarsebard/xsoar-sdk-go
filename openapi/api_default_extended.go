@@ -208,7 +208,7 @@ func (a *DefaultApiService) GetIntegrationInstanceAccountExecute(r ApiGetIntegra
 	)
 	size := NewInlineObject3()
 	size.SetSize(500)
-	integrations, localVarHTTPResponse, err := a.ListIntegrationsAccount(r.ctx, "acc_"+r.acc).Size(*size).Execute()
+	integrations, localVarHTTPResponse, err := a.ListIntegrationsAccount(r.ctx, r.acc).Size(*size).Execute()
 	if err != nil {
 		return nil, localVarHTTPResponse, err
 	}
@@ -311,7 +311,7 @@ func (a *DefaultApiService) GetClassifierAccountExecute(r ApiGetClassifierAccoun
 	var (
 		localVarHTTPResponse *_nethttp.Response
 	)
-	classifiers, localVarHTTPResponse, err := a.ListClassifiersAccount(r.ctx, "acc_"+r.acc).Execute()
+	classifiers, localVarHTTPResponse, err := a.ListClassifiersAccount(r.ctx, r.acc).Execute()
 	if err != nil {
 		return InstanceClassifier{}, localVarHTTPResponse, err
 	}

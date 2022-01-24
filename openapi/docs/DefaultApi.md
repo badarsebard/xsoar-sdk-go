@@ -1222,7 +1222,7 @@ import (
 )
 
 func main() {
-    createUpdateClassifierRequest := CreateUpdateClassifierRequest(987) // CreateUpdateClassifierRequest |  (optional)
+    createUpdateClassifierRequest := *openapiclient.NewCreateUpdateClassifierRequest() // CreateUpdateClassifierRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -1247,7 +1247,7 @@ Other parameters are passed through a pointer to a apiCreateUpdateClassifierRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createUpdateClassifierRequest** | **CreateUpdateClassifierRequest** |  | 
+ **createUpdateClassifierRequest** | [**CreateUpdateClassifierRequest**](CreateUpdateClassifierRequest.md) |  | 
 
 ### Return type
 
@@ -1289,7 +1289,7 @@ import (
 
 func main() {
     acc := "acc_example" // string | 
-    createUpdateClassifierAccountRequest := CreateUpdateClassifierRequest(987) // CreateUpdateClassifierRequest |  (optional)
+    createUpdateClassifierAccountRequest := *openapiclient.NewCreateUpdateClassifierRequest() // CreateUpdateClassifierRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -1319,7 +1319,7 @@ Other parameters are passed through a pointer to a apiCreateUpdateClassifierAcco
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createUpdateClassifierAccountRequest** | **CreateUpdateClassifierRequest** |  | 
+ **createUpdateClassifierAccountRequest** | [**CreateUpdateClassifierRequest**](CreateUpdateClassifierRequest.md) |  | 
 
 ### Return type
 

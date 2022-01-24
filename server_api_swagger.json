@@ -4620,7 +4620,7 @@
     "CreateIntegrationRequest": {
       "type": "object"
     },
-    "CreateUpdateRequest": {
+    "CreateUpdateClassifierRequest": {
       "description": "Request to create new or update a classifier",
       "type": "object",
       "properties": {

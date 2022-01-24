@@ -4130,8 +4130,19 @@ components:
       x-go-package: github.com/demisto/server/domain
     CreateIntegrationRequest:
       type: object
-    CreateUpdateRequest:
+    CreateUpdateClassifierRequest:
       description: Request to create new or update a classifier
+      example:
+        mapping: '{}'
+        name: name
+        transformer: '{}'
+        defaultIncidentType: defaultIncidentType
+        id: id
+        keyTypeMap: '{}'
+        type: type
+        propagationLabels:
+        - propagationLabels
+        - propagationLabels
       properties:
         defaultIncidentType:
           type: string

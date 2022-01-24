@@ -44,8 +44,8 @@ docs/ContentItemVersionedFields.md
 docs/CreateAccountRequest.md
 docs/CreateHAGroupRequest.md
 docs/CreateIncidentRequest.md
+docs/CreateUpdateClassifierRequest.md
 docs/CreateUpdateHAGroup.md
-docs/CreateUpdateRequest.md
 docs/CustomFields.md
 docs/CustomGroup.md
 docs/CustomGroups.md
@@ -289,8 +289,8 @@ model_content_item_versioned_fields.go
 model_create_account_request.go
 model_create_ha_group_request.go
 model_create_incident_request.go
+model_create_update_classifier_request.go
 model_create_update_ha_group.go
-model_create_update_request.go
 model_custom_fields.go
 model_custom_group.go
 model_custom_groups.go

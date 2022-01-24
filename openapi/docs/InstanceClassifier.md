@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **FromServerVersion** | Pointer to **string** |  | [optional] 
 **Highlight** | Pointer to **map[string][]string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
-**IncidentSamples** | Pointer to **map[string]interface{}** | Incidents is a list of incident entities | [optional] 
+**IncidentSamples** | Pointer to [**Incidents**](Incidents.md) |  | [optional] 
 **IndicatorSamples** | Pointer to [**FeedIndicators**](FeedIndicators.md) |  | [optional] 
 **InstanceIds** | Pointer to **[]string** |  | [optional] 
 **ItemVersion** | Pointer to **string** |  | [optional] 
@@ -263,20 +263,20 @@ HasId returns a boolean if a field has been set.
 
 ### GetIncidentSamples
 
-`func (o *InstanceClassifier) GetIncidentSamples() map[string]interface{}`
+`func (o *InstanceClassifier) GetIncidentSamples() Incidents`
 
 GetIncidentSamples returns the IncidentSamples field if non-nil, zero value otherwise.
 
 ### GetIncidentSamplesOk
 
-`func (o *InstanceClassifier) GetIncidentSamplesOk() (*map[string]interface{}, bool)`
+`func (o *InstanceClassifier) GetIncidentSamplesOk() (*Incidents, bool)`
 
 GetIncidentSamplesOk returns a tuple with the IncidentSamples field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIncidentSamples
 
-`func (o *InstanceClassifier) SetIncidentSamples(v map[string]interface{})`
+`func (o *InstanceClassifier) SetIncidentSamples(v Incidents)`
 
 SetIncidentSamples sets IncidentSamples field to given value.
 

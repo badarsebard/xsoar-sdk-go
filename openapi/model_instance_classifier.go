@@ -17,16 +17,15 @@ import (
 
 // InstanceClassifier InstanceClassifier - classifies an incident from a specific brand
 type InstanceClassifier struct {
-	Brands              *[]string            `json:"brands,omitempty"`
-	CommitMessage       *string              `json:"commitMessage,omitempty"`
-	DefaultIncidentType *string              `json:"defaultIncidentType,omitempty"`
-	Description         *string              `json:"description,omitempty"`
-	Feed                *bool                `json:"feed,omitempty"`
-	FromServerVersion   *string              `json:"fromServerVersion,omitempty"`
-	Highlight           *map[string][]string `json:"highlight,omitempty"`
-	Id                  *string              `json:"id,omitempty"`
-	// Incidents is a list of incident entities
-	IncidentSamples       *map[string]interface{} `json:"incidentSamples,omitempty"`
+	Brands                *[]string               `json:"brands,omitempty"`
+	CommitMessage         *string                 `json:"commitMessage,omitempty"`
+	DefaultIncidentType   *string                 `json:"defaultIncidentType,omitempty"`
+	Description           *string                 `json:"description,omitempty"`
+	Feed                  *bool                   `json:"feed,omitempty"`
+	FromServerVersion     *string                 `json:"fromServerVersion,omitempty"`
+	Highlight             *map[string][]string    `json:"highlight,omitempty"`
+	Id                    *string                 `json:"id,omitempty"`
+	IncidentSamples       *Incidents              `json:"incidentSamples,omitempty"`
 	IndicatorSamples      *FeedIndicators         `json:"indicatorSamples,omitempty"`
 	InstanceIds           *[]string               `json:"instanceIds,omitempty"`
 	ItemVersion           *string                 `json:"itemVersion,omitempty"`
@@ -332,9 +331,9 @@ func (o *InstanceClassifier) SetId(v string) {
 }
 
 // GetIncidentSamples returns the IncidentSamples field value if set, zero value otherwise.
-func (o *InstanceClassifier) GetIncidentSamples() map[string]interface{} {
+func (o *InstanceClassifier) GetIncidentSamples() Incidents {
 	if o == nil || o.IncidentSamples == nil {
-		var ret map[string]interface{}
+		var ret Incidents
 		return ret
 	}
 	return *o.IncidentSamples
@@ -342,7 +341,7 @@ func (o *InstanceClassifier) GetIncidentSamples() map[string]interface{} {
 
 // GetIncidentSamplesOk returns a tuple with the IncidentSamples field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InstanceClassifier) GetIncidentSamplesOk() (*map[string]interface{}, bool) {
+func (o *InstanceClassifier) GetIncidentSamplesOk() (*Incidents, bool) {
 	if o == nil || o.IncidentSamples == nil {
 		return nil, false
 	}
@@ -358,8 +357,8 @@ func (o *InstanceClassifier) HasIncidentSamples() bool {
 	return false
 }
 
-// SetIncidentSamples gets a reference to the given map[string]interface{} and assigns it to the IncidentSamples field.
-func (o *InstanceClassifier) SetIncidentSamples(v map[string]interface{}) {
+// SetIncidentSamples gets a reference to the given Incidents and assigns it to the IncidentSamples field.
+func (o *InstanceClassifier) SetIncidentSamples(v Incidents) {
 	o.IncidentSamples = &v
 }
 

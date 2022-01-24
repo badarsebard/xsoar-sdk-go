@@ -44,8 +44,8 @@ docs/ContentItemVersionedFields.md
 docs/CreateAccountRequest.md
 docs/CreateHAGroupRequest.md
 docs/CreateIncidentRequest.md
-docs/CreateUpdateClassifierRequest.md
 docs/CreateUpdateHAGroup.md
+docs/CreateUpdateRequest.md
 docs/CustomFields.md
 docs/CustomGroup.md
 docs/CustomGroups.md
@@ -109,6 +109,7 @@ docs/IncidentType.md
 docs/IncidentTypeExtractSettings.md
 docs/IncidentTypesWithErrors.md
 docs/IncidentWrapper.md
+docs/Incidents.md
 docs/IndicatorContext.md
 docs/IndicatorEditBulkResponse.md
 docs/IndicatorFilter.md
@@ -288,8 +289,8 @@ model_content_item_versioned_fields.go
 model_create_account_request.go
 model_create_ha_group_request.go
 model_create_incident_request.go
-model_create_update_classifier_request.go
 model_create_update_ha_group.go
+model_create_update_request.go
 model_custom_fields.go
 model_custom_group.go
 model_custom_groups.go
@@ -352,6 +353,7 @@ model_incident_type.go
 model_incident_type_extract_settings.go
 model_incident_types_with_errors.go
 model_incident_wrapper.go
+model_incidents.go
 model_indicator_context.go
 model_indicator_edit_bulk_response.go
 model_indicator_filter.go

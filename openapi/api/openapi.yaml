@@ -4130,19 +4130,8 @@ components:
       x-go-package: github.com/demisto/server/domain
     CreateIntegrationRequest:
       type: object
-    CreateUpdateClassifierRequest:
+    CreateUpdateRequest:
       description: Request to create new or update a classifier
-      example:
-        mapping: '{}'
-        name: name
-        transformer: '{}'
-        defaultIncidentType: defaultIncidentType
-        id: id
-        keyTypeMap: '{}'
-        type: type
-        propagationLabels:
-        - propagationLabels
-        - propagationLabels
       properties:
         defaultIncidentType:
           type: string
@@ -8808,7 +8797,10 @@ components:
       x-go-package: github.com/demisto/server/domain
     Incidents:
       description: Incidents is a list of incident entities
-      type: object
+      items:
+        properties: {}
+        type: object
+      type: array
     IndicatorEditBulkResponse:
       example:
         total: 0
@@ -9189,7 +9181,6 @@ components:
         brands:
         - brands
         - brands
-        incidentSamples: '{}'
         logicalVersion: 0
         itemVersion: itemVersion
         packPropagationLabels:
@@ -9242,8 +9233,7 @@ components:
           type: string
           x-go-name: ID
         incidentSamples:
-          description: Incidents is a list of incident entities
-          type: object
+          $ref: '#/components/schemas/Incidents'
         indicatorSamples:
           $ref: '#/components/schemas/FeedIndicators'
         instanceIds:
@@ -9377,7 +9367,6 @@ components:
           brands:
           - brands
           - brands
-          incidentSamples: '{}'
           logicalVersion: 0
           itemVersion: itemVersion
           packPropagationLabels:
@@ -9426,7 +9415,6 @@ components:
           brands:
           - brands
           - brands
-          incidentSamples: '{}'
           logicalVersion: 0
           itemVersion: itemVersion
           packPropagationLabels:

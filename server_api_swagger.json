@@ -4620,7 +4620,7 @@
     "CreateIntegrationRequest": {
       "type": "object"
     },
-    "CreateUpdateClassifierRequest": {
+    "CreateUpdateRequest": {
       "description": "Request to create new or update a classifier",
       "type": "object",
       "properties": {
@@ -8624,7 +8624,11 @@
       "x-go-package": "github.com/demisto/server/domain"
     },
     "Incidents": {
-      "description": "Incidents is a list of incident entities"
+      "description": "Incidents is a list of incident entities",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
     },
     "IndicatorEditBulkResponse": {
       "type": "object",

@@ -36,7 +36,7 @@ func (r ApiGetAccountRequest) SetAccountName(accountname string) ApiGetAccountRe
 //  @return map[string]interface{}
 func (a *DefaultApiService) GetAccountExecute(r ApiGetAccountRequest) (map[string]interface{}, *_nethttp.Response, error) {
 	var (
-		accountsWrapper      AccountsWrapper
+		accountsWrapper      []map[string]interface{}
 		localVarHTTPResponse *_nethttp.Response
 		localVarReturnValue  map[string]interface{}
 	)
@@ -46,7 +46,7 @@ func (a *DefaultApiService) GetAccountExecute(r ApiGetAccountRequest) (map[strin
 		return nil, localVarHTTPResponse, err
 	}
 
-	for _, account := range accountsWrapper.Items {
+	for _, account := range accountsWrapper {
 		if r.accountname == account["name"].(string) {
 			localVarReturnValue = account
 			break
@@ -95,7 +95,7 @@ func (r ApiGetHostRequest) SetHostName(hostname string) ApiGetHostRequest {
 //  @return []map[string]interface{}
 func (a *DefaultApiService) GetHostExecute(r ApiGetHostRequest) (map[string]interface{}, *_nethttp.Response, error) {
 	var (
-		hosts                Hosts
+		hosts                []map[string]interface{}
 		localVarHTTPResponse *_nethttp.Response
 		localVarReturnValue  map[string]interface{}
 	)
@@ -105,7 +105,7 @@ func (a *DefaultApiService) GetHostExecute(r ApiGetHostRequest) (map[string]inte
 		return nil, localVarHTTPResponse, err
 	}
 
-	for _, host := range hosts.Items {
+	for _, host := range hosts {
 		if r.hostname == host["host"].(string) {
 			localVarReturnValue = host
 			break

@@ -17,7 +17,7 @@ import (
 // TaskLoop TaskLoop contains loop details
 type TaskLoop struct {
 	Brand            *string                `json:"brand,omitempty"`
-	BuiltinCondition *[]ArgFilter           `json:"builtinCondition,omitempty"`
+	BuiltinCondition *[][]ArgAtomicFilter   `json:"builtinCondition,omitempty"`
 	ExitCondition    *string                `json:"exitCondition,omitempty"`
 	ForEach          *bool                  `json:"forEach,omitempty"`
 	IsCommand        *bool                  `json:"isCommand,omitempty"`
@@ -78,9 +78,9 @@ func (o *TaskLoop) SetBrand(v string) {
 }
 
 // GetBuiltinCondition returns the BuiltinCondition field value if set, zero value otherwise.
-func (o *TaskLoop) GetBuiltinCondition() []ArgFilter {
+func (o *TaskLoop) GetBuiltinCondition() [][]ArgAtomicFilter {
 	if o == nil || o.BuiltinCondition == nil {
-		var ret []ArgFilter
+		var ret [][]ArgAtomicFilter
 		return ret
 	}
 	return *o.BuiltinCondition
@@ -88,7 +88,7 @@ func (o *TaskLoop) GetBuiltinCondition() []ArgFilter {
 
 // GetBuiltinConditionOk returns a tuple with the BuiltinCondition field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TaskLoop) GetBuiltinConditionOk() (*[]ArgFilter, bool) {
+func (o *TaskLoop) GetBuiltinConditionOk() (*[][]ArgAtomicFilter, bool) {
 	if o == nil || o.BuiltinCondition == nil {
 		return nil, false
 	}
@@ -104,8 +104,8 @@ func (o *TaskLoop) HasBuiltinCondition() bool {
 	return false
 }
 
-// SetBuiltinCondition gets a reference to the given []ArgFilter and assigns it to the BuiltinCondition field.
-func (o *TaskLoop) SetBuiltinCondition(v []ArgFilter) {
+// SetBuiltinCondition gets a reference to the given [][]ArgAtomicFilter and assigns it to the BuiltinCondition field.
+func (o *TaskLoop) SetBuiltinCondition(v [][]ArgAtomicFilter) {
 	o.BuiltinCondition = &v
 }
 

@@ -16,20 +16,21 @@ import (
 
 // RelationshipAPI struct for RelationshipAPI
 type RelationshipAPI struct {
-	Brand         *string       `json:"brand,omitempty"`
-	EntityA       *string       `json:"entityA,omitempty"`
-	EntityAFamily *string       `json:"entityAFamily,omitempty"`
-	EntityAType   *string       `json:"entityAType,omitempty"`
-	EntityB       *string       `json:"entityB,omitempty"`
-	EntityBFamily *string       `json:"entityBFamily,omitempty"`
-	EntityBType   *string       `json:"entityBType,omitempty"`
-	Fields        *CustomFields `json:"fields,omitempty"`
-	Id            *string       `json:"id,omitempty"`
-	Instance      *string       `json:"instance,omitempty"`
-	Name          *string       `json:"name,omitempty"`
-	Reliability   *string       `json:"reliability,omitempty"`
-	ReverseName   *string       `json:"reverseName,omitempty"`
-	Type          *string       `json:"type,omitempty"`
+	Brand         *string `json:"brand,omitempty"`
+	EntityA       *string `json:"entityA,omitempty"`
+	EntityAFamily *string `json:"entityAFamily,omitempty"`
+	EntityAType   *string `json:"entityAType,omitempty"`
+	EntityB       *string `json:"entityB,omitempty"`
+	EntityBFamily *string `json:"entityBFamily,omitempty"`
+	EntityBType   *string `json:"entityBType,omitempty"`
+	// The keys should be the field's display name all lower and without spaces. For example: Scan IP -> scanip To get the actual key name you can also go to Cortex XSOAR CLI and run /incident_add and look for the key that you would like to update
+	Fields      *map[string]map[string]interface{} `json:"fields,omitempty"`
+	Id          *string                            `json:"id,omitempty"`
+	Instance    *string                            `json:"instance,omitempty"`
+	Name        *string                            `json:"name,omitempty"`
+	Reliability *string                            `json:"reliability,omitempty"`
+	ReverseName *string                            `json:"reverseName,omitempty"`
+	Type        *string                            `json:"type,omitempty"`
 }
 
 // NewRelationshipAPI instantiates a new RelationshipAPI object
@@ -274,9 +275,9 @@ func (o *RelationshipAPI) SetEntityBType(v string) {
 }
 
 // GetFields returns the Fields field value if set, zero value otherwise.
-func (o *RelationshipAPI) GetFields() CustomFields {
+func (o *RelationshipAPI) GetFields() map[string]map[string]interface{} {
 	if o == nil || o.Fields == nil {
-		var ret CustomFields
+		var ret map[string]map[string]interface{}
 		return ret
 	}
 	return *o.Fields
@@ -284,7 +285,7 @@ func (o *RelationshipAPI) GetFields() CustomFields {
 
 // GetFieldsOk returns a tuple with the Fields field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RelationshipAPI) GetFieldsOk() (*CustomFields, bool) {
+func (o *RelationshipAPI) GetFieldsOk() (*map[string]map[string]interface{}, bool) {
 	if o == nil || o.Fields == nil {
 		return nil, false
 	}
@@ -300,8 +301,8 @@ func (o *RelationshipAPI) HasFields() bool {
 	return false
 }
 
-// SetFields gets a reference to the given CustomFields and assigns it to the Fields field.
-func (o *RelationshipAPI) SetFields(v CustomFields) {
+// SetFields gets a reference to the given map[string]map[string]interface{} and assigns it to the Fields field.
+func (o *RelationshipAPI) SetFields(v map[string]map[string]interface{}) {
 	o.Fields = &v
 }
 

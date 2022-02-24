@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Brand** | Pointer to **string** |  | [optional] 
-**BuiltinCondition** | Pointer to [**[]ArgFilter**](ArgFilter.md) |  | [optional] 
+**BuiltinCondition** | Pointer to [**[][]ArgAtomicFilter**]([]ArgAtomicFilter.md) |  | [optional] 
 **ExitCondition** | Pointer to **string** |  | [optional] 
 **ForEach** | Pointer to **bool** |  | [optional] 
 **IsCommand** | Pointer to **bool** |  | [optional] 
@@ -61,20 +61,20 @@ HasBrand returns a boolean if a field has been set.
 
 ### GetBuiltinCondition
 
-`func (o *TaskLoop) GetBuiltinCondition() []ArgFilter`
+`func (o *TaskLoop) GetBuiltinCondition() [][]ArgAtomicFilter`
 
 GetBuiltinCondition returns the BuiltinCondition field if non-nil, zero value otherwise.
 
 ### GetBuiltinConditionOk
 
-`func (o *TaskLoop) GetBuiltinConditionOk() (*[]ArgFilter, bool)`
+`func (o *TaskLoop) GetBuiltinConditionOk() (*[][]ArgAtomicFilter, bool)`
 
 GetBuiltinConditionOk returns a tuple with the BuiltinCondition field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBuiltinCondition
 
-`func (o *TaskLoop) SetBuiltinCondition(v []ArgFilter)`
+`func (o *TaskLoop) SetBuiltinCondition(v [][]ArgAtomicFilter)`
 
 SetBuiltinCondition sets BuiltinCondition field to given value.
 

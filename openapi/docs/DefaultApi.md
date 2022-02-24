@@ -485,7 +485,7 @@ Name | Type | Description  | Notes
 
 ## CreateAccount
 
-> AccountsWrapper CreateAccount(ctx).CreateAccountRequest(createAccountRequest).Execute()
+> []map[string]interface{} CreateAccount(ctx).CreateAccountRequest(createAccountRequest).Execute()
 
 Create an account
 
@@ -513,7 +513,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.CreateAccount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateAccount`: AccountsWrapper
+    // response from `CreateAccount`: []map[string]interface{}
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.CreateAccount`: %v\n", resp)
 }
 ```
@@ -533,7 +533,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AccountsWrapper**](AccountsWrapper.md)
+**[]map[string]interface{}**
 
 ### Authorization
 
@@ -1479,7 +1479,7 @@ Name | Type | Description  | Notes
 
 ## DeleteAccount
 
-> AccountsWrapper DeleteAccount(ctx, accountname).Execute()
+> []map[string]interface{} DeleteAccount(ctx, accountname).Execute()
 
 
 
@@ -1507,7 +1507,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.DeleteAccount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `DeleteAccount`: AccountsWrapper
+    // response from `DeleteAccount`: []map[string]interface{}
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.DeleteAccount`: %v\n", resp)
 }
 ```
@@ -1531,7 +1531,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AccountsWrapper**](AccountsWrapper.md)
+**[]map[string]interface{}**
 
 ### Authorization
 
@@ -4825,7 +4825,7 @@ Name | Type | Description  | Notes
 
 ## IndicatorsCreateBatch
 
-> IocObjects IndicatorsCreateBatch(ctx).File(file).FileName(fileName).Execute()
+> []IocObject IndicatorsCreateBatch(ctx).File(file).FileName(fileName).Execute()
 
 Create indicators
 
@@ -4854,7 +4854,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.IndicatorsCreateBatch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `IndicatorsCreateBatch`: IocObjects
+    // response from `IndicatorsCreateBatch`: []IocObject
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.IndicatorsCreateBatch`: %v\n", resp)
 }
 ```
@@ -4875,7 +4875,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**IocObjects**](IocObjects.md)
+[**[]IocObject**](IocObject.md)
 
 ### Authorization
 
@@ -5355,7 +5355,7 @@ Name | Type | Description  | Notes
 
 ## ListAccounts
 
-> AccountsWrapper ListAccounts(ctx).Execute()
+> []map[string]interface{} ListAccounts(ctx).Execute()
 
 List accounts
 
@@ -5382,7 +5382,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListAccounts``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListAccounts`: AccountsWrapper
+    // response from `ListAccounts`: []map[string]interface{}
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListAccounts`: %v\n", resp)
 }
 ```
@@ -5398,7 +5398,7 @@ Other parameters are passed through a pointer to a apiListAccountsRequest struct
 
 ### Return type
 
-[**AccountsWrapper**](AccountsWrapper.md)
+**[]map[string]interface{}**
 
 ### Authorization
 
@@ -5615,7 +5615,7 @@ Name | Type | Description  | Notes
 
 ## ListHAGroups
 
-> HAGroups ListHAGroups(ctx).Execute()
+> []map[string]interface{} ListHAGroups(ctx).Execute()
 
 
 
@@ -5642,7 +5642,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListHAGroups``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListHAGroups`: HAGroups
+    // response from `ListHAGroups`: []map[string]interface{}
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListHAGroups`: %v\n", resp)
 }
 ```
@@ -5658,7 +5658,7 @@ Other parameters are passed through a pointer to a apiListHAGroupsRequest struct
 
 ### Return type
 
-[**HAGroups**](HAGroups.md)
+**[]map[string]interface{}**
 
 ### Authorization
 
@@ -5676,7 +5676,7 @@ Other parameters are passed through a pointer to a apiListHAGroupsRequest struct
 
 ## ListHosts
 
-> Hosts ListHosts(ctx).Execute()
+> []map[string]interface{} ListHosts(ctx).Execute()
 
 
 
@@ -5703,7 +5703,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListHosts``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListHosts`: Hosts
+    // response from `ListHosts`: []map[string]interface{}
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListHosts`: %v\n", resp)
 }
 ```
@@ -5719,7 +5719,7 @@ Other parameters are passed through a pointer to a apiListHostsRequest struct vi
 
 ### Return type
 
-[**Hosts**](Hosts.md)
+**[]map[string]interface{}**
 
 ### Authorization
 
@@ -5875,7 +5875,7 @@ Name | Type | Description  | Notes
 
 ## ListMainHosts
 
-> MainHosts ListMainHosts(ctx).Execute()
+> []MainHost ListMainHosts(ctx).Execute()
 
 List the main hosts
 
@@ -5902,7 +5902,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ListMainHosts``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListMainHosts`: MainHosts
+    // response from `ListMainHosts`: []MainHost
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.ListMainHosts`: %v\n", resp)
 }
 ```
@@ -5918,7 +5918,7 @@ Other parameters are passed through a pointer to a apiListMainHostsRequest struc
 
 ### Return type
 
-[**MainHosts**](MainHosts.md)
+[**[]MainHost**](MainHost.md)
 
 ### Authorization
 
@@ -6933,7 +6933,7 @@ import (
 )
 
 func main() {
-    startAccountsRequest := *openapiclient.NewAccountsWrapper() // AccountsWrapper |  (optional)
+    startAccountsRequest := []map[string]interface{}{map[string]interface{}(123)} // []map[string]interface{} |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -6956,7 +6956,7 @@ Other parameters are passed through a pointer to a apiStartAccountsRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startAccountsRequest** | [**AccountsWrapper**](AccountsWrapper.md) |  | 
+ **startAccountsRequest** | **[]map[string]interface{}** |  | 
 
 ### Return type
 
@@ -6997,7 +6997,7 @@ import (
 )
 
 func main() {
-    stopAccountsRequest := *openapiclient.NewAccountsWrapper() // AccountsWrapper |  (optional)
+    stopAccountsRequest := []map[string]interface{}{map[string]interface{}(123)} // []map[string]interface{} |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -7020,7 +7020,7 @@ Other parameters are passed through a pointer to a apiStopAccountsRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stopAccountsRequest** | [**AccountsWrapper**](AccountsWrapper.md) |  | 
+ **stopAccountsRequest** | **[]map[string]interface{}** |  | 
 
 ### Return type
 
@@ -7450,7 +7450,7 @@ Name | Type | Description  | Notes
 
 ## UpdateAccountHost
 
-> UpdateAccountHostResponse UpdateAccountHost(ctx, accountname, hostgroupid).Execute()
+> []map[string]interface{} UpdateAccountHost(ctx, accountname, hostgroupid).Execute()
 
 
 
@@ -7479,7 +7479,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.UpdateAccountHost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UpdateAccountHost`: UpdateAccountHostResponse
+    // response from `UpdateAccountHost`: []map[string]interface{}
     fmt.Fprintf(os.Stdout, "Response from `DefaultApi.UpdateAccountHost`: %v\n", resp)
 }
 ```
@@ -7505,7 +7505,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateAccountHostResponse**](UpdateAccountHostResponse.md)
+**[]map[string]interface{}**
 
 ### Authorization
 

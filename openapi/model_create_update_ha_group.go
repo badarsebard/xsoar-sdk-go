@@ -16,10 +16,12 @@ import (
 
 // CreateUpdateHAGroup Create or update an HA group
 type CreateUpdateHAGroup struct {
-	Name                 *string `json:"name,omitempty"`
-	Id                   *string `json:"id,omitempty"`
-	ElasticsearchAddress *string `json:"elasticsearchAddress,omitempty"`
-	ElasticIndexPrefix   *string `json:"elasticIndexPrefix,omitempty"`
+	Name                 *string   `json:"name,omitempty"`
+	Id                   *string   `json:"id,omitempty"`
+	ElasticsearchAddress *string   `json:"elasticsearchAddress,omitempty"`
+	ElasticIndexPrefix   *string   `json:"elasticIndexPrefix,omitempty"`
+	AccountIds           *[]string `json:"accountIds,omitempty"`
+	HostIds              *[]string `json:"hostIds,omitempty"`
 }
 
 // NewCreateUpdateHAGroup instantiates a new CreateUpdateHAGroup object
@@ -167,6 +169,70 @@ func (o *CreateUpdateHAGroup) SetElasticIndexPrefix(v string) {
 	o.ElasticIndexPrefix = &v
 }
 
+// GetAccountIds returns the AccountIds field value if set, zero value otherwise.
+func (o *CreateUpdateHAGroup) GetAccountIds() []string {
+	if o == nil || o.AccountIds == nil {
+		var ret []string
+		return ret
+	}
+	return *o.AccountIds
+}
+
+// GetAccountIdsOk returns a tuple with the AccountIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateUpdateHAGroup) GetAccountIdsOk() (*[]string, bool) {
+	if o == nil || o.AccountIds == nil {
+		return nil, false
+	}
+	return o.AccountIds, true
+}
+
+// HasAccountIds returns a boolean if a field has been set.
+func (o *CreateUpdateHAGroup) HasAccountIds() bool {
+	if o != nil && o.AccountIds != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAccountIds gets a reference to the given []string and assigns it to the AccountIds field.
+func (o *CreateUpdateHAGroup) SetAccountIds(v []string) {
+	o.AccountIds = &v
+}
+
+// GetHostIds returns the HostIds field value if set, zero value otherwise.
+func (o *CreateUpdateHAGroup) GetHostIds() []string {
+	if o == nil || o.HostIds == nil {
+		var ret []string
+		return ret
+	}
+	return *o.HostIds
+}
+
+// GetHostIdsOk returns a tuple with the HostIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateUpdateHAGroup) GetHostIdsOk() (*[]string, bool) {
+	if o == nil || o.HostIds == nil {
+		return nil, false
+	}
+	return o.HostIds, true
+}
+
+// HasHostIds returns a boolean if a field has been set.
+func (o *CreateUpdateHAGroup) HasHostIds() bool {
+	if o != nil && o.HostIds != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetHostIds gets a reference to the given []string and assigns it to the HostIds field.
+func (o *CreateUpdateHAGroup) SetHostIds(v []string) {
+	o.HostIds = &v
+}
+
 func (o CreateUpdateHAGroup) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Name != nil {
@@ -180,6 +246,12 @@ func (o CreateUpdateHAGroup) MarshalJSON() ([]byte, error) {
 	}
 	if o.ElasticIndexPrefix != nil {
 		toSerialize["elasticIndexPrefix"] = o.ElasticIndexPrefix
+	}
+	if o.AccountIds != nil {
+		toSerialize["accountIds"] = o.AccountIds
+	}
+	if o.HostIds != nil {
+		toSerialize["hostIds"] = o.HostIds
 	}
 	return json.Marshal(toSerialize)
 }

@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **ElasticsearchAddress** | Pointer to **string** |  | [optional] 
 **ElasticIndexPrefix** | Pointer to **string** |  | [optional] 
+**AccountIds** | Pointer to **[]string** |  | [optional] 
+**HostIds** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
@@ -127,6 +129,56 @@ SetElasticIndexPrefix sets ElasticIndexPrefix field to given value.
 `func (o *CreateUpdateHAGroup) HasElasticIndexPrefix() bool`
 
 HasElasticIndexPrefix returns a boolean if a field has been set.
+
+### GetAccountIds
+
+`func (o *CreateUpdateHAGroup) GetAccountIds() []string`
+
+GetAccountIds returns the AccountIds field if non-nil, zero value otherwise.
+
+### GetAccountIdsOk
+
+`func (o *CreateUpdateHAGroup) GetAccountIdsOk() (*[]string, bool)`
+
+GetAccountIdsOk returns a tuple with the AccountIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccountIds
+
+`func (o *CreateUpdateHAGroup) SetAccountIds(v []string)`
+
+SetAccountIds sets AccountIds field to given value.
+
+### HasAccountIds
+
+`func (o *CreateUpdateHAGroup) HasAccountIds() bool`
+
+HasAccountIds returns a boolean if a field has been set.
+
+### GetHostIds
+
+`func (o *CreateUpdateHAGroup) GetHostIds() []string`
+
+GetHostIds returns the HostIds field if non-nil, zero value otherwise.
+
+### GetHostIdsOk
+
+`func (o *CreateUpdateHAGroup) GetHostIdsOk() (*[]string, bool)`
+
+GetHostIdsOk returns a tuple with the HostIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHostIds
+
+`func (o *CreateUpdateHAGroup) SetHostIds(v []string)`
+
+SetHostIds sets HostIds field to given value.
+
+### HasHostIds
+
+`func (o *CreateUpdateHAGroup) HasHostIds() bool`
+
+HasHostIds returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -16,8 +16,8 @@ import (
 
 // TaskCondition TaskCondition - contains a condition and a corresponding label if the condition satisfied - its label is taken as the next task(s) input (e.i. the label on the edge)
 type TaskCondition struct {
-	Condition *[]ArgFilter `json:"condition,omitempty"`
-	Label     *string      `json:"label,omitempty"`
+	Condition *[][]ArgAtomicFilter `json:"condition,omitempty"`
+	Label     *string              `json:"label,omitempty"`
 }
 
 // NewTaskCondition instantiates a new TaskCondition object
@@ -38,9 +38,9 @@ func NewTaskConditionWithDefaults() *TaskCondition {
 }
 
 // GetCondition returns the Condition field value if set, zero value otherwise.
-func (o *TaskCondition) GetCondition() []ArgFilter {
+func (o *TaskCondition) GetCondition() [][]ArgAtomicFilter {
 	if o == nil || o.Condition == nil {
-		var ret []ArgFilter
+		var ret [][]ArgAtomicFilter
 		return ret
 	}
 	return *o.Condition
@@ -48,7 +48,7 @@ func (o *TaskCondition) GetCondition() []ArgFilter {
 
 // GetConditionOk returns a tuple with the Condition field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TaskCondition) GetConditionOk() (*[]ArgFilter, bool) {
+func (o *TaskCondition) GetConditionOk() (*[][]ArgAtomicFilter, bool) {
 	if o == nil || o.Condition == nil {
 		return nil, false
 	}
@@ -64,8 +64,8 @@ func (o *TaskCondition) HasCondition() bool {
 	return false
 }
 
-// SetCondition gets a reference to the given []ArgFilter and assigns it to the Condition field.
-func (o *TaskCondition) SetCondition(v []ArgFilter) {
+// SetCondition gets a reference to the given [][]ArgAtomicFilter and assigns it to the Condition field.
+func (o *TaskCondition) SetCondition(v [][]ArgAtomicFilter) {
 	o.Condition = &v
 }
 

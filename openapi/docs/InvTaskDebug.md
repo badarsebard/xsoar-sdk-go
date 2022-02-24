@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BreakpointCondition** | Pointer to [**ArgFilter**](ArgFilter.md) |  | [optional] 
+**BreakpointCondition** | Pointer to [**[]ArgAtomicFilter**](ArgAtomicFilter.md) | ArgFilter - represent a slice of atomic filters with OR condition between them (e.i. - atomic1 OR atomic2 OR ...) | [optional] 
 **InputOverrides** | Pointer to **map[string]string** |  | [optional] 
 **IsMarkedWithBreakpoint** | Pointer to **bool** |  | [optional] 
 **IsMarkedWithSkip** | Pointer to **bool** |  | [optional] 
@@ -34,20 +34,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetBreakpointCondition
 
-`func (o *InvTaskDebug) GetBreakpointCondition() ArgFilter`
+`func (o *InvTaskDebug) GetBreakpointCondition() []ArgAtomicFilter`
 
 GetBreakpointCondition returns the BreakpointCondition field if non-nil, zero value otherwise.
 
 ### GetBreakpointConditionOk
 
-`func (o *InvTaskDebug) GetBreakpointConditionOk() (*ArgFilter, bool)`
+`func (o *InvTaskDebug) GetBreakpointConditionOk() (*[]ArgAtomicFilter, bool)`
 
 GetBreakpointConditionOk returns a tuple with the BreakpointCondition field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBreakpointCondition
 
-`func (o *InvTaskDebug) SetBreakpointCondition(v ArgFilter)`
+`func (o *InvTaskDebug) SetBreakpointCondition(v []ArgAtomicFilter)`
 
 SetBreakpointCondition sets BreakpointCondition field to given value.
 

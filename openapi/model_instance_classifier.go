@@ -17,44 +17,45 @@ import (
 
 // InstanceClassifier InstanceClassifier - classifies an incident from a specific brand
 type InstanceClassifier struct {
-	Brands                *[]string               `json:"brands,omitempty"`
-	CommitMessage         *string                 `json:"commitMessage,omitempty"`
-	DefaultIncidentType   *string                 `json:"defaultIncidentType,omitempty"`
-	Description           *string                 `json:"description,omitempty"`
-	Feed                  *bool                   `json:"feed,omitempty"`
-	FromServerVersion     *string                 `json:"fromServerVersion,omitempty"`
-	Highlight             *map[string][]string    `json:"highlight,omitempty"`
-	Id                    *string                 `json:"id,omitempty"`
-	IncidentSamples       *Incidents              `json:"incidentSamples,omitempty"`
-	IndicatorSamples      *FeedIndicators         `json:"indicatorSamples,omitempty"`
-	InstanceIds           *[]string               `json:"instanceIds,omitempty"`
-	ItemVersion           *string                 `json:"itemVersion,omitempty"`
-	KeyTypeMap            *map[string]interface{} `json:"keyTypeMap,omitempty"`
-	Locked                *bool                   `json:"locked,omitempty"`
-	LogicalVersion        *int64                  `json:"logicalVersion,omitempty"`
-	Mapping               *map[string]interface{} `json:"mapping,omitempty"`
-	Modified              *time.Time              `json:"modified,omitempty"`
-	Name                  *string                 `json:"name,omitempty"`
-	NameRaw               *string                 `json:"nameRaw,omitempty"`
-	NumericId             *int64                  `json:"numericId,omitempty"`
-	PackID                *string                 `json:"packID,omitempty"`
-	PackPropagationLabels *[]string               `json:"packPropagationLabels,omitempty"`
-	PrevName              *string                 `json:"prevName,omitempty"`
-	PrimaryTerm           *int64                  `json:"primaryTerm,omitempty"`
-	PropagationLabels     *[]string               `json:"propagationLabels,omitempty"`
-	SequenceNumber        *int64                  `json:"sequenceNumber,omitempty"`
-	ShouldCommit          *bool                   `json:"shouldCommit,omitempty"`
-	SortValues            *[]string               `json:"sortValues,omitempty"`
-	SourceClassifierId    *string                 `json:"sourceClassifierId,omitempty"`
-	System                *bool                   `json:"system,omitempty"`
-	ToServerVersion       *string                 `json:"toServerVersion,omitempty"`
-	Transformer           *map[string]interface{} `json:"transformer,omitempty"`
+	Brands              *[]string            `json:"brands,omitempty"`
+	CommitMessage       *string              `json:"commitMessage,omitempty"`
+	DefaultIncidentType *string              `json:"defaultIncidentType,omitempty"`
+	Description         *string              `json:"description,omitempty"`
+	Feed                *bool                `json:"feed,omitempty"`
+	FromServerVersion   *string              `json:"fromServerVersion,omitempty"`
+	Highlight           *map[string][]string `json:"highlight,omitempty"`
+	Id                  *string              `json:"id,omitempty"`
+	// Incidents is a list of incident entities
+	IncidentSamples       *[]map[string]interface{} `json:"incidentSamples,omitempty"`
+	IndicatorSamples      *[]FeedIndicator          `json:"indicatorSamples,omitempty"`
+	InstanceIds           *[]string                 `json:"instanceIds,omitempty"`
+	ItemVersion           *string                   `json:"itemVersion,omitempty"`
+	KeyTypeMap            *map[string]interface{}   `json:"keyTypeMap,omitempty"`
+	Locked                *bool                     `json:"locked,omitempty"`
+	LogicalVersion        *int64                    `json:"logicalVersion,omitempty"`
+	Mapping               *map[string]interface{}   `json:"mapping,omitempty"`
+	Modified              *time.Time                `json:"modified,omitempty"`
+	Name                  *string                   `json:"name,omitempty"`
+	NameRaw               *string                   `json:"nameRaw,omitempty"`
+	NumericId             *int64                    `json:"numericId,omitempty"`
+	PackID                *string                   `json:"packID,omitempty"`
+	PackPropagationLabels *[]string                 `json:"packPropagationLabels,omitempty"`
+	PrevName              *string                   `json:"prevName,omitempty"`
+	PrimaryTerm           *int64                    `json:"primaryTerm,omitempty"`
+	PropagationLabels     *[]string                 `json:"propagationLabels,omitempty"`
+	SequenceNumber        *int64                    `json:"sequenceNumber,omitempty"`
+	ShouldCommit          *bool                     `json:"shouldCommit,omitempty"`
+	SortValues            *[]string                 `json:"sortValues,omitempty"`
+	SourceClassifierId    *string                   `json:"sourceClassifierId,omitempty"`
+	System                *bool                     `json:"system,omitempty"`
+	ToServerVersion       *string                   `json:"toServerVersion,omitempty"`
+	Transformer           *map[string]interface{}   `json:"transformer,omitempty"`
 	// MapperType for instance classifier
-	Type                              *string                       `json:"type,omitempty"`
-	UnclassifiedCases                 *map[string]UnclassifiedCases `json:"unclassifiedCases,omitempty"`
-	VcShouldIgnore                    *bool                         `json:"vcShouldIgnore,omitempty"`
-	VcShouldKeepItemLegacyProdMachine *bool                         `json:"vcShouldKeepItemLegacyProdMachine,omitempty"`
-	Version                           *int64                        `json:"version,omitempty"`
+	Type                              *string                      `json:"type,omitempty"`
+	UnclassifiedCases                 *map[string]map[string]int64 `json:"unclassifiedCases,omitempty"`
+	VcShouldIgnore                    *bool                        `json:"vcShouldIgnore,omitempty"`
+	VcShouldKeepItemLegacyProdMachine *bool                        `json:"vcShouldKeepItemLegacyProdMachine,omitempty"`
+	Version                           *int64                       `json:"version,omitempty"`
 }
 
 // NewInstanceClassifier instantiates a new InstanceClassifier object
@@ -331,9 +332,9 @@ func (o *InstanceClassifier) SetId(v string) {
 }
 
 // GetIncidentSamples returns the IncidentSamples field value if set, zero value otherwise.
-func (o *InstanceClassifier) GetIncidentSamples() Incidents {
+func (o *InstanceClassifier) GetIncidentSamples() []map[string]interface{} {
 	if o == nil || o.IncidentSamples == nil {
-		var ret Incidents
+		var ret []map[string]interface{}
 		return ret
 	}
 	return *o.IncidentSamples
@@ -341,7 +342,7 @@ func (o *InstanceClassifier) GetIncidentSamples() Incidents {
 
 // GetIncidentSamplesOk returns a tuple with the IncidentSamples field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InstanceClassifier) GetIncidentSamplesOk() (*Incidents, bool) {
+func (o *InstanceClassifier) GetIncidentSamplesOk() (*[]map[string]interface{}, bool) {
 	if o == nil || o.IncidentSamples == nil {
 		return nil, false
 	}
@@ -357,15 +358,15 @@ func (o *InstanceClassifier) HasIncidentSamples() bool {
 	return false
 }
 
-// SetIncidentSamples gets a reference to the given Incidents and assigns it to the IncidentSamples field.
-func (o *InstanceClassifier) SetIncidentSamples(v Incidents) {
+// SetIncidentSamples gets a reference to the given []map[string]interface{} and assigns it to the IncidentSamples field.
+func (o *InstanceClassifier) SetIncidentSamples(v []map[string]interface{}) {
 	o.IncidentSamples = &v
 }
 
 // GetIndicatorSamples returns the IndicatorSamples field value if set, zero value otherwise.
-func (o *InstanceClassifier) GetIndicatorSamples() FeedIndicators {
+func (o *InstanceClassifier) GetIndicatorSamples() []FeedIndicator {
 	if o == nil || o.IndicatorSamples == nil {
-		var ret FeedIndicators
+		var ret []FeedIndicator
 		return ret
 	}
 	return *o.IndicatorSamples
@@ -373,7 +374,7 @@ func (o *InstanceClassifier) GetIndicatorSamples() FeedIndicators {
 
 // GetIndicatorSamplesOk returns a tuple with the IndicatorSamples field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InstanceClassifier) GetIndicatorSamplesOk() (*FeedIndicators, bool) {
+func (o *InstanceClassifier) GetIndicatorSamplesOk() (*[]FeedIndicator, bool) {
 	if o == nil || o.IndicatorSamples == nil {
 		return nil, false
 	}
@@ -389,8 +390,8 @@ func (o *InstanceClassifier) HasIndicatorSamples() bool {
 	return false
 }
 
-// SetIndicatorSamples gets a reference to the given FeedIndicators and assigns it to the IndicatorSamples field.
-func (o *InstanceClassifier) SetIndicatorSamples(v FeedIndicators) {
+// SetIndicatorSamples gets a reference to the given []FeedIndicator and assigns it to the IndicatorSamples field.
+func (o *InstanceClassifier) SetIndicatorSamples(v []FeedIndicator) {
 	o.IndicatorSamples = &v
 }
 
@@ -1131,9 +1132,9 @@ func (o *InstanceClassifier) SetType(v string) {
 }
 
 // GetUnclassifiedCases returns the UnclassifiedCases field value if set, zero value otherwise.
-func (o *InstanceClassifier) GetUnclassifiedCases() map[string]UnclassifiedCases {
+func (o *InstanceClassifier) GetUnclassifiedCases() map[string]map[string]int64 {
 	if o == nil || o.UnclassifiedCases == nil {
-		var ret map[string]UnclassifiedCases
+		var ret map[string]map[string]int64
 		return ret
 	}
 	return *o.UnclassifiedCases
@@ -1141,7 +1142,7 @@ func (o *InstanceClassifier) GetUnclassifiedCases() map[string]UnclassifiedCases
 
 // GetUnclassifiedCasesOk returns a tuple with the UnclassifiedCases field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InstanceClassifier) GetUnclassifiedCasesOk() (*map[string]UnclassifiedCases, bool) {
+func (o *InstanceClassifier) GetUnclassifiedCasesOk() (*map[string]map[string]int64, bool) {
 	if o == nil || o.UnclassifiedCases == nil {
 		return nil, false
 	}
@@ -1157,8 +1158,8 @@ func (o *InstanceClassifier) HasUnclassifiedCases() bool {
 	return false
 }
 
-// SetUnclassifiedCases gets a reference to the given map[string]UnclassifiedCases and assigns it to the UnclassifiedCases field.
-func (o *InstanceClassifier) SetUnclassifiedCases(v map[string]UnclassifiedCases) {
+// SetUnclassifiedCases gets a reference to the given map[string]map[string]int64 and assigns it to the UnclassifiedCases field.
+func (o *InstanceClassifier) SetUnclassifiedCases(v map[string]map[string]int64) {
 	o.UnclassifiedCases = &v
 }
 

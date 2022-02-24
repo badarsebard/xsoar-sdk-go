@@ -820,7 +820,7 @@ func (r ApiCreateAccountRequest) CreateAccountRequest(createAccountRequest Creat
 	return r
 }
 
-func (r ApiCreateAccountRequest) Execute() (AccountsWrapper, *_nethttp.Response, error) {
+func (r ApiCreateAccountRequest) Execute() ([]map[string]interface{}, *_nethttp.Response, error) {
 	return r.ApiService.CreateAccountExecute(r)
 }
 
@@ -840,15 +840,15 @@ func (a *DefaultApiService) CreateAccount(ctx _context.Context) ApiCreateAccount
 }
 
 // Execute executes the request
-//  @return AccountsWrapper
-func (a *DefaultApiService) CreateAccountExecute(r ApiCreateAccountRequest) (AccountsWrapper, *_nethttp.Response, error) {
+//  @return []map[string]interface{}
+func (a *DefaultApiService) CreateAccountExecute(r ApiCreateAccountRequest) ([]map[string]interface{}, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  AccountsWrapper
+		localVarReturnValue  []map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.CreateAccount")
@@ -2655,7 +2655,7 @@ type ApiDeleteAccountRequest struct {
 	accountname string
 }
 
-func (r ApiDeleteAccountRequest) Execute() (AccountsWrapper, *_nethttp.Response, error) {
+func (r ApiDeleteAccountRequest) Execute() ([]map[string]interface{}, *_nethttp.Response, error) {
 	return r.ApiService.DeleteAccountExecute(r)
 }
 
@@ -2677,15 +2677,15 @@ func (a *DefaultApiService) DeleteAccount(ctx _context.Context, accountname stri
 }
 
 // Execute executes the request
-//  @return AccountsWrapper
-func (a *DefaultApiService) DeleteAccountExecute(r ApiDeleteAccountRequest) (AccountsWrapper, *_nethttp.Response, error) {
+//  @return []map[string]interface{}
+func (a *DefaultApiService) DeleteAccountExecute(r ApiDeleteAccountRequest) ([]map[string]interface{}, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  AccountsWrapper
+		localVarReturnValue  []map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.DeleteAccount")
@@ -8712,7 +8712,7 @@ func (r ApiIndicatorsCreateBatchRequest) FileName(fileName string) ApiIndicators
 	return r
 }
 
-func (r ApiIndicatorsCreateBatchRequest) Execute() (IocObjects, *_nethttp.Response, error) {
+func (r ApiIndicatorsCreateBatchRequest) Execute() ([]IocObject, *_nethttp.Response, error) {
 	return r.ApiService.IndicatorsCreateBatchExecute(r)
 }
 
@@ -8732,15 +8732,15 @@ func (a *DefaultApiService) IndicatorsCreateBatch(ctx _context.Context) ApiIndic
 }
 
 // Execute executes the request
-//  @return IocObjects
-func (a *DefaultApiService) IndicatorsCreateBatchExecute(r ApiIndicatorsCreateBatchRequest) (IocObjects, *_nethttp.Response, error) {
+//  @return []IocObject
+func (a *DefaultApiService) IndicatorsCreateBatchExecute(r ApiIndicatorsCreateBatchRequest) ([]IocObject, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  IocObjects
+		localVarReturnValue  []IocObject
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.IndicatorsCreateBatch")
@@ -9716,7 +9716,7 @@ type ApiListAccountsRequest struct {
 	ApiService *DefaultApiService
 }
 
-func (r ApiListAccountsRequest) Execute() (AccountsWrapper, *_nethttp.Response, error) {
+func (r ApiListAccountsRequest) Execute() ([]map[string]interface{}, *_nethttp.Response, error) {
 	return r.ApiService.ListAccountsExecute(r)
 }
 
@@ -9736,15 +9736,15 @@ func (a *DefaultApiService) ListAccounts(ctx _context.Context) ApiListAccountsRe
 }
 
 // Execute executes the request
-//  @return AccountsWrapper
-func (a *DefaultApiService) ListAccountsExecute(r ApiListAccountsRequest) (AccountsWrapper, *_nethttp.Response, error) {
+//  @return []map[string]interface{}
+func (a *DefaultApiService) ListAccountsExecute(r ApiListAccountsRequest) ([]map[string]interface{}, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  AccountsWrapper
+		localVarReturnValue  []map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ListAccounts")
@@ -10196,7 +10196,7 @@ type ApiListHAGroupsRequest struct {
 	ApiService *DefaultApiService
 }
 
-func (r ApiListHAGroupsRequest) Execute() (HAGroups, *_nethttp.Response, error) {
+func (r ApiListHAGroupsRequest) Execute() ([]map[string]interface{}, *_nethttp.Response, error) {
 	return r.ApiService.ListHAGroupsExecute(r)
 }
 
@@ -10216,15 +10216,15 @@ func (a *DefaultApiService) ListHAGroups(ctx _context.Context) ApiListHAGroupsRe
 }
 
 // Execute executes the request
-//  @return HAGroups
-func (a *DefaultApiService) ListHAGroupsExecute(r ApiListHAGroupsRequest) (HAGroups, *_nethttp.Response, error) {
+//  @return []map[string]interface{}
+func (a *DefaultApiService) ListHAGroupsExecute(r ApiListHAGroupsRequest) ([]map[string]interface{}, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  HAGroups
+		localVarReturnValue  []map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ListHAGroups")
@@ -10311,7 +10311,7 @@ type ApiListHostsRequest struct {
 	ApiService *DefaultApiService
 }
 
-func (r ApiListHostsRequest) Execute() (Hosts, *_nethttp.Response, error) {
+func (r ApiListHostsRequest) Execute() ([]map[string]interface{}, *_nethttp.Response, error) {
 	return r.ApiService.ListHostsExecute(r)
 }
 
@@ -10331,15 +10331,15 @@ func (a *DefaultApiService) ListHosts(ctx _context.Context) ApiListHostsRequest 
 }
 
 // Execute executes the request
-//  @return Hosts
-func (a *DefaultApiService) ListHostsExecute(r ApiListHostsRequest) (Hosts, *_nethttp.Response, error) {
+//  @return []map[string]interface{}
+func (a *DefaultApiService) ListHostsExecute(r ApiListHostsRequest) ([]map[string]interface{}, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  Hosts
+		localVarReturnValue  []map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ListHosts")
@@ -10676,7 +10676,7 @@ type ApiListMainHostsRequest struct {
 	ApiService *DefaultApiService
 }
 
-func (r ApiListMainHostsRequest) Execute() (MainHosts, *_nethttp.Response, error) {
+func (r ApiListMainHostsRequest) Execute() ([]MainHost, *_nethttp.Response, error) {
 	return r.ApiService.ListMainHostsExecute(r)
 }
 
@@ -10696,15 +10696,15 @@ func (a *DefaultApiService) ListMainHosts(ctx _context.Context) ApiListMainHosts
 }
 
 // Execute executes the request
-//  @return MainHosts
-func (a *DefaultApiService) ListMainHostsExecute(r ApiListMainHostsRequest) (MainHosts, *_nethttp.Response, error) {
+//  @return []MainHost
+func (a *DefaultApiService) ListMainHostsExecute(r ApiListMainHostsRequest) ([]MainHost, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  MainHosts
+		localVarReturnValue  []MainHost
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.ListMainHosts")
@@ -12586,10 +12586,10 @@ func (a *DefaultApiService) SimpleCompleteTaskExecute(r ApiSimpleCompleteTaskReq
 type ApiStartAccountsRequest struct {
 	ctx                  _context.Context
 	ApiService           *DefaultApiService
-	startAccountsRequest *AccountsWrapper
+	startAccountsRequest *[]map[string]interface{}
 }
 
-func (r ApiStartAccountsRequest) StartAccountsRequest(startAccountsRequest AccountsWrapper) ApiStartAccountsRequest {
+func (r ApiStartAccountsRequest) StartAccountsRequest(startAccountsRequest []map[string]interface{}) ApiStartAccountsRequest {
 	r.startAccountsRequest = &startAccountsRequest
 	return r
 }
@@ -12698,10 +12698,10 @@ func (a *DefaultApiService) StartAccountsExecute(r ApiStartAccountsRequest) (*_n
 type ApiStopAccountsRequest struct {
 	ctx                 _context.Context
 	ApiService          *DefaultApiService
-	stopAccountsRequest *AccountsWrapper
+	stopAccountsRequest *[]map[string]interface{}
 }
 
-func (r ApiStopAccountsRequest) StopAccountsRequest(stopAccountsRequest AccountsWrapper) ApiStopAccountsRequest {
+func (r ApiStopAccountsRequest) StopAccountsRequest(stopAccountsRequest []map[string]interface{}) ApiStopAccountsRequest {
 	r.stopAccountsRequest = &stopAccountsRequest
 	return r
 }
@@ -13599,7 +13599,7 @@ type ApiUpdateAccountHostRequest struct {
 	hostgroupid string
 }
 
-func (r ApiUpdateAccountHostRequest) Execute() (UpdateAccountHostResponse, *_nethttp.Response, error) {
+func (r ApiUpdateAccountHostRequest) Execute() ([]map[string]interface{}, *_nethttp.Response, error) {
 	return r.ApiService.UpdateAccountHostExecute(r)
 }
 
@@ -13623,15 +13623,15 @@ func (a *DefaultApiService) UpdateAccountHost(ctx _context.Context, accountname 
 }
 
 // Execute executes the request
-//  @return UpdateAccountHostResponse
-func (a *DefaultApiService) UpdateAccountHostExecute(r ApiUpdateAccountHostRequest) (UpdateAccountHostResponse, *_nethttp.Response, error) {
+//  @return []map[string]interface{}
+func (a *DefaultApiService) UpdateAccountHostExecute(r ApiUpdateAccountHostRequest) ([]map[string]interface{}, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  UpdateAccountHostResponse
+		localVarReturnValue  []map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.UpdateAccountHost")

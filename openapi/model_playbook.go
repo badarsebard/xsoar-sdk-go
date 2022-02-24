@@ -30,24 +30,26 @@ type Playbook struct {
 	EncTasks          *string `json:"encTasks,omitempty"`
 	FromServerVersion *string `json:"fromServerVersion,omitempty"`
 	// Internal field to make queries on role faster
-	HasRole               *bool                `json:"hasRole,omitempty"`
-	Hidden                *bool                `json:"hidden,omitempty"`
-	Highlight             *map[string][]string `json:"highlight,omitempty"`
-	Id                    *string              `json:"id,omitempty"`
-	Inputs                *PlaybookInputs      `json:"inputs,omitempty"`
-	ItemVersion           *string              `json:"itemVersion,omitempty"`
-	Locked                *bool                `json:"locked,omitempty"`
-	MissingScriptsIds     *[]string            `json:"missingScriptsIds,omitempty"`
-	Modified              *time.Time           `json:"modified,omitempty"`
-	Name                  *string              `json:"name,omitempty"`
-	NameRaw               *string              `json:"nameRaw,omitempty"`
-	NumericId             *int64               `json:"numericId,omitempty"`
-	Outputs               *PlaybookOutputs     `json:"outputs,omitempty"`
-	PackID                *string              `json:"packID,omitempty"`
-	PackPropagationLabels *[]string            `json:"packPropagationLabels,omitempty"`
-	PrevName              *string              `json:"prevName,omitempty"`
-	PreviousAllRead       *bool                `json:"previousAllRead,omitempty"`
-	PreviousAllReadWrite  *bool                `json:"previousAllReadWrite,omitempty"`
+	HasRole   *bool                `json:"hasRole,omitempty"`
+	Hidden    *bool                `json:"hidden,omitempty"`
+	Highlight *map[string][]string `json:"highlight,omitempty"`
+	Id        *string              `json:"id,omitempty"`
+	// PlaybookInputs - array of PlaybookInput
+	Inputs            *[]PlaybookInput `json:"inputs,omitempty"`
+	ItemVersion       *string          `json:"itemVersion,omitempty"`
+	Locked            *bool            `json:"locked,omitempty"`
+	MissingScriptsIds *[]string        `json:"missingScriptsIds,omitempty"`
+	Modified          *time.Time       `json:"modified,omitempty"`
+	Name              *string          `json:"name,omitempty"`
+	NameRaw           *string          `json:"nameRaw,omitempty"`
+	NumericId         *int64           `json:"numericId,omitempty"`
+	// PlaybookOutputs - array of PlaybookOutput
+	Outputs               *[]PlaybookOutput `json:"outputs,omitempty"`
+	PackID                *string           `json:"packID,omitempty"`
+	PackPropagationLabels *[]string         `json:"packPropagationLabels,omitempty"`
+	PrevName              *string           `json:"prevName,omitempty"`
+	PreviousAllRead       *bool             `json:"previousAllRead,omitempty"`
+	PreviousAllReadWrite  *bool             `json:"previousAllReadWrite,omitempty"`
 	// Do not change this field manually
 	PreviousRoles     *[]string `json:"previousRoles,omitempty"`
 	PrimaryTerm       *int64    `json:"primaryTerm,omitempty"`
@@ -576,9 +578,9 @@ func (o *Playbook) SetId(v string) {
 }
 
 // GetInputs returns the Inputs field value if set, zero value otherwise.
-func (o *Playbook) GetInputs() PlaybookInputs {
+func (o *Playbook) GetInputs() []PlaybookInput {
 	if o == nil || o.Inputs == nil {
-		var ret PlaybookInputs
+		var ret []PlaybookInput
 		return ret
 	}
 	return *o.Inputs
@@ -586,7 +588,7 @@ func (o *Playbook) GetInputs() PlaybookInputs {
 
 // GetInputsOk returns a tuple with the Inputs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Playbook) GetInputsOk() (*PlaybookInputs, bool) {
+func (o *Playbook) GetInputsOk() (*[]PlaybookInput, bool) {
 	if o == nil || o.Inputs == nil {
 		return nil, false
 	}
@@ -602,8 +604,8 @@ func (o *Playbook) HasInputs() bool {
 	return false
 }
 
-// SetInputs gets a reference to the given PlaybookInputs and assigns it to the Inputs field.
-func (o *Playbook) SetInputs(v PlaybookInputs) {
+// SetInputs gets a reference to the given []PlaybookInput and assigns it to the Inputs field.
+func (o *Playbook) SetInputs(v []PlaybookInput) {
 	o.Inputs = &v
 }
 
@@ -832,9 +834,9 @@ func (o *Playbook) SetNumericId(v int64) {
 }
 
 // GetOutputs returns the Outputs field value if set, zero value otherwise.
-func (o *Playbook) GetOutputs() PlaybookOutputs {
+func (o *Playbook) GetOutputs() []PlaybookOutput {
 	if o == nil || o.Outputs == nil {
-		var ret PlaybookOutputs
+		var ret []PlaybookOutput
 		return ret
 	}
 	return *o.Outputs
@@ -842,7 +844,7 @@ func (o *Playbook) GetOutputs() PlaybookOutputs {
 
 // GetOutputsOk returns a tuple with the Outputs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Playbook) GetOutputsOk() (*PlaybookOutputs, bool) {
+func (o *Playbook) GetOutputsOk() (*[]PlaybookOutput, bool) {
 	if o == nil || o.Outputs == nil {
 		return nil, false
 	}
@@ -858,8 +860,8 @@ func (o *Playbook) HasOutputs() bool {
 	return false
 }
 
-// SetOutputs gets a reference to the given PlaybookOutputs and assigns it to the Outputs field.
-func (o *Playbook) SetOutputs(v PlaybookOutputs) {
+// SetOutputs gets a reference to the given []PlaybookOutput and assigns it to the Outputs field.
+func (o *Playbook) SetOutputs(v []PlaybookOutput) {
 	o.Outputs = &v
 }
 

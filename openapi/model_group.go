@@ -25,13 +25,14 @@ type Group struct {
 	DataType *string  `json:"dataType,omitempty"`
 	// The data value provided in array of float values.
 	FloatData *[]float64 `json:"floatData,omitempty"`
-	Groups    *Groups    `json:"groups,omitempty"`
-	Name      *string    `json:"name,omitempty"`
-	Pivot     *string    `json:"pivot,omitempty"`
-	Query     *string    `json:"query,omitempty"`
-	X         *float64   `json:"x,omitempty"`
-	Y         *float64   `json:"y,omitempty"`
-	Z         *float64   `json:"z,omitempty"`
+	// Groups is a list of group entities
+	Groups *[]Group `json:"groups,omitempty"`
+	Name   *string  `json:"name,omitempty"`
+	Pivot  *string  `json:"pivot,omitempty"`
+	Query  *string  `json:"query,omitempty"`
+	X      *float64 `json:"x,omitempty"`
+	Y      *float64 `json:"y,omitempty"`
+	Z      *float64 `json:"z,omitempty"`
 }
 
 // NewGroup instantiates a new Group object
@@ -212,9 +213,9 @@ func (o *Group) SetFloatData(v []float64) {
 }
 
 // GetGroups returns the Groups field value if set, zero value otherwise.
-func (o *Group) GetGroups() Groups {
+func (o *Group) GetGroups() []Group {
 	if o == nil || o.Groups == nil {
-		var ret Groups
+		var ret []Group
 		return ret
 	}
 	return *o.Groups
@@ -222,7 +223,7 @@ func (o *Group) GetGroups() Groups {
 
 // GetGroupsOk returns a tuple with the Groups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Group) GetGroupsOk() (*Groups, bool) {
+func (o *Group) GetGroupsOk() (*[]Group, bool) {
 	if o == nil || o.Groups == nil {
 		return nil, false
 	}
@@ -238,8 +239,8 @@ func (o *Group) HasGroups() bool {
 	return false
 }
 
-// SetGroups gets a reference to the given Groups and assigns it to the Groups field.
-func (o *Group) SetGroups(v Groups) {
+// SetGroups gets a reference to the given []Group and assigns it to the Groups field.
+func (o *Group) SetGroups(v []Group) {
 	o.Groups = &v
 }
 

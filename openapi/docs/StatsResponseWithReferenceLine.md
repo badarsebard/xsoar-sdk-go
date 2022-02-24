@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Groups** | Pointer to [**Groups**](Groups.md) |  | [optional] 
+**Groups** | Pointer to [**[]Group**](Group.md) | Groups is a list of group entities | [optional] 
 **ReferenceLineY** | Pointer to **float64** |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetGroups
 
-`func (o *StatsResponseWithReferenceLine) GetGroups() Groups`
+`func (o *StatsResponseWithReferenceLine) GetGroups() []Group`
 
 GetGroups returns the Groups field if non-nil, zero value otherwise.
 
 ### GetGroupsOk
 
-`func (o *StatsResponseWithReferenceLine) GetGroupsOk() (*Groups, bool)`
+`func (o *StatsResponseWithReferenceLine) GetGroupsOk() (*[]Group, bool)`
 
 GetGroupsOk returns a tuple with the Groups field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGroups
 
-`func (o *StatsResponseWithReferenceLine) SetGroups(v Groups)`
+`func (o *StatsResponseWithReferenceLine) SetGroups(v []Group)`
 
 SetGroups sets Groups field to given value.
 

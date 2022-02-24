@@ -16,7 +16,8 @@ import (
 
 // InvTaskDebug struct for InvTaskDebug
 type InvTaskDebug struct {
-	BreakpointCondition     *ArgFilter                         `json:"breakpointCondition,omitempty"`
+	// ArgFilter - represent a slice of atomic filters with OR condition between them (e.i. - atomic1 OR atomic2 OR ...)
+	BreakpointCondition     *[]ArgAtomicFilter                 `json:"breakpointCondition,omitempty"`
 	InputOverrides          *map[string]string                 `json:"inputOverrides,omitempty"`
 	IsMarkedWithBreakpoint  *bool                              `json:"isMarkedWithBreakpoint,omitempty"`
 	IsMarkedWithSkip        *bool                              `json:"isMarkedWithSkip,omitempty"`
@@ -44,9 +45,9 @@ func NewInvTaskDebugWithDefaults() *InvTaskDebug {
 }
 
 // GetBreakpointCondition returns the BreakpointCondition field value if set, zero value otherwise.
-func (o *InvTaskDebug) GetBreakpointCondition() ArgFilter {
+func (o *InvTaskDebug) GetBreakpointCondition() []ArgAtomicFilter {
 	if o == nil || o.BreakpointCondition == nil {
-		var ret ArgFilter
+		var ret []ArgAtomicFilter
 		return ret
 	}
 	return *o.BreakpointCondition
@@ -54,7 +55,7 @@ func (o *InvTaskDebug) GetBreakpointCondition() ArgFilter {
 
 // GetBreakpointConditionOk returns a tuple with the BreakpointCondition field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InvTaskDebug) GetBreakpointConditionOk() (*ArgFilter, bool) {
+func (o *InvTaskDebug) GetBreakpointConditionOk() (*[]ArgAtomicFilter, bool) {
 	if o == nil || o.BreakpointCondition == nil {
 		return nil, false
 	}
@@ -70,8 +71,8 @@ func (o *InvTaskDebug) HasBreakpointCondition() bool {
 	return false
 }
 
-// SetBreakpointCondition gets a reference to the given ArgFilter and assigns it to the BreakpointCondition field.
-func (o *InvTaskDebug) SetBreakpointCondition(v ArgFilter) {
+// SetBreakpointCondition gets a reference to the given []ArgAtomicFilter and assigns it to the BreakpointCondition field.
+func (o *InvTaskDebug) SetBreakpointCondition(v []ArgAtomicFilter) {
 	o.BreakpointCondition = &v
 }
 

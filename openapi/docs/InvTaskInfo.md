@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Input** | Pointer to **string** |  | [optional] 
 **InvId** | Pointer to **string** |  | [optional] 
 **LoopArgs** | Pointer to [**map[string]AdvanceArg**](AdvanceArg.md) |  | [optional] 
-**LoopCondition** | Pointer to [**[]ArgFilter**](ArgFilter.md) |  | [optional] 
+**LoopCondition** | Pointer to [**[][]ArgAtomicFilter**]([]ArgAtomicFilter.md) |  | [optional] 
 **Version** | Pointer to **int64** |  | [optional] 
 
 ## Methods
@@ -210,20 +210,20 @@ HasLoopArgs returns a boolean if a field has been set.
 
 ### GetLoopCondition
 
-`func (o *InvTaskInfo) GetLoopCondition() []ArgFilter`
+`func (o *InvTaskInfo) GetLoopCondition() [][]ArgAtomicFilter`
 
 GetLoopCondition returns the LoopCondition field if non-nil, zero value otherwise.
 
 ### GetLoopConditionOk
 
-`func (o *InvTaskInfo) GetLoopConditionOk() (*[]ArgFilter, bool)`
+`func (o *InvTaskInfo) GetLoopConditionOk() (*[][]ArgAtomicFilter, bool)`
 
 GetLoopConditionOk returns a tuple with the LoopCondition field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLoopCondition
 
-`func (o *InvTaskInfo) SetLoopCondition(v []ArgFilter)`
+`func (o *InvTaskInfo) SetLoopCondition(v [][]ArgAtomicFilter)`
 
 SetLoopCondition sets LoopCondition field to given value.
 

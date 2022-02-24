@@ -16,8 +16,9 @@ import (
 
 // EvidencesSearchResponse EvidencesSearchResponse returns the response from the evidences search
 type EvidencesSearchResponse struct {
-	Evidences *Evidences `json:"evidences,omitempty"`
-	Total     *int64     `json:"total,omitempty"`
+	// Evidences is a list of evidence entities
+	Evidences *[]Evidence `json:"evidences,omitempty"`
+	Total     *int64      `json:"total,omitempty"`
 }
 
 // NewEvidencesSearchResponse instantiates a new EvidencesSearchResponse object
@@ -38,9 +39,9 @@ func NewEvidencesSearchResponseWithDefaults() *EvidencesSearchResponse {
 }
 
 // GetEvidences returns the Evidences field value if set, zero value otherwise.
-func (o *EvidencesSearchResponse) GetEvidences() Evidences {
+func (o *EvidencesSearchResponse) GetEvidences() []Evidence {
 	if o == nil || o.Evidences == nil {
-		var ret Evidences
+		var ret []Evidence
 		return ret
 	}
 	return *o.Evidences
@@ -48,7 +49,7 @@ func (o *EvidencesSearchResponse) GetEvidences() Evidences {
 
 // GetEvidencesOk returns a tuple with the Evidences field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EvidencesSearchResponse) GetEvidencesOk() (*Evidences, bool) {
+func (o *EvidencesSearchResponse) GetEvidencesOk() (*[]Evidence, bool) {
 	if o == nil || o.Evidences == nil {
 		return nil, false
 	}
@@ -64,8 +65,8 @@ func (o *EvidencesSearchResponse) HasEvidences() bool {
 	return false
 }
 
-// SetEvidences gets a reference to the given Evidences and assigns it to the Evidences field.
-func (o *EvidencesSearchResponse) SetEvidences(v Evidences) {
+// SetEvidences gets a reference to the given []Evidence and assigns it to the Evidences field.
+func (o *EvidencesSearchResponse) SetEvidences(v []Evidence) {
 	o.Evidences = &v
 }
 

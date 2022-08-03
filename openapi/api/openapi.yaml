@@ -2421,6 +2421,15 @@ components:
             items:
               type: string
             type: array
+          roles:
+            properties:
+              roles:
+                items:
+                  type: string
+                type: array
+              valid:
+                type: boolean
+            type: object
           server:
             type: string
           sortValues:

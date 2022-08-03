@@ -16,10 +16,10 @@ import (
 
 // ComplexArg ComplexArg - all info that is necessary to compute argument value from context Root - the root slice (or object) from to work against Filters - a slice of filters to apply to the root object, one after another (e.i. with AND condition between each one) Accessor - the key to access to each result after filter Transformers - a slice to transformers to apply on the result of the accessed key from each result e.g. if user want to take from context all File.DisplayName where File.Extension is 'EXE', and the result in uppercase than: Root: is \"File\" Filters: will hold the \"File.DisplayName where File.Extension is 'EXE'\" query Accessor: is \"DisplayName\" Transformers: will hold the uppercase transformation
 type ComplexArg struct {
-	Accessor     *string           `json:"accessor,omitempty"`
-	Filters      *[]ArgFilter      `json:"filters,omitempty"`
-	Root         *string           `json:"root,omitempty"`
-	Transformers *[]ArgTransformer `json:"transformers,omitempty"`
+	Accessor     *string              `json:"accessor,omitempty"`
+	Filters      *[][]ArgAtomicFilter `json:"filters,omitempty"`
+	Root         *string              `json:"root,omitempty"`
+	Transformers *[]ArgTransformer    `json:"transformers,omitempty"`
 }
 
 // NewComplexArg instantiates a new ComplexArg object
@@ -72,9 +72,9 @@ func (o *ComplexArg) SetAccessor(v string) {
 }
 
 // GetFilters returns the Filters field value if set, zero value otherwise.
-func (o *ComplexArg) GetFilters() []ArgFilter {
+func (o *ComplexArg) GetFilters() [][]ArgAtomicFilter {
 	if o == nil || o.Filters == nil {
-		var ret []ArgFilter
+		var ret [][]ArgAtomicFilter
 		return ret
 	}
 	return *o.Filters
@@ -82,7 +82,7 @@ func (o *ComplexArg) GetFilters() []ArgFilter {
 
 // GetFiltersOk returns a tuple with the Filters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComplexArg) GetFiltersOk() (*[]ArgFilter, bool) {
+func (o *ComplexArg) GetFiltersOk() (*[][]ArgAtomicFilter, bool) {
 	if o == nil || o.Filters == nil {
 		return nil, false
 	}
@@ -98,8 +98,8 @@ func (o *ComplexArg) HasFilters() bool {
 	return false
 }
 
-// SetFilters gets a reference to the given []ArgFilter and assigns it to the Filters field.
-func (o *ComplexArg) SetFilters(v []ArgFilter) {
+// SetFilters gets a reference to the given [][]ArgAtomicFilter and assigns it to the Filters field.
+func (o *ComplexArg) SetFilters(v [][]ArgAtomicFilter) {
 	o.Filters = &v
 }
 

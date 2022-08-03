@@ -16,7 +16,7 @@ import (
 
 // CommentsFields struct for CommentsFields
 type CommentsFields struct {
-	Comments *Comments `json:"comments,omitempty"`
+	Comments *[]Comment `json:"comments,omitempty"`
 }
 
 // NewCommentsFields instantiates a new CommentsFields object
@@ -37,9 +37,9 @@ func NewCommentsFieldsWithDefaults() *CommentsFields {
 }
 
 // GetComments returns the Comments field value if set, zero value otherwise.
-func (o *CommentsFields) GetComments() Comments {
+func (o *CommentsFields) GetComments() []Comment {
 	if o == nil || o.Comments == nil {
-		var ret Comments
+		var ret []Comment
 		return ret
 	}
 	return *o.Comments
@@ -47,7 +47,7 @@ func (o *CommentsFields) GetComments() Comments {
 
 // GetCommentsOk returns a tuple with the Comments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CommentsFields) GetCommentsOk() (*Comments, bool) {
+func (o *CommentsFields) GetCommentsOk() (*[]Comment, bool) {
 	if o == nil || o.Comments == nil {
 		return nil, false
 	}
@@ -63,8 +63,8 @@ func (o *CommentsFields) HasComments() bool {
 	return false
 }
 
-// SetComments gets a reference to the given Comments and assigns it to the Comments field.
-func (o *CommentsFields) SetComments(v Comments) {
+// SetComments gets a reference to the given []Comment and assigns it to the Comments field.
+func (o *CommentsFields) SetComments(v []Comment) {
 	o.Comments = &v
 }
 

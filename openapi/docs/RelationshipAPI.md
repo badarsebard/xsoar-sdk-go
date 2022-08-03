@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **EntityB** | Pointer to **string** |  | [optional] 
 **EntityBFamily** | Pointer to **string** |  | [optional] 
 **EntityBType** | Pointer to **string** |  | [optional] 
-**Fields** | Pointer to [**CustomFields**](CustomFields.md) |  | [optional] 
+**Fields** | Pointer to **map[string]map[string]interface{}** | The keys should be the field&#39;s display name all lower and without spaces. For example: Scan IP -&gt; scanip To get the actual key name you can also go to Cortex XSOAR CLI and run /incident_add and look for the key that you would like to update | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **Instance** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
@@ -215,20 +215,20 @@ HasEntityBType returns a boolean if a field has been set.
 
 ### GetFields
 
-`func (o *RelationshipAPI) GetFields() CustomFields`
+`func (o *RelationshipAPI) GetFields() map[string]map[string]interface{}`
 
 GetFields returns the Fields field if non-nil, zero value otherwise.
 
 ### GetFieldsOk
 
-`func (o *RelationshipAPI) GetFieldsOk() (*CustomFields, bool)`
+`func (o *RelationshipAPI) GetFieldsOk() (*map[string]map[string]interface{}, bool)`
 
 GetFieldsOk returns a tuple with the Fields field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFields
 
-`func (o *RelationshipAPI) SetFields(v CustomFields)`
+`func (o *RelationshipAPI) SetFields(v map[string]map[string]interface{})`
 
 SetFields sets Fields field to given value.
 

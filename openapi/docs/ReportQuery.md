@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CustomGroupBy** | Pointer to [**CustomGroups**](CustomGroups.md) |  | [optional] 
+**CustomGroupBy** | Pointer to [**[]map[string]CustomGroup**](map[string]CustomGroup.md) | CustomGroups - a custom group for each group-by element | [optional] 
 **Filter** | Pointer to **map[string]interface{}** |  | [optional] 
 **GroupBy** | Pointer to **[]string** |  | [optional] 
 **Keys** | Pointer to **[]string** |  | [optional] 
@@ -31,20 +31,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCustomGroupBy
 
-`func (o *ReportQuery) GetCustomGroupBy() CustomGroups`
+`func (o *ReportQuery) GetCustomGroupBy() []map[string]CustomGroup`
 
 GetCustomGroupBy returns the CustomGroupBy field if non-nil, zero value otherwise.
 
 ### GetCustomGroupByOk
 
-`func (o *ReportQuery) GetCustomGroupByOk() (*CustomGroups, bool)`
+`func (o *ReportQuery) GetCustomGroupByOk() (*[]map[string]CustomGroup, bool)`
 
 GetCustomGroupByOk returns a tuple with the CustomGroupBy field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCustomGroupBy
 
-`func (o *ReportQuery) SetCustomGroupBy(v CustomGroups)`
+`func (o *ReportQuery) SetCustomGroupBy(v []map[string]CustomGroup)`
 
 SetCustomGroupBy sets CustomGroupBy field to given value.
 

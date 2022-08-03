@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IndicatorTimeline** | Pointer to [**IndicatorTimeline**](IndicatorTimeline.md) |  | [optional] 
+**IndicatorTimeline** | Pointer to [**[]IndicatorTimelineFromEntry**](IndicatorTimelineFromEntry.md) |  | [optional] 
 **InstanceID** | Pointer to **string** |  | [optional] 
-**Relationships** | Pointer to [**RelationshipsAPI**](RelationshipsAPI.md) |  | [optional] 
+**Relationships** | Pointer to [**[]RelationshipAPI**](RelationshipAPI.md) |  | [optional] 
 **ShardID** | Pointer to **int64** |  | [optional] 
 **AllRead** | Pointer to **bool** |  | [optional] 
 **AllReadWrite** | Pointer to **bool** |  | [optional] 
@@ -48,7 +48,7 @@ Name | Type | Description | Notes
 **Pinned** | Pointer to **bool** | Mark entry as pinned &#x3D; evidence | [optional] 
 **PlaybookId** | Pointer to **string** | PlaybookID - if the entry is assigned as note to a playbook task, it will hold the playbook | [optional] 
 **Polling** | Pointer to **bool** | Only used for polling entries | [optional] 
-**PollingArgs** | Pointer to [**ModuleArgs**](ModuleArgs.md) |  | [optional] 
+**PollingArgs** | Pointer to **map[string]map[string]interface{}** | ModuleArgs represents module args | [optional] 
 **PollingCommand** | Pointer to **string** |  | [optional] 
 **PreviousAllRead** | Pointer to **bool** |  | [optional] 
 **PreviousAllReadWrite** | Pointer to **bool** |  | [optional] 
@@ -100,20 +100,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetIndicatorTimeline
 
-`func (o *Entry) GetIndicatorTimeline() IndicatorTimeline`
+`func (o *Entry) GetIndicatorTimeline() []IndicatorTimelineFromEntry`
 
 GetIndicatorTimeline returns the IndicatorTimeline field if non-nil, zero value otherwise.
 
 ### GetIndicatorTimelineOk
 
-`func (o *Entry) GetIndicatorTimelineOk() (*IndicatorTimeline, bool)`
+`func (o *Entry) GetIndicatorTimelineOk() (*[]IndicatorTimelineFromEntry, bool)`
 
 GetIndicatorTimelineOk returns a tuple with the IndicatorTimeline field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIndicatorTimeline
 
-`func (o *Entry) SetIndicatorTimeline(v IndicatorTimeline)`
+`func (o *Entry) SetIndicatorTimeline(v []IndicatorTimelineFromEntry)`
 
 SetIndicatorTimeline sets IndicatorTimeline field to given value.
 
@@ -150,20 +150,20 @@ HasInstanceID returns a boolean if a field has been set.
 
 ### GetRelationships
 
-`func (o *Entry) GetRelationships() RelationshipsAPI`
+`func (o *Entry) GetRelationships() []RelationshipAPI`
 
 GetRelationships returns the Relationships field if non-nil, zero value otherwise.
 
 ### GetRelationshipsOk
 
-`func (o *Entry) GetRelationshipsOk() (*RelationshipsAPI, bool)`
+`func (o *Entry) GetRelationshipsOk() (*[]RelationshipAPI, bool)`
 
 GetRelationshipsOk returns a tuple with the Relationships field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRelationships
 
-`func (o *Entry) SetRelationships(v RelationshipsAPI)`
+`func (o *Entry) SetRelationships(v []RelationshipAPI)`
 
 SetRelationships sets Relationships field to given value.
 
@@ -1200,20 +1200,20 @@ HasPolling returns a boolean if a field has been set.
 
 ### GetPollingArgs
 
-`func (o *Entry) GetPollingArgs() ModuleArgs`
+`func (o *Entry) GetPollingArgs() map[string]map[string]interface{}`
 
 GetPollingArgs returns the PollingArgs field if non-nil, zero value otherwise.
 
 ### GetPollingArgsOk
 
-`func (o *Entry) GetPollingArgsOk() (*ModuleArgs, bool)`
+`func (o *Entry) GetPollingArgsOk() (*map[string]map[string]interface{}, bool)`
 
 GetPollingArgsOk returns a tuple with the PollingArgs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPollingArgs
 
-`func (o *Entry) SetPollingArgs(v ModuleArgs)`
+`func (o *Entry) SetPollingArgs(v map[string]map[string]interface{})`
 
 SetPollingArgs sets PollingArgs field to given value.
 

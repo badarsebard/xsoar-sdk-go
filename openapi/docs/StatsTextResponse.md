@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Groups** | Pointer to [**Groups**](Groups.md) |  | [optional] 
+**Groups** | Pointer to [**[]Group**](Group.md) | Groups is a list of group entities | [optional] 
 **Text** | Pointer to **string** | Describe the complete text for the text widget, after placeholders injection. | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetGroups
 
-`func (o *StatsTextResponse) GetGroups() Groups`
+`func (o *StatsTextResponse) GetGroups() []Group`
 
 GetGroups returns the Groups field if non-nil, zero value otherwise.
 
 ### GetGroupsOk
 
-`func (o *StatsTextResponse) GetGroupsOk() (*Groups, bool)`
+`func (o *StatsTextResponse) GetGroupsOk() (*[]Group, bool)`
 
 GetGroupsOk returns a tuple with the Groups field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGroups
 
-`func (o *StatsTextResponse) SetGroups(v Groups)`
+`func (o *StatsTextResponse) SetGroups(v []Group)`
 
 SetGroups sets Groups field to given value.
 

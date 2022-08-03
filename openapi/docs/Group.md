@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Data** | Pointer to **[]int64** | The data value provided in array of integer values. | [optional] 
 **DataType** | Pointer to **string** |  | [optional] 
 **FloatData** | Pointer to **[]float64** | The data value provided in array of float values. | [optional] 
-**Groups** | Pointer to [**Groups**](Groups.md) |  | [optional] 
+**Groups** | Pointer to [**[]Group**](Group.md) | Groups is a list of group entities | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Pivot** | Pointer to **string** |  | [optional] 
 **Query** | Pointer to **string** |  | [optional] 
@@ -163,20 +163,20 @@ HasFloatData returns a boolean if a field has been set.
 
 ### GetGroups
 
-`func (o *Group) GetGroups() Groups`
+`func (o *Group) GetGroups() []Group`
 
 GetGroups returns the Groups field if non-nil, zero value otherwise.
 
 ### GetGroupsOk
 
-`func (o *Group) GetGroupsOk() (*Groups, bool)`
+`func (o *Group) GetGroupsOk() (*[]Group, bool)`
 
 GetGroupsOk returns a tuple with the Groups field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGroups
 
-`func (o *Group) SetGroups(v Groups)`
+`func (o *Group) SetGroups(v []Group)`
 
 SetGroups sets Groups field to given value.
 

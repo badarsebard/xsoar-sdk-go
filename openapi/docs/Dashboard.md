@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **IsCommon** | Pointer to **bool** |  | [optional] 
 **ItemVersion** | Pointer to **string** |  | [optional] 
-**Layout** | Pointer to [**WidgetCells**](WidgetCells.md) |  | [optional] 
+**Layout** | Pointer to [**[]WidgetCell**](WidgetCell.md) |  | [optional] 
 **Locked** | Pointer to **bool** |  | [optional] 
 **Modified** | Pointer to **time.Time** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
@@ -366,20 +366,20 @@ HasItemVersion returns a boolean if a field has been set.
 
 ### GetLayout
 
-`func (o *Dashboard) GetLayout() WidgetCells`
+`func (o *Dashboard) GetLayout() []WidgetCell`
 
 GetLayout returns the Layout field if non-nil, zero value otherwise.
 
 ### GetLayoutOk
 
-`func (o *Dashboard) GetLayoutOk() (*WidgetCells, bool)`
+`func (o *Dashboard) GetLayoutOk() (*[]WidgetCell, bool)`
 
 GetLayoutOk returns a tuple with the Layout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLayout
 
-`func (o *Dashboard) SetLayout(v WidgetCells)`
+`func (o *Dashboard) SetLayout(v []WidgetCell)`
 
 SetLayout sets Layout field to given value.
 

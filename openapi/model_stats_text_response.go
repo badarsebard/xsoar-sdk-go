@@ -16,7 +16,8 @@ import (
 
 // StatsTextResponse struct for StatsTextResponse
 type StatsTextResponse struct {
-	Groups *Groups `json:"groups,omitempty"`
+	// Groups is a list of group entities
+	Groups *[]Group `json:"groups,omitempty"`
 	// Describe the complete text for the text widget, after placeholders injection.
 	Text *string `json:"text,omitempty"`
 }
@@ -39,9 +40,9 @@ func NewStatsTextResponseWithDefaults() *StatsTextResponse {
 }
 
 // GetGroups returns the Groups field value if set, zero value otherwise.
-func (o *StatsTextResponse) GetGroups() Groups {
+func (o *StatsTextResponse) GetGroups() []Group {
 	if o == nil || o.Groups == nil {
-		var ret Groups
+		var ret []Group
 		return ret
 	}
 	return *o.Groups
@@ -49,7 +50,7 @@ func (o *StatsTextResponse) GetGroups() Groups {
 
 // GetGroupsOk returns a tuple with the Groups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StatsTextResponse) GetGroupsOk() (*Groups, bool) {
+func (o *StatsTextResponse) GetGroupsOk() (*[]Group, bool) {
 	if o == nil || o.Groups == nil {
 		return nil, false
 	}
@@ -65,8 +66,8 @@ func (o *StatsTextResponse) HasGroups() bool {
 	return false
 }
 
-// SetGroups gets a reference to the given Groups and assigns it to the Groups field.
-func (o *StatsTextResponse) SetGroups(v Groups) {
+// SetGroups gets a reference to the given []Group and assigns it to the Groups field.
+func (o *StatsTextResponse) SetGroups(v []Group) {
 	o.Groups = &v
 }
 

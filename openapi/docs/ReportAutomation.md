@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Args** | Pointer to [**ModuleArgs**](ModuleArgs.md) |  | [optional] 
+**Args** | Pointer to **map[string]map[string]interface{}** | ModuleArgs represents module args | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **NoEvent** | Pointer to **bool** |  | [optional] 
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetArgs
 
-`func (o *ReportAutomation) GetArgs() ModuleArgs`
+`func (o *ReportAutomation) GetArgs() map[string]map[string]interface{}`
 
 GetArgs returns the Args field if non-nil, zero value otherwise.
 
 ### GetArgsOk
 
-`func (o *ReportAutomation) GetArgsOk() (*ModuleArgs, bool)`
+`func (o *ReportAutomation) GetArgsOk() (*map[string]map[string]interface{}, bool)`
 
 GetArgsOk returns a tuple with the Args field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetArgs
 
-`func (o *ReportAutomation) SetArgs(v ModuleArgs)`
+`func (o *ReportAutomation) SetArgs(v map[string]map[string]interface{})`
 
 SetArgs sets Args field to given value.
 

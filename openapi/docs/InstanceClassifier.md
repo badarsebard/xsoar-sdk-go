@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **FromServerVersion** | Pointer to **string** |  | [optional] 
 **Highlight** | Pointer to **map[string][]string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
-**IncidentSamples** | Pointer to [**Incidents**](Incidents.md) |  | [optional] 
-**IndicatorSamples** | Pointer to [**FeedIndicators**](FeedIndicators.md) |  | [optional] 
+**IncidentSamples** | Pointer to **[]map[string]interface{}** | Incidents is a list of incident entities | [optional] 
+**IndicatorSamples** | Pointer to [**[]FeedIndicator**](FeedIndicator.md) |  | [optional] 
 **InstanceIds** | Pointer to **[]string** |  | [optional] 
 **ItemVersion** | Pointer to **string** |  | [optional] 
 **KeyTypeMap** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 **ToServerVersion** | Pointer to **string** |  | [optional] 
 **Transformer** | Pointer to **map[string]interface{}** |  | [optional] 
 **Type** | Pointer to **string** | MapperType for instance classifier | [optional] 
-**UnclassifiedCases** | Pointer to [**map[string]UnclassifiedCases**](UnclassifiedCases.md) |  | [optional] 
+**UnclassifiedCases** | Pointer to **map[string]map[string]int64** |  | [optional] 
 **VcShouldIgnore** | Pointer to **bool** |  | [optional] 
 **VcShouldKeepItemLegacyProdMachine** | Pointer to **bool** |  | [optional] 
 **Version** | Pointer to **int64** |  | [optional] 
@@ -263,20 +263,20 @@ HasId returns a boolean if a field has been set.
 
 ### GetIncidentSamples
 
-`func (o *InstanceClassifier) GetIncidentSamples() Incidents`
+`func (o *InstanceClassifier) GetIncidentSamples() []map[string]interface{}`
 
 GetIncidentSamples returns the IncidentSamples field if non-nil, zero value otherwise.
 
 ### GetIncidentSamplesOk
 
-`func (o *InstanceClassifier) GetIncidentSamplesOk() (*Incidents, bool)`
+`func (o *InstanceClassifier) GetIncidentSamplesOk() (*[]map[string]interface{}, bool)`
 
 GetIncidentSamplesOk returns a tuple with the IncidentSamples field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIncidentSamples
 
-`func (o *InstanceClassifier) SetIncidentSamples(v Incidents)`
+`func (o *InstanceClassifier) SetIncidentSamples(v []map[string]interface{})`
 
 SetIncidentSamples sets IncidentSamples field to given value.
 
@@ -288,20 +288,20 @@ HasIncidentSamples returns a boolean if a field has been set.
 
 ### GetIndicatorSamples
 
-`func (o *InstanceClassifier) GetIndicatorSamples() FeedIndicators`
+`func (o *InstanceClassifier) GetIndicatorSamples() []FeedIndicator`
 
 GetIndicatorSamples returns the IndicatorSamples field if non-nil, zero value otherwise.
 
 ### GetIndicatorSamplesOk
 
-`func (o *InstanceClassifier) GetIndicatorSamplesOk() (*FeedIndicators, bool)`
+`func (o *InstanceClassifier) GetIndicatorSamplesOk() (*[]FeedIndicator, bool)`
 
 GetIndicatorSamplesOk returns a tuple with the IndicatorSamples field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIndicatorSamples
 
-`func (o *InstanceClassifier) SetIndicatorSamples(v FeedIndicators)`
+`func (o *InstanceClassifier) SetIndicatorSamples(v []FeedIndicator)`
 
 SetIndicatorSamples sets IndicatorSamples field to given value.
 
@@ -888,20 +888,20 @@ HasType returns a boolean if a field has been set.
 
 ### GetUnclassifiedCases
 
-`func (o *InstanceClassifier) GetUnclassifiedCases() map[string]UnclassifiedCases`
+`func (o *InstanceClassifier) GetUnclassifiedCases() map[string]map[string]int64`
 
 GetUnclassifiedCases returns the UnclassifiedCases field if non-nil, zero value otherwise.
 
 ### GetUnclassifiedCasesOk
 
-`func (o *InstanceClassifier) GetUnclassifiedCasesOk() (*map[string]UnclassifiedCases, bool)`
+`func (o *InstanceClassifier) GetUnclassifiedCasesOk() (*map[string]map[string]int64, bool)`
 
 GetUnclassifiedCasesOk returns a tuple with the UnclassifiedCases field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUnclassifiedCases
 
-`func (o *InstanceClassifier) SetUnclassifiedCases(v map[string]UnclassifiedCases)`
+`func (o *InstanceClassifier) SetUnclassifiedCases(v map[string]map[string]int64)`
 
 SetUnclassifiedCases sets UnclassifiedCases field to given value.
 

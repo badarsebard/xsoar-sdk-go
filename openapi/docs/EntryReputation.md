@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Highlights** | Pointer to [**FieldTermLocationMap**](FieldTermLocationMap.md) |  | [optional] 
+**Highlights** | Pointer to [**map[string]map[string][]Location**](map.md) |  | [optional] 
 **ReputationsData** | Pointer to [**[]ReputationData**](ReputationData.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetHighlights
 
-`func (o *EntryReputation) GetHighlights() FieldTermLocationMap`
+`func (o *EntryReputation) GetHighlights() map[string]map[string][]Location`
 
 GetHighlights returns the Highlights field if non-nil, zero value otherwise.
 
 ### GetHighlightsOk
 
-`func (o *EntryReputation) GetHighlightsOk() (*FieldTermLocationMap, bool)`
+`func (o *EntryReputation) GetHighlightsOk() (*map[string]map[string][]Location, bool)`
 
 GetHighlightsOk returns a tuple with the Highlights field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHighlights
 
-`func (o *EntryReputation) SetHighlights(v FieldTermLocationMap)`
+`func (o *EntryReputation) SetHighlights(v map[string]map[string][]Location)`
 
 SetHighlights sets Highlights field to given value.
 

@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Hidden** | Pointer to **bool** |  | [optional] 
 **Highlight** | Pointer to **map[string][]string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
-**Inputs** | Pointer to [**PlaybookInputs**](PlaybookInputs.md) |  | [optional] 
+**Inputs** | Pointer to [**[]PlaybookInput**](PlaybookInput.md) | PlaybookInputs - array of PlaybookInput | [optional] 
 **ItemVersion** | Pointer to **string** |  | [optional] 
 **Locked** | Pointer to **bool** |  | [optional] 
 **MissingScriptsIds** | Pointer to **[]string** |  | [optional] 
@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** |  | [optional] 
 **NameRaw** | Pointer to **string** |  | [optional] 
 **NumericId** | Pointer to **int64** |  | [optional] 
-**Outputs** | Pointer to [**PlaybookOutputs**](PlaybookOutputs.md) |  | [optional] 
+**Outputs** | Pointer to [**[]PlaybookOutput**](PlaybookOutput.md) | PlaybookOutputs - array of PlaybookOutput | [optional] 
 **PackID** | Pointer to **string** |  | [optional] 
 **PackPropagationLabels** | Pointer to **[]string** |  | [optional] 
 **PrevName** | Pointer to **string** |  | [optional] 
@@ -454,20 +454,20 @@ HasId returns a boolean if a field has been set.
 
 ### GetInputs
 
-`func (o *Playbook) GetInputs() PlaybookInputs`
+`func (o *Playbook) GetInputs() []PlaybookInput`
 
 GetInputs returns the Inputs field if non-nil, zero value otherwise.
 
 ### GetInputsOk
 
-`func (o *Playbook) GetInputsOk() (*PlaybookInputs, bool)`
+`func (o *Playbook) GetInputsOk() (*[]PlaybookInput, bool)`
 
 GetInputsOk returns a tuple with the Inputs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetInputs
 
-`func (o *Playbook) SetInputs(v PlaybookInputs)`
+`func (o *Playbook) SetInputs(v []PlaybookInput)`
 
 SetInputs sets Inputs field to given value.
 
@@ -654,20 +654,20 @@ HasNumericId returns a boolean if a field has been set.
 
 ### GetOutputs
 
-`func (o *Playbook) GetOutputs() PlaybookOutputs`
+`func (o *Playbook) GetOutputs() []PlaybookOutput`
 
 GetOutputs returns the Outputs field if non-nil, zero value otherwise.
 
 ### GetOutputsOk
 
-`func (o *Playbook) GetOutputsOk() (*PlaybookOutputs, bool)`
+`func (o *Playbook) GetOutputsOk() (*[]PlaybookOutput, bool)`
 
 GetOutputsOk returns a tuple with the Outputs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOutputs
 
-`func (o *Playbook) SetOutputs(v PlaybookOutputs)`
+`func (o *Playbook) SetOutputs(v []PlaybookOutput)`
 
 SetOutputs sets Outputs field to given value.
 

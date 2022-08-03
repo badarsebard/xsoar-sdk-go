@@ -16,8 +16,8 @@ import (
 
 // Location struct for Location
 type Location struct {
-	ArrayPositions *ArrayPositions `json:"array_positions,omitempty"`
-	End            *int32          `json:"end,omitempty"`
+	ArrayPositions *[]int32 `json:"array_positions,omitempty"`
+	End            *int32   `json:"end,omitempty"`
 	// Pos is the position of the term within the field, starting at 1
 	Pos *int32 `json:"pos,omitempty"`
 	// Start and End are the byte offsets of the term in the field
@@ -42,9 +42,9 @@ func NewLocationWithDefaults() *Location {
 }
 
 // GetArrayPositions returns the ArrayPositions field value if set, zero value otherwise.
-func (o *Location) GetArrayPositions() ArrayPositions {
+func (o *Location) GetArrayPositions() []int32 {
 	if o == nil || o.ArrayPositions == nil {
-		var ret ArrayPositions
+		var ret []int32
 		return ret
 	}
 	return *o.ArrayPositions
@@ -52,7 +52,7 @@ func (o *Location) GetArrayPositions() ArrayPositions {
 
 // GetArrayPositionsOk returns a tuple with the ArrayPositions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Location) GetArrayPositionsOk() (*ArrayPositions, bool) {
+func (o *Location) GetArrayPositionsOk() (*[]int32, bool) {
 	if o == nil || o.ArrayPositions == nil {
 		return nil, false
 	}
@@ -68,8 +68,8 @@ func (o *Location) HasArrayPositions() bool {
 	return false
 }
 
-// SetArrayPositions gets a reference to the given ArrayPositions and assigns it to the ArrayPositions field.
-func (o *Location) SetArrayPositions(v ArrayPositions) {
+// SetArrayPositions gets a reference to the given []int32 and assigns it to the ArrayPositions field.
+func (o *Location) SetArrayPositions(v []int32) {
 	o.ArrayPositions = &v
 }
 

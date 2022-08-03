@@ -16,10 +16,11 @@ import (
 
 // ReportAutomation struct for ReportAutomation
 type ReportAutomation struct {
-	Args    *ModuleArgs `json:"args,omitempty"`
-	Id      *string     `json:"id,omitempty"`
-	Name    *string     `json:"name,omitempty"`
-	NoEvent *bool       `json:"noEvent,omitempty"`
+	// ModuleArgs represents module args
+	Args    *map[string]map[string]interface{} `json:"args,omitempty"`
+	Id      *string                            `json:"id,omitempty"`
+	Name    *string                            `json:"name,omitempty"`
+	NoEvent *bool                              `json:"noEvent,omitempty"`
 }
 
 // NewReportAutomation instantiates a new ReportAutomation object
@@ -40,9 +41,9 @@ func NewReportAutomationWithDefaults() *ReportAutomation {
 }
 
 // GetArgs returns the Args field value if set, zero value otherwise.
-func (o *ReportAutomation) GetArgs() ModuleArgs {
+func (o *ReportAutomation) GetArgs() map[string]map[string]interface{} {
 	if o == nil || o.Args == nil {
-		var ret ModuleArgs
+		var ret map[string]map[string]interface{}
 		return ret
 	}
 	return *o.Args
@@ -50,7 +51,7 @@ func (o *ReportAutomation) GetArgs() ModuleArgs {
 
 // GetArgsOk returns a tuple with the Args field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ReportAutomation) GetArgsOk() (*ModuleArgs, bool) {
+func (o *ReportAutomation) GetArgsOk() (*map[string]map[string]interface{}, bool) {
 	if o == nil || o.Args == nil {
 		return nil, false
 	}
@@ -66,8 +67,8 @@ func (o *ReportAutomation) HasArgs() bool {
 	return false
 }
 
-// SetArgs gets a reference to the given ModuleArgs and assigns it to the Args field.
-func (o *ReportAutomation) SetArgs(v ModuleArgs) {
+// SetArgs gets a reference to the given map[string]map[string]interface{} and assigns it to the Args field.
+func (o *ReportAutomation) SetArgs(v map[string]map[string]interface{}) {
 	o.Args = &v
 }
 

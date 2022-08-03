@@ -31,7 +31,7 @@ type Dashboard struct {
 	Id                    *string              `json:"id,omitempty"`
 	IsCommon              *bool                `json:"isCommon,omitempty"`
 	ItemVersion           *string              `json:"itemVersion,omitempty"`
-	Layout                *WidgetCells         `json:"layout,omitempty"`
+	Layout                *[]WidgetCell        `json:"layout,omitempty"`
 	Locked                *bool                `json:"locked,omitempty"`
 	Modified              *time.Time           `json:"modified,omitempty"`
 	Name                  *string              `json:"name,omitempty"`
@@ -465,9 +465,9 @@ func (o *Dashboard) SetItemVersion(v string) {
 }
 
 // GetLayout returns the Layout field value if set, zero value otherwise.
-func (o *Dashboard) GetLayout() WidgetCells {
+func (o *Dashboard) GetLayout() []WidgetCell {
 	if o == nil || o.Layout == nil {
-		var ret WidgetCells
+		var ret []WidgetCell
 		return ret
 	}
 	return *o.Layout
@@ -475,7 +475,7 @@ func (o *Dashboard) GetLayout() WidgetCells {
 
 // GetLayoutOk returns a tuple with the Layout field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Dashboard) GetLayoutOk() (*WidgetCells, bool) {
+func (o *Dashboard) GetLayoutOk() (*[]WidgetCell, bool) {
 	if o == nil || o.Layout == nil {
 		return nil, false
 	}
@@ -491,8 +491,8 @@ func (o *Dashboard) HasLayout() bool {
 	return false
 }
 
-// SetLayout gets a reference to the given WidgetCells and assigns it to the Layout field.
-func (o *Dashboard) SetLayout(v WidgetCells) {
+// SetLayout gets a reference to the given []WidgetCell and assigns it to the Layout field.
+func (o *Dashboard) SetLayout(v []WidgetCell) {
 	o.Layout = &v
 }
 

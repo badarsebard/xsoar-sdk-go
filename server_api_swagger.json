@@ -4682,6 +4682,18 @@
         },
         "elasticIndexPrefix": {
           "type": "string"
+        },
+        "accountIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "hostIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },

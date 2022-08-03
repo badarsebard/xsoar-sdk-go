@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | Pointer to [**Groups**](Groups.md) |  | [optional] 
+**Data** | Pointer to [**[]Group**](Group.md) | Groups is a list of group entities | [optional] 
 **Range** | Pointer to **[]int64** |  | [optional] 
 **RangeX** | Pointer to **[]int64** |  | [optional] 
 **RangeY** | Pointer to **[]int64** |  | [optional] 
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetData
 
-`func (o *StatsScatterResponse) GetData() Groups`
+`func (o *StatsScatterResponse) GetData() []Group`
 
 GetData returns the Data field if non-nil, zero value otherwise.
 
 ### GetDataOk
 
-`func (o *StatsScatterResponse) GetDataOk() (*Groups, bool)`
+`func (o *StatsScatterResponse) GetDataOk() (*[]Group, bool)`
 
 GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetData
 
-`func (o *StatsScatterResponse) SetData(v Groups)`
+`func (o *StatsScatterResponse) SetData(v []Group)`
 
 SetData sets Data field to given value.
 

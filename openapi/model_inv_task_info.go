@@ -23,7 +23,7 @@ type InvTaskInfo struct {
 	Input         *string                `json:"input,omitempty"`
 	InvId         *string                `json:"invId,omitempty"`
 	LoopArgs      *map[string]AdvanceArg `json:"loopArgs,omitempty"`
-	LoopCondition *[]ArgFilter           `json:"loopCondition,omitempty"`
+	LoopCondition *[][]ArgAtomicFilter   `json:"loopCondition,omitempty"`
 	Version       *int64                 `json:"version,omitempty"`
 }
 
@@ -269,9 +269,9 @@ func (o *InvTaskInfo) SetLoopArgs(v map[string]AdvanceArg) {
 }
 
 // GetLoopCondition returns the LoopCondition field value if set, zero value otherwise.
-func (o *InvTaskInfo) GetLoopCondition() []ArgFilter {
+func (o *InvTaskInfo) GetLoopCondition() [][]ArgAtomicFilter {
 	if o == nil || o.LoopCondition == nil {
-		var ret []ArgFilter
+		var ret [][]ArgAtomicFilter
 		return ret
 	}
 	return *o.LoopCondition
@@ -279,7 +279,7 @@ func (o *InvTaskInfo) GetLoopCondition() []ArgFilter {
 
 // GetLoopConditionOk returns a tuple with the LoopCondition field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InvTaskInfo) GetLoopConditionOk() (*[]ArgFilter, bool) {
+func (o *InvTaskInfo) GetLoopConditionOk() (*[][]ArgAtomicFilter, bool) {
 	if o == nil || o.LoopCondition == nil {
 		return nil, false
 	}
@@ -295,8 +295,8 @@ func (o *InvTaskInfo) HasLoopCondition() bool {
 	return false
 }
 
-// SetLoopCondition gets a reference to the given []ArgFilter and assigns it to the LoopCondition field.
-func (o *InvTaskInfo) SetLoopCondition(v []ArgFilter) {
+// SetLoopCondition gets a reference to the given [][]ArgAtomicFilter and assigns it to the LoopCondition field.
+func (o *InvTaskInfo) SetLoopCondition(v [][]ArgAtomicFilter) {
 	o.LoopCondition = &v
 }
 

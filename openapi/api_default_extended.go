@@ -213,9 +213,11 @@ func (a *DefaultApiService) GetIntegrationInstanceAccountExecute(r ApiGetIntegra
 		return nil, localVarHTTPResponse, err
 	}
 
-	for _, instance := range integrations["instances"].([]interface{}) {
-		if inst := instance.(map[string]interface{}); inst["name"].(string) == r.identifier || inst["id"].(string) == r.identifier {
-			return inst, localVarHTTPResponse, nil
+	if integrations["instances"] != nil {
+		for _, instance := range integrations["instances"].([]interface{}) {
+			if inst := instance.(map[string]interface{}); inst["name"].(string) == r.identifier || inst["id"].(string) == r.identifier {
+				return inst, localVarHTTPResponse, nil
+			}
 		}
 	}
 
